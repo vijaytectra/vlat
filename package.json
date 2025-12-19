@@ -1,6 +1,7 @@
 {
   "name": "vlat-exam",
   "version": "1.0.0",
+  "type": "module",
   "description": "VLAT Exam Web Application",
   "scripts": {
     "dev": "vite",
