@@ -46,8 +46,8 @@
   /* Scales of Justice Background Pattern */
   .scales-pattern {
     width: 100%;
-    height: 85%;
-    min-height: 87%;
+    height: 100%;
+    min-height: 80%;
     background-image: url("../images/homebg.svg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -97,4 +97,24 @@
   #mobileMenu::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5);
   }
+
+  /* ImperatorSmallCaps Font Fallback */
+  .font-imperator-smallcaps {
+    font-variant: small-caps;
+    font-family: "Inter", system-ui, sans-serif;
+    letter-spacing: 0.55px;
+  }
+
+  /* If you have the ImperatorSmallCaps font file, uncomment and update the path:
+  @font-face {
+    font-family: 'ImperatorSmallCaps';
+    src: url('../fonts/ImperatorSmallCaps.woff2') format('woff2'),
+         url('../fonts/ImperatorSmallCaps.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  Then use: font-family: 'ImperatorSmallCaps', 'Inter', system-ui, sans-serif;
+  */
 }

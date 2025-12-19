@@ -8,6 +8,7 @@ export default {
         secondary: "#f3f4f6",
         "secondary-yellow": "#fff6e2",
         background: "#F8F7F0",
+        "beige-light": "#FBF9F2",
         grey: {
           1: "#fafafa",
           2: "#f5f5f5",
