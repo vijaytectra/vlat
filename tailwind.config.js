@@ -21,6 +21,22 @@ export default {
           9: "#262626",
           10: "#171717",
         },
+        amber: {
+          200: "#EDCD88",
+        },
+        red: {
+          600: "#EE0006",
+          800: "#8D191C",
+        },
+        rose: {
+          800: "#983033",
+        },
+        yellow: {
+          50: "#FFF6E2",
+        },
+      },
+      backdropBlur: {
+        blur: "8px",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome Screen</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8D191C",
+              grey7: "#525252",
+              successBg: "#F1FDF6",
+              successText: "#0D8D40",
+              cream: "#FFF6E2",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-['Inter'] bg-cream lg:min-h-screen">
+    <main class="lg:min-h-screen grid grid-cols-1 lg:grid-cols-[72px_1fr]">
+      <!-- LEFT RED STRIP -->
+      <aside class="hidden lg:block bg-primary w-64"></aside>
+
+      <!-- CONTENT -->
+      <section
+        class="relative flex flex-col items-center justify-between py-10 px-4"
+      >
+        <!-- SUCCESS BADGE -->
+        <div class="self-centerlg:self-center mt-2">
+          <div
+            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-successBg border border-successText/40 rounded-full"
+          >
+            <span class="text-successText text-base font-semibold leading-5">
+              Successfully logged in
+            </span>
+          </div>
+        </div>
+
+        <!-- CENTER ILLUSTRATION (DECORATIVE) -->
+        <div class="relative w-64 h-64 my-6">
+          <img
+            src="images/welcome_screen_image.svg"
+            alt="Students attending class"
+            class="w-full max-w-xl object-contain"
+          />
+        </div>
+
+        <!-- TEXT BLOCK -->
+        <div class="max-w-xl text-center space-y-3">
+          <!-- LOGO -->
+          <img
+            src="images/logo1.svg"
+            alt="Logo"
+            class="mx-auto h-14"
+          />
+
+          <h1 class="text-black text-2xl font-semibold">
+            Welcome back S. Sathiya!
+          </h1>
+
+          <p class="text-grey7 text-xl font-normal">
+            Your VLAT Entrance Exam dashboard is now ready.
+          </p>
+        </div>
+
+        <!-- DIVIDER + FOOTER TEXT -->
+        <div class="w-full max-w-2xl text-center space-y-3 mt-8">
+          <hr class="border-black/20" />
+          <p class="text-grey7 text-xl font-normal">
+            Access your exam details, updates, and progress instantly.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
