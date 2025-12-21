@@ -1,0 +1,398 @@
+const nodemailer = require("nodemailer");
+
+// Create transporter for Gmail SMTP
+const createTransporter = () => {
+  return nodemailer.createTransport({
+    host: process.env.EMAIL_HOST || "smtp.gmail.com",
+    port: parseInt(process.env.EMAIL_PORT) || 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS, // Gmail app password
+    },
+  });
+};
+
+// Send password reset email
+const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
+  try {
+    const transporter = createTransporter();
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
+    const resetLink = `${frontendUrl}/reset-password.html?token=${resetToken}&email=${encodeURIComponent(
+      userEmail
+    )}`;
+
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      to: userEmail,
+      subject: "VLAT - Password Reset Request",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {
+              font-family: 'Inter', Arial, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #f5f5f5;
+            }
+            .container {
+              background-color: #ffffff;
+              border-radius: 12px;
+              padding: 30px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .header {
+              text-align: center;
+              margin-bottom: 30px;
+            }
+            .logo {
+              max-width: 150px;
+              margin-bottom: 20px;
+            }
+            h1 {
+              color: #8D191C;
+              font-size: 24px;
+              margin-bottom: 10px;
+            }
+            .content {
+              margin-bottom: 30px;
+            }
+            p {
+              margin-bottom: 15px;
+              color: #525252;
+            }
+            .button-container {
+              text-align: center;
+              margin: 30px 0;
+            }
+            .reset-button {
+              display: inline-block;
+              padding: 12px 30px;
+              background-color: #8D191C;
+              color: #ffffff;
+              text-decoration: none;
+              border-radius: 8px;
+              font-weight: 600;
+              font-size: 16px;
+            }
+            .reset-button:hover {
+              background-color: #6d1316;
+            }
+            .link-text {
+              word-break: break-all;
+              color: #8D191C;
+              font-size: 12px;
+              margin-top: 20px;
+              padding: 10px;
+              background-color: #f5f5f5;
+              border-radius: 4px;
+            }
+            .footer {
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid #e0e0e0;
+              text-align: center;
+              font-size: 12px;
+              color: #737373;
+            }
+            .warning {
+              background-color: #fff6e2;
+              border-left: 4px solid #EDCD88;
+              padding: 15px;
+              margin: 20px 0;
+              border-radius: 4px;
+            }
+            .warning-text {
+              color: #8D191C;
+              font-size: 14px;
+              margin: 0;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Password Reset Request</h1>
+            </div>
+            <div class="content">
+              <p>Hello,</p>
+              <p>We received a request to reset your password for your VLAT account. If you made this request, please click the button below to reset your password:</p>
+              
+              <div class="button-container">
+                <a href="${resetLink}" class="reset-button">Reset Password</a>
+              </div>
+              
+              <p>Or copy and paste this link into your browser:</p>
+              <div class="link-text">${resetLink}</div>
+              
+              <div class="warning">
+                <p class="warning-text">
+                  <strong>Important:</strong> This link will expire in 1 hour. If you did not request a password reset, please ignore this email.
+                </p>
+              </div>
+              
+              <p>For security reasons, if you did not request this password reset, please contact our support team immediately.</p>
+            </div>
+            <div class="footer">
+              <p>This is an automated email. Please do not reply to this message.</p>
+              <p>VLAT - VMRF Law Admission Test</p>
+              <p>Need help? Contact us at admissions@vmls.edu.in or +91 73582 01234</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Password reset email sent:", info.messageId);
+    return { success: true, messageId: info.messageId };
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    throw new Error("Failed to send password reset email");
+  }
+};
+
+// Send welcome email with VLAT ID
+const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
+  try {
+    const transporter = createTransporter();
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
+    const loginUrl = `${frontendUrl}/login.html`;
+
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      to: userEmail,
+      subject: "Welcome to VLAT - Your Registration is Complete!",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {
+              font-family: 'Inter', Arial, sans-serif;
+              line-height: 1.6;
+              color: #333;
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #FFF6E5;
+            }
+            .container {
+              background-color: #ffffff;
+              border-radius: 12px;
+              padding: 30px;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+            .header {
+              text-align: center;
+              margin-bottom: 30px;
+              padding-bottom: 20px;
+              border-bottom: 2px solid #8D191C;
+            }
+            .logo {
+              max-width: 150px;
+              margin-bottom: 20px;
+            }
+            h1 {
+              color: #8D191C;
+              font-size: 28px;
+              margin-bottom: 10px;
+              font-weight: 700;
+            }
+            .subtitle {
+              color: #525252;
+              font-size: 16px;
+              margin-top: 5px;
+            }
+            .content {
+              margin-bottom: 30px;
+            }
+            p {
+              margin-bottom: 15px;
+              color: #525252;
+              font-size: 15px;
+            }
+            .vlat-id-container {
+              background: linear-gradient(135deg, #8D191C 0%, #6d1316 100%);
+              border-radius: 12px;
+              padding: 25px;
+              margin: 30px 0;
+              text-align: center;
+              box-shadow: 0 4px 6px rgba(141, 25, 28, 0.2);
+            }
+            .vlat-id-label {
+              color: #EDCD88;
+              font-size: 14px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              margin-bottom: 10px;
+            }
+            .vlat-id-value {
+              color: #ffffff;
+              font-size: 36px;
+              font-weight: 700;
+              letter-spacing: 2px;
+              font-family: 'Courier New', monospace;
+            }
+            .info-box {
+              background-color: #FFF6E5;
+              border-left: 4px solid #EDCD88;
+              padding: 20px;
+              margin: 25px 0;
+              border-radius: 4px;
+            }
+            .info-box-title {
+              color: #8D191C;
+              font-size: 16px;
+              font-weight: 600;
+              margin-bottom: 10px;
+            }
+            .info-box-content {
+              color: #525252;
+              font-size: 14px;
+              margin: 0;
+            }
+            .info-box-content ul {
+              margin: 10px 0;
+              padding-left: 20px;
+            }
+            .info-box-content li {
+              margin-bottom: 8px;
+            }
+            .button-container {
+              text-align: center;
+              margin: 30px 0;
+            }
+            .login-button {
+              display: inline-block;
+              padding: 14px 35px;
+              background-color: #8D191C;
+              color: #ffffff;
+              text-decoration: none;
+              border-radius: 8px;
+              font-weight: 600;
+              font-size: 16px;
+              transition: background-color 0.3s;
+            }
+            .login-button:hover {
+              background-color: #6d1316;
+            }
+            .footer {
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 2px solid #e0e0e0;
+              text-align: center;
+              font-size: 12px;
+              color: #737373;
+            }
+            .contact-info {
+              margin-top: 15px;
+              padding: 15px;
+              background-color: #F3F4F6;
+              border-radius: 8px;
+            }
+            .contact-info p {
+              margin: 5px 0;
+              font-size: 13px;
+            }
+            .contact-info a {
+              color: #8D191C;
+              text-decoration: none;
+            }
+            .contact-info a:hover {
+              text-decoration: underline;
+            }
+            .highlight {
+              color: #8D191C;
+              font-weight: 600;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Welcome to VLAT!</h1>
+              <p class="subtitle">VMRF Law Admission Test</p>
+            </div>
+            <div class="content">
+              <p>Dear <span class="highlight">${userName}</span>,</p>
+              
+              <p>Congratulations! Your registration for the VLAT Entrance Exam has been successfully completed.</p>
+              
+              <div class="vlat-id-container">
+                <div class="vlat-id-label">Your VLAT ID</div>
+                <div class="vlat-id-value">${vlatId}</div>
+              </div>
+              
+              <p>Please save this VLAT ID securely. You will need it to log in to your account and access the exam.</p>
+              
+              <div class="info-box">
+                <div class="info-box-title">📋 Login Instructions</div>
+                <div class="info-box-content">
+                  <p>You can log in to your account using either:</p>
+                  <ul>
+                    <li>Your registered email address: <span class="highlight">${userEmail}</span></li>
+                    <li>Your VLAT ID: <span class="highlight">${vlatId}</span></li>
+                  </ul>
+                  <p>Use the password you created during registration.</p>
+                </div>
+              </div>
+              
+              <div class="button-container">
+                <a href="${loginUrl}" class="login-button">Login to Your Account</a>
+              </div>
+              
+              <div class="info-box">
+                <div class="info-box-title">📝 Next Steps</div>
+                <div class="info-box-content">
+                  <p>After logging in, you can:</p>
+                  <ul>
+                    <li>Review the exam instructions</li>
+                    <li>Take practice mock tests</li>
+                    <li>Access your dashboard</li>
+                    <li>View your test results</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <p>We're excited to have you on board and wish you the best of luck with your exam preparation!</p>
+            </div>
+            <div class="footer">
+              <p>This is an automated email. Please do not reply to this message.</p>
+              <div class="contact-info">
+                <p><strong>Need Help?</strong></p>
+                <p>📧 Email: <a href="mailto:admissions@vmls.edu.in">admissions@vmls.edu.in</a></p>
+                <p>📞 Phone: <a href="tel:+917358201234">+91 73582 01234</a></p>
+              </div>
+              <p style="margin-top: 20px;">VLAT - VMRF Law Admission Test</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Welcome email sent:", info.messageId);
+    return { success: true, messageId: info.messageId };
+  } catch (error) {
+    console.error("Error sending welcome email:", error);
+    throw new Error("Failed to send welcome email");
+  }
+};
+
+module.exports = {
+  sendPasswordResetEmail,
+  sendWelcomeEmail,
+};

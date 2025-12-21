@@ -7,6 +7,7 @@ import {
   clearTestState,
   saveProgress,
   getProgress,
+  submitTestToBackend,
 } from "./test-state.js";
 import {
   showError,
@@ -15,6 +16,7 @@ import {
   showInput,
   showSubmitConfirm,
 } from "./modal.js";
+import { logout } from "./auth.js";
 
 // Test state
 let testState = {
@@ -98,6 +100,9 @@ export async function initializeTest() {
   updateProgress();
   updateQuestionNavigator();
   startTimer();
+
+  // Setup logout button
+  setupLogoutButton();
 
   // Setup event listeners
   setupEventListeners();
@@ -231,7 +236,7 @@ function renderQuestion(index) {
 function createOptionElement(questionId, option) {
   const isSelected = testState.answers[questionId] === option.id;
   const optionDiv = document.createElement("div");
-  optionDiv.className = `option-item p-6 rounded-xl outline outline-1 outline-offset-[-1px] cursor-pointer transition-all ${
+  optionDiv.className = `option-item p-3 rounded-xl outline outline-1 outline-offset-[-1px] cursor-pointer transition-all ${
     isSelected
       ? "bg-green-100 outline-[1.50px] outline-teal-600"
       : "bg-grey-1 outline-Grey-4 hover:bg-grey-2"
@@ -299,6 +304,18 @@ function selectAnswer(questionId, optionId) {
  */
 function markForReview() {
   const questionId = testState.questions[testState.currentQuestionIndex].id;
+
+  // Check if question is answered - require answer before marking for review
+  if (!testState.answers[questionId]) {
+    // Show feedback that question must be answered first
+    showInfo(
+      "Answer Required",
+      "Please select an answer before marking this question for review."
+    );
+    return; // Don't mark for review
+  }
+
+  // Continue with existing toggle logic
   const index = testState.markedForReview.indexOf(questionId);
 
   if (index > -1) {
@@ -309,6 +326,7 @@ function markForReview() {
 
   updateProgress();
   updateQuestionNavigator();
+  updateNavigationButtons(); // This updates the mark button state
   saveTestState(testState.setId, testState);
 }
 
@@ -398,9 +416,39 @@ function updateNavigationButtons() {
   // Update mark for review button
   if (elements.markForReviewBtn) {
     const questionId = testState.questions[testState.currentQuestionIndex].id;
+    const isAnswered = !!testState.answers[questionId];
     const isMarked = testState.markedForReview.includes(questionId);
-    elements.markForReviewBtn.classList.toggle("bg-purple-100", isMarked);
-    elements.markForReviewBtn.classList.toggle("text-purple-600", isMarked);
+
+    // Disable button if question is not answered
+    elements.markForReviewBtn.disabled = !isAnswered;
+
+    // Update visual state
+    if (isAnswered) {
+      // Enabled state - show marked/unmarked styling
+      elements.markForReviewBtn.classList.remove(
+        "opacity-50",
+        "cursor-not-allowed"
+      );
+      elements.markForReviewBtn.classList.toggle("bg-purple-100", isMarked);
+      elements.markForReviewBtn.classList.toggle("text-purple-600", isMarked);
+      // Add tooltip for enabled state
+      elements.markForReviewBtn.title = isMarked
+        ? "Click to unmark for review"
+        : "Click to mark this question for review";
+    } else {
+      // Disabled state styling
+      elements.markForReviewBtn.classList.remove(
+        "bg-purple-100",
+        "text-purple-600"
+      );
+      elements.markForReviewBtn.classList.add(
+        "opacity-50",
+        "cursor-not-allowed"
+      );
+      // Tooltip explaining why disabled
+      elements.markForReviewBtn.title =
+        "Please answer this question first before marking for review";
+    }
   }
 }
 
@@ -556,7 +604,7 @@ function submitTest() {
 /**
  * Proceed with test submission after confirmation
  */
-function proceedWithSubmission() {
+async function proceedWithSubmission() {
   if (testState.isSubmitted) return;
 
   // Mark as submitted first to prevent beforeunload from triggering
@@ -585,24 +633,39 @@ function proceedWithSubmission() {
   const score = Math.round((correct / testState.questions.length) * 100);
   const timeSpent = 3600 - testState.timer.totalSeconds;
 
-  // Get existing progress to increment attempts
-  const existingProgress = getProgress(testState.setId);
-  const currentAttempts = existingProgress?.attempts || 0;
-  const maxAttempts = 3;
-  const newAttempts = Math.min(currentAttempts + 1, maxAttempts);
-
-  // Save progress with incremented attempts
-  saveProgress(testState.setId, {
-    status: "completed",
+  // Prepare attempt data
+  const attemptData = {
     score: score,
-    attempts: newAttempts,
-    maxAttempts: maxAttempts,
     answers: testState.answers,
     markedForReview: testState.markedForReview,
     timeSpent: timeSpent,
     submittedAt: new Date().toISOString(),
-    lastAttemptDate: new Date().toISOString(),
-  });
+  };
+
+  // Submit to backend (will also save to localStorage as fallback)
+  const backendResult = await submitTestToBackend(testState.setId, attemptData);
+
+  // If backend submission failed, ensure localStorage is saved
+  if (!backendResult) {
+    // Get existing progress to increment attempts
+    const existingProgress = getProgress(testState.setId);
+    const currentAttempts = existingProgress?.attempts || 0;
+    const maxAttempts = 3;
+    const newAttempts = Math.min(currentAttempts + 1, maxAttempts);
+
+    // Save progress with incremented attempts to localStorage
+    saveProgress(testState.setId, {
+      status: "completed",
+      score: score,
+      attempts: newAttempts,
+      maxAttempts: maxAttempts,
+      answers: testState.answers,
+      markedForReview: testState.markedForReview,
+      timeSpent: timeSpent,
+      submittedAt: new Date().toISOString(),
+      lastAttemptDate: new Date().toISOString(),
+    });
+  }
 
   // Clear test state
   clearTestState(testState.setId);
@@ -704,6 +767,18 @@ function setupEventListeners() {
     }
   };
   window.addEventListener("beforeunload", beforeUnloadHandler);
+}
+
+/**
+ * Setup logout button
+ */
+function setupLogoutButton() {
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+      await logout();
+    });
+  }
 }
 
 // Initialize when DOM is ready

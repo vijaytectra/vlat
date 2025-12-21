@@ -62,7 +62,7 @@
     <!-- Main Container -->
     <div class="w-full min-h-screen py-4 sm:py-5 md:py-6 px-4">
       <!-- HEADER -->
-      <header class="bg-[#FFFFFF]  border border-[#D4D4D4] rounded-3xl">
+      <header class="bg-[#FFFFFF] border border-[#D4D4D4] rounded-3xl">
         <div
           class="max-w-6xl rounded-3xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4"
         >
@@ -85,6 +85,7 @@
               >S. Sathiya</span
             >
             <button
+              id="logoutButton"
               class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
             >
               Logout
@@ -97,76 +98,85 @@
       <div
         class="w-full max-w-7xl flex flex-col space-y-4 sm:space-y-6 mx-auto mt-5 px-2 sm:px-4"
       >
-        <div class="bg-[#404040] p-3 sm:p-4 rounded-3xl">
-          <!-- Two Card Layout -->
+        <div class="bg-[#404040] p-3 sm:p-4 rounded-[28px]">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-            <!-- Card 1: Test Name & Motivation -->
+            <!-- LEFT CARD -->
             <div
-              class="bg-[#737373] rounded-2xl p-6 sm:p-8 relative overflow-hidden md:h-80 h-60"
+              class="relative bg-[#737373] rounded-[24px] p-6 sm:p-8 h-[260px] md:h-[320px] overflow-hidden"
             >
-              <!-- Trophy Icon Background -->
-              <div class="absolute top-4 right-4 opacity-10 z-0">
-                <i
-                  class="fa-solid fa-trophy text-white text-5xl sm:text-6xl"
-                ></i>
+              <!-- Trophy badge (FIXED) -->
+              <div
+                class="absolute top-7 right-4 md:right-6 bg-[#525252] rounded-xl p-3 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-trophy text-[#FAFAFA] text-xl"></i>
               </div>
+              <!-- Trophy watermark -->
 
-              <div class="relative z-10 flex flex-col justify-end items-end">
-                <div class="">
-
-                  <div class="text-grey-4 text-sm mb-2">Test Name</div>
-                  <h1
-                    class="text-white text-2xl sm:text-3xl font-semibold mb-6"
+              <!-- Content wrapper -->
+              <div class="relative h-full flex flex-col justify-between">
+                <!-- Top content -->
+                <div>
+                  <p class="text-grey-4 text-sm mb-1">Test Name</p>
+                  <h2
                     id="testName"
+                    class="text-white text-xl font-semibold leading-tight max-w-[85%]"
                   >
                     Mock Test 3: Advanced Topics
-                  </h1>
+                  </h2>
                 </div>
 
-                <!-- Motivational Message -->
-                <div id="motivationalMessage" class="space-y-2">
-                  <div
-                    class="text-white text-xl sm:text-2xl font-semibold"
+                <!-- Bottom message -->
+                <div id="motivationalMessage">
+                  <h3
                     id="motivationalTitle"
+                    class="text-white text-base sm:text-2xl font-semibold mb-1"
                   >
                     Keep Practicing! 💪
-                  </div>
-                  <div
-                    class="text-grey-3 text-sm sm:text-base"
+                  </h3>
+                  <p
                     id="motivationalText"
+                    class="text-grey-3 text-sm sm:text-base max-w-[90%]"
                   >
                     Don't worry! Every attempt makes you stronger. Review and
                     try again!
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
 
-            <!-- Card 2: Score Details -->
-            <div
-              class="bg-[#737373] md:h-80 h-60 rounded-2xl p-6 sm:p-8 relative overflow-hidden"
-            >
-              <!-- Trophy Icon Background -->
-              <div class="absolute top-4 right-4 opacity-10 z-0">
+            <!-- RIGHT CARD -->
+            <div class="relative overflow-hidden">
+              <div
+                class="relative bg-[#737373] rounded-[24px] p-6 sm:p-8 h-[260px] md:h-[320px] overflow-hidden"
+              >
+                <!-- Trophy watermark -->
                 <i
-                  class="fa-solid fa-trophy text-white text-5xl sm:text-6xl"
+                  class="fa-solid rotate-45 fa-trophy absolute top-2 left-10 md:left-28 text-[#FFF6E2] text-[72px] opacity-10"
+                ></i>
+
+                <!-- Centered score -->
+                <div
+                  class="relative h-full flex flex-col items-center justify-center text-center"
+                >
+                  <p class="text-grey-4 text-sm mb-2">Your Score</p>
+                  <div
+                    id="scoreDisplay"
+                    class="text-white text-5xl sm:text-6xl font-bold leading-none mb-3"
+                  >
+                    23%
+                  </div>
+                  <p id="scoreDetails" class="text-white text-sm sm:text-base">
+                    15 out of 40 questions correct
+                  </p>
+                </div>
+
+                <i
+                  class="fa-solid fa-trophy absolute top-10 text-[80px] md:text-[120px] -rotate-[30deg] right-2 overflow-hidden text-[#FFF6E2] opacity-10"
                 ></i>
               </div>
-
-              <div
-                class="relative z-10 flex flex-col items-center justify-center h-full text-center"
-              >
-                <div class="text-grey-4 text-sm mb-2">Your Score</div>
-                <div
-                  class="text-white text-5xl sm:text-6xl font-bold mb-4"
-                  id="scoreDisplay"
-                >
-                  23%
-                </div>
-                <div class="text-white text-base sm:text-lg" id="scoreDetails">
-                  15 out of 40 questions correct
-                </div>
-              </div>
+              <i
+                class="fa-solid fa-trophy absolute -bottom-10 text-[110px] md:text-[180px] rotate-[30deg] -left-6 overflow-hidden text-[#FFF6E2] opacity-10"
+              ></i>
             </div>
           </div>
         </div>
@@ -175,38 +185,37 @@
         <div
           class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6"
         >
-        <div class="w-full flex justify-between gap-5 xl:flex-row flex-col">
+          <div class="w-full flex justify-between gap-5 xl:flex-row flex-col">
+            <!-- Retake Test Button -->
+            <button
+              id="retakeTestBtn"
+              onclick="handleRetakeTest()"
+              class="px-4 py-2 w-full sm:px-6 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            >
+              <i class="fa-solid fa-redo"></i>
+              <span id="retakeTestText">Retake Test</span>
+            </button>
 
-          <!-- Retake Test Button -->
-          <button
-            id="retakeTestBtn"
-            onclick="handleRetakeTest()"
-            class="px-4  w-full sm:px-6 py-2.5 sm:py-3 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
-          >
-            <i class="fa-solid fa-redo"></i>
-            <span id="retakeTestText">Retake Test</span>
-          </button>
+            <!-- Next Test Button -->
+            <button
+              id="nextTestBtn"
+              onclick="handleNextTest()"
+              class="px-4 py-2 w-full sm:px-6 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
+              <span>Next Test</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
 
-          <!-- Next Test Button -->
-          <button
-            id="nextTestBtn"
-            onclick="handleNextTest()"
-            class="px-4  w-full sm:px-6 py-2.5 sm:py-3 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
-          >
-            <span>Next Test</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-
-          <!-- Review Answers Button -->
-          <button
-            id="reviewAnswersBtn"
-            onclick="handleReviewAnswers()"
-            class="px-4 border border-[#404040]  w-full sm:px-6 py-2.5 sm:py-3 bg-grey-10 text-white rounded-lg hover:bg-grey-9 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
-          >
-            <i class="fa-solid fa-eye"></i>
-            <span>Review Answers</span>
-          </button>
-        </div>
+            <!-- Review Answers Button -->
+            <button
+              id="reviewAnswersBtn"
+              onclick="handleReviewAnswers()"
+              class="px-4 py-2 border border-[#404040] text-xs w-full sm:px-6 py-2 font-light bg-grey-10 text-white rounded-lg hover:bg-grey-9 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
+              <i class="fa-solid fa-eye"></i>
+              <span>Review Answers</span>
+            </button>
+          </div>
         </div>
 
         <!-- Motivational Banner -->

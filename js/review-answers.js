@@ -2,7 +2,7 @@
 // Displays detailed question-by-question review with correct/incorrect highlighting
 
 import { showError } from "./modal.js";
-import { getProgress } from "./test-state.js";
+import { getProgressFromBackend } from "./test-state.js";
 
 /**
  * Initialize review answers page
@@ -23,14 +23,32 @@ async function initializeReviewAnswers() {
     return;
   }
 
-  // Load progress data
-  const progress = getProgress(setId);
+  // Load progress data from backend (with localStorage fallback)
+  const progress = await getProgressFromBackend(setId);
   if (!progress || progress.status !== "completed") {
     showError(
       "Results Not Found",
       "Test results not found. Redirecting to dashboard...",
       () => {
         window.location.href = "dashboard.html";
+      }
+    );
+    return;
+  }
+
+  // Check if all attempts are completed before allowing access to answers
+  const attempts = progress.attempts || 0;
+  const maxAttempts = progress.maxAttempts || 3;
+
+  if (attempts < maxAttempts) {
+    const remainingAttempts = maxAttempts - attempts;
+    showError(
+      "Complete All Attempts",
+      `You must complete all ${maxAttempts} attempts before viewing answers. You have completed ${attempts} out of ${maxAttempts} attempts. ${remainingAttempts} attempt${
+        remainingAttempts > 1 ? "s" : ""
+      } remaining. Redirecting to results page...`,
+      () => {
+        window.location.href = `results.html?set=${setId}`;
       }
     );
     return;

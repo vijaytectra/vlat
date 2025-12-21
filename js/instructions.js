@@ -2,6 +2,7 @@
 // Updates test title and description based on selected mock set from URL parameter
 
 import { showError } from "./modal.js";
+import { logout } from "./auth.js";
 
 /**
  * Initialize instructions page
@@ -76,6 +77,21 @@ function updateTestInfo(mockSet, setId) {
   if (startButton) {
     startButton.addEventListener("click", function () {
       window.location.href = `mock-test.html?set=${setId}`;
+    });
+  }
+
+  // Setup logout button
+  setupLogoutButton();
+}
+
+/**
+ * Setup logout button
+ */
+function setupLogoutButton() {
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+      await logout();
     });
   }
 }

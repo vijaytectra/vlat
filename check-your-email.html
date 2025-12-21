@@ -87,16 +87,30 @@
             </p>
 
             <button
+              id="backToLoginButton"
               type="button"
               class="w-full min-h-[56px] bg-[#FFF6E2] text-primary rounded-xl font-medium hover:opacity-90 transition"
             >
               Back to Login
             </button>
 
-            <p class="text-xs text-[#FAFAFA]">Try Different Email</p>
+            <a
+              href="forgot-password.html"
+              class="block text-center text-xs text-[#FAFAFA] hover:text-[#EDCD88] transition"
+            >
+              Try Different Email
+            </a>
           </form>
         </div>
       </section>
     </main>
+    <script>
+      const backToLoginButton = document.getElementById("backToLoginButton");
+      if (backToLoginButton) {
+        backToLoginButton.addEventListener("click", () => {
+          window.location.href = "/login.html";
+        });
+      }
+    </script>
   </body>
 </html>

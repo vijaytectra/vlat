@@ -1,15 +1,89 @@
 // Dynamic Dashboard Logic
-// Loads mock test data from JSON and user progress from localStorage
+// Loads mock test data from JSON and user progress from backend (with localStorage fallback)
 // Renders test cards dynamically without changing UI structure
 
-import { getAllProgress, calculateStats } from "./test-state.js";
+import {
+  getAllProgress,
+  calculateStats,
+  getAllProgressFromBackend,
+  getStatsFromBackend,
+} from "./test-state.js";
+import { getUserData, logout, redirectIfNotAuth } from "./auth.js";
 
 let mockTestsData = [];
+
+/**
+ * Load and display user data
+ */
+async function loadUserData() {
+  try {
+    const result = await getUserData();
+
+    if (result.success && result.user) {
+      const user = result.user;
+
+      // Update user name in header
+      const userNameHeader = document.getElementById("userNameHeader");
+      if (userNameHeader) {
+        userNameHeader.textContent = user.name;
+      }
+
+      // Update welcome message
+      const userNameWelcome = document.getElementById("userNameWelcome");
+      if (userNameWelcome) {
+        userNameWelcome.textContent = user.name;
+      }
+
+      // Update VLAT ID
+      const userVlatId = document.getElementById("userVlatId");
+      if (userVlatId) {
+        userVlatId.textContent = user.vlatId || "N/A";
+      }
+
+      // Update user name in meta info
+      const userNameMeta = document.getElementById("userNameMeta");
+      if (userNameMeta) {
+        userNameMeta.textContent = user.name;
+      }
+    } else {
+      // If not authenticated, redirect to login
+      console.error("Failed to get user data:", result.message);
+      redirectIfNotAuth();
+    }
+  } catch (error) {
+    console.error("Error loading user data:", error);
+    redirectIfNotAuth();
+  }
+}
+
+/**
+ * Setup logout button
+ */
+function setupLogoutButton() {
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+      await logout();
+    });
+  }
+}
 
 /**
  * Initialize dashboard
  */
 async function initializeDashboard() {
+  // Check authentication first
+  const isAuthenticated = await redirectIfNotAuth();
+  if (!isAuthenticated) {
+    return; // Will redirect to login
+  }
+
+  // Load user data
+  await loadUserData();
+
+  // Setup logout button
+  setupLogoutButton();
+
   // Load mock tests data
   const loaded = await loadMockTests();
   if (!loaded) {
@@ -17,9 +91,9 @@ async function initializeDashboard() {
     return;
   }
 
-  // Load user progress
-  const allProgress = getAllProgress();
-  const stats = calculateStats();
+  // Load user progress from backend (with localStorage fallback)
+  const allProgress = await getAllProgressFromBackend();
+  const stats = await getStatsFromBackend();
 
   // Update stats cards
   updateStatsCards(stats);
