@@ -1,4 +1,5 @@
 [build]
-  publish = "."
+  # No build command needed for static HTML site
   command = ""
-
+  # Publish from root directory (where all HTML files are)
+  publish = "."
