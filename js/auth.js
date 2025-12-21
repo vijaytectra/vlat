@@ -1,7 +1,7 @@
 // Authentication utilities for VLAT Exam Application
 // Update API_BASE_URL with your Render backend URL when deploying
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://vlat-backend.onrender.com";
 /**
  * Get API base URL
  */
