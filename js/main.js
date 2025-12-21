@@ -40,7 +40,7 @@ function renderCategoryFilters() {
   categories.forEach((category) => {
     const button = document.createElement("button");
     button.className =
-      "px-3 py-1 text-xs bg-grey-2 text-grey-7 rounded-full hover:bg-primary hover:text-white category-filter";
+      "px-3 py-1 text-xs  text-grey-7 rounded-full hover:bg-primary hover:text-white category-filter";
     if (category === currentCategory) {
       button.classList.add("bg-primary", "text-white");
     }
