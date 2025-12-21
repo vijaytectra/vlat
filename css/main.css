@@ -96,12 +96,12 @@
   }
 
   .announcements-scrollbar::-webkit-scrollbar-thumb {
-    background: #8d191c;
+    background: #A3A3A3;
     border-radius: 3px;
   }
 
   .announcements-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #6d1316;
+    background: #A3A3A3;
   }
 
   /* Mobile Menu Scrollbar */

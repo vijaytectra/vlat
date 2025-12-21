@@ -156,7 +156,12 @@
             <p class="text-sm text-[#262626]">Tests Completed</p>
           </div>
 
-          <p class="text-xl font-bold text-[#262626]">2 / 5</p>
+          <p
+            class="text-xl font-bold text-[#262626]"
+            data-stat="tests-completed"
+          >
+            2 / 5
+          </p>
           <p class="text-xs text-[#62748E]">Keep going!</p>
         </div>
 
@@ -179,7 +184,9 @@
             <p class="text-sm text-[#262626]">Average Score</p>
           </div>
 
-          <p class="text-xl font-bold text-[#262626]">48%</p>
+          <p class="text-xl font-bold text-[#262626]" data-stat="avg-score">
+            48%
+          </p>
           <p class="text-xs text-[#62748E]">Overall performance</p>
         </div>
 
@@ -202,7 +209,9 @@
             <p class="text-sm text-[#262626]">Best Score of Mock Test</p>
           </div>
 
-          <p class="text-xl font-bold text-[#262626]">85%</p>
+          <p class="text-xl font-bold text-[#262626]" data-stat="best-score">
+            85%
+          </p>
           <p class="text-xs text-[#62748E]">Personal best</p>
         </div>
 
@@ -225,7 +234,12 @@
             <p class="text-sm text-[#525252]">Total Attempts</p>
           </div>
 
-          <p class="text-xl font-semibold text-[#171717]">2</p>
+          <p
+            class="text-xl font-semibold text-[#171717]"
+            data-stat="total-attempts"
+          >
+            2
+          </p>
           <p class="text-xs text-[#525252]">Practice count</p>
         </div>
       </section>
@@ -243,7 +257,10 @@
         </div>
 
         <!-- Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          id="mockTestCards"
+        >
           <!-- CARD: COMPLETED -->
           <div
             class="bg-white border border-[#D4D4D4] rounded-2xl p-4 space-y-8"
@@ -404,5 +421,6 @@
         </div>
       </section>
     </main>
+    <script type="module" src="js/dashboard.js"></script>
   </body>
 </html>

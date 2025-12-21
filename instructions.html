@@ -12,6 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +26,7 @@
           extend: {
             colors: {
               primary: "#8d191c",
-              secondary: "#f3f4f6",
+              secondary: "#FFF6E2",
               "secondary-yellow": "#fff6e2",
               background: "#F8F7F0",
               "beige-light": "#FBF9F2",
@@ -60,90 +65,50 @@
     </script>
   </head>
 
-  <body class="font-['Inter'] bg-secondary min-h-screen">
+  <body class="font-['Inter'] bg-[#F3F4F6] min-h-screen">
     <!-- Main Container -->
-    <div
-      class="w-full min-h-screen py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-[160px]"
-    >
-      <!-- Header Bar -->
-      <div class="w-full max-w-[1121px] mx-auto mb-4 sm:mb-5 md:mb-6">
+    <div class="w-full min-h-screen py-4 sm:py-5 md:py-6 px-4">
+      <!-- HEADER -->
+      <header class="bg-[#FFFFFF] mt-5 border border-[#D4D4D4] rounded-3xl">
         <div
-          class="bg-white rounded-3xl pl-4 sm:pl-6 pr-3 py-3 border border-grey-4 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6"
+          class="max-w-6xl rounded-3xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4"
         >
-          <!-- Left: VMLS Logo -->
-          <div class="flex-shrink-0 w-32 sm:w-36 md:w-40">
-            <img
-              src="images/vmlslogowhite.svg"
-              alt="VMLS Logo"
-              class="h-8 sm:h-10 md:h-11 w-auto"
-              onerror="this.style.display='none'"
-            />
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img src="images/logo1.svg" class="h-8" alt="VMLS" />
+            <div class="h-9 w-px bg-[#D4D4D4]"></div>
+
+            <img src="images/vlatlogo.svg" class="h-6" alt="VLAT" />
           </div>
 
-          <!-- Right: VMRF Logo and User Profile -->
-          <div
-            class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto justify-between sm:justify-end"
-          >
-            <!-- VMRF Logo -->
-            <div class="flex-shrink-0 order-2 sm:order-1 w-32 sm:w-40 md:w-48">
-              <img
-                src="images/vmlslogowhite.svg"
-                alt="VMRF Logo"
-                class="h-8 sm:h-10 md:h-11 w-auto opacity-0"
-                onerror="this.style.display='none'"
-              />
-              <!-- Placeholder for VMRF logo - replace with actual logo -->
-              <div
-                class="h-8 sm:h-10 md:h-11 w-full bg-grey-2 rounded flex items-center justify-center text-xs text-grey-5"
-              >
-                VMRF Logo
-              </div>
-            </div>
-
-            <!-- User Profile -->
-            <div
-              class="flex items-center gap-1 pl-1 pr-2 sm:pr-3 py-2 bg-white rounded-full border border-grey-4 order-1 sm:order-2"
+          <!-- Right -->
+          <div class="flex items-center gap-4">
+            <img
+              src="images/vmrflogo.svg"
+              class="h-8 hidden md:block"
+              alt="VMLS"
+            />
+            <span
+              class="text-sm border border-[#D4D4D4] p-2 rounded-full text-[#171717] hidden sm:block"
+              >S. Sathiya</span
             >
-              <!-- Avatar -->
-              <div
-                class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full bg-red-800/10 flex items-center justify-center flex-shrink-0"
-              >
-                <span
-                  class="text-primary text-sm sm:text-base font-normal leading-6"
-                  >AJ</span
-                >
-              </div>
-              <!-- Name -->
-              <span
-                class="text-grey-10 text-sm sm:text-base font-normal leading-6"
-              >
-                S. Sathiya
-              </span>
-            </div>
+            <button
+              class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+            >
+              Logout
+            </button>
           </div>
         </div>
-      </div>
-
+      </header>
       <!-- Back to Dashboard Link -->
-      <div class="w-full max-w-[1121px] mx-auto mb-4 sm:mb-5 md:mb-6">
+      <div class="w-full max-w-[1121px] mx-auto mb-4 sm:mb-5 md:mb-6 mt-5">
         <button
           onclick="window.location.href='dashboard.html'"
           class="flex items-center gap-2 sm:gap-3 text-neutral-950 text-sm font-normal leading-5 hover:opacity-80 transition-opacity group"
         >
-          <!-- Back Arrow Icon -->
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            stroke-width="1.33"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+          <span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </span>
           <span>Back to Dashboard</span>
         </button>
       </div>
@@ -174,19 +139,7 @@
                 <div class="flex flex-wrap items-center gap-4 sm:gap-8">
                   <!-- 40 Questions -->
                   <div class="flex items-center gap-2">
-                    <svg
-                      class="w-5 h-5 text-grey-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.67"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
+                    <i class="fa-regular fa-file-lines text-grey-1"></i>
                     <span
                       class="text-grey-1 text-sm sm:text-base font-normal leading-6"
                       >40 Questions</span
@@ -195,20 +148,7 @@
 
                   <!-- 60 Minutes -->
                   <div class="flex items-center gap-2">
-                    <svg
-                      class="w-5 h-5 text-grey-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.67"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v6l4 2"
-                      />
-                    </svg>
+                    <i class="fa-regular fa-clock text-grey-1"></i>
                     <span
                       class="text-grey-1 text-sm sm:text-base font-normal leading-6 font-['Arial']"
                       >60 Minutes</span
@@ -385,10 +325,7 @@
                 <div class="flex flex-col gap-2.5">
                   <!-- Tip 1 -->
                   <div class="flex items-start gap-2">
-                    <span
-                      class="text-teal-600 text-sm font-normal leading-5 w-2.5 flex-shrink-0"
-                      >✓</span
-                    >
+                    <i class="fa-solid fa-check text-[#009689]"></i>
                     <p
                       class="text-slate-600 text-sm font-normal leading-5 flex-1"
                     >
@@ -398,10 +335,7 @@
 
                   <!-- Tip 2 -->
                   <div class="flex items-start gap-2">
-                    <span
-                      class="text-teal-600 text-sm font-normal leading-5 w-2.5 flex-shrink-0"
-                      >✓</span
-                    >
+                    <i class="fa-solid fa-check text-[#009689]"></i>
                     <p
                       class="text-slate-600 text-sm font-normal leading-5 flex-1"
                     >
@@ -411,10 +345,7 @@
 
                   <!-- Tip 3 -->
                   <div class="flex items-start gap-2">
-                    <span
-                      class="text-teal-600 text-sm font-normal leading-5 w-2.5 flex-shrink-0"
-                      >✓</span
-                    >
+                    <i class="fa-solid fa-check text-[#009689]"></i>
                     <p
                       class="text-slate-600 text-sm font-normal leading-5 flex-1"
                     >
@@ -424,10 +355,7 @@
 
                   <!-- Tip 4 -->
                   <div class="flex items-start gap-2">
-                    <span
-                      class="text-teal-600 text-sm font-normal leading-5 w-2.5 flex-shrink-0"
-                      >✓</span
-                    >
+                    <i class="fa-solid fa-check text-[#009689]"></i>
                     <p
                       class="text-slate-600 text-sm font-normal leading-5 flex-1"
                     >
@@ -440,7 +368,7 @@
 
             <!-- Start Test Button -->
             <button
-              onclick="window.location.href='#'"
+              id="startTestBtn"
               class="w-full h-11 bg-grey-9 rounded-xl flex items-center justify-center gap-2 px-5 hover:bg-grey-8 transition-colors"
             >
               <!-- Lock Icon -->
@@ -465,5 +393,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="js/instructions.js"></script>
   </body>
 </html>

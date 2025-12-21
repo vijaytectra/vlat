@@ -1,5 +1,146 @@
 // Main JavaScript file for VLAT Exam Application
 
+// Announcements Data and Functions
+let allAnnouncements = [];
+let currentCategory = "All";
+let searchQuery = "";
+
+// Load announcements from JSON file
+async function loadAnnouncements() {
+  try {
+    const response = await fetch("data/announcements.json");
+    const data = await response.json();
+    allAnnouncements = data.announcements || [];
+    renderAnnouncements();
+    renderCategoryFilters();
+  } catch (error) {
+    console.error("Error loading announcements:", error);
+    allAnnouncements = [];
+  }
+}
+
+// Get unique categories from announcements
+function getCategories() {
+  const categories = ["All"];
+  const uniqueCategories = new Set();
+  allAnnouncements.forEach((announcement) => {
+    uniqueCategories.add(announcement.category);
+  });
+  return [...categories, ...Array.from(uniqueCategories).sort()];
+}
+
+// Render category filter buttons
+function renderCategoryFilters() {
+  const filterContainer = document.getElementById("announcementFilters");
+  if (!filterContainer) return;
+
+  const categories = getCategories();
+  filterContainer.innerHTML = "";
+
+  categories.forEach((category) => {
+    const button = document.createElement("button");
+    button.className =
+      "px-3 py-1 text-xs bg-grey-2 text-grey-7 rounded-full hover:bg-primary hover:text-white category-filter";
+    if (category === currentCategory) {
+      button.classList.add("bg-primary", "text-white");
+    }
+    button.textContent = category;
+    button.dataset.category = category;
+    button.addEventListener("click", () => {
+      currentCategory = category;
+      renderCategoryFilters();
+      renderAnnouncements();
+    });
+    filterContainer.appendChild(button);
+  });
+}
+
+// Filter announcements based on category and search
+function getFilteredAnnouncements() {
+  let filtered = allAnnouncements;
+
+  // Filter by category
+  if (currentCategory !== "All") {
+    filtered = filtered.filter(
+      (announcement) => announcement.category === currentCategory
+    );
+  }
+
+  // Filter by search query
+  if (searchQuery.trim() !== "") {
+    const query = searchQuery.toLowerCase();
+    filtered = filtered.filter(
+      (announcement) =>
+        announcement.title.toLowerCase().includes(query) ||
+        announcement.description.toLowerCase().includes(query) ||
+        announcement.tags.some((tag) => tag.toLowerCase().includes(query))
+    );
+  }
+
+  return filtered;
+}
+
+// Render announcements in the sidebar
+function renderAnnouncements() {
+  const container = document.getElementById("announcementsContainer");
+  if (!container) return;
+
+  const filtered = getFilteredAnnouncements();
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-8">
+        <p class="text-grey-6">No announcements found.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered
+    .map(
+      (announcement) => `
+    <div class="card border border-[#A3A3A3]">
+      <div class="flex items-start justify-between mb-2">
+        <div class="flex space-x-2 flex-wrap gap-2">
+          <span class="px-2 py-1 text-xs bg-primary text-white rounded-full">${
+            announcement.category
+          }</span>
+          ${announcement.tags
+            .filter((tag) => tag !== announcement.category)
+            .map(
+              (tag) =>
+                `<span class="px-2 py-1 text-xs bg-grey-2 text-grey-7 rounded-full">${tag}</span>`
+            )
+            .join("")}
+        </div>
+        <span class="text-xs text-grey-6">${announcement.date}</span>
+      </div>
+      <h3 class="font-medium text-[announcementsContainer] mb-2">${
+        announcement.title
+      }</h3>
+      <p class="text-xs text-[#737373] mb-3">${announcement.description}</p>
+      <a href="${
+        announcement.link
+      }" class="text-sm text-[#155DFC] hover:underline">Read more →</a>
+    </div>
+  `
+    )
+    .join("");
+}
+
+// Initialize search functionality
+function initAnnouncementSearch() {
+  const searchInput = document.querySelector(
+    '#announcementSidebar input[type="text"][placeholder*="Search"]'
+  );
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderAnnouncements();
+    });
+  }
+}
+
 // Announcements Sidebar Toggle
 function initAnnouncementsSidebar() {
   const announcementBtn = document.getElementById("announcementBtn");
@@ -19,6 +160,10 @@ function initAnnouncementsSidebar() {
       });
     }
   }
+
+  // Load announcements when sidebar is initialized
+  loadAnnouncements();
+  initAnnouncementSearch();
 }
 
 // Mobile Menu Toggle (Works on both mobile and desktop)
@@ -26,70 +171,74 @@ function initMobileMenu() {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeMobileMenu = document.getElementById("closeMobileMenu");
+  const announcementBtn = document.getElementById("announcementBtn");
 
-  if (mobileMenuBtn && mobileMenu) {
-    // Open menu
-    mobileMenuBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.remove("translate-x-full");
-      mobileMenu.classList.add("translate-x-0");
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = "hidden";
-    });
+  if (!mobileMenuBtn || !mobileMenu) return;
 
-    // Close menu with close button
-    if (closeMobileMenu) {
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("translate-x-full");
-        mobileMenu.classList.remove("translate-x-0");
-        document.body.style.overflow = "";
-      });
+  const openMenu = () => {
+    mobileMenu.classList.remove("translate-x-full");
+    mobileMenu.classList.add("translate-x-0", "z-50");
+    document.body.style.overflow = "hidden";
+    // Hide announcement button when menu opens
+    if (announcementBtn) {
+      announcementBtn.style.display = "none";
     }
+  };
 
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-      if (
-        mobileMenu &&
-        !mobileMenu.contains(e.target) &&
-        !mobileMenuBtn.contains(e.target) &&
-        !mobileMenu.classList.contains("translate-x-full")
-      ) {
-        mobileMenu.classList.add("translate-x-full");
-        mobileMenu.classList.remove("translate-x-0");
-        document.body.style.overflow = "";
+  const closeMenu = () => {
+    mobileMenu.classList.add("translate-x-full");
+    mobileMenu.classList.remove("translate-x-0", "z-50");
+    document.body.style.overflow = "";
+    // Show announcement button when menu closes
+    if (announcementBtn) {
+      announcementBtn.style.display = "";
+    }
+  };
+
+  // Open menu
+  mobileMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openMenu();
+  });
+
+  // Close menu with close button
+  if (closeMobileMenu) {
+    closeMobileMenu.addEventListener("click", closeMenu);
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !mobileMenu.contains(e.target) &&
+      !mobileMenuBtn.contains(e.target) &&
+      !mobileMenu.classList.contains("translate-x-full")
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Close menu when clicking a normal link
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    if (link.id !== "announcementsLink") {
+      link.addEventListener("click", closeMenu);
+    }
+  });
+
+  // Announcements link behavior
+  const announcementsLink = document.getElementById("announcementsLink");
+  if (announcementsLink) {
+    announcementsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeMenu();
+
+      const announcementSidebar = document.getElementById(
+        "announcementSidebar"
+      );
+      if (announcementSidebar) {
+        announcementSidebar.classList.remove("translate-x-full");
+        announcementSidebar.classList.add("translate-x-0", "z-10");
       }
     });
-
-    // Close menu when clicking on a menu link (except announcements which opens sidebar)
-    const menuLinks = mobileMenu.querySelectorAll("a");
-    menuLinks.forEach((link) => {
-      if (link.id !== "announcementsLink") {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-          mobileMenu.classList.remove("translate-x-0");
-          document.body.style.overflow = "";
-        });
-      }
-    });
-
-    // Handle announcements link - close mobile menu and open announcements sidebar
-    const announcementsLink = document.getElementById("announcementsLink");
-    if (announcementsLink) {
-      announcementsLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        mobileMenu.classList.add("translate-x-full");
-        mobileMenu.classList.remove("translate-x-0");
-        document.body.style.overflow = "";
-        // Open announcements sidebar
-        const announcementSidebar = document.getElementById(
-          "announcementSidebar"
-        );
-        if (announcementSidebar) {
-          announcementSidebar.classList.remove("translate-x-full");
-          announcementSidebar.classList.add("translate-x-0");
-        }
-      });
-    }
   }
 }
 

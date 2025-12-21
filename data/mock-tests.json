@@ -1,0 +1,1399 @@
+{
+  "mockSets": [
+    {
+      "id": 1,
+      "title": "Mock Test 1: Fundamentals",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following is a fundamental right guaranteed under Article 21 of the Indian Constitution?",
+          "options": [
+            { "id": "A", "text": "Right to property" },
+            { "id": "B", "text": "Right to life and personal liberty" },
+            { "id": "C", "text": "Right to freedom of speech" },
+            { "id": "D", "text": "Right to equality" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 2,
+          "question": "In contract law, what is the term for an offer that can be revoked at any time before acceptance?",
+          "options": [
+            { "id": "A", "text": "Irrevocable offer" },
+            { "id": "B", "text": "Revocable offer" },
+            { "id": "C", "text": "Standing offer" },
+            { "id": "D", "text": "Counter offer" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 3,
+          "question": "What is the maximum punishment for murder under Section 302 of the Indian Penal Code?",
+          "options": [
+            { "id": "A", "text": "Life imprisonment" },
+            { "id": "B", "text": "Death penalty or life imprisonment" },
+            { "id": "C", "text": "10 years imprisonment" },
+            { "id": "D", "text": "14 years imprisonment" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 4,
+          "question": "Which principle states that a person is liable for harm caused by their negligence?",
+          "options": [
+            { "id": "A", "text": "Strict liability" },
+            { "id": "B", "text": "Vicarious liability" },
+            { "id": "C", "text": "Tort of negligence" },
+            { "id": "D", "text": "Absolute liability" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 5,
+          "question": "What is the doctrine of 'stare decisis'?",
+          "options": [
+            { "id": "A", "text": "To stand by decided matters" },
+            { "id": "B", "text": "To question decided matters" },
+            { "id": "C", "text": "To reverse decided matters" },
+            { "id": "D", "text": "To ignore decided matters" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 6,
+          "question": "Under the Indian Evidence Act, which section deals with the burden of proof?",
+          "options": [
+            { "id": "A", "text": "Section 101" },
+            { "id": "B", "text": "Section 102" },
+            { "id": "C", "text": "Section 103" },
+            { "id": "D", "text": "Section 104" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 7,
+          "question": "What is the legal term for a contract entered into by a minor?",
+          "options": [
+            { "id": "A", "text": "Valid contract" },
+            { "id": "B", "text": "Void contract" },
+            { "id": "C", "text": "Voidable contract" },
+            { "id": "D", "text": "Illegal contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 8,
+          "question": "Which writ is issued to prevent a person from doing something?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Prohibition" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 9,
+          "question": "What is the limitation period for filing a suit for recovery of debt?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 10,
+          "question": "Which article of the Indian Constitution deals with the right to freedom of religion?",
+          "options": [
+            { "id": "A", "text": "Article 25" },
+            { "id": "B", "text": "Article 26" },
+            { "id": "C", "text": "Article 27" },
+            { "id": "D", "text": "Article 28" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 11,
+          "question": "What is the term for a person who makes a will?",
+          "options": [
+            { "id": "A", "text": "Testator" },
+            { "id": "B", "text": "Executor" },
+            { "id": "C", "text": "Beneficiary" },
+            { "id": "D", "text": "Legatee" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 12,
+          "question": "Under which section of the IPC is theft defined?",
+          "options": [
+            { "id": "A", "text": "Section 378" },
+            { "id": "B", "text": "Section 379" },
+            { "id": "C", "text": "Section 380" },
+            { "id": "D", "text": "Section 381" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 13,
+          "question": "What is the legal age of majority in India?",
+          "options": [
+            { "id": "A", "text": "16 years" },
+            { "id": "B", "text": "18 years" },
+            { "id": "C", "text": "21 years" },
+            { "id": "D", "text": "25 years" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 14,
+          "question": "Which principle states that equity follows the law?",
+          "options": [
+            { "id": "A", "text": "Equity acts in personam" },
+            { "id": "B", "text": "Equity follows the law" },
+            { "id": "C", "text": "Equity will not suffer a wrong without a remedy" },
+            { "id": "D", "text": "Equity imputes an intention to fulfill an obligation" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 15,
+          "question": "What is the term for a contract where both parties are bound to perform their obligations?",
+          "options": [
+            { "id": "A", "text": "Unilateral contract" },
+            { "id": "B", "text": "Bilateral contract" },
+            { "id": "C", "text": "Executed contract" },
+            { "id": "D", "text": "Executory contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 16,
+          "question": "Which article of the Constitution deals with the right to constitutional remedies?",
+          "options": [
+            { "id": "A", "text": "Article 32" },
+            { "id": "B", "text": "Article 33" },
+            { "id": "C", "text": "Article 34" },
+            { "id": "D", "text": "Article 35" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 17,
+          "question": "What is the doctrine of 'res ipsa loquitur'?",
+          "options": [
+            { "id": "A", "text": "The thing speaks for itself" },
+            { "id": "B", "text": "Let the buyer beware" },
+            { "id": "C", "text": "Beyond reasonable doubt" },
+            { "id": "D", "text": "In good faith" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 18,
+          "question": "Under the Limitation Act, what is the period for filing a suit for specific performance?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 19,
+          "question": "What is the term for a person who receives property under a will?",
+          "options": [
+            { "id": "A", "text": "Testator" },
+            { "id": "B", "text": "Executor" },
+            { "id": "C", "text": "Legatee" },
+            { "id": "D", "text": "Trustee" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 20,
+          "question": "Which section of the Indian Penal Code deals with criminal conspiracy?",
+          "options": [
+            { "id": "A", "text": "Section 120A" },
+            { "id": "B", "text": "Section 120B" },
+            { "id": "C", "text": "Section 121" },
+            { "id": "D", "text": "Section 122" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 21,
+          "question": "What is the principle of 'caveat emptor'?",
+          "options": [
+            { "id": "A", "text": "Let the seller beware" },
+            { "id": "B", "text": "Let the buyer beware" },
+            { "id": "C", "text": "Let the court decide" },
+            { "id": "D", "text": "Let the law prevail" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 22,
+          "question": "Which article of the Constitution provides for the right to equality?",
+          "options": [
+            { "id": "A", "text": "Article 14" },
+            { "id": "B", "text": "Article 15" },
+            { "id": "C", "text": "Article 16" },
+            { "id": "D", "text": "Article 17" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 23,
+          "question": "What is the term for a contract that is valid but can be set aside by one party?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 24,
+          "question": "Under which section of the IPC is cheating defined?",
+          "options": [
+            { "id": "A", "text": "Section 415" },
+            { "id": "B", "text": "Section 416" },
+            { "id": "C", "text": "Section 417" },
+            { "id": "D", "text": "Section 418" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 25,
+          "question": "What is the doctrine of 'ultra vires'?",
+          "options": [
+            { "id": "A", "text": "Beyond the powers" },
+            { "id": "B", "text": "Within the powers" },
+            { "id": "C", "text": "Equal powers" },
+            { "id": "D", "text": "Limited powers" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 26,
+          "question": "Which writ is issued to command a public authority to perform its duty?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Prohibition" },
+            { "id": "D", "text": "Quo Warranto" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 27,
+          "question": "What is the limitation period for filing a suit for breach of contract?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 28,
+          "question": "Which article of the Constitution deals with the right against exploitation?",
+          "options": [
+            { "id": "A", "text": "Article 23" },
+            { "id": "B", "text": "Article 24" },
+            { "id": "C", "text": "Article 25" },
+            { "id": "D", "text": "Article 26" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 29,
+          "question": "What is the term for a person who is appointed to manage the estate of a deceased person?",
+          "options": [
+            { "id": "A", "text": "Executor" },
+            { "id": "B", "text": "Administrator" },
+            { "id": "C", "text": "Trustee" },
+            { "id": "D", "text": "Guardian" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 30,
+          "question": "Under which section of the IPC is criminal breach of trust defined?",
+          "options": [
+            { "id": "A", "text": "Section 405" },
+            { "id": "B", "text": "Section 406" },
+            { "id": "C", "text": "Section 407" },
+            { "id": "D", "text": "Section 408" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 31,
+          "question": "What is the principle of 'res judicata'?",
+          "options": [
+            { "id": "A", "text": "A matter already judged" },
+            { "id": "B", "text": "A matter to be judged" },
+            { "id": "C", "text": "A matter under judgment" },
+            { "id": "D", "text": "A matter pending judgment" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 32,
+          "question": "Which article of the Constitution provides for the right to freedom of speech and expression?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(a)" },
+            { "id": "B", "text": "Article 19(1)(b)" },
+            { "id": "C", "text": "Article 19(1)(c)" },
+            { "id": "D", "text": "Article 19(1)(d)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 33,
+          "question": "What is the term for a contract where consideration is past?",
+          "options": [
+            { "id": "A", "text": "Valid contract" },
+            { "id": "B", "text": "Void contract" },
+            { "id": "C", "text": "Voidable contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 34,
+          "question": "Under which section of the IPC is defamation defined?",
+          "options": [
+            { "id": "A", "text": "Section 499" },
+            { "id": "B", "text": "Section 500" },
+            { "id": "C", "text": "Section 501" },
+            { "id": "D", "text": "Section 502" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 35,
+          "question": "What is the doctrine of 'pari passu'?",
+          "options": [
+            { "id": "A", "text": "With equal step" },
+            { "id": "B", "text": "With unequal step" },
+            { "id": "C", "text": "With priority" },
+            { "id": "D", "text": "With delay" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 36,
+          "question": "Which writ is issued to produce a person before the court?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Prohibition" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 37,
+          "question": "What is the limitation period for filing a suit for recovery of immovable property?",
+          "options": [
+            { "id": "A", "text": "6 years" },
+            { "id": "B", "text": "12 years" },
+            { "id": "C", "text": "15 years" },
+            { "id": "D", "text": "20 years" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 38,
+          "question": "Which article of the Constitution deals with the right to form associations?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(c)" },
+            { "id": "B", "text": "Article 19(1)(d)" },
+            { "id": "C", "text": "Article 19(1)(e)" },
+            { "id": "D", "text": "Article 19(1)(f)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 39,
+          "question": "What is the term for a contract that is not enforceable by law?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Unenforceable contract" },
+            { "id": "D", "text": "Illegal contract" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 40,
+          "question": "Under which section of the IPC is attempt to commit an offence defined?",
+          "options": [
+            { "id": "A", "text": "Section 511" },
+            { "id": "B", "text": "Section 512" },
+            { "id": "C", "text": "Section 513" },
+            { "id": "D", "text": "Section 514" }
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Mock Test 2: Advanced",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the doctrine of 'basic structure' in constitutional law?",
+          "options": [
+            { "id": "A", "text": "A doctrine that limits the power of Parliament to amend the Constitution" },
+            { "id": "B", "text": "A doctrine that expands the power of Parliament" },
+            { "id": "C", "text": "A doctrine that limits judicial review" },
+            { "id": "D", "text": "A doctrine that expands executive power" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 2,
+          "question": "In contract law, what is the difference between a condition and a warranty?",
+          "options": [
+            { "id": "A", "text": "A condition is essential, a warranty is not" },
+            { "id": "B", "text": "A warranty is essential, a condition is not" },
+            { "id": "C", "text": "Both are the same" },
+            { "id": "D", "text": "Neither is essential" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 3,
+          "question": "What is the principle of 'mens rea' in criminal law?",
+          "options": [
+            { "id": "A", "text": "Guilty mind" },
+            { "id": "B", "text": "Guilty act" },
+            { "id": "C", "text": "Guilty body" },
+            { "id": "D", "text": "Guilty intention" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 4,
+          "question": "Which tort requires proof of actual damage?",
+          "options": [
+            { "id": "A", "text": "Trespass to land" },
+            { "id": "B", "text": "Trespass to person" },
+            { "id": "C", "text": "Negligence" },
+            { "id": "D", "text": "Nuisance" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 5,
+          "question": "What is the doctrine of 'precedent'?",
+          "options": [
+            { "id": "A", "text": "Previous decisions binding on future cases" },
+            { "id": "B", "text": "Future decisions binding on previous cases" },
+            { "id": "C", "text": "Decisions that have no binding effect" },
+            { "id": "D", "text": "Decisions that are always overruled" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 6,
+          "question": "Under the Evidence Act, which section deals with admissions?",
+          "options": [
+            { "id": "A", "text": "Section 17" },
+            { "id": "B", "text": "Section 18" },
+            { "id": "C", "text": "Section 19" },
+            { "id": "D", "text": "Section 20" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 7,
+          "question": "What is the term for a contract where one party has already performed?",
+          "options": [
+            { "id": "A", "text": "Executed contract" },
+            { "id": "B", "text": "Executory contract" },
+            { "id": "C", "text": "Bilateral contract" },
+            { "id": "D", "text": "Unilateral contract" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 8,
+          "question": "Which writ is issued to quash an order of a lower court?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Certiorari" },
+            { "id": "D", "text": "Prohibition" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 9,
+          "question": "What is the limitation period for filing a suit for specific performance of a contract?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 10,
+          "question": "Which article of the Constitution deals with the right to move the Supreme Court?",
+          "options": [
+            { "id": "A", "text": "Article 32" },
+            { "id": "B", "text": "Article 33" },
+            { "id": "C", "text": "Article 34" },
+            { "id": "D", "text": "Article 35" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 11,
+          "question": "What is the term for a will that is made orally?",
+          "options": [
+            { "id": "A", "text": "Written will" },
+            { "id": "B", "text": "Oral will" },
+            { "id": "C", "text": "Nuncupative will" },
+            { "id": "D", "text": "Holographic will" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 12,
+          "question": "Under which section of the IPC is robbery defined?",
+          "options": [
+            { "id": "A", "text": "Section 390" },
+            { "id": "B", "text": "Section 391" },
+            { "id": "C", "text": "Section 392" },
+            { "id": "D", "text": "Section 393" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 13,
+          "question": "What is the legal age for marriage in India?",
+          "options": [
+            { "id": "A", "text": "18 years for both" },
+            { "id": "B", "text": "18 years for female, 21 years for male" },
+            { "id": "C", "text": "21 years for both" },
+            { "id": "D", "text": "16 years for both" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 14,
+          "question": "Which principle states that equity will not assist a volunteer?",
+          "options": [
+            { "id": "A", "text": "Equity follows the law" },
+            { "id": "B", "text": "Equity will not assist a volunteer" },
+            { "id": "C", "text": "Equity acts in personam" },
+            { "id": "D", "text": "Equity imputes an intention" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 15,
+          "question": "What is the term for a contract where only one party is bound?",
+          "options": [
+            { "id": "A", "text": "Bilateral contract" },
+            { "id": "B", "text": "Unilateral contract" },
+            { "id": "C", "text": "Executed contract" },
+            { "id": "D", "text": "Executory contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 16,
+          "question": "Which article of the Constitution deals with the right to assemble peacefully?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(b)" },
+            { "id": "B", "text": "Article 19(1)(c)" },
+            { "id": "C", "text": "Article 19(1)(d)" },
+            { "id": "D", "text": "Article 19(1)(e)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 17,
+          "question": "What is the doctrine of 'volenti non fit injuria'?",
+          "options": [
+            { "id": "A", "text": "To a willing person, no injury is done" },
+            { "id": "B", "text": "To an unwilling person, injury is done" },
+            { "id": "C", "text": "Injury is always done" },
+            { "id": "D", "text": "No injury can be done" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 18,
+          "question": "Under the Limitation Act, what is the period for filing a suit for partition?",
+          "options": [
+            { "id": "A", "text": "3 years" },
+            { "id": "B", "text": "6 years" },
+            { "id": "C", "text": "12 years" },
+            { "id": "D", "text": "15 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 19,
+          "question": "What is the term for a person who is entitled to receive property under a will?",
+          "options": [
+            { "id": "A", "text": "Testator" },
+            { "id": "B", "text": "Executor" },
+            { "id": "C", "text": "Beneficiary" },
+            { "id": "D", "text": "Trustee" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 20,
+          "question": "Which section of the Indian Penal Code deals with abetment?",
+          "options": [
+            { "id": "A", "text": "Section 107" },
+            { "id": "B", "text": "Section 108" },
+            { "id": "C", "text": "Section 109" },
+            { "id": "D", "text": "Section 110" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 21,
+          "question": "What is the principle of 'quantum meruit'?",
+          "options": [
+            { "id": "A", "text": "As much as he deserves" },
+            { "id": "B", "text": "As much as he wants" },
+            { "id": "C", "text": "As much as he needs" },
+            { "id": "D", "text": "As much as he demands" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 22,
+          "question": "Which article of the Constitution provides for the right to practice any profession?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(g)" },
+            { "id": "B", "text": "Article 19(1)(h)" },
+            { "id": "C", "text": "Article 19(1)(i)" },
+            { "id": "D", "text": "Article 19(1)(j)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 23,
+          "question": "What is the term for a contract that is against public policy?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 24,
+          "question": "Under which section of the IPC is forgery defined?",
+          "options": [
+            { "id": "A", "text": "Section 463" },
+            { "id": "B", "text": "Section 464" },
+            { "id": "C", "text": "Section 465" },
+            { "id": "D", "text": "Section 466" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 25,
+          "question": "What is the doctrine of 'estoppel'?",
+          "options": [
+            { "id": "A", "text": "A person is prevented from denying what they have previously stated" },
+            { "id": "B", "text": "A person can deny what they have previously stated" },
+            { "id": "C", "text": "A person must always state the truth" },
+            { "id": "D", "text": "A person can never state anything" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 26,
+          "question": "Which writ is issued to inquire into the legality of holding a public office?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Quo Warranto" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 27,
+          "question": "What is the limitation period for filing a suit for damages for breach of contract?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 28,
+          "question": "Which article of the Constitution deals with the right to move freely?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(d)" },
+            { "id": "B", "text": "Article 19(1)(e)" },
+            { "id": "C", "text": "Article 19(1)(f)" },
+            { "id": "D", "text": "Article 19(1)(g)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 29,
+          "question": "What is the term for a person who is appointed to manage property for the benefit of another?",
+          "options": [
+            { "id": "A", "text": "Executor" },
+            { "id": "B", "text": "Administrator" },
+            { "id": "C", "text": "Trustee" },
+            { "id": "D", "text": "Guardian" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 30,
+          "question": "Under which section of the IPC is criminal intimidation defined?",
+          "options": [
+            { "id": "A", "text": "Section 503" },
+            { "id": "B", "text": "Section 504" },
+            { "id": "C", "text": "Section 505" },
+            { "id": "D", "text": "Section 506" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 31,
+          "question": "What is the principle of 'actus reus'?",
+          "options": [
+            { "id": "A", "text": "Guilty act" },
+            { "id": "B", "text": "Guilty mind" },
+            { "id": "C", "text": "Guilty intention" },
+            { "id": "D", "text": "Guilty body" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 32,
+          "question": "Which article of the Constitution provides for the right to reside and settle?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(e)" },
+            { "id": "B", "text": "Article 19(1)(f)" },
+            { "id": "C", "text": "Article 19(1)(g)" },
+            { "id": "D", "text": "Article 19(1)(h)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 33,
+          "question": "What is the term for a contract where consideration is inadequate?",
+          "options": [
+            { "id": "A", "text": "Valid contract" },
+            { "id": "B", "text": "Void contract" },
+            { "id": "C", "text": "Voidable contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 34,
+          "question": "Under which section of the IPC is criminal trespass defined?",
+          "options": [
+            { "id": "A", "text": "Section 441" },
+            { "id": "B", "text": "Section 442" },
+            { "id": "C", "text": "Section 443" },
+            { "id": "D", "text": "Section 444" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 35,
+          "question": "What is the doctrine of 'laches'?",
+          "options": [
+            { "id": "A", "text": "Unreasonable delay in asserting a right" },
+            { "id": "B", "text": "Reasonable delay in asserting a right" },
+            { "id": "C", "text": "No delay in asserting a right" },
+            { "id": "D", "text": "Immediate assertion of a right" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 36,
+          "question": "Which writ is issued to prevent an inferior court from exceeding its jurisdiction?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Prohibition" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 37,
+          "question": "What is the limitation period for filing a suit for possession of immovable property?",
+          "options": [
+            { "id": "A", "text": "6 years" },
+            { "id": "B", "text": "12 years" },
+            { "id": "C", "text": "15 years" },
+            { "id": "D", "text": "20 years" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 38,
+          "question": "Which article of the Constitution deals with the right to form unions?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(c)" },
+            { "id": "B", "text": "Article 19(1)(d)" },
+            { "id": "C", "text": "Article 19(1)(e)" },
+            { "id": "D", "text": "Article 19(1)(f)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 39,
+          "question": "What is the term for a contract that is made under coercion?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 40,
+          "question": "Under which section of the IPC is attempt to commit suicide defined?",
+          "options": [
+            { "id": "A", "text": "Section 309" },
+            { "id": "B", "text": "Section 310" },
+            { "id": "C", "text": "Section 311" },
+            { "id": "D", "text": "Section 312" }
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Mock Test 3: Advanced Topics",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the doctrine of 'separation of powers'?",
+          "options": [
+            { "id": "A", "text": "Division of government into three branches" },
+            { "id": "B", "text": "Union of government branches" },
+            { "id": "C", "text": "Overlap of government branches" },
+            { "id": "D", "text": "Elimination of government branches" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 2,
+          "question": "In contract law, what is the difference between fraud and misrepresentation?",
+          "options": [
+            { "id": "A", "text": "Fraud requires intention to deceive, misrepresentation does not" },
+            { "id": "B", "text": "Misrepresentation requires intention to deceive, fraud does not" },
+            { "id": "C", "text": "Both are the same" },
+            { "id": "D", "text": "Neither requires intention" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 3,
+          "question": "What is the principle of 'double jeopardy'?",
+          "options": [
+            { "id": "A", "text": "A person cannot be tried twice for the same offence" },
+            { "id": "B", "text": "A person can be tried twice for the same offence" },
+            { "id": "C", "text": "A person must be tried twice" },
+            { "id": "D", "text": "A person cannot be tried at all" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 4,
+          "question": "Which tort does not require proof of damage?",
+          "options": [
+            { "id": "A", "text": "Trespass to land" },
+            { "id": "B", "text": "Negligence" },
+            { "id": "C", "text": "Nuisance" },
+            { "id": "D", "text": "Defamation" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 5,
+          "question": "What is the doctrine of 'judicial review'?",
+          "options": [
+            { "id": "A", "text": "Power of courts to review legislative and executive actions" },
+            { "id": "B", "text": "Power of legislature to review judicial actions" },
+            { "id": "C", "text": "Power of executive to review judicial actions" },
+            { "id": "D", "text": "No power to review" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 6,
+          "question": "Under the Evidence Act, which section deals with confessions?",
+          "options": [
+            { "id": "A", "text": "Section 24" },
+            { "id": "B", "text": "Section 25" },
+            { "id": "C", "text": "Section 26" },
+            { "id": "D", "text": "Section 27" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 7,
+          "question": "What is the term for a contract where both parties are yet to perform?",
+          "options": [
+            { "id": "A", "text": "Executed contract" },
+            { "id": "B", "text": "Executory contract" },
+            { "id": "C", "text": "Bilateral contract" },
+            { "id": "D", "text": "Unilateral contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 8,
+          "question": "Which writ is issued to command a lower court not to proceed with a case?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Prohibition" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 9,
+          "question": "What is the limitation period for filing a suit for recovery of money?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 10,
+          "question": "Which article of the Constitution deals with the right to move the High Court?",
+          "options": [
+            { "id": "A", "text": "Article 226" },
+            { "id": "B", "text": "Article 227" },
+            { "id": "C", "text": "Article 228" },
+            { "id": "D", "text": "Article 229" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 11,
+          "question": "What is the term for a will that is written entirely in the testator's handwriting?",
+          "options": [
+            { "id": "A", "text": "Written will" },
+            { "id": "B", "text": "Oral will" },
+            { "id": "C", "text": "Holographic will" },
+            { "id": "D", "text": "Nuncupative will" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 12,
+          "question": "Under which section of the IPC is dacoity defined?",
+          "options": [
+            { "id": "A", "text": "Section 391" },
+            { "id": "B", "text": "Section 392" },
+            { "id": "C", "text": "Section 393" },
+            { "id": "D", "text": "Section 394" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 13,
+          "question": "What is the legal age for entering into a contract?",
+          "options": [
+            { "id": "A", "text": "16 years" },
+            { "id": "B", "text": "18 years" },
+            { "id": "C", "text": "21 years" },
+            { "id": "D", "text": "25 years" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 14,
+          "question": "Which principle states that equity will not suffer a wrong without a remedy?",
+          "options": [
+            { "id": "A", "text": "Equity follows the law" },
+            { "id": "B", "text": "Equity will not assist a volunteer" },
+            { "id": "C", "text": "Equity will not suffer a wrong without a remedy" },
+            { "id": "D", "text": "Equity acts in personam" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 15,
+          "question": "What is the term for a contract where consideration moves from the promisee?",
+          "options": [
+            { "id": "A", "text": "Valid contract" },
+            { "id": "B", "text": "Void contract" },
+            { "id": "C", "text": "Voidable contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 16,
+          "question": "Which article of the Constitution deals with the right to freedom of trade?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(g)" },
+            { "id": "B", "text": "Article 19(1)(h)" },
+            { "id": "C", "text": "Article 19(1)(i)" },
+            { "id": "D", "text": "Article 19(1)(j)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 17,
+          "question": "What is the doctrine of 'contributory negligence'?",
+          "options": [
+            { "id": "A", "text": "Plaintiff's own negligence contributing to the harm" },
+            { "id": "B", "text": "Defendant's negligence contributing to the harm" },
+            { "id": "C", "text": "Both parties' negligence" },
+            { "id": "D", "text": "No negligence at all" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 18,
+          "question": "Under the Limitation Act, what is the period for filing a suit for recovery of possession?",
+          "options": [
+            { "id": "A", "text": "3 years" },
+            { "id": "B", "text": "6 years" },
+            { "id": "C", "text": "12 years" },
+            { "id": "D", "text": "15 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 19,
+          "question": "What is the term for a person who is appointed to manage the affairs of a minor?",
+          "options": [
+            { "id": "A", "text": "Executor" },
+            { "id": "B", "text": "Administrator" },
+            { "id": "C", "text": "Guardian" },
+            { "id": "D", "text": "Trustee" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 20,
+          "question": "Which section of the Indian Penal Code deals with preparation to commit an offence?",
+          "options": [
+            { "id": "A", "text": "Section 511" },
+            { "id": "B", "text": "Section 512" },
+            { "id": "C", "text": "Section 513" },
+            { "id": "D", "text": "Section 514" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 21,
+          "question": "What is the principle of 'unjust enrichment'?",
+          "options": [
+            { "id": "A", "text": "Gaining benefit at another's expense without legal justification" },
+            { "id": "B", "text": "Gaining benefit with legal justification" },
+            { "id": "C", "text": "Losing benefit without justification" },
+            { "id": "D", "text": "No benefit gained" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 22,
+          "question": "Which article of the Constitution provides for the right to form co-operative societies?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(c)" },
+            { "id": "B", "text": "Article 19(1)(d)" },
+            { "id": "C", "text": "Article 19(1)(e)" },
+            { "id": "D", "text": "Article 19(1)(f)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 23,
+          "question": "What is the term for a contract that is made under undue influence?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 24,
+          "question": "Under which section of the IPC is criminal breach of trust by a public servant defined?",
+          "options": [
+            { "id": "A", "text": "Section 409" },
+            { "id": "B", "text": "Section 410" },
+            { "id": "C", "text": "Section 411" },
+            { "id": "D", "text": "Section 412" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 25,
+          "question": "What is the doctrine of 'promissory estoppel'?",
+          "options": [
+            { "id": "A", "text": "A promise that cannot be revoked if relied upon" },
+            { "id": "B", "text": "A promise that can always be revoked" },
+            { "id": "C", "text": "A promise that is never binding" },
+            { "id": "D", "text": "A promise that is always void" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 26,
+          "question": "Which writ is issued to transfer a case from a lower court to a higher court?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Certiorari" },
+            { "id": "D", "text": "Prohibition" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 27,
+          "question": "What is the limitation period for filing a suit for recovery of movable property?",
+          "options": [
+            { "id": "A", "text": "1 year" },
+            { "id": "B", "text": "2 years" },
+            { "id": "C", "text": "3 years" },
+            { "id": "D", "text": "5 years" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 28,
+          "question": "Which article of the Constitution deals with the right to acquire property?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(f)" },
+            { "id": "B", "text": "Article 19(1)(g)" },
+            { "id": "C", "text": "Article 19(1)(h)" },
+            { "id": "D", "text": "Article 19(1)(i)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 29,
+          "question": "What is the term for a person who is entitled to receive property by inheritance?",
+          "options": [
+            { "id": "A", "text": "Testator" },
+            { "id": "B", "text": "Heir" },
+            { "id": "C", "text": "Legatee" },
+            { "id": "D", "text": "Beneficiary" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 30,
+          "question": "Under which section of the IPC is house-trespass defined?",
+          "options": [
+            { "id": "A", "text": "Section 442" },
+            { "id": "B", "text": "Section 443" },
+            { "id": "C", "text": "Section 444" },
+            { "id": "D", "text": "Section 445" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 31,
+          "question": "What is the principle of 'vicarious liability'?",
+          "options": [
+            { "id": "A", "text": "Liability for the acts of another" },
+            { "id": "B", "text": "Liability for one's own acts" },
+            { "id": "C", "text": "No liability at all" },
+            { "id": "D", "text": "Shared liability" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 32,
+          "question": "Which article of the Constitution provides for the right to information?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(a)" },
+            { "id": "B", "text": "Article 19(1)(b)" },
+            { "id": "C", "text": "Article 19(1)(c)" },
+            { "id": "D", "text": "Article 19(1)(d)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 33,
+          "question": "What is the term for a contract where consideration is illegal?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 34,
+          "question": "Under which section of the IPC is mischief defined?",
+          "options": [
+            { "id": "A", "text": "Section 425" },
+            { "id": "B", "text": "Section 426" },
+            { "id": "C", "text": "Section 427" },
+            { "id": "D", "text": "Section 428" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 35,
+          "question": "What is the doctrine of 'clean hands'?",
+          "options": [
+            { "id": "A", "text": "A person seeking equity must come with clean hands" },
+            { "id": "B", "text": "A person seeking equity can come with dirty hands" },
+            { "id": "C", "text": "Hands are always clean" },
+            { "id": "D", "text": "Hands are always dirty" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 36,
+          "question": "Which writ is issued to command a person to show by what authority they hold an office?",
+          "options": [
+            { "id": "A", "text": "Habeas Corpus" },
+            { "id": "B", "text": "Mandamus" },
+            { "id": "C", "text": "Quo Warranto" },
+            { "id": "D", "text": "Certiorari" }
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "id": 37,
+          "question": "What is the limitation period for filing a suit for recovery of debt secured by mortgage?",
+          "options": [
+            { "id": "A", "text": "6 years" },
+            { "id": "B", "text": "12 years" },
+            { "id": "C", "text": "15 years" },
+            { "id": "D", "text": "20 years" }
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "id": 38,
+          "question": "Which article of the Constitution deals with the right to form political parties?",
+          "options": [
+            { "id": "A", "text": "Article 19(1)(c)" },
+            { "id": "B", "text": "Article 19(1)(d)" },
+            { "id": "C", "text": "Article 19(1)(e)" },
+            { "id": "D", "text": "Article 19(1)(f)" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 39,
+          "question": "What is the term for a contract that is made under mistake of fact?",
+          "options": [
+            { "id": "A", "text": "Void contract" },
+            { "id": "B", "text": "Voidable contract" },
+            { "id": "C", "text": "Illegal contract" },
+            { "id": "D", "text": "Unenforceable contract" }
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "id": 40,
+          "question": "Under which section of the IPC is attempt to commit dacoity defined?",
+          "options": [
+            { "id": "A", "text": "Section 395" },
+            { "id": "B", "text": "Section 396" },
+            { "id": "C", "text": "Section 397" },
+            { "id": "D", "text": "Section 398" }
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Mock Test 4: Constitutional Law",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following best describes the concept being tested in this scenario?",
+          "options": [
+            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
+            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
+            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
+            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Mock Test 5: Criminal Law",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following best describes the concept being tested in this scenario?",
+          "options": [
+            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
+            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
+            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
+            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Mock Test 6: Contract Law",
+      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which of the following best describes the concept being tested in this scenario?",
+          "options": [
+            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
+            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
+            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
+            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+          ],
+          "correctAnswer": "D"
+        }
+      ]
+    }
+  ]
+}
