@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Dashboard – VLAT</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8D191C",
+              success: "#009689",
+              successLight: "#F0FDFA",
+              dark: "#0E162B",
+              textDark: "#171717",
+              textMuted: "#525252",
+
+              bgPage: "#F5F5F5",
+              card: "#FFFFFF",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-['Inter'] bg-bgPage max-w-6xl mx-auto text-textDark">
+    <!-- HEADER -->
+    <header class="bg-[#FFFFFF] mt-5 border border-[#D4D4D4] rounded-3xl">
+      <div
+        class="max-w-6xl rounded-3xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="images/logo1.svg" class="h-8" alt="VMLS" />
+          <div class="h-9 w-px bg-[#D4D4D4]"></div>
+
+          <img src="images/vlatlogo.svg" class="h-6" alt="VLAT" />
+        </div>
+
+        <!-- Right -->
+        <div class="flex items-center gap-4">
+          <img
+            src="images/vmrflogo.svg"
+            class="h-8 hidden md:block"
+            alt="VMLS"
+          />
+          <span
+            class="text-sm border border-[#D4D4D4] p-2 rounded-full text-[#171717] hidden sm:block"
+            >S. Sathiya</span
+          >
+          <button
+            class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-6xl mx-auto px-4 py-6 space-y-6">
+      <!-- TOP CARDS -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Mock Zone -->
+        <div class="bg-card rounded-xl border border-[#D4D4D4] p-5">
+          <h2 class="font-semibold text-primary mb-2">VLAT Mock Test Zone</h2>
+          <p class="text-sm text-[#525252] mb-4">
+            Preparing for VLAT becomes much easier when you practise regularly.
+          </p>
+          <ul class="text-sm space-y-1 text-[#525252]">
+            <li>• Builds confidence before exam</li>
+            <li>• Improves performance</li>
+            <li>• Real exam experience</li>
+          </ul>
+        </div>
+
+        <!-- Welcome -->
+        <div class="bg-white rounded-2xl border border-[#D4D4D4] p-5 space-y-3">
+          <!-- Title -->
+          <h2 class="text-lg font-semibold text-[#8D191C]">
+            Welcome back Sathiya, Student!
+          </h2>
+
+          <!-- Subtitle -->
+          <p class="text-sm text-[#45556C]">
+            Choose a mock test and boost your preparation.
+          </p>
+
+          <!-- Meta Info -->
+          <div class="mt-4 space-y-2 text-sm text-[#314157]">
+            <!-- VLAT ID -->
+            <div class="flex items-center gap-2">
+              <i class="fas fa-book-open text-[#8D191C] w-4"></i>
+              <span>VLAT2025-4521</span>
+            </div>
+
+            <!-- Course -->
+            <div class="flex items-center gap-2">
+              <i class="fas fa-graduation-cap text-[#8D191C] w-4"></i>
+              <span>LLB</span>
+            </div>
+
+            <!-- Exam Date -->
+            <div class="flex items-center gap-2">
+              <i class="fas fa-calendar-day text-[#8D191C] w-4"></i>
+              <span>Next Exam: March 15, 2025</span>
+            </div>
+
+            <!-- Student Name -->
+            <div class="flex items-center gap-2">
+              <i class="fas fa-user text-[#8D191C] w-4"></i>
+              <span>S. Sathiya</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- CARD 1: Tests Completed -->
+        <div
+          class="relative bg-white border border-[#D4D4D4] rounded-2xl p-4 overflow-hidden"
+        >
+          <!-- Decorative icon -->
+          <img
+            src="images/coller-dashboard.svg"
+            class="absolute top-4 right-4"
+            alt="Tests Completed"
+          />
+
+          <!-- Header -->
+          <div class="flex flex-col items-start gap-2 mb-4">
+            <div
+              class="w-8 h-8 flex items-center justify-center text-[#525252]"
+            >
+              <i class="fas fa-trophy text-xl"></i>
+            </div>
+            <p class="text-sm text-[#262626]">Tests Completed</p>
+          </div>
+
+          <p
+            class="text-xl font-bold text-[#262626]"
+            data-stat="tests-completed"
+          >
+            2 / 5
+          </p>
+          <p class="text-xs text-[#62748E]">Keep going!</p>
+        </div>
+
+        <!-- CARD 2: Average Score -->
+        <div
+          class="relative bg-white border border-[#D4D4D4] rounded-2xl p-4 overflow-hidden"
+        >
+          <img
+            src="images/target-dashboard.svg"
+            class="absolute top-4 right-4"
+            alt="Tests Completed"
+          />
+
+          <div class="flex flex-col items-start gap-2 mb-4">
+            <div
+              class="w-8 h-8 flex items-center justify-center text-[#525252]"
+            >
+              <i class="fas fa-bullseye text-xl"></i>
+            </div>
+            <p class="text-sm text-[#262626]">Average Score</p>
+          </div>
+
+          <p class="text-xl font-bold text-[#262626]" data-stat="avg-score">
+            48%
+          </p>
+          <p class="text-xs text-[#62748E]">Overall performance</p>
+        </div>
+
+        <!-- CARD 3: Best Score -->
+        <div
+          class="relative bg-white border border-[#D4D4D4] rounded-2xl p-4 overflow-hidden"
+        >
+          <img
+            src="images/uptrend-dashboard.svg"
+            class="absolute top-4 right-4"
+            alt="Tests Completed"
+          />
+
+          <div class="flex flex-col items-start gap-2 mb-4">
+            <div
+              class="w-8 h-8 flex items-center justify-center text-[#262626]"
+            >
+              <i class="fas fa-chart-line text-xl"></i>
+            </div>
+            <p class="text-sm text-[#262626]">Best Score of Mock Test</p>
+          </div>
+
+          <p class="text-xl font-bold text-[#262626]" data-stat="best-score">
+            85%
+          </p>
+          <p class="text-xs text-[#62748E]">Personal best</p>
+        </div>
+
+        <!-- CARD 4: Total Attempts -->
+        <div
+          class="relative bg-white border border-[#D4D4D4] rounded-2xl p-4 overflow-hidden"
+        >
+          <img
+            src="images/cup-dashboard.svg"
+            class="absolute top-4 right-4"
+            alt="Tests Completed"
+          />
+
+          <div class="flex flex-col items-start gap-2 mb-4">
+            <div
+              class="w-8 h-8 flex items-center justify-center text-[#262626]"
+            >
+              <i class="fas fa-flask text-xl"></i>
+            </div>
+            <p class="text-sm text-[#525252]">Total Attempts</p>
+          </div>
+
+          <p
+            class="text-xl font-semibold text-[#171717]"
+            data-stat="total-attempts"
+          >
+            2
+          </p>
+          <p class="text-xs text-[#525252]">Practice count</p>
+        </div>
+      </section>
+
+      <!-- MOCK TEST LIST -->
+      <section class="space-y-4">
+        <!-- Header -->
+        <div>
+          <h3 class="text-xl font-semibold text-[#8D191C]">
+            Your VLAT Mock Tests
+          </h3>
+          <p class="text-xs text-[#525252]">
+            Complete all 5 tests to master the subject
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          id="mockTestCards"
+        >
+          <!-- CARD: COMPLETED -->
+          <div
+            class="bg-white border border-[#D4D4D4] rounded-2xl p-4 space-y-8"
+          >
+            <!-- Title + Status -->
+            <div class="flex justify-between items-start gap-6">
+              <h4 class="font-medium text-[#171717]">
+                Mock Test 1: Fundamentals
+              </h4>
+              <span
+                class="text-xs px-2 py-0.5 rounded-full bg-[#F0FDFA] text-[#009689] border border-[#96F7E4]"
+              >
+                Completed
+              </span>
+            </div>
+
+            <!-- Meta -->
+            <div
+              class="flex items-center justify-between gap-4 text-xs text-[#525252]"
+            >
+              <div class="flex items-center gap-1">
+                <i class="fas fa-list-ul"></i>
+                <span>40 questions</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-clock"></i>
+                <span>60 mins</span>
+              </div>
+            </div>
+
+            <!-- Progress -->
+            <div
+              class="space-y-4 bg-[#F0FDFA] p-4 border border-[#96F7E4] rounded-lg"
+            >
+              <div class="flex justify-between text-xs text-[#525252]">
+                <span>Progress</span>
+                <span class="text-[#00776E]">40 / 40 done</span>
+              </div>
+              <div class="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
+                <div class="h-full w-full bg-[#009689]"></div>
+              </div>
+            </div>
+
+            <!-- Score -->
+            <div class="border border-[#D4D4D4] rounded-lg p-4 text-sm">
+              <span class="text-[#314158]">Your Score</span>
+              <span class="float-right font-semibold text-xl text-[#008236]"
+                >85%</span
+              >
+            </div>
+
+            <!-- Attempts -->
+            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+
+            <!-- Action -->
+            <button
+              class="w-full bg-[#262626] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
+            >
+              <i class="fas fa-eye"></i>
+              <span class="text-sm text-[#F3F4F6]"> View Results </span>
+            </button>
+          </div>
+
+          <!-- CARD: IN PROGRESS -->
+          <div
+            class="bg-white border border-[#D4D4D4] rounded-2xl p-4 space-y-8"
+          >
+            <!-- Title + Status -->
+            <div class="flex justify-between items-start gap-6">
+              <h4 class="font-medium text-[#171717]">Mock Test 2: Advanced</h4>
+              <span
+                class="text-xs px-2 py-0.5 rounded-full bg-[#F0FDFA] text-[#009689] border border-[#96F7E4]"
+              >
+                In Progress
+              </span>
+            </div>
+
+            <!-- Meta -->
+            <div
+              class="flex items-center justify-between gap-4 text-xs text-[#525252]"
+            >
+              <div class="flex items-center text-[#45556C] gap-1">
+                <i class="fas fa-list-ul"></i>
+                <span>40 questions</span>
+              </div>
+              <div class="flex items-center text-[#45556C] gap-1">
+                <i class="fas fa-clock"></i>
+                <span>60 mins</span>
+              </div>
+            </div>
+
+            <!-- Progress -->
+            <div
+              class="space-y-4 bg-[#F0FDFA] p-4 border border-[#96F7E4] rounded-lg"
+            >
+              <div class="flex justify-between text-xs text-[#525252]">
+                <span>Progress</span>
+                <span class="text-[#00776E]">40 / 40 done</span>
+              </div>
+              <div class="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
+                <div class="h-full w-full bg-[#009689]"></div>
+              </div>
+            </div>
+
+            <!-- Score -->
+            <div class="border border-[#D4D4D4] rounded-lg p-4 text-sm">
+              <span class="text-[#314158]">Your Score</span>
+              <span class="float-right font-semibold text-xl text-[#008236]"
+                >85%</span
+              >
+            </div>
+
+            <!-- Attempts -->
+            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+
+            <!-- Action -->
+            <button
+              class="w-full bg-[#262626] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
+            >
+              <i class="fas fa-eye"></i>
+              <span class="text-sm text-[#F3F4F6]"> View Results </span>
+            </button>
+          </div>
+
+          <!-- CARD: NOT STARTED -->
+          <div
+            class="bg-white border border-[#D4D4D4] rounded-2xl p-4 space-y-3"
+          >
+            <div class="flex justify-between items-start gap-2">
+              <h4 class="font-medium text-[#171717]">Mock Test 3: Advanced</h4>
+              <span
+                class="text-xs px-2 py-0.5 rounded-full bg-[#F5F5F5] text-[#525252] border border-[#D4D4D4]"
+              >
+                Not Started
+              </span>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs text-[#525252]">
+              <div class="flex items-center gap-1">
+                <i class="fas fa-list-ul"></i>
+                <span>40 questions</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <i class="fas fa-clock"></i>
+                <span>60 mins</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+
+            <button
+              class="w-full bg-[#171717] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
+            >
+              <i class="fas fa-play"></i>
+              Start Test
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>

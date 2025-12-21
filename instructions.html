@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Instructions - VLAT</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8d191c",
+              secondary: "#FFF6E2",
+              "secondary-yellow": "#fff6e2",
+              background: "#F8F7F0",
+              "beige-light": "#FBF9F2",
+              grey: {
+                1: "#fafafa",
+                2: "#f5f5f5",
+                3: "#f5f5f5",
+                4: "#d4d4d4",
+                5: "#a3a3a3",
+                6: "#737373",
+                7: "#525252",
+                8: "#404040",
+                9: "#262626",
+                10: "#171717",
+              },
+              amber: {
+                200: "#EDCD88",
+              },
+              red: {
+                600: "#EE0006",
+                800: "#8D191C",
+              },
+              rose: {
+                800: "#983033",
+              },
+              yellow: {
+                50: "#FFF6E2",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-['Inter'] bg-[#F3F4F6] min-h-screen">
+    <!-- Main Container -->
+    <div class="w-full min-h-screen py-4 sm:py-5 md:py-6 px-4">
+      <!-- HEADER -->
+      <header class="bg-[#FFFFFF] mt-5 border border-[#D4D4D4] rounded-3xl">
+        <div
+          class="max-w-6xl rounded-3xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4"
+        >
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img src="images/logo1.svg" class="h-8" alt="VMLS" />
+            <div class="h-9 w-px bg-[#D4D4D4]"></div>
+
+            <img src="images/vlatlogo.svg" class="h-6" alt="VLAT" />
+          </div>
+
+          <!-- Right -->
+          <div class="flex items-center gap-4">
+            <img
+              src="images/vmrflogo.svg"
+              class="h-8 hidden md:block"
+              alt="VMLS"
+            />
+            <span
+              class="text-sm border border-[#D4D4D4] p-2 rounded-full text-[#171717] hidden sm:block"
+              >S. Sathiya</span
+            >
+            <button
+              class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- Back to Dashboard Link -->
+      <div class="w-full max-w-[1121px] mx-auto mb-4 sm:mb-5 md:mb-6 mt-5">
+        <button
+          onclick="window.location.href='dashboard.html'"
+          class="flex items-center gap-2 sm:gap-3 text-neutral-950 text-sm font-normal leading-5 hover:opacity-80 transition-opacity group"
+        >
+          <span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </span>
+          <span>Back to Dashboard</span>
+        </button>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="w-full max-w-[1116px] mx-auto">
+        <div class="flex flex-col lg:flex-row gap-4">
+          <!-- Left Column: Test Info and Instructions -->
+          <div class="flex-1 lg:max-w-[675px] flex flex-col gap-4">
+            <!-- Test Information Card -->
+            <div
+              class="bg-primary rounded-3xl p-4 sm:p-5 md:p-6 border border-grey-5 flex flex-col gap-4 sm:gap-5"
+            >
+              <!-- Top Row: Badge and Stats -->
+              <div
+                class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-8"
+              >
+                <!-- Advanced Badge -->
+                <div
+                  class="px-2.5 py-1.5 bg-yellow-50/20 rounded-full border border-grey-4 flex items-center justify-center"
+                >
+                  <span class="text-secondary text-xs font-normal leading-4"
+                    >Advanced</span
+                  >
+                </div>
+
+                <!-- Stats -->
+                <div class="flex flex-wrap items-center gap-4 sm:gap-8">
+                  <!-- 40 Questions -->
+                  <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-file-lines text-grey-1"></i>
+                    <span
+                      class="text-grey-1 text-sm sm:text-base font-normal leading-6"
+                      >40 Questions</span
+                    >
+                  </div>
+
+                  <!-- 60 Minutes -->
+                  <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-grey-1"></i>
+                    <span
+                      class="text-grey-1 text-sm sm:text-base font-normal leading-6 font-['Arial']"
+                      >60 Minutes</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Title and Description -->
+              <div class="flex flex-col gap-1 sm:gap-[5px]">
+                <h1
+                  class="text-secondary text-lg sm:text-xl font-semibold leading-6"
+                >
+                  Mock Test 3: Advanced Topics
+                </h1>
+                <p
+                  class="text-grey-4 text-sm sm:text-base font-normal leading-6"
+                >
+                  Prepare yourself for this assessment. Read the instructions
+                  carefully before starting.
+                </p>
+              </div>
+            </div>
+
+            <!-- Instructions Card -->
+            <div
+              class="bg-white rounded-3xl px-4 sm:px-6 pt-4 sm:pt-6 pb-4 border border-grey-5 flex flex-col gap-4"
+            >
+              <!-- Instructions Header -->
+              <h2
+                class="text-grey-9 text-base sm:text-lg font-semibold leading-6"
+              >
+                Instructions
+              </h2>
+
+              <!-- Instructions List -->
+              <div class="flex flex-col gap-3">
+                <!-- Instruction 1 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Read each question carefully and select the best answer from
+                    the options provided
+                  </p>
+                </div>
+
+                <!-- Instruction 2 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Use the question navigator on the right to jump between
+                    questions or filter by status
+                  </p>
+                </div>
+
+                <!-- Instruction 3 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Click "Mark for Review" to flag questions you want to
+                    revisit later
+                  </p>
+                </div>
+
+                <!-- Instruction 4 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    The "Next" button is enabled only after selecting an answer
+                  </p>
+                </div>
+
+                <!-- Instruction 5 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Use "Jump to..." for quick navigation to first, last, or
+                    first unanswered question
+                  </p>
+                </div>
+
+                <!-- Instruction 6 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Monitor your time using the timer on the right sidebar
+                  </p>
+                </div>
+
+                <!-- Instruction 7 -->
+                <div class="flex items-start gap-3 sm:gap-[18px]">
+                  <div
+                    class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+                  ></div>
+                  <p
+                    class="text-grey-7 text-sm sm:text-base font-normal leading-6 flex-1"
+                  >
+                    Once you submit, you cannot modify your answers
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Tips and Start Button -->
+          <div
+            class="flex-1 lg:max-w-[441px] flex flex-col justify-between gap-4"
+          >
+            <!-- Top Section: Info and Tips -->
+            <div class="flex flex-col gap-4">
+              <!-- Important Note Card -->
+              <div
+                class="bg-secondary rounded-xl p-4 sm:p-6 border border-grey-5 flex items-start gap-3 sm:gap-4"
+              >
+                <!-- Info Icon -->
+                <svg
+                  class="w-4 h-4 text-neutral-950 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.33"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 16v-4m0-4h.01"
+                  />
+                </svg>
+                <p
+                  class="text-slate-700 text-xs sm:text-sm font-normal leading-5 flex-1"
+                >
+                  Ensure you have a stable internet connection and 40 minutes of
+                  uninterrupted time before starting.
+                </p>
+              </div>
+
+              <!-- Quick Tips Card -->
+              <div
+                class="bg-white rounded-2xl px-4 sm:px-5 pt-4 sm:pt-5 pb-4 shadow-sm border border-grey-5 flex flex-col gap-3"
+              >
+                <!-- Quick Tips Header -->
+                <h3
+                  class="text-slate-900 text-sm sm:text-base font-normal leading-6"
+                >
+                  Quick Tips
+                </h3>
+
+                <!-- Tips List -->
+                <div class="flex flex-col gap-2.5">
+                  <!-- Tip 1 -->
+                  <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#009689]"></i>
+                    <p
+                      class="text-slate-600 text-sm font-normal leading-5 flex-1"
+                    >
+                      Answer all questions, even if you're unsure
+                    </p>
+                  </div>
+
+                  <!-- Tip 2 -->
+                  <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#009689]"></i>
+                    <p
+                      class="text-slate-600 text-sm font-normal leading-5 flex-1"
+                    >
+                      Use the color-coded navigator to track progress
+                    </p>
+                  </div>
+
+                  <!-- Tip 3 -->
+                  <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#009689]"></i>
+                    <p
+                      class="text-slate-600 text-sm font-normal leading-5 flex-1"
+                    >
+                      Review marked questions before submitting
+                    </p>
+                  </div>
+
+                  <!-- Tip 4 -->
+                  <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#009689]"></i>
+                    <p
+                      class="text-slate-600 text-sm font-normal leading-5 flex-1"
+                    >
+                      Keep an eye on the timer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Start Test Button -->
+            <button
+              id="startTestBtn"
+              class="w-full h-11 bg-grey-9 rounded-xl flex items-center justify-center gap-2 px-5 hover:bg-grey-8 transition-colors"
+            >
+              <!-- Lock Icon -->
+              <svg
+                class="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                stroke-width="1.33"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+              <span class="text-gray-100 text-sm sm:text-base font-medium"
+                >I'm Ready! Start Test</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/instructions.js"></script>
+  </body>
+</html>

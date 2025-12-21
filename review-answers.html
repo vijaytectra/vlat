@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Answers - VLAT</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8d191c",
+              secondary: "#FFF6E2",
+              grey: {
+                1: "#fafafa",
+                4: "#d4d4d4",
+                6: "#737373",
+                7: "#525252",
+                9: "#262626",
+                10: "#171717",
+              },
+              green: {
+                100: "#DCFCE7",
+                600: "#008236",
+              },
+              red: {
+                600: "#EE0006",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-['Inter'] bg-secondary min-h-screen">
+    <!-- Main Container -->
+    <div class="w-full min-h-screen py-4 sm:py-5 md:py-6 px-4">
+      <!-- HEADER -->
+      <header class="bg-[#FFFFFF] mt-5 border border-[#D4D4D4] rounded-3xl">
+        <div
+          class="max-w-6xl rounded-3xl mx-auto px-5 py-3 flex flex-wrap items-center justify-between gap-4"
+        >
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img src="images/logo1.svg" class="h-8" alt="VMLS" />
+            <div class="h-9 w-px bg-[#D4D4D4]"></div>
+            <img src="images/vlatlogo.svg" class="h-6" alt="VLAT" />
+          </div>
+
+          <!-- Right -->
+          <div class="flex items-center gap-4">
+            <img
+              src="images/vmrflogo.svg"
+              class="h-8 hidden md:block"
+              alt="VMLS"
+            />
+            <span
+              class="text-sm border border-[#D4D4D4] p-2 rounded-full text-[#171717] hidden sm:block"
+              >S. Sathiya</span
+            >
+            <button
+              class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="w-full max-w-6xl mx-auto mt-5">
+        <!-- Page Title -->
+        <div class="mb-6">
+          <h1
+            class="text-2xl sm:text-3xl font-semibold text-grey-10 mb-2"
+            id="reviewTitle"
+          >
+            Review Answers
+          </h1>
+          <p class="text-grey-7">
+            Detailed review of all questions and answers
+          </p>
+        </div>
+
+        <!-- Questions Review -->
+        <div class="bg-white rounded-3xl p-6 border border-grey-4 mb-6">
+          <div id="questionsReview" class="space-y-4">
+            <!-- Questions will be dynamically rendered here -->
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            id="backToResultsBtn"
+            onclick="window.history.back()"
+            class="px-6 py-3 bg-grey-9 text-white rounded-lg hover:bg-grey-8 transition font-medium"
+          >
+            <i class="fa-solid fa-arrow-left mr-2"></i>
+            Back to Results
+          </button>
+          <button
+            onclick="window.location.href='dashboard.html'"
+            class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-red-800 transition font-medium"
+          >
+            Back to Dashboard
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/review-answers.js"></script>
+  </body>
+</html>

@@ -1,0 +1,382 @@
+{
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Undergraduate Admissions Open for Academic Year 2026-27",
+      "description": "Applications are now being accepted for various undergraduate programs. Register early to secure your seat.",
+      "date": "Nov 22, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Admissions"],
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "New Scholarship Program Launched for Meritorious Students",
+      "description": "VMLS introduces a comprehensive scholarship program for students with outstanding academic performance.",
+      "date": "Nov 20, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Scholarships"],
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Updated Course Curriculum for 2026-27 Academic Year",
+      "description": "We have updated our curriculum to include the latest legal developments and AI-related legal studies.",
+      "date": "Nov 18, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Curriculum"],
+      "link": "#"
+    },
+    {
+      "id": 4,
+      "title": "New Faculty Members Join VMLS",
+      "description": "We are pleased to welcome distinguished legal scholars and practitioners to our faculty team.",
+      "date": "Nov 15, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Faculty"],
+      "link": "#"
+    },
+    {
+      "id": 5,
+      "title": "Campus Infrastructure Upgrades Completed",
+      "description": "New state-of-the-art facilities including digital library and smart classrooms are now operational.",
+      "date": "Nov 12, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Infrastructure"],
+      "link": "#"
+    },
+    {
+      "id": 6,
+      "title": "Partnership with Leading Law Firms Announced",
+      "description": "VMLS partners with top law firms to provide internship and placement opportunities for students.",
+      "date": "Nov 10, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Partnerships"],
+      "link": "#"
+    },
+    {
+      "id": 7,
+      "title": "Online Application Portal Now Live",
+      "description": "Apply for VLAT 2026 through our new streamlined online application portal with enhanced features.",
+      "date": "Nov 8, 2025",
+      "category": "Updates",
+      "tags": ["Updates", "Admissions"],
+      "link": "#"
+    },
+    {
+      "id": 8,
+      "title": "Annual Legal Fest 2026 - Registration Open",
+      "description": "Join us for the biggest legal fest of the year featuring moot court competitions, seminars, and networking events.",
+      "date": "Dec 1, 2025",
+      "category": "Events",
+      "tags": ["Events", "Legal Fest"],
+      "link": "#"
+    },
+    {
+      "id": 9,
+      "title": "Guest Lecture Series: Constitutional Law in Modern India",
+      "description": "Renowned constitutional experts will deliver a series of lectures on contemporary constitutional issues.",
+      "date": "Nov 28, 2025",
+      "category": "Events",
+      "tags": ["Events", "Lectures"],
+      "link": "#"
+    },
+    {
+      "id": 10,
+      "title": "Moot Court Competition 2026 - Team Registrations",
+      "description": "Participate in our prestigious moot court competition. Team registrations are now open for all law schools.",
+      "date": "Nov 25, 2025",
+      "category": "Events",
+      "tags": ["Events", "Competition"],
+      "link": "#"
+    },
+    {
+      "id": 11,
+      "title": "Career Fair 2026 - Meet Top Legal Recruiters",
+      "description": "Connect with leading law firms, corporate legal departments, and government agencies at our annual career fair.",
+      "date": "Nov 23, 2025",
+      "category": "Events",
+      "tags": ["Events", "Career"],
+      "link": "#"
+    },
+    {
+      "id": 12,
+      "title": "Workshop on Legal Research and Writing",
+      "description": "Enhance your legal research and writing skills with our intensive workshop conducted by expert practitioners.",
+      "date": "Nov 21, 2025",
+      "category": "Events",
+      "tags": ["Events", "Workshop"],
+      "link": "#"
+    },
+    {
+      "id": 13,
+      "title": "Alumni Meet 2026 - Save the Date",
+      "description": "Join us for the annual alumni reunion to reconnect with fellow graduates and celebrate achievements.",
+      "date": "Nov 19, 2025",
+      "category": "Events",
+      "tags": ["Events", "Alumni"],
+      "link": "#"
+    },
+    {
+      "id": 14,
+      "title": "International Law Conference: Global Perspectives",
+      "description": "Attend our international conference featuring speakers from around the world discussing global legal trends.",
+      "date": "Nov 17, 2025",
+      "category": "Events",
+      "tags": ["Events", "Conference"],
+      "link": "#"
+    },
+    {
+      "id": 15,
+      "title": "VMLS Ranked Among Top 10 Law Schools in South India",
+      "description": "We are proud to announce that VMLS has been ranked among the top 10 law schools in South India by leading education rankings.",
+      "date": "Nov 16, 2025",
+      "category": "News",
+      "tags": ["News", "Rankings"],
+      "link": "#"
+    },
+    {
+      "id": 16,
+      "title": "Student Wins National Moot Court Championship",
+      "description": "Congratulations to our student team for winning the prestigious National Moot Court Championship 2025.",
+      "date": "Nov 14, 2025",
+      "category": "News",
+      "tags": ["News", "Achievement"],
+      "link": "#"
+    },
+    {
+      "id": 17,
+      "title": "Research Paper Published in International Journal",
+      "description": "Faculty research on AI and Law published in a leading international legal journal, showcasing academic excellence.",
+      "date": "Nov 13, 2025",
+      "category": "News",
+      "tags": ["News", "Research"],
+      "link": "#"
+    },
+    {
+      "id": 18,
+      "title": "VMLS Signs MoU with International Law School",
+      "description": "Memorandum of Understanding signed with a leading international law school for student exchange programs.",
+      "date": "Nov 11, 2025",
+      "category": "News",
+      "tags": ["News", "Partnership"],
+      "link": "#"
+    },
+    {
+      "id": 19,
+      "title": "100% Placement Record for 2025 Graduating Batch",
+      "description": "All students from the 2025 graduating batch have secured placements in top law firms and organizations.",
+      "date": "Nov 9, 2025",
+      "category": "News",
+      "tags": ["News", "Placements"],
+      "link": "#"
+    },
+    {
+      "id": 20,
+      "title": "New Legal Aid Clinic Inaugurated",
+      "description": "VMLS opens a new legal aid clinic to provide free legal services to underprivileged communities.",
+      "date": "Nov 7, 2025",
+      "category": "News",
+      "tags": ["News", "Legal Aid"],
+      "link": "#"
+    },
+    {
+      "id": 21,
+      "title": "Student Publication Wins Best Law Review Award",
+      "description": "Our student-run law review has been recognized as the best student publication in the country.",
+      "date": "Nov 5, 2025",
+      "category": "News",
+      "tags": ["News", "Publication"],
+      "link": "#"
+    },
+    {
+      "id": 22,
+      "title": "VLAT 2026 Application Deadline Extended",
+      "description": "The application deadline for VLAT 2026 has been extended to December 15, 2025. Apply now to secure your seat.",
+      "date": "Dec 5, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "VLAT"],
+      "link": "#"
+    },
+    {
+      "id": 23,
+      "title": "Eligibility Criteria Updated for 2026-27 Admissions",
+      "description": "Review the updated eligibility criteria for undergraduate and postgraduate law programs at VMLS.",
+      "date": "Dec 3, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Eligibility"],
+      "link": "#"
+    },
+    {
+      "id": 24,
+      "title": "Admission Counseling Sessions Available",
+      "description": "Book a one-on-one counseling session with our admission team to get guidance on your application process.",
+      "date": "Dec 1, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Counseling"],
+      "link": "#"
+    },
+    {
+      "id": 25,
+      "title": "Document Verification Process Guidelines",
+      "description": "Important guidelines for document verification during the admission process. Ensure all documents are ready.",
+      "date": "Nov 29, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Documents"],
+      "link": "#"
+    },
+    {
+      "id": 26,
+      "title": "Fee Structure and Payment Plans for 2026-27",
+      "description": "Detailed information about fee structure, payment plans, and financial assistance options available.",
+      "date": "Nov 27, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Fees"],
+      "link": "#"
+    },
+    {
+      "id": 27,
+      "title": "Campus Tour Schedule for Prospective Students",
+      "description": "Schedule a campus tour to explore our facilities, meet faculty, and experience the VMLS environment.",
+      "date": "Nov 25, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Campus Tour"],
+      "link": "#"
+    },
+    {
+      "id": 28,
+      "title": "Admission Test Sample Papers Available",
+      "description": "Download sample papers and practice tests for VLAT 2026 to prepare effectively for the examination.",
+      "date": "Nov 23, 2025",
+      "category": "Admissions",
+      "tags": ["Admissions", "Preparation"],
+      "link": "#"
+    },
+    {
+      "id": 29,
+      "title": "VLAT 2026 Examination Schedule Released",
+      "description": "The complete examination schedule for VLAT 2026 has been published. Check your exam date and venue.",
+      "date": "Dec 10, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Schedule"],
+      "link": "#"
+    },
+    {
+      "id": 30,
+      "title": "Admit Card Download Available from December 1",
+      "description": "Candidates can download their VLAT 2026 admit cards from December 1, 2025. Keep your login credentials ready.",
+      "date": "Nov 30, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Admit Card"],
+      "link": "#"
+    },
+    {
+      "id": 31,
+      "title": "Examination Pattern and Marking Scheme Updated",
+      "description": "Important updates to the VLAT examination pattern and marking scheme for 2026. Review before the exam.",
+      "date": "Nov 28, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Pattern"],
+      "link": "#"
+    },
+    {
+      "id": 32,
+      "title": "Mock Test Series Available Online",
+      "description": "Practice with our comprehensive mock test series designed to help you prepare for VLAT 2026 effectively.",
+      "date": "Nov 26, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Mock Test"],
+      "link": "#"
+    },
+    {
+      "id": 33,
+      "title": "Result Declaration Date Announced",
+      "description": "VLAT 2026 results will be declared on January 15, 2026. Stay tuned for updates and result links.",
+      "date": "Nov 24, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Results"],
+      "link": "#"
+    },
+    {
+      "id": 34,
+      "title": "Examination Centers List Published",
+      "description": "Complete list of examination centers for VLAT 2026 across various cities. Choose your preferred center.",
+      "date": "Nov 22, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Centers"],
+      "link": "#"
+    },
+    {
+      "id": 35,
+      "title": "Important Instructions for Examination Day",
+      "description": "Read the important instructions and guidelines to follow on the day of your VLAT 2026 examination.",
+      "date": "Nov 20, 2025",
+      "category": "Examinations",
+      "tags": ["Examinations", "Instructions"],
+      "link": "#"
+    },
+    {
+      "id": 36,
+      "title": "Merit-Based Scholarship Applications Open",
+      "description": "Apply for merit-based scholarships covering up to 100% tuition fees for outstanding academic performance.",
+      "date": "Dec 8, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Merit"],
+      "link": "#"
+    },
+    {
+      "id": 37,
+      "title": "Need-Based Financial Aid Program",
+      "description": "Financial assistance available for students from economically disadvantaged backgrounds. Apply now.",
+      "date": "Dec 6, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Financial Aid"],
+      "link": "#"
+    },
+    {
+      "id": 38,
+      "title": "Sports and Cultural Excellence Scholarships",
+      "description": "Scholarships available for students with exceptional achievements in sports, arts, and cultural activities.",
+      "date": "Dec 4, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Sports"],
+      "link": "#"
+    },
+    {
+      "id": 39,
+      "title": "Alumni Sponsored Scholarship Fund",
+      "description": "Generous contributions from alumni enable additional scholarship opportunities for deserving students.",
+      "date": "Dec 2, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Alumni"],
+      "link": "#"
+    },
+    {
+      "id": 40,
+      "title": "Corporate Partnership Scholarships",
+      "description": "Scholarships sponsored by leading corporate partners for students pursuing specialized legal studies.",
+      "date": "Nov 30, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Corporate"],
+      "link": "#"
+    },
+    {
+      "id": 41,
+      "title": "Scholarship Renewal Process for Existing Students",
+      "description": "Information about scholarship renewal criteria and application process for current scholarship recipients.",
+      "date": "Nov 28, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "Renewal"],
+      "link": "#"
+    },
+    {
+      "id": 42,
+      "title": "International Student Scholarship Program",
+      "description": "Special scholarship opportunities for international students seeking to study law at VMLS.",
+      "date": "Nov 26, 2025",
+      "category": "Scholarships",
+      "tags": ["Scholarships", "International"],
+      "link": "#"
+    }
+  ]
+}

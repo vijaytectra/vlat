@@ -23,7 +23,7 @@ export function createHeader(isDashboard = false) {
             <a href="index.html" class="text-grey-7 hover:text-primary transition-colors">Home</a>
             <a href="about-vlat.html" class="text-grey-7 hover:text-primary transition-colors">About VLAT</a>
             <a href="about-vmls.html" class="text-grey-7 hover:text-primary transition-colors">About VMLS</a>
-            <a href="blog.html" class="text-grey-7 hover:text-primary transition-colors">Blog</a>
+            <a href="blogs.html" class="text-grey-7 hover:text-primary transition-colors">Blog</a>
             <a href="how-to-register.html" class="text-grey-7 hover:text-primary transition-colors">How to Register</a>
             <a href="contact.html" class="text-grey-7 hover:text-primary transition-colors">Contact</a>
           </nav>
@@ -61,7 +61,7 @@ export function createHeader(isDashboard = false) {
             <a href="index.html" class="text-grey-7 hover:text-primary">Home</a>
             <a href="about-vlat.html" class="text-grey-7 hover:text-primary">About VLAT</a>
             <a href="about-vmls.html" class="text-grey-7 hover:text-primary">About VMLS</a>
-            <a href="blog.html" class="text-grey-7 hover:text-primary">Blog</a>
+            <a href="blogs.html" class="text-grey-7 hover:text-primary">Blog</a>
             <a href="how-to-register.html" class="text-grey-7 hover:text-primary">How to Register</a>
             <a href="contact.html" class="text-grey-7 hover:text-primary">Contact</a>
             <div class="pt-4 border-t border-grey-4">
@@ -184,7 +184,7 @@ export function createFooter() {
                 <!-- Links -->
                 <ul class="flex flex-col gap-[18px]">
                   <li>
-                    <a href="blog.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Blogs</a>
+                    <a href="blogs.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Blogs</a>
                   </li>
                   <li>
                     <a href="contact.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Contact Us</a>
