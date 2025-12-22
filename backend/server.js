@@ -14,8 +14,25 @@ connectDB();
 const app = express();
 
 // CORS configuration
+// For cross-origin cookies to work, the origin must match exactly (no wildcards)
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:5500",
+  "http://127.0.0.1:5500",
+  "http://localhost:5501",
+  "http://127.0.0.1:5501",
+].filter(Boolean);
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:5500",
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.) or from allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log("CORS blocked origin:", origin);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -27,6 +44,10 @@ app.use(cors(corsOptions));
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Trust proxy - REQUIRED for secure cookies behind reverse proxy (Render, Heroku, etc.)
+// This must be set BEFORE session middleware
+app.set("trust proxy", 1);
 
 // Session configuration
 app.use(
@@ -40,20 +61,13 @@ app.use(
     }),
     cookie: {
       httpOnly: true,
-      // In production with HTTPS, use secure: true and sameSite: "none" for cross-origin
-      // In development or same-origin, use secure: false and sameSite: "lax"
-      secure:
-        process.env.NODE_ENV === "production" &&
-        process.env.FORCE_SECURE_COOKIE !== "false",
-      sameSite:
-        process.env.NODE_ENV === "production" &&
-        process.env.FORCE_SECURE_COOKIE !== "false"
-          ? "none"
-          : "lax",
+      // For cross-origin requests (frontend on different domain than backend):
+      // - secure: true is REQUIRED (cookies only sent over HTTPS)
+      // - sameSite: "none" is REQUIRED (allow cross-origin cookies)
+      // In development (localhost), we can use lax with secure: false
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      // Don't set domain unless you need to share cookies across subdomains
-      // Setting domain can cause issues with cross-origin requests
-      domain: process.env.COOKIE_DOMAIN || undefined,
     },
   })
 );
@@ -80,15 +94,15 @@ app.get("/api/debug/session", (req, res) => {
       sessionId: req.sessionID,
       userId: req.session?.userId || null,
       cookies: req.headers.cookie || "no cookies",
+      origin: req.headers.origin || "no origin",
       cookieSettings: {
-        secure:
-          process.env.NODE_ENV === "production" &&
-          process.env.FORCE_SECURE_COOKIE !== "false",
-        sameSite:
-          process.env.NODE_ENV === "production" &&
-          process.env.FORCE_SECURE_COOKIE !== "false"
-            ? "none"
-            : "lax",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      },
+      environment: {
+        nodeEnv: process.env.NODE_ENV || "not set",
+        frontendUrl: process.env.FRONTEND_URL || "not set",
+        trustProxy: app.get("trust proxy"),
       },
     },
   });
