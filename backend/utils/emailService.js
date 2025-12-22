@@ -1,33 +1,20 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-// Create transporter for Gmail SMTP
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.EMAIL_PORT) || 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // Gmail app password
-    },
-    // Add timeout configuration to prevent hanging
-    connectionTimeout: 10000, // 10 seconds
-    greetingTimeout: 10000, // 10 seconds
-    socketTimeout: 10000, // 10 seconds
-  });
-};
+// Initialize Resend client
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
   try {
-    const transporter = createTransporter();
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const resetLink = `${frontendUrl}/reset-password.html?token=${resetToken}&email=${encodeURIComponent(
       userEmail
     )}`;
 
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+    const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
+
+    const { data, error } = await resend.emails.send({
+      from: emailFrom,
       to: userEmail,
       subject: "VLAT - Password Reset Request",
       html: `
@@ -153,40 +140,37 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
         </body>
         </html>
       `,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Password reset email sent:", info.messageId);
-    return { success: true, messageId: info.messageId };
-  } catch (error) {
-    // Log error details but don't expose sensitive information
-    const errorMessage =
-      error.code === "ETIMEDOUT"
-        ? "Email service timeout - email may be sent later"
-        : error.code === "ECONNREFUSED"
-        ? "Email service connection refused"
-        : "Failed to send password reset email";
-
-    console.error("Error sending password reset email:", {
-      code: error.code,
-      command: error.command,
-      message: errorMessage,
     });
 
-    // Don't throw - let the caller handle it gracefully
-    throw new Error(errorMessage);
+    if (error) {
+      console.error("Resend API error:", error);
+      throw new Error(error.message || "Failed to send password reset email");
+    }
+
+    console.log("Password reset email sent:", data?.id);
+    return { success: true, messageId: data?.id };
+  } catch (error) {
+    console.error("Error sending password reset email:", {
+      message: error.message,
+      error: error,
+    });
+
+    throw new Error(
+      error.message ||
+        "Failed to send password reset email. Please try again later."
+    );
   }
 };
 
 // Send welcome email with VLAT ID
 const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
   try {
-    const transporter = createTransporter();
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const loginUrl = `${frontendUrl}/login.html`;
+    const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
 
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+    const { data, error } = await resend.emails.send({
+      from: emailFrom,
       to: userEmail,
       subject: "Welcome to VLAT - Your Registration is Complete!",
       html: `
@@ -399,28 +383,24 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
         </body>
         </html>
       `,
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Welcome email sent:", info.messageId);
-    return { success: true, messageId: info.messageId };
-  } catch (error) {
-    // Log error details but don't expose sensitive information
-    const errorMessage =
-      error.code === "ETIMEDOUT"
-        ? "Email service timeout - email may be sent later"
-        : error.code === "ECONNREFUSED"
-        ? "Email service connection refused"
-        : "Failed to send welcome email";
-
-    console.error("Error sending welcome email:", {
-      code: error.code,
-      command: error.command,
-      message: errorMessage,
     });
 
-    // Don't throw - let the caller handle it gracefully
-    throw new Error(errorMessage);
+    if (error) {
+      console.error("Resend API error:", error);
+      throw new Error(error.message || "Failed to send welcome email");
+    }
+
+    console.log("Welcome email sent:", data?.id);
+    return { success: true, messageId: data?.id };
+  } catch (error) {
+    console.error("Error sending welcome email:", {
+      message: error.message,
+      error: error,
+    });
+
+    throw new Error(
+      error.message || "Failed to send welcome email. Please try again later."
+    );
   }
 };
 

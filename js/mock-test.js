@@ -16,7 +16,7 @@ import {
   showInput,
   showSubmitConfirm,
 } from "./modal.js";
-import { logout } from "./auth.js";
+import { logout, getUserData } from "./auth.js";
 
 // Test state
 let testState = {
@@ -103,6 +103,9 @@ export async function initializeTest() {
 
   // Setup logout button
   setupLogoutButton();
+
+  // Load user data to display username
+  await loadUserData();
 
   // Setup event listeners
   setupEventListeners();
@@ -767,6 +770,28 @@ function setupEventListeners() {
     }
   };
   window.addEventListener("beforeunload", beforeUnloadHandler);
+}
+
+/**
+ * Load and display user data
+ */
+async function loadUserData() {
+  try {
+    const result = await getUserData();
+
+    if (result.success && result.user) {
+      const user = result.user;
+
+      // Update user name in header
+      const userNameHeader = document.getElementById("userNameHeader");
+      if (userNameHeader) {
+        userNameHeader.textContent = user.name;
+      }
+    }
+  } catch (error) {
+    console.error("Error loading user data:", error);
+    // Don't block page load if user data fails
+  }
 }
 
 /**

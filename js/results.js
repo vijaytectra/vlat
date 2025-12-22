@@ -8,7 +8,7 @@ import {
   getProgressFromBackend,
   getAllProgressFromBackend,
 } from "./test-state.js";
-import { logout } from "./auth.js";
+import { logout, getUserData } from "./auth.js";
 
 // Store current test data for button handlers
 let currentSetId = null;
@@ -78,6 +78,31 @@ async function initializeResults() {
 
   // Display results
   displayResults(mockSet, progress);
+
+  // Load user data to display username
+  await loadUserData();
+}
+
+/**
+ * Load and display user data
+ */
+async function loadUserData() {
+  try {
+    const result = await getUserData();
+
+    if (result.success && result.user) {
+      const user = result.user;
+
+      // Update user name in header
+      const userNameHeader = document.getElementById("userNameHeader");
+      if (userNameHeader) {
+        userNameHeader.textContent = user.name;
+      }
+    }
+  } catch (error) {
+    console.error("Error loading user data:", error);
+    // Don't block page load if user data fails
+  }
 }
 
 /**

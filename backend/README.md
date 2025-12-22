@@ -21,12 +21,10 @@ SESSION_SECRET=your-secret-key-change-this-in-production
 PORT=3000
 FRONTEND_URL=http://localhost:5500
 
-# Email Configuration (for password reset)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-gmail-app-password
-EMAIL_FROM=your-email@gmail.com
+# Email Configuration (using Resend)
+RESEND_API_KEY=re_your_resend_api_key_here
+EMAIL_FROM=onboarding@resend.dev
+# Note: For production, verify your domain in Resend and use your verified email
 ```
 
 **For Production (Render):**
@@ -35,11 +33,8 @@ EMAIL_FROM=your-email@gmail.com
 - `SESSION_SECRET`: A strong random string (generate using `openssl rand -base64 32`)
 - `PORT`: Render will set this automatically
 - `FRONTEND_URL`: Your frontend URL (e.g., `https://your-frontend.netlify.app`)
-- `EMAIL_HOST`: smtp.gmail.com (for Gmail)
-- `EMAIL_PORT`: 587
-- `EMAIL_USER`: Your Gmail address
-- `EMAIL_PASS`: Gmail app password (not your regular password - see Gmail Setup below)
-- `EMAIL_FROM`: Sender email address (usually same as EMAIL_USER)
+- `RESEND_API_KEY`: Your Resend API key (get from https://resend.com/api-keys)
+- `EMAIL_FROM`: Sender email address (use `onboarding@resend.dev` for testing, or your verified domain email for production)
 
 ### 3. Run the Server
 
@@ -104,6 +99,8 @@ Add the following environment variables in Render:
 - `SESSION_SECRET` - A strong random secret
 - `FRONTEND_URL` - Your frontend URL
 - `NODE_ENV` - Set to `production`
+- `RESEND_API_KEY` - Your Resend API key
+- `EMAIL_FROM` - Sender email (use `onboarding@resend.dev` for testing)
 
 ### 4. MongoDB Atlas Setup
 
@@ -138,17 +135,33 @@ backend/
 └── .env                 # Environment variables (not committed)
 ```
 
-## Gmail Setup for Password Reset
+## Resend Email Service Setup
 
-To enable password reset emails, you need to set up a Gmail app password:
+This project uses [Resend](https://resend.com) for sending emails (welcome emails and password reset emails).
 
-1. Go to your Google Account settings
-2. Enable 2-Step Verification (required for app passwords)
-3. Go to "App passwords" section
-4. Generate a new app password for "Mail"
-5. Use this app password (not your regular Gmail password) as `EMAIL_PASS` in your `.env` file
+### Getting Started
 
-**Important:** Never use your regular Gmail password. Always use an app password for security.
+1. Sign up for a free account at [resend.com](https://resend.com)
+2. Go to [API Keys](https://resend.com/api-keys) and create a new API key
+3. Copy your API key and set it as `RESEND_API_KEY` in your environment variables
+
+### For Development/Testing
+
+- Use `onboarding@resend.dev` as your `EMAIL_FROM` address (this works out of the box)
+- Free tier: 100 emails per day
+
+### For Production
+
+1. Verify your domain in Resend dashboard
+2. Update `EMAIL_FROM` to use your verified domain (e.g., `noreply@yourdomain.com`)
+3. This improves deliverability and allows you to send more emails
+
+**Benefits of Resend:**
+
+- ✅ More reliable than SMTP on cloud hosting (no connection timeouts)
+- ✅ Better deliverability
+- ✅ Easy to set up (no SMTP configuration needed)
+- ✅ Works great on Render, Heroku, Vercel, etc.
 
 ## Notes
 
