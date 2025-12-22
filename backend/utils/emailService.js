@@ -1,20 +1,76 @@
 const nodemailer = require("nodemailer");
 
 /**
- * Email Service using Nodemailer
- * Supports: Gmail SMTP, SendGrid SMTP, SendGrid API, and custom SMTP
+ * Email Service using multiple providers
+ * Priority: Brevo API > SendGrid API > SMTP
  *
- * IMPORTANT: Cloud providers like Render block SMTP ports (25, 465, 587)
- * For cloud hosting, use SendGrid API mode by setting:
- *   SENDGRID_API_KEY=your-api-key
+ * For cloud hosting (Render/Heroku/Vercel), use API-based providers:
+ *   - BREVO_API_KEY (recommended - 300 free emails/day)
+ *   - SENDGRID_API_KEY (100 free emails/day)
  *
- * For local development, SMTP works fine:
- *   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
+ * For local development, SMTP works:
+ *   - SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
  */
 
 /**
+ * Send email using Brevo (Sendinblue) HTTP API
+ * Free tier: 300 emails/day - works on cloud providers
+ * @param {Object} options - Email options
+ * @returns {Promise<Object>} Send result
+ */
+const sendWithBrevoAPI = async (options) => {
+  const apiKey = process.env.BREVO_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("BREVO_API_KEY environment variable is required");
+  }
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      "api-key": apiKey,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      sender: {
+        name: options.fromName || "VLAT Exam",
+        email: options.fromEmail,
+      },
+      to: [
+        {
+          email: options.to,
+        },
+      ],
+      subject: options.subject,
+      htmlContent: options.html,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    console.error("[Email Service] Brevo API error:", {
+      status: response.status,
+      statusText: response.statusText,
+      body: errorData,
+    });
+    throw new Error(
+      `Brevo API error: ${response.status} - ${
+        errorData.message || response.statusText
+      }`
+    );
+  }
+
+  const data = await response.json();
+  return {
+    success: true,
+    messageId: data.messageId || "brevo-accepted",
+  };
+};
+
+/**
  * Send email using SendGrid's HTTP API
- * This bypasses SMTP port blocking on cloud providers
+ * Free tier: 100 emails/day - works on cloud providers
  * @param {Object} options - Email options
  * @returns {Promise<Object>} Send result
  */
@@ -63,7 +119,6 @@ const sendWithSendGridAPI = async (options) => {
     );
   }
 
-  // SendGrid returns 202 Accepted with no body on success
   return {
     success: true,
     messageId: response.headers.get("x-message-id") || "sendgrid-accepted",
@@ -72,7 +127,7 @@ const sendWithSendGridAPI = async (options) => {
 
 /**
  * Send email using SMTP (Nodemailer)
- * Works locally but may be blocked on cloud providers
+ * Works locally but blocked on most cloud providers
  * @param {Object} options - Email options
  * @returns {Promise<Object>} Send result
  */
@@ -85,8 +140,7 @@ const sendWithSMTP = async (options) => {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASSWORD,
     },
-    // Increase timeout for slow connections
-    connectionTimeout: 30000, // 30 seconds
+    connectionTimeout: 30000,
     greetingTimeout: 30000,
     socketTimeout: 60000,
   };
@@ -99,7 +153,6 @@ const sendWithSMTP = async (options) => {
 
   const transporter = nodemailer.createTransport(smtpConfig);
 
-  // Verify connection (skip in production to avoid timeout)
   if (process.env.NODE_ENV !== "production") {
     try {
       await transporter.verify();
@@ -122,25 +175,31 @@ const sendWithSMTP = async (options) => {
 
 /**
  * Send email using the best available method
- * Priority: SendGrid API > SMTP
+ * Priority: Brevo API > SendGrid API > SMTP
  * @param {Object} options - Email options
  * @returns {Promise<Object>} Send result
  */
 const sendEmail = async (options) => {
-  // Use SendGrid API if configured (works on cloud providers)
+  // Priority 1: Brevo API (300 free emails/day, works on cloud)
+  if (process.env.BREVO_API_KEY) {
+    console.log("[Email Service] Using Brevo API");
+    return await sendWithBrevoAPI(options);
+  }
+
+  // Priority 2: SendGrid API (100 free emails/day, works on cloud)
   if (process.env.SENDGRID_API_KEY) {
     console.log("[Email Service] Using SendGrid API");
     return await sendWithSendGridAPI(options);
   }
 
-  // Fall back to SMTP (works locally, may fail on cloud)
+  // Priority 3: SMTP (works locally, blocked on most cloud providers)
   if (process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
     console.log("[Email Service] Using SMTP");
     return await sendWithSMTP(options);
   }
 
   throw new Error(
-    "No email configuration found. Set either SENDGRID_API_KEY or SMTP_USER/SMTP_PASSWORD"
+    "No email configuration found. Set BREVO_API_KEY, SENDGRID_API_KEY, or SMTP credentials."
   );
 };
 
@@ -197,10 +256,6 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
               text-align: center;
               margin-bottom: 30px;
             }
-            .logo {
-              max-width: 150px;
-              margin-bottom: 20px;
-            }
             h1 {
               color: #8D191C;
               font-size: 24px;
@@ -226,9 +281,6 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
               border-radius: 8px;
               font-weight: 600;
               font-size: 16px;
-            }
-            .reset-button:hover {
-              background-color: #6d1316;
             }
             .link-text {
               word-break: break-all;
@@ -355,10 +407,6 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
               padding-bottom: 20px;
               border-bottom: 2px solid #8D191C;
             }
-            .logo {
-              max-width: 150px;
-              margin-bottom: 20px;
-            }
             h1 {
               color: #8D191C;
               font-size: 28px;
@@ -439,10 +487,6 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
               border-radius: 8px;
               font-weight: 600;
               font-size: 16px;
-              transition: background-color 0.3s;
-            }
-            .login-button:hover {
-              background-color: #6d1316;
             }
             .footer {
               margin-top: 30px;
@@ -465,9 +509,6 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
             .contact-info a {
               color: #8D191C;
               text-decoration: none;
-            }
-            .contact-info a:hover {
-              text-decoration: underline;
             }
             .highlight {
               color: #8D191C;
