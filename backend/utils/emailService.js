@@ -21,9 +21,24 @@ const nodemailer = require("nodemailer");
 const sendWithBrevoAPI = async (options) => {
   const apiKey = process.env.BREVO_API_KEY;
 
+  // Validate API key exists
   if (!apiKey) {
-    throw new Error("BREVO_API_KEY environment variable is required");
+    throw new Error(
+      "BREVO_API_KEY environment variable is not set. Please add it in Render dashboard → Environment → Add Environment Variable."
+    );
   }
+
+  // Validate API key format (Brevo keys start with 'xkeysib-' and are ~70 chars)
+  if (!apiKey.startsWith("xkeysib-") || apiKey.length < 60) {
+    console.warn(
+      "[Email Service] Warning: Brevo API key format looks incorrect. Should start with 'xkeysib-' and be ~70 characters long."
+    );
+  }
+
+  // Log first 10 chars for debugging (never log full key)
+  console.log(
+    `[Email Service] Using Brevo API key: ${apiKey.substring(0, 10)}...`
+  );
 
   const response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
@@ -53,7 +68,26 @@ const sendWithBrevoAPI = async (options) => {
       status: response.status,
       statusText: response.statusText,
       body: errorData,
+      apiKeyPrefix: apiKey.substring(0, 10) + "...",
     });
+
+    // Provide helpful error messages
+    if (response.status === 401) {
+      if (errorData.message === "Key not found") {
+        throw new Error(
+          "Brevo API key is invalid or not found. Please verify:\n" +
+            "1. Go to https://app.brevo.com/settings/keys/api\n" +
+            "2. Create a new API key with 'Send emails' permission\n" +
+            "3. Copy the full key (starts with 'xkeysib-')\n" +
+            "4. Add it to Render as BREVO_API_KEY environment variable\n" +
+            "5. Redeploy your service"
+        );
+      }
+      throw new Error(
+        `Brevo API authentication failed. Check your API key is correct and has 'Send emails' permission.`
+      );
+    }
+
     throw new Error(
       `Brevo API error: ${response.status} - ${
         errorData.message || response.statusText
