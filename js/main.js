@@ -390,6 +390,35 @@ function initTimer() {
   }
 }
 
+// Scroll to Top Button
+function initScrollToTop() {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  if (!scrollToTopBtn) return;
+
+  // Show/hide button based on scroll position
+  function toggleScrollButton() {
+    if (window.scrollY >= 300) {
+      scrollToTopBtn.classList.add("visible");
+    } else {
+      scrollToTopBtn.classList.remove("visible");
+    }
+  }
+
+  // Initial check
+  toggleScrollButton();
+
+  // Listen for scroll events
+  window.addEventListener("scroll", toggleScrollButton);
+
+  // Smooth scroll to top on button click
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
 // Initialize all functions on DOM load
 document.addEventListener("DOMContentLoaded", () => {
   initAnnouncementsSidebar();
@@ -399,6 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFormValidation();
   initQuestionNavigator();
   initTimer();
+  initScrollToTop();
 });
 
 // Close modals on outside click

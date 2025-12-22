@@ -93,6 +93,29 @@
   .topic-filter.active-topic i {
     @apply text-[#8D191C];
   }
+
+  /* Scroll to Top Button */
+  .scroll-to-top-btn {
+    @apply fixed bottom-5 right-5 z-40 w-12 h-12 bg-[#B2523D] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ease-in-out;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    display: flex;
+  }
+
+  .scroll-to-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .scroll-to-top-btn:hover {
+    @apply bg-opacity-90 scale-110 shadow-xl;
+  }
+
+  .scroll-to-top-btn i {
+    @apply text-lg md:text-xl;
+  }
 }
 
 @layer utilities {
@@ -106,12 +129,12 @@
   }
 
   .announcements-scrollbar::-webkit-scrollbar-thumb {
-    background: #A3A3A3;
+    background: #a3a3a3;
     border-radius: 3px;
   }
 
   .announcements-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #A3A3A3;
+    background: #a3a3a3;
   }
 
   /* Mobile Menu Scrollbar */
