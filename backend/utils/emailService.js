@@ -1,48 +1,151 @@
 const nodemailer = require("nodemailer");
 
 /**
- * Creates and returns a configured Nodemailer transporter
- * Supports multiple SMTP providers: Gmail, SendGrid, custom SMTP
- * @returns {Promise<Object>} Configured transporter
+ * Email Service using Nodemailer
+ * Supports: Gmail SMTP, SendGrid SMTP, SendGrid API, and custom SMTP
+ *
+ * IMPORTANT: Cloud providers like Render block SMTP ports (25, 465, 587)
+ * For cloud hosting, use SendGrid API mode by setting:
+ *   SENDGRID_API_KEY=your-api-key
+ *
+ * For local development, SMTP works fine:
+ *   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
  */
-const createTransporter = async () => {
-  // SMTP configuration from environment variables
-  const smtpConfig = {
-    host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.SMTP_PORT || "587", 10),
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASSWORD, // App password for Gmail, API key for SendGrid
+
+/**
+ * Send email using SendGrid's HTTP API
+ * This bypasses SMTP port blocking on cloud providers
+ * @param {Object} options - Email options
+ * @returns {Promise<Object>} Send result
+ */
+const sendWithSendGridAPI = async (options) => {
+  const apiKey = process.env.SENDGRID_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("SENDGRID_API_KEY environment variable is required");
+  }
+
+  const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      personalizations: [
+        {
+          to: [{ email: options.to }],
+        },
+      ],
+      from: {
+        email: options.fromEmail,
+        name: options.fromName || "VLAT Exam",
+      },
+      subject: options.subject,
+      content: [
+        {
+          type: "text/html",
+          value: options.html,
+        },
+      ],
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("[Email Service] SendGrid API error:", {
+      status: response.status,
+      statusText: response.statusText,
+      body: errorText,
+    });
+    throw new Error(
+      `SendGrid API error: ${response.status} ${response.statusText}`
+    );
+  }
+
+  // SendGrid returns 202 Accepted with no body on success
+  return {
+    success: true,
+    messageId: response.headers.get("x-message-id") || "sendgrid-accepted",
   };
-
-  // Validate required SMTP credentials
-  if (!smtpConfig.auth.user || !smtpConfig.auth.pass) {
-    throw new Error(
-      "SMTP configuration missing. Required environment variables: SMTP_USER, SMTP_PASSWORD"
-    );
-  }
-
-  // Create transporter
-  const transporter = nodemailer.createTransport(smtpConfig);
-
-  // Verify connection
-  try {
-    await transporter.verify();
-    console.log("[Email Service] SMTP connection verified successfully");
-  } catch (error) {
-    console.error("[Email Service] SMTP connection failed:", error.message);
-    throw new Error(
-      `SMTP connection failed: ${error.message}. Check your SMTP credentials and configuration.`
-    );
-  }
-
-  return transporter;
 };
 
 /**
- * Gets the FROM email address from environment or defaults
+ * Send email using SMTP (Nodemailer)
+ * Works locally but may be blocked on cloud providers
+ * @param {Object} options - Email options
+ * @returns {Promise<Object>} Send result
+ */
+const sendWithSMTP = async (options) => {
+  const smtpConfig = {
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    secure: process.env.SMTP_SECURE === "true",
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+    // Increase timeout for slow connections
+    connectionTimeout: 30000, // 30 seconds
+    greetingTimeout: 30000,
+    socketTimeout: 60000,
+  };
+
+  if (!smtpConfig.auth.user || !smtpConfig.auth.pass) {
+    throw new Error(
+      "SMTP configuration missing. Required: SMTP_USER, SMTP_PASSWORD"
+    );
+  }
+
+  const transporter = nodemailer.createTransport(smtpConfig);
+
+  // Verify connection (skip in production to avoid timeout)
+  if (process.env.NODE_ENV !== "production") {
+    try {
+      await transporter.verify();
+      console.log("[Email Service] SMTP connection verified");
+    } catch (error) {
+      console.error("[Email Service] SMTP verification failed:", error.message);
+      throw new Error(`SMTP connection failed: ${error.message}`);
+    }
+  }
+
+  const info = await transporter.sendMail({
+    from: `"${options.fromName || "VLAT Exam"}" <${options.fromEmail}>`,
+    to: options.to,
+    subject: options.subject,
+    html: options.html,
+  });
+
+  return { success: true, messageId: info.messageId };
+};
+
+/**
+ * Send email using the best available method
+ * Priority: SendGrid API > SMTP
+ * @param {Object} options - Email options
+ * @returns {Promise<Object>} Send result
+ */
+const sendEmail = async (options) => {
+  // Use SendGrid API if configured (works on cloud providers)
+  if (process.env.SENDGRID_API_KEY) {
+    console.log("[Email Service] Using SendGrid API");
+    return await sendWithSendGridAPI(options);
+  }
+
+  // Fall back to SMTP (works locally, may fail on cloud)
+  if (process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
+    console.log("[Email Service] Using SMTP");
+    return await sendWithSMTP(options);
+  }
+
+  throw new Error(
+    "No email configuration found. Set either SENDGRID_API_KEY or SMTP_USER/SMTP_PASSWORD"
+  );
+};
+
+/**
+ * Gets the FROM email address from environment
  * @returns {string} FROM email address
  */
 const getFromEmail = () => {
@@ -51,7 +154,6 @@ const getFromEmail = () => {
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
-  let transporter;
   try {
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const resetLink = `${frontendUrl}/reset-password.html?token=${resetToken}&email=${encodeURIComponent(
@@ -64,11 +166,10 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
       `[Email Service] Sending password reset email from ${emailFrom} to ${userEmail}`
     );
 
-    transporter = await createTransporter();
-
-    const mailOptions = {
-      from: `"VLAT Exam" <${emailFrom}>`,
+    const result = await sendEmail({
       to: userEmail,
+      fromEmail: emailFrom,
+      fromName: "VLAT Exam",
       subject: "VLAT - Password Reset Request",
       html: `
         <!DOCTYPE html>
@@ -193,31 +294,15 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
         </body>
         </html>
       `,
-    };
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-
-    console.log("[Email Service] Password reset email sent:", info.messageId);
-    return { success: true, messageId: info.messageId };
+    console.log("[Email Service] Password reset email sent:", result.messageId);
+    return result;
   } catch (error) {
     console.error("[Email Service] Error sending password reset email:", {
       message: error.message,
       code: error.code,
-      command: error.command,
-      response: error.response,
     });
-
-    // Provide user-friendly error messages
-    if (error.code === "EAUTH") {
-      throw new Error(
-        "Email authentication failed. Please check your SMTP_USER and SMTP_PASSWORD credentials."
-      );
-    }
-    if (error.code === "ECONNECTION") {
-      throw new Error(
-        "Could not connect to SMTP server. Please check your SMTP_HOST and SMTP_PORT settings."
-      );
-    }
 
     throw new Error(
       error.message ||
@@ -228,7 +313,6 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
 
 // Send welcome email with VLAT ID
 const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
-  let transporter;
   try {
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const loginUrl = `${frontendUrl}/login.html`;
@@ -238,11 +322,10 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
       `[Email Service] Sending welcome email from ${emailFrom} to ${userEmail}`
     );
 
-    transporter = await createTransporter();
-
-    const mailOptions = {
-      from: `"VLAT Exam" <${emailFrom}>`,
+    const result = await sendEmail({
       to: userEmail,
+      fromEmail: emailFrom,
+      fromName: "VLAT Exam",
       subject: "Welcome to VLAT - Your Registration is Complete!",
       html: `
         <!DOCTYPE html>
@@ -454,31 +537,15 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
         </body>
         </html>
       `,
-    };
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-
-    console.log("[Email Service] Welcome email sent:", info.messageId);
-    return { success: true, messageId: info.messageId };
+    console.log("[Email Service] Welcome email sent:", result.messageId);
+    return result;
   } catch (error) {
     console.error("[Email Service] Error sending welcome email:", {
       message: error.message,
       code: error.code,
-      command: error.command,
-      response: error.response,
     });
-
-    // Provide user-friendly error messages
-    if (error.code === "EAUTH") {
-      throw new Error(
-        "Email authentication failed. Please check your SMTP_USER and SMTP_PASSWORD credentials."
-      );
-    }
-    if (error.code === "ECONNECTION") {
-      throw new Error(
-        "Could not connect to SMTP server. Please check your SMTP_HOST and SMTP_PORT settings."
-      );
-    }
 
     throw new Error(
       error.message || "Failed to send welcome email. Please try again later."
