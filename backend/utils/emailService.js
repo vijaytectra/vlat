@@ -1,20 +1,73 @@
-const { Resend } = require("resend");
+const nodemailer = require("nodemailer");
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
+/**
+ * Creates and returns a configured Nodemailer transporter
+ * Supports multiple SMTP providers: Gmail, SendGrid, custom SMTP
+ * @returns {Promise<Object>} Configured transporter
+ */
+const createTransporter = async () => {
+  // SMTP configuration from environment variables
+  const smtpConfig = {
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD, // App password for Gmail, API key for SendGrid
+    },
+  };
+
+  // Validate required SMTP credentials
+  if (!smtpConfig.auth.user || !smtpConfig.auth.pass) {
+    throw new Error(
+      "SMTP configuration missing. Required environment variables: SMTP_USER, SMTP_PASSWORD"
+    );
+  }
+
+  // Create transporter
+  const transporter = nodemailer.createTransport(smtpConfig);
+
+  // Verify connection
+  try {
+    await transporter.verify();
+    console.log("[Email Service] SMTP connection verified successfully");
+  } catch (error) {
+    console.error("[Email Service] SMTP connection failed:", error.message);
+    throw new Error(
+      `SMTP connection failed: ${error.message}. Check your SMTP credentials and configuration.`
+    );
+  }
+
+  return transporter;
+};
+
+/**
+ * Gets the FROM email address from environment or defaults
+ * @returns {string} FROM email address
+ */
+const getFromEmail = () => {
+  return process.env.EMAIL_FROM || process.env.SMTP_USER || "noreply@vlat.com";
+};
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
+  let transporter;
   try {
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const resetLink = `${frontendUrl}/reset-password.html?token=${resetToken}&email=${encodeURIComponent(
       userEmail
     )}`;
 
-    const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
+    const emailFrom = getFromEmail();
 
-    const { data, error } = await resend.emails.send({
-      from: emailFrom,
+    console.log(
+      `[Email Service] Sending password reset email from ${emailFrom} to ${userEmail}`
+    );
+
+    transporter = await createTransporter();
+
+    const mailOptions = {
+      from: `"VLAT Exam" <${emailFrom}>`,
       to: userEmail,
       subject: "VLAT - Password Reset Request",
       html: `
@@ -140,20 +193,31 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
         </body>
         </html>
       `,
-    });
+    };
 
-    if (error) {
-      console.error("Resend API error:", error);
-      throw new Error(error.message || "Failed to send password reset email");
-    }
+    const info = await transporter.sendMail(mailOptions);
 
-    console.log("Password reset email sent:", data?.id);
-    return { success: true, messageId: data?.id };
+    console.log("[Email Service] Password reset email sent:", info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Error sending password reset email:", {
+    console.error("[Email Service] Error sending password reset email:", {
       message: error.message,
-      error: error,
+      code: error.code,
+      command: error.command,
+      response: error.response,
     });
+
+    // Provide user-friendly error messages
+    if (error.code === "EAUTH") {
+      throw new Error(
+        "Email authentication failed. Please check your SMTP_USER and SMTP_PASSWORD credentials."
+      );
+    }
+    if (error.code === "ECONNECTION") {
+      throw new Error(
+        "Could not connect to SMTP server. Please check your SMTP_HOST and SMTP_PORT settings."
+      );
+    }
 
     throw new Error(
       error.message ||
@@ -164,13 +228,20 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
 
 // Send welcome email with VLAT ID
 const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
+  let transporter;
   try {
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5500";
     const loginUrl = `${frontendUrl}/login.html`;
-    const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
+    const emailFrom = getFromEmail();
 
-    const { data, error } = await resend.emails.send({
-      from: emailFrom,
+    console.log(
+      `[Email Service] Sending welcome email from ${emailFrom} to ${userEmail}`
+    );
+
+    transporter = await createTransporter();
+
+    const mailOptions = {
+      from: `"VLAT Exam" <${emailFrom}>`,
       to: userEmail,
       subject: "Welcome to VLAT - Your Registration is Complete!",
       html: `
@@ -383,20 +454,31 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
         </body>
         </html>
       `,
-    });
+    };
 
-    if (error) {
-      console.error("Resend API error:", error);
-      throw new Error(error.message || "Failed to send welcome email");
-    }
+    const info = await transporter.sendMail(mailOptions);
 
-    console.log("Welcome email sent:", data?.id);
-    return { success: true, messageId: data?.id };
+    console.log("[Email Service] Welcome email sent:", info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Error sending welcome email:", {
+    console.error("[Email Service] Error sending welcome email:", {
       message: error.message,
-      error: error,
+      code: error.code,
+      command: error.command,
+      response: error.response,
     });
+
+    // Provide user-friendly error messages
+    if (error.code === "EAUTH") {
+      throw new Error(
+        "Email authentication failed. Please check your SMTP_USER and SMTP_PASSWORD credentials."
+      );
+    }
+    if (error.code === "ECONNECTION") {
+      throw new Error(
+        "Could not connect to SMTP server. Please check your SMTP_HOST and SMTP_PORT settings."
+      );
+    }
 
     throw new Error(
       error.message || "Failed to send welcome email. Please try again later."

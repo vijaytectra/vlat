@@ -21,10 +21,14 @@ SESSION_SECRET=your-secret-key-change-this-in-production
 PORT=3000
 FRONTEND_URL=http://localhost:5500
 
-# Email Configuration (using Resend)
-RESEND_API_KEY=re_your_resend_api_key_here
-EMAIL_FROM=onboarding@resend.dev
-# Note: For production, verify your domain in Resend and use your verified email
+# Email Configuration (using Nodemailer with SMTP)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-password
+EMAIL_FROM=your-email@gmail.com
+# Note: For Gmail, you need to generate an App Password (not your regular password)
 ```
 
 **For Production (Render):**
@@ -33,8 +37,12 @@ EMAIL_FROM=onboarding@resend.dev
 - `SESSION_SECRET`: A strong random string (generate using `openssl rand -base64 32`)
 - `PORT`: Render will set this automatically
 - `FRONTEND_URL`: Your frontend URL (e.g., `https://your-frontend.netlify.app`)
-- `RESEND_API_KEY`: Your Resend API key (get from https://resend.com/api-keys)
-- `EMAIL_FROM`: Sender email address (use `onboarding@resend.dev` for testing, or your verified domain email for production)
+- `SMTP_HOST`: SMTP server hostname (e.g., `smtp.gmail.com`, `smtp.sendgrid.net`)
+- `SMTP_PORT`: SMTP port (587 for TLS, 465 for SSL)
+- `SMTP_SECURE`: Set to `true` for port 465 (SSL), `false` for port 587 (TLS)
+- `SMTP_USER`: Your SMTP username/email
+- `SMTP_PASSWORD`: Your SMTP password or app password
+- `EMAIL_FROM`: Sender email address (usually same as SMTP_USER)
 
 ### 3. Run the Server
 
@@ -99,8 +107,12 @@ Add the following environment variables in Render:
 - `SESSION_SECRET` - A strong random secret
 - `FRONTEND_URL` - Your frontend URL
 - `NODE_ENV` - Set to `production`
-- `RESEND_API_KEY` - Your Resend API key
-- `EMAIL_FROM` - Sender email (use `onboarding@resend.dev` for testing)
+- `SMTP_HOST` - SMTP server (e.g., `smtp.gmail.com`)
+- `SMTP_PORT` - SMTP port (587 or 465)
+- `SMTP_SECURE` - `true` for SSL (465), `false` for TLS (587)
+- `SMTP_USER` - Your email address
+- `SMTP_PASSWORD` - Your app password or SMTP password
+- `EMAIL_FROM` - Sender email address
 
 ### 4. MongoDB Atlas Setup
 
@@ -135,33 +147,97 @@ backend/
 └── .env                 # Environment variables (not committed)
 ```
 
-## Resend Email Service Setup
+## Email Service Setup (Nodemailer with SMTP)
 
-This project uses [Resend](https://resend.com) for sending emails (welcome emails and password reset emails).
+This project uses [Nodemailer](https://nodemailer.com) with SMTP for sending emails (welcome emails and password reset emails).
 
-### Getting Started
+### Option 1: Gmail SMTP (Recommended for Development)
 
-1. Sign up for a free account at [resend.com](https://resend.com)
-2. Go to [API Keys](https://resend.com/api-keys) and create a new API key
-3. Copy your API key and set it as `RESEND_API_KEY` in your environment variables
+**Setup Steps:**
 
-### For Development/Testing
+1. Enable 2-Step Verification on your Google account
+2. Generate an App Password:
+   - Go to [Google Account Settings](https://myaccount.google.com/)
+   - Security → 2-Step Verification → App passwords
+   - Generate a new app password for "Mail"
+   - Copy the 16-character password
 
-- Use `onboarding@resend.dev` as your `EMAIL_FROM` address (this works out of the box)
-- Free tier: 100 emails per day
+3. Configure environment variables:
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-16-char-app-password
+EMAIL_FROM=your-email@gmail.com
+```
 
-### For Production
+**Gmail Limits:**
+- Free accounts: 500 emails per day
+- Works reliably on cloud hosting (Render, Heroku, etc.)
 
-1. Verify your domain in Resend dashboard
-2. Update `EMAIL_FROM` to use your verified domain (e.g., `noreply@yourdomain.com`)
-3. This improves deliverability and allows you to send more emails
+### Option 2: SendGrid SMTP (Recommended for Production)
 
-**Benefits of Resend:**
+**Setup Steps:**
 
-- ✅ More reliable than SMTP on cloud hosting (no connection timeouts)
+1. Sign up at [SendGrid](https://sendgrid.com) (free tier: 100 emails/day)
+2. Create an API Key:
+   - Settings → API Keys → Create API Key
+   - Choose "Full Access" or "Mail Send" permissions
+   - Copy the API key
+
+3. Configure environment variables:
+```env
+SMTP_HOST=smtp.sendgrid.net
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=apikey
+SMTP_PASSWORD=your-sendgrid-api-key
+EMAIL_FROM=noreply@yourdomain.com
+```
+
+**SendGrid Benefits:**
 - ✅ Better deliverability
-- ✅ Easy to set up (no SMTP configuration needed)
-- ✅ Works great on Render, Heroku, Vercel, etc.
+- ✅ Higher sending limits (upgradeable)
+- ✅ Email analytics
+- ✅ No domain verification needed for basic use
+
+### Option 3: Custom SMTP Server
+
+If you have your own SMTP server or use another provider:
+
+```env
+SMTP_HOST=your-smtp-server.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-username
+SMTP_PASSWORD=your-password
+EMAIL_FROM=noreply@yourdomain.com
+```
+
+**Common SMTP Providers:**
+- **Outlook/Hotmail**: `smtp-mail.outlook.com:587`
+- **Yahoo**: `smtp.mail.yahoo.com:587`
+- **Zoho**: `smtp.zoho.com:587`
+- **Custom**: Use your hosting provider's SMTP settings
+
+### Troubleshooting
+
+**Authentication Failed (EAUTH):**
+- For Gmail: Make sure you're using an App Password, not your regular password
+- Check that 2-Step Verification is enabled (Gmail)
+- Verify SMTP_USER and SMTP_PASSWORD are correct
+
+**Connection Failed (ECONNECTION):**
+- Check SMTP_HOST and SMTP_PORT are correct
+- Verify firewall/network allows SMTP connections
+- Try port 465 with SMTP_SECURE=true if 587 doesn't work
+
+**Email Not Received:**
+- Check spam/junk folder
+- Verify recipient email is correct
+- Check SMTP provider's sending limits
+- Review server logs for error messages
 
 ## Notes
 
