@@ -180,13 +180,20 @@ exports.register = async (req, res) => {
     await user.save();
 
     // Send welcome email asynchronously (don't block registration if email fails)
-    try {
-      await sendWelcomeEmail(trimmedEmail, trimmedName, vlatId);
-      console.log(`Welcome email sent successfully to ${trimmedEmail}`);
-    } catch (emailError) {
-      console.error("Error sending welcome email:", emailError);
-      // Don't fail registration if email fails - just log the error
-    }
+    // Use setImmediate to make it truly non-blocking
+    setImmediate(async () => {
+      try {
+        await sendWelcomeEmail(trimmedEmail, trimmedName, vlatId);
+        console.log(`Welcome email sent successfully to ${trimmedEmail}`);
+      } catch (emailError) {
+        // Log error but don't fail registration
+        console.warn(
+          `Welcome email failed for ${trimmedEmail}:`,
+          emailError.message || "Email service unavailable"
+        );
+        // Registration still succeeds even if email fails
+      }
+    });
 
     // Create session
     req.session.userId = user._id;

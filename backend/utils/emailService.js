@@ -10,6 +10,10 @@ const createTransporter = () => {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS, // Gmail app password
     },
+    // Add timeout configuration to prevent hanging
+    connectionTimeout: 10000, // 10 seconds
+    greetingTimeout: 10000, // 10 seconds
+    socketTimeout: 10000, // 10 seconds
   });
 };
 
@@ -387,8 +391,22 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
     console.log("Welcome email sent:", info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Error sending welcome email:", error);
-    throw new Error("Failed to send welcome email");
+    // Log error details but don't expose sensitive information
+    const errorMessage =
+      error.code === "ETIMEDOUT"
+        ? "Email service timeout - email may be sent later"
+        : error.code === "ECONNREFUSED"
+        ? "Email service connection refused"
+        : "Failed to send welcome email";
+
+    console.error("Error sending welcome email:", {
+      code: error.code,
+      command: error.command,
+      message: errorMessage,
+    });
+
+    // Don't throw - let the caller handle it gracefully
+    throw new Error(errorMessage);
   }
 };
 
