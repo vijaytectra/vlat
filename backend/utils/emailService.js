@@ -142,7 +142,7 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
             </div>
             <div class="footer">
               <p>This is an automated email. Please do not reply to this message.</p>
-              <p>VLAT - VMRF Law Admission Test</p>
+              <p>VLAT - Vinayaka Mission's Law Admission Test</p>
               <p>Need help? Contact us at admissions@vmls.edu.in or +91 73582 01234</p>
             </div>
           </div>
@@ -323,7 +323,7 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
           <div class="container">
             <div class="header">
               <h1>Welcome to VLAT!</h1>
-              <p class="subtitle">VMRF Law Admission Test</p>
+              <p class="subtitle">Vinayaka Mission's Law Admission Test</p>
             </div>
             <div class="content">
               <p>Dear <span class="highlight">${userName}</span>,</p>
@@ -375,7 +375,7 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
                 <p>📧 Email: <a href="mailto:admissions@vmls.edu.in">admissions@vmls.edu.in</a></p>
                 <p>📞 Phone: <a href="tel:+917358201234">+91 73582 01234</a></p>
               </div>
-              <p style="margin-top: 20px;">VLAT - VMRF Law Admission Test</p>
+              <p style="margin-top: 20px;">VLAT - Vinayaka Mission's Law Admission Test</p>
             </div>
           </div>
         </body>

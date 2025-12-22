@@ -1,6 +1,6 @@
 # VLAT Exam Web Application
 
-A responsive web application for VLAT (VMRF Law Admission Test) built with HTML, Tailwind CSS, and JavaScript.
+A responsive web application for VLAT (Vinayaka Mission's Law Admission Test) built with HTML, Tailwind CSS, and JavaScript.
 
 ## Pages
 
@@ -27,16 +27,19 @@ A responsive web application for VLAT (VMRF Law Admission Test) built with HTML,
 ## Setup
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run development server:
+
 ```bash
 npm run dev
 ```
 
 3. Build for production:
+
 ```bash
 npm run build
 ```
@@ -54,4 +57,3 @@ See `design-system.md` for color variables, typography, and component specificat
 - Form validation
 - Question navigator for test screens
 - Timer functionality for exams
-
