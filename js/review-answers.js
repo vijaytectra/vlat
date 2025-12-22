@@ -3,6 +3,7 @@
 
 import { showError } from "./modal.js";
 import { getProgressFromBackend } from "./test-state.js";
+import { logout } from "./auth.js";
 
 /**
  * Initialize review answers page
@@ -69,6 +70,21 @@ async function initializeReviewAnswers() {
 
   // Display review
   displayQuestionReview(mockSet, progress);
+
+  // Setup logout button
+  setupLogoutButton();
+}
+
+/**
+ * Setup logout button
+ */
+function setupLogoutButton() {
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+      await logout();
+    });
+  }
 }
 
 /**
