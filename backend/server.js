@@ -18,6 +18,8 @@ const corsOptions = {
   origin: process.env.FRONTEND_URL || "http://localhost:5500",
   credentials: true,
   optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
@@ -39,8 +41,9 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Only send over HTTPS in production
-      sameSite: "lax",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // "none" for cross-origin in production
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      domain: process.env.COOKIE_DOMAIN || undefined, // Set if you need to share cookies across subdomains
     },
   })
 );

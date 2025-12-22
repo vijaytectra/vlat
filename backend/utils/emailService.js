@@ -159,8 +159,22 @@ const sendPasswordResetEmail = async (email, resetToken, userEmail) => {
     console.log("Password reset email sent:", info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error("Error sending password reset email:", error);
-    throw new Error("Failed to send password reset email");
+    // Log error details but don't expose sensitive information
+    const errorMessage =
+      error.code === "ETIMEDOUT"
+        ? "Email service timeout - email may be sent later"
+        : error.code === "ECONNREFUSED"
+        ? "Email service connection refused"
+        : "Failed to send password reset email";
+
+    console.error("Error sending password reset email:", {
+      code: error.code,
+      command: error.command,
+      message: errorMessage,
+    });
+
+    // Don't throw - let the caller handle it gracefully
+    throw new Error(errorMessage);
   }
 };
 

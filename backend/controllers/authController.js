@@ -198,6 +198,18 @@ exports.register = async (req, res) => {
     // Create session
     req.session.userId = user._id;
 
+    // Save session before sending response to ensure cookie is set
+    await new Promise((resolve, reject) => {
+      req.session.save((err) => {
+        if (err) {
+          console.error("Error saving session:", err);
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+
     // Return user data without password
     res.status(201).json({
       success: true,
@@ -279,6 +291,18 @@ exports.login = async (req, res) => {
 
     // Create session
     req.session.userId = user._id;
+
+    // Save session before sending response to ensure cookie is set
+    await new Promise((resolve, reject) => {
+      req.session.save((err) => {
+        if (err) {
+          console.error("Error saving session:", err);
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
 
     // Return user data without password
     res.json({

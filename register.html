@@ -386,8 +386,28 @@
           });
 
           if (result.success) {
-            // Redirect to dashboard
-            window.location.href = "dashboard.html";
+            // Small delay to ensure session cookie is set before redirect
+            // This helps with cross-origin cookie issues
+            await new Promise((resolve) => setTimeout(resolve, 100));
+
+            // Verify authentication before redirecting
+            try {
+              const { checkAuth } = await import("./js/auth.js");
+              const authCheck = await checkAuth();
+
+              if (authCheck.authenticated) {
+                // Redirect to dashboard
+                window.location.href = "dashboard.html";
+              } else {
+                // If auth check fails, still redirect but log warning
+                console.warn("Session may not be set, redirecting anyway");
+                window.location.href = "dashboard.html";
+              }
+            } catch (authError) {
+              console.error("Auth check error:", authError);
+              // Still redirect - dashboard will handle auth check
+              window.location.href = "dashboard.html";
+            }
           } else {
             // Show error message
             showError(
