@@ -40,10 +40,20 @@ app.use(
     }),
     cookie: {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Only send over HTTPS in production
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // "none" for cross-origin in production
+      // In production with HTTPS, use secure: true and sameSite: "none" for cross-origin
+      // In development or same-origin, use secure: false and sameSite: "lax"
+      secure:
+        process.env.NODE_ENV === "production" &&
+        process.env.FORCE_SECURE_COOKIE !== "false",
+      sameSite:
+        process.env.NODE_ENV === "production" &&
+        process.env.FORCE_SECURE_COOKIE !== "false"
+          ? "none"
+          : "lax",
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      domain: process.env.COOKIE_DOMAIN || undefined, // Set if you need to share cookies across subdomains
+      // Don't set domain unless you need to share cookies across subdomains
+      // Setting domain can cause issues with cross-origin requests
+      domain: process.env.COOKIE_DOMAIN || undefined,
     },
   })
 );
@@ -58,6 +68,29 @@ app.get("/api/health", (req, res) => {
   res.json({
     success: true,
     message: "Server is running",
+  });
+});
+
+// Debug route to check session (remove in production)
+app.get("/api/debug/session", (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      hasSession: !!req.session,
+      sessionId: req.sessionID,
+      userId: req.session?.userId || null,
+      cookies: req.headers.cookie || "no cookies",
+      cookieSettings: {
+        secure:
+          process.env.NODE_ENV === "production" &&
+          process.env.FORCE_SECURE_COOKIE !== "false",
+        sameSite:
+          process.env.NODE_ENV === "production" &&
+          process.env.FORCE_SECURE_COOKIE !== "false"
+            ? "none"
+            : "lax",
+      },
+    },
   });
 });
 

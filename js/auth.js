@@ -19,14 +19,35 @@ export async function checkAuth() {
       credentials: "include", // Include cookies
     });
 
+    // Log response details for debugging
+    console.log("Auth check response status:", response.status);
+    console.log("Auth check response headers:", {
+      "set-cookie": response.headers.get("set-cookie"),
+      "content-type": response.headers.get("content-type"),
+    });
+
     if (response.ok) {
       const data = await response.json();
+      console.log(
+        "Auth check successful, user:",
+        data.data?.user?.email || "unknown"
+      );
       return { authenticated: true, user: data.data.user };
     } else {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Auth check failed:", {
+        status: response.status,
+        statusText: response.statusText,
+        message: errorData.message || "Unknown error",
+      });
       return { authenticated: false, user: null };
     }
   } catch (error) {
     console.error("Auth check error:", error);
+    console.error("Error details:", {
+      message: error.message,
+      stack: error.stack,
+    });
     return { authenticated: false, user: null };
   }
 }

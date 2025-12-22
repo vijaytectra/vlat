@@ -8,7 +8,7 @@ import {
   getAllProgressFromBackend,
   getStatsFromBackend,
 } from "./test-state.js";
-import { getUserData, logout, redirectIfNotAuth } from "./auth.js";
+import { getUserData, logout, redirectIfNotAuth, getApiUrl } from "./auth.js";
 
 let mockTestsData = [];
 
@@ -72,9 +72,38 @@ function setupLogoutButton() {
  * Initialize dashboard
  */
 async function initializeDashboard() {
-  // Check authentication first
-  const isAuthenticated = await redirectIfNotAuth();
+  // First, check session debug endpoint to see what's happening
+  try {
+    const debugResponse = await fetch(`${getApiUrl()}/api/debug/session`, {
+      method: "GET",
+      credentials: "include",
+    });
+    if (debugResponse.ok) {
+      const debugData = await debugResponse.json();
+      console.log("Session debug info:", debugData.data);
+    }
+  } catch (error) {
+    console.warn("Could not fetch session debug info:", error);
+  }
+
+  // Check authentication first with retry logic
+  let isAuthenticated = false;
+  let retries = 3;
+
+  while (!isAuthenticated && retries > 0) {
+    isAuthenticated = await redirectIfNotAuth();
+    if (!isAuthenticated && retries > 1) {
+      console.log(
+        `Auth check failed, retrying... (${retries - 1} attempts left)`
+      );
+      // Wait a bit before retrying (cookie might need time to be set)
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
+    retries--;
+  }
+
   if (!isAuthenticated) {
+    console.error("Authentication failed after retries, redirecting to login");
     return; // Will redirect to login
   }
 
