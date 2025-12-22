@@ -25,7 +25,7 @@ export function createHeader(isDashboard = false) {
             <a href="about-vmls.html" class="text-grey-7 hover:text-primary transition-colors">About VMLS</a>
             <a href="blogs.html" class="text-grey-7 hover:text-primary transition-colors">Blog</a>
             <a href="how-to-register.html" class="text-grey-7 hover:text-primary transition-colors">How to Register</a>
-            <a href="contact.html" class="text-grey-7 hover:text-primary transition-colors">Contact</a>
+            <a href="contact-us.html" class="text-grey-7 hover:text-primary transition-colors">Contact</a>
           </nav>
 
           <!-- Contact Info & CTA -->
@@ -63,7 +63,7 @@ export function createHeader(isDashboard = false) {
             <a href="about-vmls.html" class="text-grey-7 hover:text-primary">About VMLS</a>
             <a href="blogs.html" class="text-grey-7 hover:text-primary">Blog</a>
             <a href="how-to-register.html" class="text-grey-7 hover:text-primary">How to Register</a>
-            <a href="contact.html" class="text-grey-7 hover:text-primary">Contact</a>
+            <a href="contact-us.html" class="text-grey-7 hover:text-primary">Contact</a>
             <div class="pt-4 border-t border-grey-4">
               <a href="login.html" class="btn-primary block text-center mb-2">Login</a>
               <a href="how-to-register.html" class="btn-secondary block text-center">Register</a>
@@ -187,7 +187,7 @@ export function createFooter() {
                     <a href="blogs.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Blogs</a>
                   </li>
                   <li>
-                    <a href="contact.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Contact Us</a>
+                    <a href="contact-us.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Contact Us</a>
                   </li>
                   <li>
                     <a href="mock-test.html" class="text-base text-grey-4 font-normal hover:text-grey-1 transition-colors">Mock Test</a>

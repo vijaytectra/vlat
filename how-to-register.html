@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VLAT Registration Process</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/main.css" />
     <script>
       tailwind.config = {
         theme: {
@@ -15,7 +14,7 @@
               imperator: ['"Imperator Small Caps"', "serif"],
             },
             colors: {
-              primary: "#8B1E3F",
+              primary: "#8d191c",
               secondary: "#F8F5F2",
               grey: {
                 1: "#F5F5F5",
@@ -50,6 +49,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/main.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
@@ -91,18 +99,6 @@
         opacity: 0.3;
       }
 
-      .container-custom {
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-
-      @media (min-width: 768px) {
-        .container-custom {
-          padding: 0 6.5rem;
-        }
-      }
-
       body {
         font-family: "Inter", sans-serif;
         background-color: var(--secondary);
@@ -125,19 +121,22 @@
         scroll-behavior: smooth;
       }
 
-      /* Custom scrollbar */
+      /* Custom scrollbar - Hidden */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 0px;
+        height: 0px;
       }
 
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
+      /* 
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
 
-      ::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 4px;
-      }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    */
 
       /* Responsive adjustments */
       @media (max-width: 1024px) {
@@ -196,7 +195,7 @@
 
   <body class="bg-[#F9FAFB]">
     <!-- Header -->
-    <header class=" ">
+    <header class="bg-[#FFF6E2]">
       <div class="container-custom">
         <!-- Top Contact Bar -->
         <div class="hidden md:flex items-center justify-end gap-4 py-2">
@@ -321,7 +320,7 @@
         <!-- Mobile Sidebar Menu (Figma Design) -->
         <div
           id="mobileMenu"
-          class="fixed inset-0 md:inset-y-0 md:right-0 md:w-96 md:left-auto bg-[#8D191C] z-[999999] transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+          class="fixed inset-0 md:inset-y-0 md:right-0 md:w-96 md:left-auto bg-primary z-[999999] transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
         >
           <div class="flex flex-col">
             <!-- Header with MENU title and Close button -->
@@ -347,8 +346,8 @@
               </button>
             </div>
 
-             <!-- Social Media Icons -->
-             <div class="flex items-center justify-between gap-4 px-6 pb-6">
+            <!-- Social Media Icons -->
+            <div class="flex items-center justify-between gap-4 px-6 pb-6">
               <a
                 href="https://www.facebook.com/vinayakamissionslawschool/"
                 class="text-white hover:opacity-80 transition-opacity"
@@ -475,12 +474,12 @@
             >
               <a
                 href="register.html"
-                class="block border border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+                class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
                 >Apply for VLAT</a
               >
               <a
                 href="login.html"
-                class="block w-60 border border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+                class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
                 >Login</a
               >
             </div>
@@ -491,7 +490,7 @@
 
     <!-- Hero Content -->
     <section
-      class="relative max-w-7xl mx-auto px-4 sm:px-6 bg-[#FFF7E4]"
+      class="relative mt-0 bg-[#FFF7E4]"
       style="
         background-image: url('images/logo/reg10.png');
         background-size: cover;
@@ -499,42 +498,50 @@
         background-repeat: no-repeat;
       "
     >
-      <div class="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-        <!-- Text Content -->
-        <div class="lg:w-1/2">
-          <div class="rounded-xl p-6 lg:p-8">
-            <h1
-              class="text-3xl lg:text-3xl font-semibold text-black mb-6 leading-tight"
-            >
-              How to Register for VLAT?
-            </h1>
+      <div
+        class="container-custom pt-8 lg:pt-14 pb-0 lg:pb-32 relative lg:min-h-[700px]"
+      >
+        <div class="flex flex-col lg:block">
+          <!-- Text Content -->
+          <div class="lg:w-2/3 relative z-10">
+            <div class="">
+              <h1
+                class="text-3xl lg:text-5xl font-semibold text-black mb-6 leading-tight lg:whitespace-nowrap"
+              >
+                How to Register for VLAT?
+              </h1>
 
-            <div class="space-y-4">
-              <div class="flex items-center gap-3">
-                <span
-                  class="text-xl lg:text-2xl font-semibold text-[#1F2937] capitalize"
-                >
-                  for academic year 2026 - 27
-                </span>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="text-xl lg:text-2xl font-semibold text-[#1F2937] capitalize"
+                  >
+                    for academic year 2026 - 27
+                  </span>
+                </div>
+                <p class="text-[#1F2937] text-base lg:text-sm leading-relaxed">
+                  Registering for the VMRF Law Admission Test (VLAT) is simple,
+                  quick, and completely online. <br />
+                  Whether you are applying for a five-year integrated law
+                  programme, the three-year LL.B., or the LL.M., the entire
+                  <br />
+                  registration process can be completed from your home within
+                  minutes.
+                </p>
               </div>
-              <p class="text-[#1F2937] text-base lg:text-sm leading-relaxed">
-                Registering for the Vinayaka Mission's Law Admission Test (VLAT)
-                is simple, quick, and completely online. Whether you are
-                applying for a five-year integrated law programme, the
-                three-year LL.B., or the LL.M., the entire registration process
-                can be completed from your home within minutes.
-              </p>
             </div>
           </div>
-        </div>
 
-        <!-- Image - Replace with actual image (646x738) -->
-        <div class="lg:w-1/2 flex justify-center lg:justify-end">
-          <img
-            src="/images/how-to-register-girl.png"
-            alt="VLAT Registration"
-            class="w-full max-w-lg h-auto object-contain"
-          />
+          <!-- Image - Replace with actual image (646x738) -->
+          <div
+            class="lg:absolute lg:bottom-0 lg:right-0 lg:w-1/2 flex justify-center lg:justify-end mt-8 lg:mt-0"
+          >
+            <img
+              src="/images/how-to-register-girl.png"
+              alt="VLAT Registration"
+              class="w-full lg:max-w-none h-auto object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -543,13 +550,15 @@
     <main class="relative">
       <!-- Steps Container -->
       <div
-        class="container mx-auto px-6 lg:px-24 flex flex-col lg:flex-row gap-8 lg:gap-12 pb-24"
+        class="container-custom flex flex-col lg:flex-row gap-8 lg:gap-12 pb-24"
       >
         <!-- Left Sidebar (Steps Navigation) - Desktop Only -->
         <div
           class="hidden lg:block w-full lg:w-80 pt-8 flex flex-col justify-center"
         >
-          <div class="sticky top-32 bg-white rounded-3xl p-6 h-[490px]">
+          <div
+            class="sticky top-[calc(50vh-245px)] bg-white rounded-3xl p-6 h-[490px]"
+          >
             <div
               class="text-center text-[#374151] text-sm font-semibold uppercase tracking-wide mb-6"
             >
@@ -681,7 +690,7 @@
             <!-- Step 1 -->
             <div id="step-1" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -692,7 +701,7 @@
 
                 <!-- Step Badge -->
                 <div
-                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
+                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
                     >STEP 1</span
@@ -716,7 +725,7 @@
             <!-- Step 2 -->
             <div id="step-2" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -727,7 +736,7 @@
 
                 <!-- Step Badge -->
                 <div
-                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
+                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
                     >STEP 2</span
@@ -753,7 +762,7 @@
             <!-- Step 3 -->
             <div id="step-3" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -793,7 +802,7 @@
             <!-- Step 4 -->
             <div id="step-4" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -804,7 +813,7 @@
 
                 <!-- Step Badge -->
                 <div
-                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
+                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
                     >STEP 4</span
@@ -832,7 +841,7 @@
             <!-- Step 5 -->
             <div id="step-5" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -843,7 +852,7 @@
 
                 <!-- Step Badge -->
                 <div
-                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
+                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
                     >STEP 5</span
@@ -869,7 +878,7 @@
             <!-- Step 6 -->
             <div id="step-6" class="bg-white rounded-3xl step-card p-6 lg:p-8">
               <div
-                class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-11"
+                class="flex flex-row items-center justify-between mb-8 lg:mb-11"
               >
                 <!-- Icon -->
                 <div
@@ -880,7 +889,7 @@
 
                 <!-- Step Badge -->
                 <div
-                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
+                  class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
                     >STEP 6</span
@@ -916,29 +925,29 @@
                 </div>
 
                 <div class="space-y-4">
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Use a laptop or desktop for filling the form
                   </p>
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Keep all documents ready before starting
                   </p>
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Use a stable internet connection
                   </p>
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Check the eligibility criteria before applying
                   </p>
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Save screenshots or PDFs of the payment confirmation
                   </p>
-                  <p class="text-[#374151] text-xs leading-relaxed">
+                  <p class="text-[#374151] text-base leading-relaxed">
                     • Save your application number for future reference
                   </p>
                 </div>
               </div>
 
               <div
-                class="lg:w-1/2 border border-[#6B7280] rounded-[32px] p-6 lg:p-8 flex flex-col justify-between"
+                class="lg:w-1/2 border border-[#6B7280] rounded-[32px] p-6  flex flex-col justify-between"
               >
                 <div class="mb-8">
                   <h4 class="text-lg lg:text-xl font-bold text-[#111827] mb-4">
@@ -955,12 +964,12 @@
                 >
                   <a
                     href="tel:+911234567890"
-                    class="text-[#111827] text-xs font-semibold"
+                    class="text-[#111827] text-[14px] font-semibold"
                     >+91 123 456 7890</a
                   >
                   <a
                     href="mailto:admissions@vmls.edu.in"
-                    class="text-[#111827] text-xs font-semibold"
+                    class="text-[#111827] text-[14px] font-semibold"
                     >admissions@vmls.edu.in</a
                   >
                 </div>
@@ -970,6 +979,67 @@
         </div>
       </div>
     </main>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Announcements Vertical Bar -->
+    <button
+      id="announcementBtn"
+      class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center"
+    >
+      <i class="fa-solid fa-bullhorn text-white mb-2"></i>
+      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+    </button>
+
+    <!-- Announcements Sidebar -->
+    <div
+      id="announcementSidebar"
+      class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto announcements-scrollbar"
+    >
+      <div class="p-4">
+        <div
+          class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
+        >
+          <div>
+            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+
+            <p class="text-sm font-light text-[#FFF6E2] mt-1">
+              Latest updates from our institute
+            </p>
+          </div>
+          <img
+            src="images/brand_awareness.svg"
+            alt="Announcement Icon"
+            class="w-[50px] opacity-30 h-[50px]"
+          />
+          <button id="closeAnnouncement" class="p-2 text-white rounded-lg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="mb-6">
+          <div class="relative">
+            <i
+              class="fa-solid fa-magnifying-glass text-primary absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+              aria-hidden="true"
+            ></i>
+            <input
+              type="text"
+              placeholder="Search announcements..."
+              class="input-field pl-10 pr-4 h-10"
+              aria-label="Search announcements"
+            />
+          </div>
+          <div id="announcementFilters" class="flex flex-wrap gap-2 mt-3">
+            <!-- Category filter buttons will be dynamically generated here -->
+          </div>
+        </div>
+        <div id="announcementsContainer" class="space-y-4">
+          <!-- Announcements will be dynamically loaded here -->
+        </div>
+      </div>
+    </div>
 
     <!-- WhatsApp Floating Icon -->
     <a
@@ -1172,19 +1242,19 @@
                     >
                   </li>
                   <!-- <li>
-                 <a
-                   href="mock-test.html"
-                   class="text-base text-[#D4D4D4] font-normal hover:text-grey-1 transition-colors"
-                   >Mock Test</a
-                 >
-               </li> -->
+               <a
+                 href="mock-test.html"
+                 class="text-base text-[#D4D4D4] font-normal hover:text-grey-1 transition-colors"
+                 >Mock Test</a
+               >
+             </li> -->
                   <!-- <li>
-                 <a
-                   href="lead-form.html"
-                   class="text-base text-[#D4D4D4] font-normal hover:text-grey-1 transition-colors"
-                   >Lead Form Page</a
-                 >
-               </li> -->
+               <a
+                 href="lead-form.html"
+                 class="text-base text-[#D4D4D4] font-normal hover:text-grey-1 transition-colors"
+                 >Lead Form Page</a
+               >
+             </li> -->
                   <li>
                     <a
                       href="login.html"
@@ -1209,7 +1279,7 @@
                   <li>
                     <a
                       href="https://vmls.edu.in/privacy-policy.html
-                   "
+                 "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
                       >Privacy Policy</a
                     >
@@ -1455,65 +1525,7 @@
         updateActiveStep(1);
       });
     </script>
-
-    <!-- Announcements Vertical Bar -->
-    <button
-      id="announcementBtn"
-      class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-16 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center gap-2"
-    >
-      <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
-    </button>
-
-    <!-- Announcements Sidebar -->
-    <div
-      id="announcementSidebar"
-      class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto announcements-scrollbar"
-    >
-      <div class="p-4">
-        <div
-          class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
-        >
-          <div>
-            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
-
-            <p class="text-sm font-light text-[#FFF6E2] mt-1">
-              Latest updates from our institute
-            </p>
-          </div>
-          <img
-            src="images/brand_awareness.svg"
-            alt="Announcement Icon"
-            class="w-[50px] opacity-30 h-[50px]"
-          />
-          <button id="closeAnnouncement" class="p-2 text-white rounded-lg">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="mb-6">
-          <div class="relative">
-            <i
-              class="fa-solid fa-magnifying-glass text-primary absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-              aria-hidden="true"
-            ></i>
-            <input
-              type="text"
-              placeholder="Search announcements..."
-              class="input-field pl-10 pr-4 h-10"
-              aria-label="Search announcements"
-            />
-          </div>
-          <div id="announcementFilters" class="flex flex-wrap gap-2 mt-3">
-            <!-- Category filter buttons will be dynamically generated here -->
-          </div>
-        </div>
-        <div id="announcementsContainer" class="space-y-4">
-          <!-- Announcements will be dynamically loaded here -->
-        </div>
-      </div>
-    </div>
-
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 
     <!-- Scroll to Top Button -->
     <button
