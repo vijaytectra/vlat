@@ -85,8 +85,8 @@
             <p
               class="text-sm font-normal font-['Arial'] leading-6 text-[#404040]"
             >
-            Please fill in the details below to register for the VLAT Entrance Exam.
-             
+              Please fill in the details below to register for the VLAT Entrance
+              Exam.
             </p>
           </div>
 
@@ -304,6 +304,20 @@
         errorMessage.classList.add("hidden");
       }
 
+      // Helper function to reset button state
+      function resetButtonState() {
+        registerButton.disabled = false;
+        registerButtonText.classList.remove("hidden");
+        registerButtonLoader.classList.add("hidden");
+      }
+
+      // Helper function to set loading state
+      function setLoadingState() {
+        registerButton.disabled = true;
+        registerButtonText.classList.add("hidden");
+        registerButtonLoader.classList.remove("hidden");
+      }
+
       // Contact number input - only allow digits
       contactInput.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
@@ -359,9 +373,7 @@
         }
 
         // Show loading state
-        registerButton.disabled = true;
-        registerButtonText.classList.add("hidden");
-        registerButtonLoader.classList.remove("hidden");
+        setLoadingState();
 
         try {
           // Call register API
@@ -381,16 +393,24 @@
             showError(
               result.message || "Registration failed. Please try again."
             );
-            registerButton.disabled = false;
-            registerButtonText.classList.remove("hidden");
-            registerButtonLoader.classList.add("hidden");
+            resetButtonState();
           }
         } catch (error) {
           console.error("Registration error:", error);
-          showError("An error occurred. Please try again.");
-          registerButton.disabled = false;
-          registerButtonText.classList.remove("hidden");
-          registerButtonLoader.classList.add("hidden");
+          // Log full error details for debugging
+          if (error.message) {
+            console.error("Error message:", error.message);
+          }
+          if (error.stack) {
+            console.error("Error stack:", error.stack);
+          }
+
+          // Show user-friendly error message
+          const errorMessage = error.message
+            ? `An error occurred: ${error.message}`
+            : "An error occurred. Please check your connection and try again.";
+          showError(errorMessage);
+          resetButtonState();
         }
       });
     </script>

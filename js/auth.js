@@ -110,14 +110,40 @@ export async function register(userData) {
 
     const data = await response.json();
 
+    // Log response for debugging
+    console.log("Registration response status:", response.status);
+    console.log("Registration response data:", data);
+
     if (response.ok) {
-      return { success: true, user: data.data.user };
+      if (data.success && data.data && data.data.user) {
+        return { success: true, user: data.data.user };
+      } else {
+        console.error("Unexpected response structure:", data);
+        return {
+          success: false,
+          message:
+            data.message ||
+            "Registration succeeded but received unexpected response format",
+        };
+      }
     } else {
+      // Log error details for debugging
+      console.error("Registration failed:", {
+        status: response.status,
+        statusText: response.statusText,
+        data: data,
+      });
       return { success: false, message: data.message || "Registration failed" };
     }
   } catch (error) {
-    console.error("Registration error:", error);
-    return { success: false, message: "Network error. Please try again." };
+    console.error("Registration network error:", error);
+    if (error.message) {
+      console.error("Error message:", error.message);
+    }
+    return {
+      success: false,
+      message: "Network error. Please check your connection and try again.",
+    };
   }
 }
 

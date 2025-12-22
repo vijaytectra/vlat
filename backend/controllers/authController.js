@@ -202,14 +202,30 @@ exports.register = async (req, res) => {
     console.error("Registration error:", error);
     if (error.code === 11000) {
       // Duplicate key error
+      const keyPattern = error.keyPattern || {};
+      let message = "Email or VLAT ID already exists";
+
+      // Provide more specific error messages based on which field caused the duplicate
+      if (keyPattern.email) {
+        message = "Email already registered. Please use a different email.";
+      } else if (keyPattern.vlatId) {
+        message = "VLAT ID already exists. Please try again.";
+      } else if (keyPattern.username) {
+        // This shouldn't happen after index cleanup, but handle it gracefully
+        message = "Registration error. Please contact support.";
+        console.error(
+          "Username index error detected - index cleanup may be needed"
+        );
+      }
+
       return res.status(400).json({
         success: false,
-        message: "Email or VLAT ID already exists",
+        message: message,
       });
     }
     res.status(500).json({
       success: false,
-      message: "Server error during registration",
+      message: "Server error during registration. Please try again later.",
     });
   }
 };
