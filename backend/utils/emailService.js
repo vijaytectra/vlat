@@ -59,6 +59,10 @@ const sendWithBrevoAPI = async (options) => {
       ],
       subject: options.subject,
       htmlContent: options.html,
+      // Add headers to improve deliverability
+      headers: {
+        "X-Mailer": "VLAT-Exam-System",
+      },
     }),
   });
 
@@ -96,9 +100,19 @@ const sendWithBrevoAPI = async (options) => {
   }
 
   const data = await response.json();
+  const messageId = data.messageId || "brevo-accepted";
+
+  console.log("[Email Service] Brevo email accepted:", {
+    messageId,
+    to: options.to,
+    from: options.fromEmail,
+    subject: options.subject,
+    note: "Check Brevo dashboard at https://app.brevo.com/statistics/email for delivery status",
+  });
+
   return {
     success: true,
-    messageId: data.messageId || "brevo-accepted",
+    messageId,
   };
 };
 
@@ -615,6 +629,14 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
     });
 
     console.log("[Email Service] Welcome email sent:", result.messageId);
+    console.log(
+      `[Email Service] Email delivery tips:\n` +
+        `  1. Check spam/junk folder (Gmail may filter it)\n` +
+        `  2. Wait 1-2 minutes (delivery can be delayed)\n` +
+        `  3. Check Brevo dashboard: https://app.brevo.com/statistics/email\n` +
+        `  4. Verify sender email in Brevo: https://app.brevo.com/settings/senders\n` +
+        `  5. Message ID: ${result.messageId}`
+    );
     return result;
   } catch (error) {
     console.error("[Email Service] Error sending welcome email:", {
