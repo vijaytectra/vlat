@@ -1,16 +1,68 @@
 const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 /**
  * Email Service using multiple providers
- * Priority: Brevo API > SendGrid API > SMTP
+ * Priority: Resend API > Brevo API > SendGrid API > SMTP
+ *
+ * For Vercel serverless (recommended):
+ *   - RESEND_API_KEY (3000 free emails/month, works perfectly on Vercel)
  *
  * For cloud hosting (Render/Heroku/Vercel), use API-based providers:
- *   - BREVO_API_KEY (recommended - 300 free emails/day)
+ *   - BREVO_API_KEY (300 free emails/day)
  *   - SENDGRID_API_KEY (100 free emails/day)
  *
  * For local development, SMTP works:
  *   - SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
  */
+
+/**
+ * Send email using Resend API
+ * Free tier: 3000 emails/month - works perfectly on Vercel serverless
+ * @param {Object} options - Email options
+ * @returns {Promise<Object>} Send result
+ */
+const sendWithResendAPI = async (options) => {
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    throw new Error(
+      "RESEND_API_KEY environment variable is not set. Get your API key from https://resend.com/api-keys"
+    );
+  }
+
+  const resend = new Resend(apiKey);
+
+  try {
+    const data = await resend.emails.send({
+      from: options.fromEmail || process.env.EMAIL_FROM || "noreply@vlat.com",
+      to: options.to,
+      subject: options.subject,
+      html: options.html,
+    });
+
+    console.log("[Email Service] Resend email sent:", {
+      messageId: data.id,
+      to: options.to,
+      from: options.fromEmail,
+      subject: options.subject,
+    });
+
+    return {
+      success: true,
+      messageId: data.id || "resend-accepted",
+    };
+  } catch (error) {
+    console.error("[Email Service] Resend API error:", {
+      message: error.message,
+      status: error.statusCode,
+    });
+
+    throw new Error(
+      `Resend API error: ${error.message || "Failed to send email"}`
+    );
+  }
+};
 
 /**
  * Send email using Brevo (Sendinblue) HTTP API
@@ -223,31 +275,37 @@ const sendWithSMTP = async (options) => {
 
 /**
  * Send email using the best available method
- * Priority: Brevo API > SendGrid API > SMTP
+ * Priority: Resend API > Brevo API > SendGrid API > SMTP
  * @param {Object} options - Email options
  * @returns {Promise<Object>} Send result
  */
 const sendEmail = async (options) => {
-  // Priority 1: Brevo API (300 free emails/day, works on cloud)
+  // Priority 1: Resend API (3000 free emails/month, perfect for Vercel)
+  if (process.env.RESEND_API_KEY) {
+    console.log("[Email Service] Using Resend API");
+    return await sendWithResendAPI(options);
+  }
+
+  // Priority 2: Brevo API (300 free emails/day, works on cloud)
   if (process.env.BREVO_API_KEY) {
     console.log("[Email Service] Using Brevo API");
     return await sendWithBrevoAPI(options);
   }
 
-  // Priority 2: SendGrid API (100 free emails/day, works on cloud)
+  // Priority 3: SendGrid API (100 free emails/day, works on cloud)
   if (process.env.SENDGRID_API_KEY) {
     console.log("[Email Service] Using SendGrid API");
     return await sendWithSendGridAPI(options);
   }
 
-  // Priority 3: SMTP (works locally, blocked on most cloud providers)
+  // Priority 4: SMTP (works locally, blocked on most cloud providers)
   if (process.env.SMTP_USER && process.env.SMTP_PASSWORD) {
     console.log("[Email Service] Using SMTP");
     return await sendWithSMTP(options);
   }
 
   throw new Error(
-    "No email configuration found. Set BREVO_API_KEY, SENDGRID_API_KEY, or SMTP credentials."
+    "No email configuration found. Set RESEND_API_KEY, BREVO_API_KEY, SENDGRID_API_KEY, or SMTP credentials."
   );
 };
 

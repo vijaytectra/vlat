@@ -1,7 +1,9 @@
 // Authentication utilities for VLAT Exam Application
-// Update API_BASE_URL with your Render backend URL when deploying
+// Update API_BASE_URL with your Vercel backend URL when deploying
 
-const API_BASE_URL = "https://vlat-backend.onrender.com";
+const API_BASE_URL = "https://vlat.api.thelead101.com";
+const TOKEN_KEY = "vlat_auth_token";
+
 /**
  * Get API base URL
  */
@@ -10,20 +12,57 @@ export function getApiUrl() {
 }
 
 /**
+ * Store JWT token in localStorage
+ */
+export function setAuthToken(token) {
+  if (token) {
+    localStorage.setItem(TOKEN_KEY, token);
+  } else {
+    localStorage.removeItem(TOKEN_KEY);
+  }
+}
+
+/**
+ * Get JWT token from localStorage
+ */
+export function getAuthToken() {
+  return localStorage.getItem(TOKEN_KEY);
+}
+
+/**
+ * Remove JWT token from localStorage
+ */
+export function removeAuthToken() {
+  localStorage.removeItem(TOKEN_KEY);
+}
+
+/**
+ * Get authorization headers with JWT token
+ */
+export function getAuthHeaders() {
+  const token = getAuthToken();
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+  return headers;
+}
+
+/**
  * Check if user is authenticated by calling /api/user/me
  */
 export async function checkAuth() {
   try {
+    const token = getAuthToken();
+    if (!token) {
+      return { authenticated: false, user: null };
+    }
+
     const response = await fetch(`${API_BASE_URL}/api/user/me`, {
       method: "GET",
-      credentials: "include", // Include cookies
-    });
-
-    // Log response details for debugging
-    console.log("Auth check response status:", response.status);
-    console.log("Auth check response headers:", {
-      "set-cookie": response.headers.get("set-cookie"),
-      "content-type": response.headers.get("content-type"),
+      headers: getAuthHeaders(),
     });
 
     if (response.ok) {
@@ -34,6 +73,10 @@ export async function checkAuth() {
       );
       return { authenticated: true, user: data.data.user };
     } else {
+      // Token might be invalid or expired
+      if (response.status === 401) {
+        removeAuthToken();
+      }
       const errorData = await response.json().catch(() => ({}));
       console.error("Auth check failed:", {
         status: response.status,
@@ -44,10 +87,6 @@ export async function checkAuth() {
     }
   } catch (error) {
     console.error("Auth check error:", error);
-    console.error("Error details:", {
-      message: error.message,
-      stack: error.stack,
-    });
     return { authenticated: false, user: null };
   }
 }
@@ -59,13 +98,16 @@ export async function getUserData() {
   try {
     const response = await fetch(`${API_BASE_URL}/api/user/me`, {
       method: "GET",
-      credentials: "include",
+      headers: getAuthHeaders(),
     });
 
     if (response.ok) {
       const data = await response.json();
       return { success: true, user: data.data.user };
     } else {
+      if (response.status === 401) {
+        removeAuthToken();
+      }
       const errorData = await response.json();
       return {
         success: false,
@@ -83,22 +125,26 @@ export async function getUserData() {
  */
 export async function logout() {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
-      method: "POST",
-      credentials: "include",
-    });
+    // Remove token from localStorage
+    removeAuthToken();
 
-    if (response.ok) {
-      // Redirect to login page
-      window.location.href = "login.html";
-    } else {
-      console.error("Logout failed");
-      // Still redirect to login page even if logout API fails
-      window.location.href = "login.html";
+    // Call logout endpoint (optional, for consistency)
+    try {
+      await fetch(`${API_BASE_URL}/api/auth/logout`, {
+        method: "POST",
+        headers: getAuthHeaders(),
+      });
+    } catch (error) {
+      // Ignore logout API errors, token is already removed
+      console.log("Logout API call failed (non-critical):", error);
     }
+
+    // Redirect to login page
+    window.location.href = "login.html";
   } catch (error) {
     console.error("Logout error:", error);
     // Still redirect to login page
+    removeAuthToken();
     window.location.href = "login.html";
   }
 }
@@ -125,18 +171,17 @@ export async function register(userData) {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify(userData),
     });
 
     const data = await response.json();
 
-    // Log response for debugging
-    console.log("Registration response status:", response.status);
-    console.log("Registration response data:", data);
-
     if (response.ok) {
       if (data.success && data.data && data.data.user) {
+        // Store JWT token from response
+        if (data.data.token) {
+          setAuthToken(data.data.token);
+        }
         return { success: true, user: data.data.user };
       } else {
         console.error("Unexpected response structure:", data);
@@ -148,7 +193,6 @@ export async function register(userData) {
         };
       }
     } else {
-      // Log error details for debugging
       console.error("Registration failed:", {
         status: response.status,
         statusText: response.statusText,
@@ -158,9 +202,6 @@ export async function register(userData) {
     }
   } catch (error) {
     console.error("Registration network error:", error);
-    if (error.message) {
-      console.error("Error message:", error.message);
-    }
     return {
       success: false,
       message: "Network error. Please check your connection and try again.",
@@ -178,13 +219,16 @@ export async function login(loginId, password) {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({ loginId, password }),
     });
 
     const data = await response.json();
 
     if (response.ok) {
+      // Store JWT token from response
+      if (data.data && data.data.token) {
+        setAuthToken(data.data.token);
+      }
       return { success: true, user: data.data.user };
     } else {
       return { success: false, message: data.message || "Login failed" };
@@ -205,7 +249,6 @@ export async function forgotPassword(email) {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({ email }),
     });
 
@@ -239,7 +282,6 @@ export async function verifyResetToken(token, email) {
       )}&email=${encodeURIComponent(email)}`,
       {
         method: "GET",
-        credentials: "include",
       }
     );
 
@@ -270,7 +312,6 @@ export async function resetPassword(token, email, password, confirmPassword) {
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({ token, email, password, confirmPassword }),
     });
 

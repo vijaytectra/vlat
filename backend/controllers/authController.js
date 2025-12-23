@@ -4,6 +4,7 @@ const {
   sendPasswordResetEmail,
   sendWelcomeEmail,
 } = require("../utils/emailService");
+const { generateToken } = require("../utils/jwt");
 
 // Validation helpers
 const validatePassword = (password) => {
@@ -195,26 +196,18 @@ exports.register = async (req, res) => {
       }
     });
 
-    // Create session
-    req.session.userId = user._id;
-
-    // Save session before sending response to ensure cookie is set
-    await new Promise((resolve, reject) => {
-      req.session.save((err) => {
-        if (err) {
-          console.error("Error saving session:", err);
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
+    // Generate JWT token
+    const token = generateToken({
+      userId: user._id.toString(),
+      email: user.email,
     });
 
-    // Return user data without password
+    // Return user data with token
     res.status(201).json({
       success: true,
       data: {
         user: user.toJSON(),
+        token,
       },
     });
   } catch (error) {
@@ -289,26 +282,18 @@ exports.login = async (req, res) => {
       });
     }
 
-    // Create session
-    req.session.userId = user._id;
-
-    // Save session before sending response to ensure cookie is set
-    await new Promise((resolve, reject) => {
-      req.session.save((err) => {
-        if (err) {
-          console.error("Error saving session:", err);
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
+    // Generate JWT token
+    const token = generateToken({
+      userId: user._id.toString(),
+      email: user.email,
     });
 
-    // Return user data without password
+    // Return user data with token
     res.json({
       success: true,
       data: {
         user: user.toJSON(),
+        token,
       },
     });
   } catch (error) {
@@ -320,23 +305,13 @@ exports.login = async (req, res) => {
   }
 };
 
-// Logout user
+// Logout user (JWT is stateless, so logout is handled client-side)
+// This endpoint exists for consistency and can be used to invalidate tokens if needed
 exports.logout = async (req, res) => {
   try {
-    req.session.destroy((err) => {
-      if (err) {
-        console.error("Logout error:", err);
-        return res.status(500).json({
-          success: false,
-          message: "Error during logout",
-        });
-      }
-
-      res.clearCookie("connect.sid");
-      res.json({
-        success: true,
-        message: "Logged out successfully",
-      });
+    res.json({
+      success: true,
+      message: "Logged out successfully",
     });
   } catch (error) {
     console.error("Logout error:", error);

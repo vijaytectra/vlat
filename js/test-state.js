@@ -231,9 +231,10 @@ function convertBackendProgressToFrontend(backendProgress) {
  */
 export async function getProgressFromBackend(setId) {
   try {
+    const { getAuthHeaders } = await import("./auth.js");
     const response = await fetch(`${API_BASE_URL}/api/test/progress/${setId}`, {
       method: "GET",
-      credentials: "include",
+      headers: getAuthHeaders(),
     });
 
     if (response.ok) {
@@ -263,9 +264,10 @@ export async function getProgressFromBackend(setId) {
  */
 export async function getAllProgressFromBackend() {
   try {
+    const { getAuthHeaders } = await import("./auth.js");
     const response = await fetch(`${API_BASE_URL}/api/test/progress`, {
       method: "GET",
-      credentials: "include",
+      headers: getAuthHeaders(),
     });
 
     if (response.ok) {
@@ -300,12 +302,10 @@ export async function getAllProgressFromBackend() {
  */
 export async function submitTestToBackend(setId, attemptData) {
   try {
+    const { getAuthHeaders } = await import("./auth.js");
     const response = await fetch(`${API_BASE_URL}/api/test/submit/${setId}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
+      headers: getAuthHeaders(),
       body: JSON.stringify({
         score: attemptData.score,
         answers: attemptData.answers,
@@ -356,9 +356,10 @@ export async function submitTestToBackend(setId, attemptData) {
  */
 export async function getStatsFromBackend() {
   try {
+    const { getAuthHeaders } = await import("./auth.js");
     const response = await fetch(`${API_BASE_URL}/api/test/stats`, {
       method: "GET",
-      credentials: "include",
+      headers: getAuthHeaders(),
     });
 
     if (response.ok) {
@@ -391,12 +392,10 @@ export async function getStatsFromBackend() {
  */
 export async function saveProgressToBackend(setId, data) {
   try {
+    const { getAuthHeaders } = await import("./auth.js");
     const response = await fetch(`${API_BASE_URL}/api/test/progress/${setId}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
+      headers: getAuthHeaders(),
       body: JSON.stringify({
         status: data.status || "in_progress",
       }),

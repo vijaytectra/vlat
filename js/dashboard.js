@@ -72,19 +72,7 @@ function setupLogoutButton() {
  * Initialize dashboard
  */
 async function initializeDashboard() {
-  // First, check session debug endpoint to see what's happening
-  try {
-    const debugResponse = await fetch(`${getApiUrl()}/api/debug/session`, {
-      method: "GET",
-      credentials: "include",
-    });
-    if (debugResponse.ok) {
-      const debugData = await debugResponse.json();
-      console.log("Session debug info:", debugData.data);
-    }
-  } catch (error) {
-    console.warn("Could not fetch session debug info:", error);
-  }
+  // Note: Session debug endpoint removed - using JWT authentication now
 
   // Check authentication first with retry logic
   let isAuthenticated = false;

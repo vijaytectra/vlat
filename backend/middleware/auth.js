@@ -1,41 +1,43 @@
 const User = require("../models/User");
+const { verifyToken, extractTokenFromHeader } = require("../utils/jwt");
 
 const requireAuth = async (req, res, next) => {
   try {
-    // Log session info for debugging
-    console.log("Auth middleware - Session check:", {
-      hasSession: !!req.session,
-      hasUserId: !!(req.session && req.session.userId),
-      sessionId: req.sessionID,
-      cookies: req.headers.cookie ? "present" : "missing",
-    });
+    const authHeader = req.headers.authorization;
+    const token = extractTokenFromHeader(authHeader);
 
-    if (!req.session || !req.session.userId) {
-      console.log("Auth failed: No session or userId");
+    if (!token) {
       return res.status(401).json({
         success: false,
-        message: "Authentication required",
+        message: "Authentication required. Please provide a valid token.",
       });
     }
 
-    const user = await User.findById(req.session.userId).select("-password");
+    let decoded;
+    try {
+      decoded = verifyToken(token);
+    } catch (error) {
+      return res.status(401).json({
+        success: false,
+        message: error.message || "Invalid or expired token",
+      });
+    }
+
+    const user = await User.findById(decoded.userId).select("-password");
     if (!user) {
-      console.log("Auth failed: User not found in database");
-      req.session.destroy();
       return res.status(401).json({
         success: false,
         message: "User not found",
       });
     }
 
-    console.log("Auth successful for user:", user.email);
     req.user = user;
     next();
   } catch (error) {
     console.error("Auth middleware error:", error);
     res.status(500).json({
       success: false,
-      message: "Server error",
+      message: "Server error during authentication",
     });
   }
 };
