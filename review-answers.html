@@ -12,44 +12,16 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#8d191c",
-              secondary: "#FFF6E2",
-              grey: {
-                1: "#fafafa",
-                4: "#d4d4d4",
-                6: "#737373",
-                7: "#525252",
-                9: "#262626",
-                10: "#171717",
-              },
-              green: {
-                100: "#DCFCE7",
-                600: "#008236",
-              },
-              red: {
-                600: "#EE0006",
-              },
-            },
-            fontFamily: {
-              sans: ["Inter", "system-ui", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
   </head>
 
   <body class="font-['Inter'] bg-secondary min-h-screen">
@@ -62,9 +34,7 @@
         >
           <!-- Logo -->
           <div class="flex items-center gap-3">
-            <img src="images/logo1.svg" class="h-8" alt="VMLS" />
-            <div class="h-9 w-px bg-[#D4D4D4]"></div>
-            <img src="images/vlatlogo.svg" class="h-6" alt="VLAT" />
+            <img src="images/vmlsvlatlogoheader.svg" class="h-10" alt="VMLS" />
           </div>
 
           <!-- Right -->

@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VLAT Exam Structure | VMRF Law Admission Test</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -21,6 +22,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
@@ -218,23 +221,22 @@
         <!-- Main Header -->
         <div class="flex items-center justify-between h-20 md:h-24">
           <!-- Left: Logos -->
-          <div class="flex items-center gap-4 md:gap-6">
-            <div class="flex items-center gap-3 md:gap-4">
-              <img
-                src="images/logo1.svg"
-                alt="VMLS Logo"
-                class="h-10 md:h-12 w-auto"
-                onerror="this.style.display='none'"
-              />
-            </div>
-            <div class="h-12 md:h-12 w-px bg-grey-4"></div>
-            <div class="flex items-center gap-3 md:gap-4">
-              <img
-                src="images/vlatlogo.svg"
-                alt="VLAT Logo"
-                class="h-10 md:h-10 w-auto"
-                onerror="this.style.display='none'"
-              />
+          <div class="flex items-center gap-1 md:gap-6">
+            <div class="flex items-center gap-2 md:gap-4">
+              <a
+                href="https://vmls.edu.in/"
+                target="_blank"
+                class="cursor-pointer"
+              >
+                <img
+                  src="images/vmlsvlatlogoheader.svg"
+                  alt="VMLS Logo"
+                  width="80"
+                  height="80"
+                  class="h-14 md:h-24 w-auto"
+                  onerror="this.style.display='none'"
+                />
+              </a>
             </div>
           </div>
 
@@ -415,6 +417,11 @@
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
                 >Exam Structure</a
               >
+              <a
+                href="contact-us.html"
+                class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                >Contact Us</a
+              >
             </nav>
 
             <!-- Call-to-Action Buttons -->
@@ -472,10 +479,11 @@
               <p
                 class="text-[#1F2937] text-base font-normal leading-relaxed font-['Inter']"
               >
-                Understanding the structure of the VMRF Law Admission Test
-                (VLAT) is the first step towards preparing confidently. The exam
-                has been designed to be straightforward, student-friendly, and
-                aligned with the core skills required in law school.
+                Understanding the structure of the vinayaka mission's law
+                admission test (VLAT) is the first step towards preparing
+                confidently. The exam has been designed to be straightforward,
+                student-friendly, and aligned with the core skills required in
+                law school.
                 <br /><br />
                 VLAT focuses only on what truly matters for a law aspirant —
                 your ability to comprehend, analyse, and reason logically. There
@@ -491,7 +499,7 @@
           class="lg:absolute lg:bottom-0 lg:right-16 lg:w-1/2 flex justify-center lg:justify-end items-center"
         >
           <img
-            src="/images/examstructure.png"
+            src="images/examstructure.png"
             alt="VLAT Exam Structure"
             class="w-full max-w-lg lg:max-w-none h-auto object-contain relative z-10"
           />
@@ -1193,18 +1201,12 @@
               <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
                 <img
-                  src="images/vmlslogowhite1.svg"
+                  src="images/vmlsvlatfooter.svg"
                   alt="VMLS Logo"
-                  class="h-[55px] w-auto object-contain"
-                  onerror="this.style.display='none'"
-                />
-                <!-- Vertical Line -->
-                <div class="h-[40px] w-px bg-grey-4"></div>
-                <img
-                  src="images/vlatlogowhite.svg"
-                  alt="VLAT Logo"
-                  class="h-[34px] w-auto object-contain"
-                  onerror="this.style.display='none'"
+                  width="150"
+                  height="55"
+                  class="h-[65px] w-auto object-cover"
+                  loading="lazy"
                 />
               </div>
 
@@ -1429,53 +1431,22 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © 2025 VMLS - Vinayaka Mission's Law School
+            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
+            Mission's Law School
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              inter: ["Inter", "sans-serif"],
-              imperator: ['"Imperator Small Caps"', "serif"],
-            },
-            colors: {
-              primary: "#8D191C",
-              secondary: "#F9FAFB",
-              grey: {
-                1: "#F3F4F6",
-                2: "#F3F4F6",
-                3: "#D1D5DB",
-                4: "#9CA3AF",
-                5: "#6B7280",
-                6: "#4B5563",
-                7: "#374151",
-                8: "#1F2937",
-                9: "#111827",
-                10: "#111827",
-              },
-              red: {
-                800: "#991B1B",
-                950: "#450A0A",
-              },
-              amber: {
-                700: "#B45309",
-              },
-              yellow: {
-                50: "#FFFBEB",
-              },
-              green: {
-                50: "#F0FDF4",
-              },
-            },
-          },
-        },
-      };
-
+      (function () {
+        const yearEl = document.getElementById("copyrightYear");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+      })();
+    </script>
+    <script>
       // Initialize animations
       document.addEventListener("DOMContentLoaded", function () {
         // Add scroll animations
@@ -1498,7 +1469,7 @@
         });
       });
     </script>
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 
     <!-- Scroll to Top Button -->
     <button

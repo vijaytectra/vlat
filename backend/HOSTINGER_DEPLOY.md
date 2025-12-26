@@ -9,7 +9,7 @@
 
 ---
 
-## STEP 1: DNS Setup (Do this FIRST - takes timimage.pnge to propagate)
+## STEP 1: DNS Setup (Do this FIRST - takes time to propagate)
 
 ### In Hostinger hPanel → DNS Manager:
 
@@ -50,14 +50,16 @@ cd vlat-backend
 ## STEP 4: Upload Files (from your local machine)
 
 **Option A: Using SCP (recommended)**
-Open NEW terminal on your local machine:
+Open NEW terminal on your local machine (PowerShell):
 
-```bash
-cd C:\Users\Vijayakumar R\Desktop\vlat\backend
+```powershell
+cd "C:\Users\Vijayakumar R\Desktop\vlat\backend"
 
-# Upload all files (excluding node_modules)
-scp -r !(node_modules) root@157.173.218.57:/var/www/vlat-backend/
+# Upload all files (PowerShell syntax - includes node_modules, but npm install will overwrite)
+scp -r package.json package-lock.json server.js local-server.js ecosystem.config.js api config controllers middleware models routes utils root@157.173.218.57:/var/www/vlat-backend/
 ```
+
+**Note:** If using Git Bash instead of PowerShell, you can use: `scp -r !(node_modules) root@157.173.218.57:/var/www/vlat-backend/`
 
 **Option B: Using Git (if repo exists)**
 
@@ -161,7 +163,7 @@ Paste this configuration:
 ```nginx
 server {
     listen 80;
-    server_name vlat.api.leadcrm.in;
+    server_name vlat.api.thelead101.com;
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -218,6 +220,86 @@ Expected response:
 
 ```json
 { "success": true, "message": "Server is running" }
+```
+
+---
+
+## Updating Files After Initial Deployment
+
+After making code changes, you need to upload the updated files and restart PM2.
+
+### Quick Single File Update
+
+**From your local machine (PowerShell):**
+
+```powershell
+cd "C:\Users\Vijayakumar R\Desktop\vlat\backend"
+
+# Upload a single file
+scp api/index.js root@157.173.218.57:/var/www/vlat-backend/api/
+```
+
+**Then on VPS, restart PM2:**
+
+```bash
+ssh root@157.173.218.57
+cd /var/www/vlat-backend
+pm2 restart vlat-backend
+
+# Verify it's running
+pm2 status
+pm2 logs vlat-backend --lines 20
+```
+
+### Upload Multiple Files/Folders
+
+```powershell
+cd "C:\Users\Vijayakumar R\Desktop\vlat\backend"
+
+# Upload specific files
+scp api/index.js server.js root@157.173.218.57:/var/www/vlat-backend/
+
+# Upload entire folders
+scp -r routes controllers utils root@157.173.218.57:/var/www/vlat-backend/
+```
+
+**Then restart on VPS:**
+
+```bash
+pm2 restart vlat-backend
+```
+
+### Important: Update CORS Origins
+
+If you add new frontend domains, update `api/index.js` or `server.js`:
+
+```javascript
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "https://vlat.thelead101.com",      // Add your production frontend
+  "https://vlat.api.thelead101.com",  // Add if needed
+  // ... other origins
+].filter(Boolean);
+```
+
+After updating, upload the file and restart PM2.
+
+### If You Added New Dependencies
+
+If `package.json` changed (new npm packages):
+
+```bash
+# On VPS
+cd /var/www/vlat-backend
+
+# Upload new package.json first
+# (from local: scp package.json root@157.173.218.57:/var/www/vlat-backend/)
+
+# Install new dependencies
+npm install --omit=dev
+
+# Restart
+pm2 restart vlat-backend
 ```
 
 ---

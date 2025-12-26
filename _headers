@@ -1,0 +1,23 @@
+# Netlify Headers Configuration
+# Cache static assets aggressively
+
+# Images - Cache for 1 year (immutable)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS - Cache for 1 year (immutable)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript - Cache for 1 year (immutable)
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Data files - Cache for 1 day
+/data/*
+  Cache-Control: public, max-age=86400
+
+# HTML files - Cache for 1 hour, must revalidate
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+

@@ -19,24 +19,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#8d191c",
-              cream: "#fff6e5",
-              grey: "#9ca3af",
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
   </head>
 
-  <body class="font-['Inter'] bg-cream">
+  <body class="font-['Inter'] bg-[#FFF6E2]">
     <!-- ROOT GRID -->
     <main class="grid grid-cols-1 lg:grid-cols-[96px_1fr_1fr]">
       <!-- LEFT RED STRIP -->
@@ -54,7 +43,7 @@
         class="hidden z-10 lg:flex items-center justify-start h-full px-10 pt-10"
       >
         <img
-          src="images/loginImage.svg"
+          src="images/loginimage.png"
           alt="Students attending class"
           class="h-full max-h-[85%] w-auto object-contain"
         />
@@ -136,7 +125,7 @@
             <button
               type="submit"
               id="loginButton"
-              class="w-full h-11 bg-cream text-primary font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              class="w-full h-11 bg-[#FFF6E2] text-primary font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span id="loginButtonText">Login to Dashboard</span>
               <span id="loginButtonLoader" class="hidden">

@@ -87,45 +87,49 @@ function renderAnnouncements() {
 
   const filtered = getFilteredAnnouncements();
 
+  // Use DocumentFragment to batch DOM writes and reduce reflows
+  const fragment = document.createDocumentFragment();
+
   if (filtered.length === 0) {
-    container.innerHTML = `
-      <div class="text-center py-8">
-        <p class="text-grey-6">No announcements found.</p>
-      </div>
-    `;
-    return;
+    const emptyDiv = document.createElement("div");
+    emptyDiv.className = "text-center py-8";
+    emptyDiv.innerHTML = `<p class="text-grey-6">No announcements found.</p>`;
+    fragment.appendChild(emptyDiv);
+  } else {
+    filtered.forEach((announcement) => {
+      const card = document.createElement("div");
+      card.className = "card border border-[#A3A3A3]";
+      card.innerHTML = `
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex space-x-2 flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs bg-primary text-white rounded-full">${
+              announcement.category
+            }</span>
+            ${announcement.tags
+              .filter((tag) => tag !== announcement.category)
+              .map(
+                (tag) =>
+                  `<span class="px-2 py-1 text-xs bg-grey-2 text-grey-7 rounded-full">${tag}</span>`
+              )
+              .join("")}
+          </div>
+          <span class="text-xs text-grey-6">${announcement.date}</span>
+        </div>
+        <h3 class="font-medium text-[announcementsContainer] mb-2">${
+          announcement.title
+        }</h3>
+        <p class="text-xs text-[#737373] mb-3">${announcement.description}</p>
+        <a href="${
+          announcement.link
+        }" class="text-sm text-[#155DFC] hover:underline">Read more →</a>
+      `;
+      fragment.appendChild(card);
+    });
   }
 
-  container.innerHTML = filtered
-    .map(
-      (announcement) => `
-    <div class="card border border-[#A3A3A3]">
-      <div class="flex items-start justify-between mb-2">
-        <div class="flex space-x-2 flex-wrap gap-2">
-          <span class="px-2 py-1 text-xs bg-primary text-white rounded-full">${
-            announcement.category
-          }</span>
-          ${announcement.tags
-            .filter((tag) => tag !== announcement.category)
-            .map(
-              (tag) =>
-                `<span class="px-2 py-1 text-xs bg-grey-2 text-grey-7 rounded-full">${tag}</span>`
-            )
-            .join("")}
-        </div>
-        <span class="text-xs text-grey-6">${announcement.date}</span>
-      </div>
-      <h3 class="font-medium text-[announcementsContainer] mb-2">${
-        announcement.title
-      }</h3>
-      <p class="text-xs text-[#737373] mb-3">${announcement.description}</p>
-      <a href="${
-        announcement.link
-      }" class="text-sm text-[#155DFC] hover:underline">Read more →</a>
-    </div>
-  `
-    )
-    .join("");
+  // Single DOM write operation
+  container.innerHTML = "";
+  container.appendChild(fragment);
 }
 
 // Initialize search functionality
@@ -161,9 +165,26 @@ function initAnnouncementsSidebar() {
     }
   }
 
-  // Load announcements when sidebar is initialized
-  loadAnnouncements();
+  // Initialize search functionality immediately (lightweight operation)
   initAnnouncementSearch();
+
+  // Defer announcements loading until after initial paint to prevent forced reflow
+  // Use requestIdleCallback with fallback to setTimeout for better performance
+  if (window.requestIdleCallback) {
+    requestIdleCallback(
+      () => {
+        loadAnnouncements();
+      },
+      { timeout: 2000 }
+    );
+  } else {
+    // Fallback: wait for next frame after initial paint
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        loadAnnouncements();
+      }, 0);
+    });
+  }
 }
 
 // Mobile Menu Toggle (Works on both mobile and desktop)
@@ -395,20 +416,46 @@ function initScrollToTop() {
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   if (!scrollToTopBtn) return;
 
-  // Show/hide button based on scroll position
+  let isVisible = false;
+  let ticking = false;
+  let lastScrollY = 0;
+
+  // Show/hide button based on scroll position - optimized to prevent forced reflow
   function toggleScrollButton() {
-    if (window.scrollY >= 300) {
-      scrollToTopBtn.classList.add("visible");
-    } else {
-      scrollToTopBtn.classList.remove("visible");
+    // Cache scroll position to avoid multiple reads
+    const currentScrollY = window.scrollY;
+    const shouldBeVisible = currentScrollY >= 300;
+    lastScrollY = currentScrollY;
+
+    // Only modify DOM if state changed
+    if (shouldBeVisible !== isVisible) {
+      isVisible = shouldBeVisible;
+      if (isVisible) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    }
+    ticking = false;
+  }
+
+  // Throttled scroll handler using requestAnimationFrame
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(toggleScrollButton);
+      ticking = true;
     }
   }
 
-  // Initial check
-  toggleScrollButton();
+  // Defer initial check until after first paint to prevent forced reflow
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      toggleScrollButton();
+    });
+  });
 
-  // Listen for scroll events
-  window.addEventListener("scroll", toggleScrollButton);
+  // Listen for scroll events with passive listener for performance
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   // Smooth scroll to top on button click
   scrollToTopBtn.addEventListener("click", () => {

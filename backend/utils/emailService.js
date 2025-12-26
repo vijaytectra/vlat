@@ -708,7 +708,329 @@ const sendWelcomeEmail = async (userEmail, userName, vlatId) => {
   }
 };
 
+// Send contact form email
+const sendContactEmail = async (contactData) => {
+  try {
+    const contactEmail =
+      process.env.CONTACT_EMAIL || "vijay.r20799@gmail.com";
+    const emailFrom = getFromEmail();
+
+    console.log(
+      `[Email Service] Sending contact form email from ${emailFrom} to ${contactEmail}`
+    );
+
+    // Format query type for display
+    const queryTypeLabels = {
+      admissions: "Admissions",
+      exam: "Exam Details",
+      registration: "Registration",
+      other: "Other",
+    };
+    const queryTypeDisplay =
+      contactData.queryType && queryTypeLabels[contactData.queryType]
+        ? queryTypeLabels[contactData.queryType]
+        : contactData.queryType || "Not specified";
+
+    // Format phone number with country code
+    const fullPhoneNumber = `${contactData.countryCode} ${contactData.mobile}`;
+
+    // Format timestamp
+    const submissionDate = new Date(contactData.timestamp).toLocaleString(
+      "en-IN",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: "Asia/Kolkata",
+      }
+    );
+
+    const result = await sendEmail({
+      to: contactEmail,
+      fromEmail: emailFrom,
+      fromName: "VLAT Contact Form",
+      subject: "New Contact Form Submission - VLAT",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body {
+              font-family: 'Inter', Arial, sans-serif;
+              line-height: 1.6;
+              color: #525252;
+              margin: 0;
+              padding: 0;
+              background-color: #F5F5F5;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            .email-wrapper {
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #FFFFFF;
+            }
+            .header {
+              background: linear-gradient(135deg, #8D191C 0%, #6d1316 100%);
+              padding: 40px 30px;
+              text-align: center;
+              border-radius: 12px 12px 0 0;
+            }
+            .header h1 {
+              color: #FFFFFF;
+              font-size: 28px;
+              font-weight: 700;
+              margin: 0 0 10px 0;
+              letter-spacing: 0.5px;
+            }
+            .header .subtitle {
+              color: #EDCD88;
+              font-size: 16px;
+              font-weight: 500;
+              margin: 0;
+            }
+            .content {
+              padding: 40px 30px;
+            }
+            .intro-text {
+              font-size: 16px;
+              color: #525252;
+              margin-bottom: 30px;
+              line-height: 1.8;
+            }
+            .info-card {
+              background-color: #FFF6E2;
+              border-left: 4px solid #EDCD88;
+              padding: 25px;
+              margin: 25px 0;
+              border-radius: 8px;
+            }
+            .info-card-title {
+              color: #8D191C;
+              font-size: 18px;
+              font-weight: 700;
+              margin: 0 0 20px 0;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            .info-row {
+              margin-bottom: 18px;
+              padding-bottom: 18px;
+              border-bottom: 1px solid #E5E5E5;
+            }
+            .info-row:last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+              border-bottom: none;
+            }
+            .info-label {
+              color: #737373;
+              font-size: 13px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 6px;
+              display: block;
+            }
+            .info-value {
+              color: #1F1F1F;
+              font-size: 16px;
+              font-weight: 500;
+              word-break: break-word;
+            }
+            .info-value a {
+              color: #8D191C;
+              text-decoration: none;
+              font-weight: 600;
+            }
+            .info-value a:hover {
+              text-decoration: underline;
+            }
+            .message-box {
+              background-color: #F9F9F9;
+              border: 1px solid #E5E5E5;
+              border-radius: 8px;
+              padding: 20px;
+              margin: 25px 0;
+            }
+            .message-box .info-label {
+              color: #8D191C;
+              margin-bottom: 12px;
+            }
+            .message-text {
+              color: #1F1F1F;
+              font-size: 15px;
+              line-height: 1.8;
+              white-space: pre-wrap;
+              margin: 0;
+            }
+            .timestamp {
+              background-color: #F3F4F6;
+              padding: 15px 20px;
+              border-radius: 8px;
+              margin: 25px 0;
+              text-align: center;
+            }
+            .timestamp-text {
+              color: #737373;
+              font-size: 13px;
+              margin: 0;
+            }
+            .timestamp-value {
+              color: #8D191C;
+              font-weight: 600;
+              font-size: 14px;
+              margin-top: 5px;
+            }
+            .footer {
+              background-color: #2B0809;
+              padding: 30px;
+              text-align: center;
+              border-radius: 0 0 12px 12px;
+            }
+            .footer-text {
+              color: #D4D4D4;
+              font-size: 13px;
+              margin: 0 0 15px 0;
+              line-height: 1.6;
+            }
+            .footer-contact {
+              margin-top: 20px;
+              padding-top: 20px;
+              border-top: 1px solid #3A1A1B;
+            }
+            .footer-contact-item {
+              color: #FAFAFA;
+              font-size: 14px;
+              margin: 8px 0;
+            }
+            .footer-contact-item a {
+              color: #EDCD88;
+              text-decoration: none;
+            }
+            .footer-contact-item a:hover {
+              text-decoration: underline;
+            }
+            .divider {
+              height: 1px;
+              background: linear-gradient(to right, transparent, #E5E5E5, transparent);
+              margin: 30px 0;
+            }
+            @media only screen and (max-width: 600px) {
+              .header {
+                padding: 30px 20px;
+              }
+              .header h1 {
+                font-size: 24px;
+              }
+              .content {
+                padding: 30px 20px;
+              }
+              .info-card {
+                padding: 20px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="email-wrapper">
+            <div class="header">
+              <h1>📧 New Contact Form Submission</h1>
+              <p class="subtitle">VLAT - Vinayaka Mission's Law Admission Test</p>
+            </div>
+            
+            <div class="content">
+              <p class="intro-text">
+                You have received a new contact form submission from the VLAT website. Please review the details below and respond to the inquiry.
+              </p>
+              
+              <div class="info-card">
+                <h2 class="info-card-title">Contact Information</h2>
+                
+                <div class="info-row">
+                  <span class="info-label">Full Name</span>
+                  <div class="info-value">${contactData.name}</div>
+                </div>
+                
+                <div class="info-row">
+                  <span class="info-label">Email Address</span>
+                  <div class="info-value">
+                    <a href="mailto:${contactData.email}">${contactData.email}</a>
+                  </div>
+                </div>
+                
+                <div class="info-row">
+                  <span class="info-label">Phone Number</span>
+                  <div class="info-value">
+                    <a href="tel:${fullPhoneNumber.replace(/\s+/g, '')}">${fullPhoneNumber}</a>
+                  </div>
+                </div>
+                
+                <div class="info-row">
+                  <span class="info-label">Query Type</span>
+                  <div class="info-value">${queryTypeDisplay}</div>
+                </div>
+              </div>
+              
+              ${contactData.message ? `
+              <div class="message-box">
+                <span class="info-label">Message</span>
+                <p class="message-text">${contactData.message.replace(/\n/g, '<br>')}</p>
+              </div>
+              ` : ''}
+              
+              <div class="timestamp">
+                <p class="timestamp-text">Submission Date & Time</p>
+                <p class="timestamp-value">${submissionDate}</p>
+              </div>
+            </div>
+            
+            <div class="footer">
+              <p class="footer-text">
+                This is an automated email notification from the VLAT Contact Form system.
+              </p>
+              <div class="footer-contact">
+                <p class="footer-contact-item">
+                  <strong>VLAT - Vinayaka Mission's Law Admission Test</strong>
+                </p>
+                <p class="footer-contact-item">
+                  📧 <a href="mailto:admissions@vmls.edu.in">admissions@vmls.edu.in</a>
+                </p>
+                <p class="footer-contact-item">
+                  📞 <a href="tel:+917358201234">+91 73582 01234</a> | 18003094350
+                </p>
+                <p class="footer-contact-item">
+                  🌐 <a href="https://vmls.edu.in">vmls.edu.in</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+    });
+
+    console.log("[Email Service] Contact form email sent:", result.messageId);
+    return result;
+  } catch (error) {
+    console.error("[Email Service] Error sending contact form email:", {
+      message: error.message,
+      code: error.code,
+    });
+
+    throw new Error(
+      error.message ||
+        "Failed to send contact form email. Please try again later."
+    );
+  }
+};
+
 module.exports = {
   sendPasswordResetEmail,
   sendWelcomeEmail,
+  sendContactEmail,
 };

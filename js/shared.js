@@ -228,7 +228,7 @@ export function createFooter() {
         <!-- Copyright -->
         <div class="text-center pt-8 border-t border-grey-5/20">
           <p class="text-xs text-grey-5 font-normal">
-            Copyright © 2025 VMLS - Vinayaka Mission's Law School
+            Copyright © <span id="copyrightYear">${new Date().getFullYear()}</span> VMLS - Vinayaka Mission's Law School
           </p>
         </div>
       </div>

@@ -255,8 +255,17 @@
     <!-- Copyright -->
     <div class="text-center pt-8 border-t border-grey-5/20">
       <p class="text-xs text-grey-5 font-normal">
-        Copyright © 2025 VMLS - Vinayaka Mission's Law School
+        Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka Mission's Law School
       </p>
     </div>
   </div>
 </footer>
+<script>
+  (function() {
+    const yearEl = document.getElementById('copyrightYear');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  })();
+</script>
+

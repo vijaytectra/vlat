@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
     <!-- Icons -->
     <link
@@ -19,22 +20,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#8D191C",
-              cream: "#FFF6E5",
-              gold: "#EDCD88",
-              whiteSoft: "#F3F4F6",
-            },
-          },
-        },
-      };
-    </script>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
     <style>
       input::placeholder {
         color: #a3a3a3;
@@ -63,7 +50,7 @@
         class="hidden z-10 lg:flex items-center justify-start h-full px-10 pt-10"
       >
         <img
-          src="images/loginImage.svg"
+          src="images/loginimage.png"
           alt="Students attending class"
           class="h-full max-h-[85%] w-auto object-contain"
         />
@@ -86,13 +73,13 @@
               hours.
             </p>
 
-            <button
+            <a
+              href="login.html"
               id="backToLoginButton"
-              type="button"
-              class="w-full min-h-[56px] bg-[#FFF6E2] text-primary rounded-xl font-medium hover:opacity-90 transition"
+              class="block w-full min-h-[56px] bg-[#FFF6E2] text-primary rounded-xl font-medium hover:opacity-90 transition text-center flex items-center justify-center"
             >
               Back to Login
-            </button>
+            </a>
 
             <a
               href="forgot-password.html"
@@ -105,12 +92,16 @@
       </section>
     </main>
     <script>
-      const backToLoginButton = document.getElementById("backToLoginButton");
-      if (backToLoginButton) {
-        backToLoginButton.addEventListener("click", () => {
-          window.location.href = "/login.html";
-        });
-      }
+      // Ensure redirect works even if JavaScript has issues
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToLoginButton = document.getElementById("backToLoginButton");
+        if (backToLoginButton) {
+          backToLoginButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "login.html";
+          });
+        }
+      });
     </script>
   </body>
 </html>

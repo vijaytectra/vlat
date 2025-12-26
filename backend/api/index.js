@@ -16,6 +16,9 @@ const allowedOrigins = [
   "http://localhost:5501",
   "http://127.0.0.1:5501",
   "https://vlat.vercel.app",
+  "https://vmls.edu.in",
+  "https://vlat.thelead101.com", // ADD THIS
+  "https://vlat.api.thelead101.com", // ADD THIS (if frontend uses it)
 ].filter(Boolean);
 
 const corsOptions = {

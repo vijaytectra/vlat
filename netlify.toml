@@ -1,5 +1,5 @@
 [build]
   # Build command to compile Tailwind CSS
   command = "npm install && npm run netlify-build"
-  # Publish from root directory (where all HTML files are)
-  publish = "."
+  # Publish from dist directory (where built files are)
+  publish = "dist"

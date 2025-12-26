@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About VMLS | Vinayaka Mission's Law School</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -166,6 +166,7 @@
         }
       }
     </style>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
 
   <body class="bg-white">
@@ -217,28 +218,19 @@
         <!-- Main Header -->
         <div class="flex items-center justify-between h-20 md:h-24">
           <!-- Left: Logos -->
-          <div class="flex items-center gap-4 md:gap-6">
-            <div class="flex items-center gap-3 md:gap-4">
+          <div class="flex items-center gap-1 md:gap-6">
+            <div class="flex items-center gap-2 md:gap-4">
               <a
                 href="https://vmls.edu.in/"
                 target="_blank"
                 class="cursor-pointer"
               >
                 <img
-                  src="images/logo1.svg"
+                  src="images/vmlsvlatlogoheader.svg"
                   alt="VMLS Logo"
-                  class="h-10 md:h-12 w-auto"
-                  onerror="this.style.display='none'"
-                />
-              </a>
-            </div>
-            <div class="h-12 md:h-12 w-px bg-grey-4"></div>
-            <div class="flex items-center gap-3 md:gap-4">
-              <a class="cursor-pointer" href="/">
-                <img
-                  src="images/vlatlogo.svg"
-                  alt="VLAT Logo"
-                  class="h-10 md:h-10 w-auto"
+                  width="80"
+                  height="80"
+                  class="h-14 md:h-24 w-auto"
                   onerror="this.style.display='none'"
                 />
               </a>
@@ -427,6 +419,11 @@
               >
               <a
                 href="exam-structure.html"
+                class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                >Exam Structure</a
+              >
+              <a
+                href="contact-us.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
                 >Exam Structure</a
               >
@@ -716,9 +713,13 @@
             </div>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-row gap-2 w-full lg:w-1/2 lg:mx-auto mt-0">
+            <div
+              class="flex flex-col md:flex-row gap-4 w-full lg:w-3/4 lg:mx-auto mt-0"
+            >
               <button
-                class="flex-1 h-14 bg-[#991B1B] rounded-xl flex items-center justify-center gap-2 hover:bg-[#7F1D1D] transition-colors"
+                type="button"
+                onclick="window.location.href='register.html'"
+                class="flex-1 py-2 h-12 bg-[#991B1B] rounded-xl flex items-center justify-center gap-2 hover:bg-[#7F1D1D] transition-colors"
               >
                 <span class="text-gray-100 text-sm sm:text-lg font-medium"
                   >Apply Now</span
@@ -728,10 +729,24 @@
                 ></i>
               </button>
               <button
-                class="flex-1 h-14 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
+                type="button"
+                onclick="downloadPDF('images/ug.pdf', 'UG_Brochure.pdf')"
+                class="flex-1 py-2 h-12 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
               >
                 <span class="text-[#991B1B] text-sm sm:text-lg font-medium"
-                  >Download Brochure</span
+                  >Download Brochure- UG</span
+                >
+                <i
+                  class="fas fa-download text-[#991B1B] text-sm sm:text-base"
+                ></i>
+              </button>
+              <button
+                type="button"
+                onclick="downloadPDF('images/pg.pdf', 'PG_Brochure.pdf')"
+                class="flex-1 h-12 py-2 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
+              >
+                <span class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                  >Download Brochure- PG</span
                 >
                 <i
                   class="fas fa-download text-[#991B1B] text-sm sm:text-base"
@@ -945,18 +960,12 @@
               <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
                 <img
-                  src="images/vmlslogowhite1.svg"
+                  src="images/vmlsvlatfooter.svg"
                   alt="VMLS Logo"
-                  class="h-[55px] w-auto object-contain"
-                  onerror="this.style.display='none'"
-                />
-                <!-- Vertical Line -->
-                <div class="h-[40px] w-px bg-grey-4"></div>
-                <img
-                  src="images/vlatlogowhite.svg"
-                  alt="VLAT Logo"
-                  class="h-[34px] w-auto object-contain"
-                  onerror="this.style.display='none'"
+                  width="150"
+                  height="55"
+                  class="h-[65px] w-auto object-cover"
+                  loading="lazy"
                 />
               </div>
 
@@ -1181,48 +1190,22 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © 2025 VMLS - Vinayaka Mission's Law School
+            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
+            Mission's Law School
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              inter: ["Inter", "sans-serif"],
-              imperator: ['"Imperator Small Caps"', "serif"],
-            },
-            colors: {
-              primary: "#8D191C",
-              secondary: "#F9FAFB",
-              grey: {
-                1: "#1F2937",
-                2: "#F3F4F6",
-                3: "#D1D5DB",
-                4: "#9CA3AF",
-                5: "#6B7280",
-                6: "#4B5563",
-                7: "#374151",
-                8: "#1F2937",
-                9: "#111827",
-                10: "#111827",
-              },
-              red: {
-                800: "#991B1B",
-                950: "#450A0A",
-              },
-              amber: {
-                200: "#FDE68A",
-                700: "#B45309",
-              },
-            },
-          },
-        },
-      };
-
+      (function () {
+        const yearEl = document.getElementById("copyrightYear");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+      })();
+    </script>
+    <script>
       // Initialize animations and interactions
       document.addEventListener("DOMContentLoaded", function () {
         // Smooth scrolling for anchor links
@@ -1380,7 +1363,29 @@
       </div>
     </div>
 
-    <script type="module" src="/js/main.js"></script>
+    <script>
+      /**
+       * Downloads a PDF file by creating a temporary anchor element
+       * @param {string} filePath - Path to the PDF file
+       * @param {string} fileName - Name for the downloaded file
+       */
+      function downloadPDF(filePath, fileName) {
+        try {
+          const link = document.createElement("a");
+          link.href = filePath;
+          link.download = fileName;
+          link.target = "_blank";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          console.error("Error downloading PDF:", error);
+          // Fallback: open in new tab if download fails
+          window.open(filePath, "_blank");
+        }
+      }
+    </script>
+    <script type="module" src="js/main.js"></script>
 
     <!-- Scroll to Top Button -->
     <button

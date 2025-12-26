@@ -1,0 +1,31 @@
+# Robots.txt for VLAT - Vinayaka Mission's Law Admission Test
+# https://vlat.vmls.edu.in/
+
+User-agent: *
+Allow: /
+
+# Allow all crawlers to access the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://vlat.vmls.edu.in/sitemap.xml
+
+# Disallow admin/backend paths (if any)
+Disallow: /backend/
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /.git/
+
+# Allow all static assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /data/
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
+

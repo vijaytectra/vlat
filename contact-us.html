@@ -6,13 +6,14 @@
     <title>
       Contact Us - VLAT - Vinayaka Mission's Law Admission Test 2026
     </title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -21,6 +22,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body class="bg-background relative">
     <!-- Main Content -->
@@ -54,23 +56,22 @@
             <!-- Main Header -->
             <div class="flex items-center justify-between h-20 md:h-24">
               <!-- Left: Logos -->
-              <div class="flex items-center gap-4 md:gap-6">
-                <div class="flex items-center gap-3 md:gap-4">
-                  <img
-                    src="images/logo1.svg"
-                    alt="VMLS Logo"
-                    class="h-10 md:h-12 w-auto"
-                    onerror="this.style.display='none'"
-                  />
-                </div>
-                <div class="h-12 md:h-12 w-px bg-grey-4"></div>
-                <div class="flex items-center gap-3 md:gap-4">
-                  <img
-                    src="images/vlatlogo.svg"
-                    alt="VLAT Logo"
-                    class="h-10 md:h-10 w-auto"
-                    onerror="this.style.display='none'"
-                  />
+              <div class="flex items-center gap-1 md:gap-6">
+                <div class="flex items-center gap-2 md:gap-4">
+                  <a
+                    href="https://vmls.edu.in/"
+                    target="_blank"
+                    class="cursor-pointer"
+                  >
+                    <img
+                      src="images/vmlsvlatlogoheader.svg"
+                      alt="VMLS Logo"
+                      width="80"
+                      height="80"
+                      class="h-14 md:h-24 w-auto"
+                      onerror="this.style.display='none'"
+                    />
+                  </a>
                 </div>
               </div>
 
@@ -85,20 +86,22 @@
                   />
                 </div>
                 <div class="hidden lg:flex items-center gap-2">
-                  <button
-                    class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
-                  >
-                    Login
-                  </button>
+                  <a href="login.html">
+                    <button
+                      class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                    >
+                      Login
+                    </button>
+                  </a>
                 </div>
 
                 <button
-                id="mobileMenuBtn"
-                class="p-3 rounded-lg flex items-center gap-2  border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
-              >
-                <img src="images/menu.svg" alt="Menu" class="w-6 h-6">
-                <span class="text-[#8D191C] font-medium ">Menu</span>
-              </button>
+                  id="mobileMenuBtn"
+                  class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
+                >
+                  <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
+                  <span class="text-[#8D191C] font-medium">Menu</span>
+                </button>
               </div>
             </div>
 
@@ -220,7 +223,7 @@
                   <a
                     href="contact-us.html"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
-                    >Contact</a
+                    >Contact Us</a
                   >
                 </nav>
 
@@ -266,7 +269,11 @@
 
             <!-- Contact Form -->
             <div class="max-w-2xl mx-auto">
+              <!-- Success/Error Message Container -->
+              <div id="contactMessage" class="hidden mb-6 p-4 rounded-lg"></div>
+
               <form
+                id="contactForm"
                 class="rounded-2xl p-6 border-[3px] border-[#D4D4D4] backdrop-blur-blur flex flex-col gap-[18px] shadow-lg"
               >
                 <!-- Name Field -->
@@ -327,7 +334,7 @@
                       type="tel"
                       id="mobile"
                       name="mobile"
-                      placeholder="9876543210"
+                      placeholder="Enter Your Mobile Number"
                       required
                       class="h-11 px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4"
                     />
@@ -400,10 +407,17 @@
                 <!-- Submit Button -->
                 <button
                   type="submit"
-                  class="h-14 px-5 py-5 bg-primary rounded-[11px] flex items-center justify-center gap-2 text-secondary text-base font-medium hover:bg-opacity-90 transition-colors"
+                  id="submitBtn"
+                  class="h-14 px-5 py-5 bg-primary rounded-[11px] flex items-center justify-center gap-2 text-secondary text-base font-medium hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <i class="fa-solid fa-paper-plane w-5 h-5"></i>
-                  <span>Send message</span>
+                  <i
+                    class="fa-solid fa-paper-plane w-5 h-5"
+                    id="submitIcon"
+                  ></i>
+                  <span id="submitText">Send message</span>
+                  <span id="submitSpinner" class="hidden">
+                    <i class="fa-solid fa-spinner fa-spin w-5 h-5"></i>
+                  </span>
                 </button>
               </form>
             </div>
@@ -417,7 +431,7 @@
         <!-- Background Image -->
         <div class="absolute inset-0 overflow-hidden">
           <img
-            src="images/contactus-image2.svg"
+            src="images/conatctusimage.png"
             alt="Background"
             class="w-full h-full object-cover"
           />
@@ -445,7 +459,8 @@
                     Email
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
-                    admissions@vmls.edu.in
+                    
+                    <a href="mailto:admissions@vmls.edu.in">admissions@vmls.edu.in</a>
                   </p>
                 </div>
               </div>
@@ -464,7 +479,9 @@
                     Phone
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
-                    18003094350 | +91 73582 01234
+                    <a href="tel:+18003094350">18003094350 | </a>
+                    <a href="tel:+917358201234">7358201234 |</a>
+                    <a href="tel:+917200094298">7200094298</a>
                   </p>
                 </div>
               </div>
@@ -525,7 +542,7 @@
                     Chatbot help
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
-                    +91 7358201234
+                    <a href="tel:+917358201234"> 7358201234</a>
                   </p>
                 </div>
               </div>
@@ -630,19 +647,13 @@
               <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
                 <img
-                  src="images/vmlslogowhite1.svg"
-                  alt="VMLS Logo"
-                  class="h-[55px] w-auto object-contain"
-                  onerror="this.style.display='none'"
-                />
-                <!-- Vertical Line -->
-                <div class="h-[40px] w-px bg-grey-4"></div>
-                <img
-                  src="images/vlatlogowhite.svg"
-                  alt="VLAT Logo"
-                  class="h-[34px] w-auto object-contain"
-                  onerror="this.style.display='none'"
-                />
+                src="images/vmlsvlatfooter.svg"
+                alt="VMLS Logo"
+                width="150"
+                height="55"
+                class="h-[65px] w-auto object-cover"
+                loading="lazy"
+              />
               </div>
 
               <!-- University Description -->
@@ -866,7 +877,8 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © 2025 VMLS - Vinayaka Mission's Law School
+            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
+            Mission's Law School
           </p>
         </div>
       </div>
@@ -931,6 +943,177 @@
 
     <script src="js/main.js"></script>
 
+    <!-- Contact Form Submission Script -->
+    <script type="module">
+      // Get API base URL (same as auth.js)
+      const API_BASE_URL = "https://vlat.api.thelead101.com";
+
+      const contactForm = document.getElementById("contactForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const submitText = document.getElementById("submitText");
+      const submitIcon = document.getElementById("submitIcon");
+      const submitSpinner = document.getElementById("submitSpinner");
+      const messageContainer = document.getElementById("contactMessage");
+
+      // Show message function
+      function showMessage(message, type = "success") {
+        messageContainer.className = `mb-6 p-4 rounded-lg ${
+          type === "success"
+            ? "bg-green-50 border border-green-200 text-green-800"
+            : "bg-red-50 border border-red-200 text-red-800"
+        }`;
+        messageContainer.innerHTML = `
+          <div class="flex items-center gap-3">
+            <i class="fa-solid ${
+              type === "success" ? "fa-check-circle" : "fa-exclamation-circle"
+            }"></i>
+            <p class="font-medium">${message}</p>
+          </div>
+        `;
+        messageContainer.classList.remove("hidden");
+
+        // Scroll to message
+        messageContainer.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+
+        // Auto-hide success messages after 5 seconds
+        if (type === "success") {
+          setTimeout(() => {
+            messageContainer.classList.add("hidden");
+          }, 5000);
+        }
+      }
+
+      // Set loading state
+      function setLoading(isLoading) {
+        if (isLoading) {
+          submitBtn.disabled = true;
+          submitText.textContent = "Sending...";
+          submitIcon.classList.add("hidden");
+          submitSpinner.classList.remove("hidden");
+        } else {
+          submitBtn.disabled = false;
+          submitText.textContent = "Send message";
+          submitIcon.classList.remove("hidden");
+          submitSpinner.classList.add("hidden");
+        }
+      }
+
+      // Validate email format
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email.trim());
+      }
+
+      // Validate phone number
+      function validatePhone(phone) {
+        const phoneRegex = /^\d{6,15}$/;
+        const cleaned = phone.replace(/\s+/g, "").trim();
+        return phoneRegex.test(cleaned);
+      }
+
+      // Handle form submission
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Hide previous messages
+        messageContainer.classList.add("hidden");
+
+        // Get form values
+        const formData = {
+          name: document.getElementById("name").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          countryCode: document.getElementById("countryCode").value.trim(),
+          mobile: document.getElementById("mobile").value.trim(),
+          queryType: document.getElementById("queryType").value.trim(),
+          message: document.getElementById("message").value.trim(),
+          agree: document.getElementById("agree").checked,
+        };
+
+        // Client-side validation
+        if (!formData.name || formData.name.length < 2) {
+          showMessage(
+            "Please enter a valid name (at least 2 characters).",
+            "error"
+          );
+          document.getElementById("name").focus();
+          return;
+        }
+
+        if (!formData.email || !validateEmail(formData.email)) {
+          showMessage("Please enter a valid email address.", "error");
+          document.getElementById("email").focus();
+          return;
+        }
+
+        if (!formData.mobile || !validatePhone(formData.mobile)) {
+          showMessage(
+            "Please enter a valid mobile number (6-15 digits, no spaces or special characters).",
+            "error"
+          );
+          document.getElementById("mobile").focus();
+          return;
+        }
+
+        if (!formData.agree) {
+          showMessage("Please accept the agreement to continue.", "error");
+          document.getElementById("agree").focus();
+          return;
+        }
+
+        // Set loading state
+        setLoading(true);
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/api/contact`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            // Success
+            showMessage(
+              data.message ||
+                "Thank you for contacting us! We'll get back to you soon.",
+              "success"
+            );
+
+            // Reset form
+            contactForm.reset();
+
+            // Scroll to top of form
+            contactForm.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+            });
+          } else {
+            // Error from server
+            showMessage(
+              data.message || "Something went wrong. Please try again later.",
+              "error"
+            );
+          }
+        } catch (error) {
+          // Network or other errors
+          console.error("Contact form submission error:", error);
+          showMessage(
+            "Unable to send your message. Please check your internet connection and try again.",
+            "error"
+          );
+        } finally {
+          // Reset loading state
+          setLoading(false);
+        }
+      });
+    </script>
+
     <!-- Scroll to Top Button -->
     <button
       id="scrollToTopBtn"
@@ -939,5 +1122,13 @@
     >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
+    <script>
+      (function () {
+        const yearEl = document.getElementById("copyrightYear");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+      })();
+    </script>
   </body>
 </html>

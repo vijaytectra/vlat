@@ -7,6 +7,8 @@ const connectDB = require("./config/database");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const testRoutes = require("./routes/test");
+const contactRoutes = require("./routes/contact");
+const blogRoutes = require("./routes/blog");
 
 // Connect to MongoDB
 connectDB();
@@ -21,6 +23,10 @@ const allowedOrigins = [
   "http://127.0.0.1:5500",
   "http://localhost:5501",
   "http://127.0.0.1:5501",
+  "https://vlat.vercel.app",
+  "https://vmls.edu.in",
+  "https://vlat.thelead101.com",
+  "https://vlat.api.thelead101.com",
 ].filter(Boolean);
 
 const corsOptions = {
@@ -76,6 +82,8 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/test", testRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/blog", blogRoutes);
 
 // Health check route
 app.get("/api/health", (req, res) => {

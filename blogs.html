@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VMLS Blog - Vinayaka Mission's Law School</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css?v=2.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
@@ -19,6 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
   </head>
   <body class="bg-white">
     <!-- Header -->
@@ -69,28 +71,19 @@
         <!-- Main Header -->
         <div class="flex items-center justify-between h-20 md:h-24">
           <!-- Left: Logos -->
-          <div class="flex items-center gap-4 md:gap-6">
-            <div class="flex items-center gap-3 md:gap-4">
+          <div class="flex items-center gap-1 md:gap-6">
+            <div class="flex items-center gap-2 md:gap-4">
               <a
                 href="https://vmls.edu.in/"
                 target="_blank"
                 class="cursor-pointer"
               >
                 <img
-                  src="images/logo1.svg"
+                  src="images/vmlsvlatlogoheader.svg"
                   alt="VMLS Logo"
-                  class="h-10 md:h-12 w-auto"
-                  onerror="this.style.display='none'"
-                />
-              </a>
-            </div>
-            <div class="h-12 md:h-12 w-px bg-grey-4"></div>
-            <div class="flex items-center gap-3 md:gap-4">
-              <a class="cursor-pointer" href="/">
-                <img
-                  src="images/vlatlogo.svg"
-                  alt="VLAT Logo"
-                  class="h-10 md:h-10 w-auto"
+                  width="80"
+                  height="80"
+                  class="h-14 md:h-24 w-auto"
                   onerror="this.style.display='none'"
                 />
               </a>
@@ -285,7 +278,7 @@
               <a
                 href="contact-us.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
-                >Contact</a
+                >Contact Us</a
               >
             </nav>
 
@@ -318,7 +311,7 @@
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
           <img
-            src="images/blogshome.svg"
+            src="images/bloghome.png"
             alt="Blogs Image"
             class="w-full h-full object-cover"
           />
@@ -349,11 +342,14 @@
                 class="fas fa-search w-5 h-5 absolute left-4 text-gray-400"
               ></i>
               <input
+                id="blogSearchInput"
                 type="text"
                 placeholder="Search articles, topics, or authors"
                 class="w-full h-14 pl-12 pr-32 bg-[#FFF6E2] border border-[#8D191C1A] focus:outline-none text-sm font-normal font-['Arial'] text-gray-500"
               />
               <button
+                id="blogSearchBtn"
+                type="button"
                 class="absolute right-2 h-10 px-6 bg-primary rounded-lg flex items-center justify-center text-white text-sm font-normal font-['Arial'] leading-5 hover:bg-opacity-90 transition-colors"
               >
                 Search
@@ -390,74 +386,10 @@
               >
             </button>
 
-            <!-- Student Life -->
+            <!-- Moot Court -->
             <button
               class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="student-life"
-            >
-              <div
-                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
-              >
-                <i class="fas fa-graduation-cap w-4 h-4 text-primary"></i>
-              </div>
-              <span
-                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Student Life</span
-              >
-            </button>
-
-            <!-- Legal Research -->
-            <button
-              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="legal-research"
-            >
-              <div
-                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
-              >
-                <i class="fas fa-book w-4 h-4 text-primary"></i>
-              </div>
-              <span
-                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Legal Research</span
-              >
-            </button>
-
-            <!-- Court Judgements -->
-            <button
-              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="court-judgements"
-            >
-              <div
-                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
-              >
-                <i class="fas fa-gavel w-4 h-4 text-primary"></i>
-              </div>
-              <span
-                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Court Judgements</span
-              >
-            </button>
-
-            <!-- Faculty Insights -->
-            <button
-              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="faculty-insights"
-            >
-              <div
-                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
-              >
-                <i class="fas fa-user-tie w-4 h-4 text-primary"></i>
-              </div>
-              <span
-                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Faculty Insights</span
-              >
-            </button>
-
-            <!-- Moot Court & Events -->
-            <button
-              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="moot-court-events"
+              data-topic="moot-court"
             >
               <div
                 class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
@@ -466,7 +398,7 @@
               </div>
               <span
                 class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Moot Court & Events</span
+                >Moot Court</span
               >
             </button>
 
@@ -486,19 +418,83 @@
               >
             </button>
 
-            <!-- Career Guidance -->
+            <!-- Law Colleges in India -->
             <button
               class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
-              data-topic="career-guidance"
+              data-topic="law-colleges-in-india"
             >
               <div
                 class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
               >
-                <i class="fas fa-briefcase w-4 h-4 text-primary"></i>
+                <i class="fas fa-university w-4 h-4 text-primary"></i>
               </div>
               <span
                 class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
-                >Career Guidance</span
+                >Law Colleges in India</span
+              >
+            </button>
+
+            <!-- LLB -->
+            <button
+              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
+              data-topic="llb"
+            >
+              <div
+                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-book w-4 h-4 text-primary"></i>
+              </div>
+              <span
+                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
+                >LLB</span
+              >
+            </button>
+
+            <!-- Distance LL.B. -->
+            <button
+              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
+              data-topic="distance-llb"
+            >
+              <div
+                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-laptop w-4 h-4 text-primary"></i>
+              </div>
+              <span
+                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
+                >Distance LL.B.</span
+              >
+            </button>
+
+            <!-- Clinical Legal Education -->
+            <button
+              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
+              data-topic="clinical-legal-education"
+            >
+              <div
+                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-hands-helping w-4 h-4 text-primary"></i>
+              </div>
+              <span
+                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
+                >Clinical Legal Education</span
+              >
+            </button>
+
+            <!-- Legal Research -->
+            <button
+              class="topic-filter pl-2 pr-3 py-2 rounded-lg border border-[#F5F5F5] flex items-center gap-2 cursor-pointer hover:bg-white hover:border-primary transition-all"
+              data-topic="legal-research"
+            >
+              <div
+                class="w-9 h-9 bg-[#FFF6E2] rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-book w-4 h-4 text-primary"></i>
+              </div>
+              <span
+                class="text-center text-[#364153] text-sm font-normal font-['Inter'] leading-5"
+                >Legal Research</span
               >
             </button>
           </div>
@@ -565,18 +561,12 @@
               <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
                 <img
-                  src="images/vmlslogowhite1.svg"
+                  src="images/vmlsvlatfooter.svg"
                   alt="VMLS Logo"
-                  class="h-[55px] w-auto object-contain"
-                  onerror="this.style.display='none'"
-                />
-                <!-- Vertical Line -->
-                <div class="h-[40px] w-px bg-grey-4"></div>
-                <img
-                  src="images/vlatlogowhite.svg"
-                  alt="VLAT Logo"
-                  class="h-[34px] w-auto object-contain"
-                  onerror="this.style.display='none'"
+                  width="150"
+                  height="55"
+                  class="h-[65px] w-auto object-cover"
+                  loading="lazy"
                 />
               </div>
 
@@ -801,7 +791,8 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © 2025 VMLS - Vinayaka Mission's Law School
+            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
+            Mission's Law School
           </p>
         </div>
       </div>
@@ -875,5 +866,13 @@
     >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
+    <script>
+      (function () {
+        const yearEl = document.getElementById("copyrightYear");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
+      })();
+    </script>
   </body>
 </html>
