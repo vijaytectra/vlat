@@ -226,8 +226,25 @@
             </div>
           </div>
 
-          <!-- Right: VMRF Logo, Buttons, Menu -->
+          <!-- Right: Language Switcher, VMRF Logo, Buttons, Menu -->
           <div class="flex items-center gap-3 md:gap-4">
+            <!-- Language Switcher -->
+            <div
+              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+            >
+              <button
+                id="lang-en"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+              >
+                English
+              </button>
+              <button
+                id="lang-ta"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+              >
+                தமிழ்
+              </button>
+            </div>
             <div class="hidden lg:flex items-center gap-2">
               <a
                 href="https://www.vmrfdu.edu.in/"
@@ -237,6 +254,7 @@
                 <img
                   src="images/vmrflogo.svg"
                   alt="VMRF Logo"
+                  data-i18n-alt="common.alt.vmrfLogo"
                   class="h-12 w-auto"
                   onerror="this.style.display='none'"
                 />
@@ -246,6 +264,7 @@
               <a href="login.html">
                 <button
                   class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                  data-i18n="common.buttons.login"
                 >
                   Login
                 </button>
@@ -254,10 +273,24 @@
 
             <button
               id="mobileMenuBtn"
-              class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
+              class="md:p-3 p-2 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
             >
-              <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
-              <span class="text-[#8D191C] font-medium">Menu</span>
+              <img
+                src="images/menu.svg"
+                alt=""
+                width="24"
+                height="24"
+                class="w-6 h-6"
+                aria-hidden="true"
+              />
+              <span
+                class="text-[#8D191C] font-medium"
+                data-i18n="common.buttons.menu"
+                >Menu</span
+              >
             </button>
           </div>
         </div>
@@ -270,7 +303,12 @@
           <div class="flex flex-col">
             <!-- Header with MENU title and Close button -->
             <div class="flex items-center justify-between px-6 py-3">
-              <h2 class="text-xl font-semibold text-white uppercase">MENU</h2>
+              <h2
+                class="text-xl font-semibold text-white uppercase"
+                data-i18n="common.buttons.menu"
+              >
+                MENU
+              </h2>
               <button
                 id="closeMobileMenu"
                 class="p-2 text-white hover:opacity-80 transition-opacity"
@@ -383,37 +421,44 @@
               <a
                 href="index.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.home"
                 >Home</a
               >
               <a
                 href="about-vlat.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVlat"
                 >About VLAT</a
               >
               <a
                 href="about-vmls.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVmls"
                 >About VMLS</a
               >
               <a
                 href="how-to-register.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.howToRegister"
                 >How to Register</a
               >
               <a
                 href="blogs.html"
                 id="blogsLink"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.blogs"
                 >Blogs</a
               >
               <a
                 href="exam-structure.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.examStructure"
                 >Exam Structure</a
               >
               <a
                 href="contact-us.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.contactUs"
                 >Contact Us</a
               >
             </nav>
@@ -425,11 +470,13 @@
               <a
                 href="register.html"
                 class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+                data-i18n="common.buttons.applyForVlat"
                 >Apply for VLAT</a
               >
               <a
                 href="login.html"
                 class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+                data-i18n="common.buttons.login"
                 >Login</a
               >
             </div>
@@ -457,6 +504,7 @@
             <div class="">
               <h1
                 class="text-3xl lg:text-5xl font-semibold text-black mb-6 leading-tight lg:whitespace-nowrap"
+                data-i18n="pages.howToRegister.hero.title"
               >
                 How to Register for VLAT?
               </h1>
@@ -465,11 +513,15 @@
                 <div class="flex items-center gap-3">
                   <span
                     class="text-xl lg:text-2xl font-semibold text-[#1F2937] capitalize"
+                    data-i18n="pages.howToRegister.hero.academicYear"
                   >
                     for academic year 2026 - 27
                   </span>
                 </div>
-                <p class="text-[#1F2937] text-base lg:text-sm leading-relaxed">
+                <p
+                  class="text-[#1F2937] text-base lg:text-sm leading-relaxed"
+                  data-i18n="pages.howToRegister.hero.description"
+                >
                   Registering for the Vinayaka Mission's Law Admission
                   Test(VLAT) is simple, quick, and completely online. <br />
                   Whether you are applying for a five-year integrated law
@@ -511,6 +563,7 @@
           >
             <div
               class="text-center text-[#374151] text-sm font-semibold uppercase tracking-wide mb-6"
+              data-i18n="pages.howToRegister.sidebar.steps"
             >
               Steps
             </div>
@@ -535,6 +588,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-bold group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step1.title"
                   >
                     Visit the Official VMLS Website
                   </div>
@@ -552,6 +606,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-medium group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step2.title"
                   >
                     Create Your VLAT Account
                   </div>
@@ -569,6 +624,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-medium group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step3.title"
                   >
                     Fill Out the Online Application Form
                   </div>
@@ -586,6 +642,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-medium group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step4.title"
                   >
                     Upload Required Documents
                   </div>
@@ -603,6 +660,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-medium group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step5.title"
                   >
                     Pay the Application Fee
                   </div>
@@ -620,6 +678,7 @@
                   </div>
                   <div
                     class="flex-1 text-gray-900 text-sm font-medium group-hover:text-[#8D191C] transition-colors"
+                    data-i18n="pages.howToRegister.step6.title"
                   >
                     Submit Your Application
                   </div>
@@ -633,6 +692,7 @@
         <div class="w-full lg:w-[872px]">
           <h2
             class="text-3xl lg:text-4xl font-semibold text-[#8D191C] text-left pt-8 mb-4"
+            data-i18n="pages.howToRegister.stepsTitle"
           >
             Steps to Register for VLAT 2026
           </h2>
@@ -654,6 +714,7 @@
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
                   <span class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 1</span
                   >
                 </div>
@@ -661,9 +722,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  1. Visit the Official VMLS Website
+                  <span data-i18n="pages.howToRegister.step1.title">1. Visit the Official VMLS Website</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step1.description"
+                >
                   Go to the official Vinayaka Mission's Law School website and
                   navigate to the VLAT Admissions / Apply Now section.<br /><br />
                   This is where all updates, deadlines, and the registration
@@ -688,7 +752,9 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 2</span
                   >
                 </div>
@@ -696,9 +762,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  2. Create Your VLAT Account
+                  <span data-i18n="pages.howToRegister.step2.title">2. Create Your VLAT Account</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step2.description"
+                >
                   Click on Register and create your account using:<br />
                   • A valid email ID<br />
                   • An active mobile number<br /><br />
@@ -725,7 +794,9 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center lg:text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 3</span
                   >
                 </div>
@@ -733,9 +804,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  3. Fill Out the Online Application Form
+                  <span data-i18n="pages.howToRegister.step3.title">3. Fill Out the Online Application Form</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step3.description"
+                >
                   Once your account is created, log in and complete the VLAT
                   application form.<br /><br />
                   You will be asked to provide:<br />
@@ -765,7 +839,9 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 4</span
                   >
                 </div>
@@ -773,9 +849,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  4. Upload Required Documents
+                  <span data-i18n="pages.howToRegister.step4.title">4. Upload Required Documents</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step4.description"
+                >
                   You will need to upload scanned copies of:<br />
                   • A recent passport-size photograph<br />
                   • Signature<br />
@@ -804,7 +883,9 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-center text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 5</span
                   >
                 </div>
@@ -812,9 +893,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  5. Pay the Application Fee
+                  <span data-i18n="pages.howToRegister.step5.title">5. Pay the Application Fee</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step5.description"
+                >
                   The payment is made online through secure digital gateways.<br /><br />
                   • ₹1000 for UG Programmes (BA LL.B., B.Com LL.B., BBA LL.B.,
                   LL.B.)<br />
@@ -841,7 +925,9 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
+                    data-i18n="pages.howToRegister.stepBadge"
                     >STEP 6</span
                   >
                 </div>
@@ -849,9 +935,12 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  6. Submit Your Application
+                  <span data-i18n="pages.howToRegister.step6.title">6. Submit Your Application</span>
                 </h3>
-                <p class="text-[#111827] text-base leading-relaxed">
+                <p
+                  class="text-[#111827] text-base leading-relaxed"
+                  data-i18n="pages.howToRegister.step6.description"
+                >
                   Before submitting the final form:<br />
                   • Double-check your name, email, and academic details<br />
                   • Ensure all documents are uploaded correctly<br />
@@ -869,28 +958,49 @@
               <div class="lg:w-1/2 p-6 lg:p-8">
                 <div class="mb-8">
                   <div class="w-56 h-px bg-[#111827] mb-2"></div>
-                  <h4 class="text-lg lg:text-xl font-bold text-[#111827]">
+                  <h4
+                    class="text-lg lg:text-xl font-bold text-[#111827]"
+                    data-i18n="pages.howToRegister.tips.title"
+                  >
                     Tips for Smooth Registration
                   </h4>
                 </div>
 
                 <div class="space-y-4">
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip1"
+                  >
                     • Use a laptop or desktop for filling the form
                   </p>
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip2"
+                  >
                     • Keep all documents ready before starting
                   </p>
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip3"
+                  >
                     • Use a stable internet connection
                   </p>
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip4"
+                  >
                     • Check the eligibility criteria before applying
                   </p>
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip5"
+                  >
                     • Save screenshots or PDFs of the payment confirmation
                   </p>
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.howToRegister.tips.tip6"
+                  >
                     • Save your application number for future reference
                   </p>
                 </div>
@@ -900,10 +1010,16 @@
                 class="lg:w-1/2 border border-[#6B7280] rounded-[32px] p-6 flex flex-col justify-between"
               >
                 <div class="mb-8">
-                  <h4 class="text-lg lg:text-xl font-bold text-[#111827] mb-4">
+                  <h4
+                    class="text-lg lg:text-xl font-bold text-[#111827] mb-4"
+                    data-i18n="pages.howToRegister.help.title"
+                  >
                     Need Help?
                   </h4>
-                  <p class="text-slate-600 text-sm leading-relaxed">
+                  <p
+                    class="text-slate-600 text-sm leading-relaxed"
+                    data-i18n="pages.howToRegister.help.description"
+                  >
                     If you face any issues during registration, contact our
                     admissions team:
                   </p>
@@ -940,7 +1056,11 @@
       class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center"
     >
       <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+      <span
+        class="writing-vertical text-xs font-medium"
+        data-i18n="pages.index.announcements.label"
+        >ANNOUNCEMENTS</span
+      >
     </button>
 
     <!-- Announcements Sidebar -->
@@ -953,9 +1073,17 @@
           class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
         >
           <div>
-            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+            <h2
+              class="text-xl font-semibold text-[#FFF6E2]"
+              data-i18n="pages.index.announcements.title"
+            >
+              Announcements
+            </h2>
 
-            <p class="text-sm font-light text-[#FFF6E2] mt-1">
+            <p
+              class="text-sm font-light text-[#FFF6E2] mt-1"
+              data-i18n="pages.index.announcements.subtitle"
+            >
               Latest updates from our institute
             </p>
           </div>
@@ -977,6 +1105,7 @@
             <input
               type="text"
               placeholder="Search announcements..."
+              data-i18n-placeholder="common.placeholders.searchAnnouncements"
               class="input-field pl-10 pr-4 h-10"
               aria-label="Search announcements"
             />
@@ -1026,6 +1155,7 @@
               <!-- University Description -->
               <p
                 class="text-base text-[#FAFAFA] font-normal leading-relaxed max-w-[338px]"
+                data-i18n="pages.footer.description"
               >
                 Vinayaka Mission's Research Foundation (VMRF) is an innovative
                 and pioneering University that offers a multi-disciplinary
@@ -1117,7 +1247,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1127,6 +1260,7 @@
                     <a
                       href="index.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.home"
                       >Home</a
                     >
                   </li>
@@ -1134,6 +1268,7 @@
                     <a
                       href="about-vlat.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVlat"
                       >About VLAT</a
                     >
                   </li>
@@ -1141,6 +1276,7 @@
                     <a
                       href="about-vmls.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVmls"
                       >About VMLS</a
                     >
                   </li>
@@ -1148,6 +1284,7 @@
                     <a
                       href="how-to-register.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.registrationProcess"
                       >Registration Process</a
                     >
                   </li>
@@ -1158,7 +1295,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1168,6 +1308,7 @@
                     <a
                       href="exam-structure.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.examStructure"
                       >Exam Structure</a
                     >
                   </li>
@@ -1175,6 +1316,7 @@
                     <a
                       href="blogs.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.blogs"
                       >Blogs</a
                     >
                   </li>
@@ -1182,6 +1324,7 @@
                     <a
                       href="contact-us.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.contactUs"
                       >Contact Us</a
                     >
                   </li>
@@ -1203,6 +1346,7 @@
                     <a
                       href="login.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.buttons.login"
                     >
                       Login</a
                     >
@@ -1214,7 +1358,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.legalInformation"
+                  >
                     Legal & Information
                   </h3>
                 </div>
@@ -1225,6 +1372,7 @@
                       href="https://vmls.edu.in/privacy-policy.html
                  "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.privacyPolicy"
                       >Privacy Policy</a
                     >
                   </li>
@@ -1232,6 +1380,7 @@
                     <a
                       href="https://vmls.edu.in/terms-conditions.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.termsConditions"
                       >Terms & Conditions</a
                     >
                   </li>
@@ -1244,8 +1393,11 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
-            Mission's Law School
+            <span data-i18n="pages.footer.copyright">Copyright ©</span>
+            <span id="copyrightYear">2025</span>
+            <span data-i18n="pages.footer.copyrightText"
+              >VMLS - Vinayaka Mission's Law School</span
+            >
           </p>
         </div>
       </div>
@@ -1269,7 +1421,7 @@
         <div
           class="text-center text-[#374151] text-sm font-semibold uppercase tracking-wide mb-4"
         >
-          Steps
+          <span data-i18n="pages.howToRegister.sidebar.steps">Steps</span>
         </div>
         <div class="space-y-3">
           <a
@@ -1282,7 +1434,11 @@
             >
               <span class="text-white text-xs font-semibold">1</span>
             </div>
-            <span class="text-sm font-medium text-gray-800">Visit Website</span>
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step1.title"
+              >Visit Website</span
+            >
           </a>
           <a
             href="#step-2"
@@ -1294,7 +1450,9 @@
             >
               <span class="text-[#8D191C] text-xs font-semibold">2</span>
             </div>
-            <span class="text-sm font-medium text-gray-800"
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step2.title"
               >Create Account</span
             >
           </a>
@@ -1308,7 +1466,11 @@
             >
               <span class="text-[#8D191C] text-xs font-semibold">3</span>
             </div>
-            <span class="text-sm font-medium text-gray-800">Fill Form</span>
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step3.title"
+              >Fill Form</span
+            >
           </a>
           <a
             href="#step-4"
@@ -1320,7 +1482,9 @@
             >
               <span class="text-[#8D191C] text-xs font-semibold">4</span>
             </div>
-            <span class="text-sm font-medium text-gray-800"
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step4.title"
               >Upload Documents</span
             >
           </a>
@@ -1334,7 +1498,11 @@
             >
               <span class="text-[#8D191C] text-xs font-semibold">5</span>
             </div>
-            <span class="text-sm font-medium text-gray-800">Pay Fee</span>
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step5.title"
+              >Pay Fee</span
+            >
           </a>
           <a
             href="#step-6"
@@ -1346,7 +1514,9 @@
             >
               <span class="text-[#8D191C] text-xs font-semibold">6</span>
             </div>
-            <span class="text-sm font-medium text-gray-800"
+            <span
+              class="text-sm font-medium text-gray-800"
+              data-i18n="pages.howToRegister.step6.title"
               >Submit Application</span
             >
           </a>
@@ -1487,6 +1657,16 @@
           yearEl.textContent = new Date().getFullYear();
         }
       })();
+    </script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+        translatePage();
+      });
     </script>
   </body>
 </html>

@@ -129,6 +129,7 @@
                 <img
                   src="images/vmlsvlatlogoheader.svg"
                   alt="VMLS Logo"
+                  data-i18n-alt="common.alt.vmlsLogo"
                   width="80"
                   height="80"
                   class="h-14 md:h-24 w-auto"
@@ -139,23 +140,51 @@
           </div>
 
 
-        <!-- Right: VMRF Logo, Buttons, Menu -->
+        <!-- Right: Language Switcher, VMRF Logo, Buttons, Menu -->
         <div class="flex items-center gap-3 md:gap-4">
-          <div class="hidden lg:flex items-center gap-2">
-            <img src="images/vmrflogo.svg" alt="VMRF Logo" class="h-12 w-auto" onerror="this.style.display='none'" />
+          <!-- Language Switcher -->
+          <div
+            class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+          >
+            <button
+              id="lang-en"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+            >
+              English
+            </button>
+            <button
+              id="lang-ta"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+            >
+              தமிழ்
+            </button>
           </div>
           <div class="hidden lg:flex items-center gap-2">
-            <button class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium">
-              Login
-            </button>
+            <a
+              href="https://www.vmrfdu.edu.in/"
+              target="_blank"
+              class="cursor-pointer"
+            >
+              <img src="images/vmrflogo.svg" alt="VMRF Logo" data-i18n-alt="common.alt.vmrfLogo" class="h-12 w-auto" onerror="this.style.display='none'" />
+            </a>
+          </div>
+          <div class="hidden lg:flex items-center gap-2">
+            <a href="login.html">
+              <button
+                class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                data-i18n="common.buttons.login"
+              >
+                Login
+              </button>
+            </a>
           </div>
 
           <button
           id="mobileMenuBtn"
           class="p-3 rounded-lg flex items-center gap-2  border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
         >
-          <img src="images/menu.svg" alt="Menu" class="w-6 h-6">
-          <span class="text-[#8D191C] font-medium ">Menu</span>
+          <img src="images/menu.svg" alt="Menu" data-i18n-alt="common.alt.menuIcon" class="w-6 h-6">
+          <span class="text-[#8D191C] font-medium" data-i18n="common.buttons.menu">Menu</span>
         </button>
         </div>
       </div>
@@ -169,7 +198,7 @@
         <div class="flex flex-col">
           <!-- Header with MENU title and Close button -->
           <div class="flex items-center justify-between px-6 py-3">
-            <h2 class="text-xl font-semibold text-white uppercase">
+            <h2 class="text-xl font-semibold text-white uppercase" data-i18n="common.buttons.menu">
               MENU
             </h2>
             <button
@@ -284,37 +313,44 @@
             <a
               href="index.html"
               class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.home"
               >Home</a
             >
             <a
               href="about-vlat.html"
               class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.aboutVlat"
               >About VLAT</a
             >
             <a
               href="about-vmls.html"
               class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.aboutVmls"
               >About VMLS</a
             >
             <a
               href="how-to-register.html"
               class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.howToRegister"
               >How to Register</a
             >
             <a
               href="blogs.html"
               id="blogsLink"
               class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.blogs"
               >Blogs</a
             >
             <a
               href="exam-structure.html"
               class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+              data-i18n="common.navigation.examStructure"
               >Exam Structure</a
             >
             <a
             href="contact-us.html"
             class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+            data-i18n="common.navigation.contactUs"
             >Contact Us</a
           >
           </nav>
@@ -326,11 +362,13 @@
             <a
               href="register.html"
               class="block rounded-xl border border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+              data-i18n="common.buttons.applyForVlat"
               >Apply for VLAT</a
             >
             <a
               href="login.html"
               class="block rounded-xl w-60 border border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+              data-i18n="common.buttons.login"
               >Login</a
             >
           </div>
@@ -347,11 +385,11 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="max-w-7xl text-center lg:text-left mx-auto lg:mx-0">
           <div class="mt-0 lg:-mt-32 mb-12 lg:mb-[8.8rem]">
-            <div class="text-[#171717] text-base mb-4">VLAT - Vinayaka Mission's Law Admission Test</div>
-            <h1 class="text-[#8D191C] text-4xl md:text-4.5xl font-semibold mb-6">All About Vinayaka Mission's Law  Admission Test
+            <div class="text-[#171717] text-base mb-4" data-i18n="pages.aboutVlat.hero.subtitle">VLAT - Vinayaka Mission's Law Admission Test</div>
+            <h1 class="text-[#8D191C] text-4xl md:text-4.5xl font-semibold mb-6" data-i18n="pages.aboutVlat.hero.title">All About Vinayaka Mission's Law  Admission Test
               (VLAT) 2026</h1>
           </div>
-          <p class="text-[#171717] text-2xl">Gateway to world class legal education at Vinayaka Mission's Law School</p>
+          <p class="text-[#171717] text-2xl" data-i18n="pages.aboutVlat.hero.description">Gateway to world class legal education at Vinayaka Mission's Law School</p>
         </div>
         <div class="relative z-20 flex justify-center lg:block">
           <img src="images/aboutvlat.png" class="max-w-full h-auto mx-auto">
@@ -364,11 +402,11 @@
   <section class="py-20 bg-white bg-[url('../images/aboutvlat2.png')] bg-no-repeat bg-cover bg-center">
     <div class="container-custom">
       <div class="w-full max-w-[743px] bg-[#F3F4F6] p-6 sm:p-8 rounded-3xl border-4 border-gray-300">
-        <div class="inline-block px-3 py-1 bg-white rounded-full text-[#171717] text-xs font-medium mb-6">
+        <div class="inline-block px-3 py-1 bg-white rounded-full text-[#171717] text-xs font-medium mb-6" data-i18n="pages.aboutVlat.about.badge">
           Official Entrance Examination
         </div>
-        <h2 class="text-[#8D191C] text-3xl font-semibold mb-6">About VLAT (Vinayaka Mission's Law Admission Test)</h2>
-        <p class="text-[#171717] text-base mb-8">
+        <h2 class="text-[#8D191C] text-3xl font-semibold mb-6" data-i18n="pages.aboutVlat.about.title">About VLAT (Vinayaka Mission's Law Admission Test)</h2>
+        <p class="text-[#171717] text-base mb-8" data-i18n="pages.aboutVlat.about.description">
           The Vinayaka Mission's Law Admission Test(VLAT) is the official entrance examination conducted by Vinayaka Mission's Law
           School (VMLS) to assess the aptitude and preparedness of students seeking admission to various undergraduate
           and postgraduate law programmes. VLAT evaluates key skills essential for a successful legal career and
@@ -380,23 +418,23 @@
             <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
               <img src="images/vlat.svg">
             </div>
-            <span class="text-gray-700">Reading comprehension</span>
+            <span class="text-gray-700" data-i18n="pages.aboutVlat.about.skills.readingComprehension">Reading comprehension</span>
           </div>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
               <img src="images/logo/logical.svg">
             </div>
-            <span class="text-gray-700">Logical reasoning</span>
+            <span class="text-gray-700" data-i18n="pages.aboutVlat.about.skills.logicalReasoning">Logical reasoning</span>
           </div>
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
               <img src="images/logo/critical.svg">
             </div>
-            <span class="text-gray-700">Critical thinking</span>
+            <span class="text-gray-700" data-i18n="pages.aboutVlat.about.skills.criticalThinking">Critical thinking</span>
           </div>
         </div>
 
-        <p class="text-[#171717] text-base">
+        <p class="text-[#171717] text-base" data-i18n="pages.aboutVlat.about.experience">
           VLAT is designed to be a smooth, stress-free experience for students who wish to pursue law. With multiple
           test slots, an online format, and no negative marking, the exam ensures every student has the best
           opportunity to showcase their potential without unnecessary pressure.
@@ -408,8 +446,8 @@
     <div class="container-custom">
       <div class="space-y-12 mb-12">
         <div>
-          <h2 class="text-[#8D191C] text-3xl font-semibold mb-6">Why is VLAT Conducted?</h2>
-          <p class="text-gray-700 text-base mb-4">
+          <h2 class="text-[#8D191C] text-3xl font-semibold mb-6" data-i18n="pages.aboutVlat.whyConducted.title">Why is VLAT Conducted?</h2>
+          <p class="text-gray-700 text-base mb-4" data-i18n="pages.aboutVlat.whyConducted.paragraph1">
             Vinayaka Mission's Law School (VMLS) recognizes that the legal profession requires not just <br> knowledge
             of
             law, but also strong analytical abilities, critical thinking, and effective<br> communication skills. VLAT
@@ -418,7 +456,7 @@
             to
             excel in legal studies and the legal profession.
           </p>
-          <p class="text-gray-700 text-base">
+          <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.whyConducted.paragraph2">
             Instead of relying solely on board marks or subjective criteria, VLAT offers a merit-based,<br> standardized
             way to identify motivated and capable students. The exam ensures that admission<br> to VMLS is fair,
             accessible, and aligned with the school's commitment to academic excellence.
@@ -435,10 +473,10 @@
             <img src="images/logo/tick.svg" alt="Check Icon" class="w-6 h-6 object-contain" />
           </div>
           <div class="flex flex-col justify-start items-start gap-3.5">
-            <div class="text-neutral-950 text-lg font-normal leading-7">
+            <div class="text-neutral-950 text-lg font-normal leading-7" data-i18n="pages.aboutVlat.whyConducted.card1.title">
               Evaluates Key Skills
             </div>
-            <div class="text-gray-600 text-base font-normal leading-6">
+            <div class="text-gray-600 text-base font-normal leading-6" data-i18n="pages.aboutVlat.whyConducted.card1.description">
               Analytical abilities, critical thinking, and communication
             </div>
           </div>
@@ -452,10 +490,10 @@
             <img src="images/logo/tick.svg" alt="Check Icon" class="w-6 h-6 object-contain" />
           </div>
           <div class="flex flex-col justify-start items-start gap-3.5">
-            <div class="text-neutral-950 text-lg font-normal leading-7">
+            <div class="text-neutral-950 text-lg font-normal leading-7" data-i18n="pages.aboutVlat.whyConducted.card2.title">
               Merit-Based Selection
             </div>
-            <div class="text-gray-600 text-base font-normal leading-6">
+            <div class="text-gray-600 text-base font-normal leading-6" data-i18n="pages.aboutVlat.whyConducted.card2.description">
               Fair and standardized assessment for all candidates
             </div>
           </div>
@@ -469,10 +507,10 @@
             <img src="images/logo/tick.svg" alt="Check Icon" class="w-6 h-6 object-contain" />
           </div>
           <div class="flex flex-col justify-start items-start gap-3.5">
-            <div class="text-neutral-950 text-lg font-normal leading-7">
+            <div class="text-neutral-950 text-lg font-normal leading-7" data-i18n="pages.aboutVlat.whyConducted.card3.title">
               Identifies Capable Students
             </div>
-            <div class="text-gray-600 text-base font-normal leading-6">
+            <div class="text-gray-600 text-base font-normal leading-6" data-i18n="pages.aboutVlat.whyConducted.card3.description">
               Finds motivated individuals ready for legal studies
             </div>
           </div>
@@ -486,10 +524,10 @@
             <img src="images/logo/tick.svg" alt="Check Icon" class="w-6 h-6 object-contain" />
           </div>
           <div class="flex flex-col justify-start items-start gap-3.5">
-            <div class="text-neutral-950 text-lg font-normal leading-7">
+            <div class="text-neutral-950 text-lg font-normal leading-7" data-i18n="pages.aboutVlat.whyConducted.card4.title">
               Academic Excellence
             </div>
-            <div class="text-gray-600 text-base font-normal leading-6">
+            <div class="text-gray-600 text-base font-normal leading-6" data-i18n="pages.aboutVlat.whyConducted.card4.description">
               Aligned with VMLS commitment to quality education
             </div>
           </div>
@@ -508,8 +546,8 @@
         class="flex flex-col justify-center items-center w-full max-w-[77.5rem] p-6 py-20 gap-[2.625rem] bg-[#F3F4F6] rounded-3xl">
         <div class="max-w-4xl mx-auto w-full">
           <div class="text-center mb-12">
-            <h2 class="text-[#8D191C] text-3xl font-semibold mb-5">Who Can Take VLAT?</h2>
-            <p class="text-gray-700 text-base">VLAT is open to students applying for the following programmes at VMLS:
+            <h2 class="text-[#8D191C] text-3xl font-semibold mb-5" data-i18n="pages.aboutVlat.whoCanTake.title">Who Can Take VLAT?</h2>
+            <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.whoCanTake.description">VLAT is open to students applying for the following programmes at VMLS:
             </p>
           </div>
 
@@ -519,7 +557,7 @@
                 <div class="w-5 h-5 flex items-center justify-center">
                   <img src="images/logo/tick.svg">
                 </div>
-                <span class="text-gray-700">BA LL.B. (Hons.) — 5-Year Integrated Programme</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.whoCanTake.program1">BA LL.B. (Hons.) — 5-Year Integrated Programme</span>
               </div>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-300">
@@ -527,7 +565,7 @@
                 <div class="w-5 h-5 flex items-center justify-center">
                   <img src="images/logo/tick.svg">
                 </div>
-                <span class="text-gray-700">B.Com. LL.B. (Hons.) — 5-Year Integrated Programme</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.whoCanTake.program2">B.Com. LL.B. (Hons.) — 5-Year Integrated Programme</span>
               </div>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-300">
@@ -535,7 +573,7 @@
                 <div class="w-5 h-5 flex items-center justify-center">
                   <img src="images/logo/tick.svg">
                 </div>
-                <span class="text-gray-700">BBA LL.B. (Hons.) — 5-Year Integrated Programme</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.whoCanTake.program3">BBA LL.B. (Hons.) — 5-Year Integrated Programme</span>
               </div>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-300">
@@ -543,7 +581,7 @@
                 <div class="w-5 h-5 flex items-center justify-center">
                   <img src="images/logo/tick.svg">
                 </div>
-                <span class="text-gray-700">LL.B. (Hons.) — 3-Year Programme</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.whoCanTake.program4">LL.B. (Hons.) — 3-Year Programme</span>
               </div>
             </div>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-300">
@@ -551,7 +589,7 @@
                 <div class="w-5 h-5 flex items-center justify-center">
                   <img src="images/logo/tick.svg">
                 </div>
-                <span class="text-gray-700">LL.M. — 1-Year Postgraduate Programme (4 specialisations)</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.whoCanTake.program5">LL.M. — 1-Year Postgraduate Programme (4 specialisations)</span>
               </div>
             </div>
           </div>
@@ -564,8 +602,8 @@
   <section class="py-20 bg-white">
     <div class="container-custom">
       <div class="text-center mb-12">
-        <h2 class="text-[#8D191C] text-3xl  leading-[0.8] font-semibold mb-5">Why VLAT is Student-Friendly</h2>
-        <p class="text-gray-700 text-base">Designed with your success and comfort in mind</p>
+        <h2 class="text-[#8D191C] text-3xl  leading-[0.8] font-semibold mb-5" data-i18n="pages.aboutVlat.studentFriendly.title">Why VLAT is Student-Friendly</h2>
+        <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.studentFriendly.subtitle">Designed with your success and comfort in mind</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-4">
@@ -578,8 +616,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/short.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">Short Duration</h3>
-            <p class="text-gray-600 text-sm">Just 60 minutes to complete the exam</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card1.title">Short Duration</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card1.description">Just 60 minutes to complete the exam</p>
           </div>
         </div>
 
@@ -591,8 +629,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/negative.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">No Negative Marking</h3>
-            <p class="text-gray-600 text-sm">Attempt every question without fear</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card2.title">No Negative Marking</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card2.description">Attempt every question without fear</p>
           </div>
         </div>
 
@@ -604,8 +642,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/onlytwo.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">Only Two Sections</h3>
-            <p class="text-gray-600 text-sm">Focused assessment, not overwhelming</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card3.title">Only Two Sections</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card3.description">Focused assessment, not overwhelming</p>
           </div>
         </div>
 
@@ -617,8 +655,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/simple.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">Simple MCQ Format</h3>
-            <p class="text-gray-600 text-sm">Familiar question style, easy to navigate</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card4.title">Simple MCQ Format</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card4.description">Familiar question style, easy to navigate</p>
           </div>
         </div>
 
@@ -630,8 +668,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/take.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">Take From Anywhere</h3>
-            <p class="text-gray-600 text-sm">Online test from home or any location</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card5.title">Take From Anywhere</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card5.description">Online test from home or any location</p>
           </div>
         </div>
 
@@ -643,8 +681,8 @@
               class="w-12 h-12 bg-[#FFF6E2] rounded-2xl border border-[#D4D4D4] flex items-center justify-center mb-8">
               <img src="images/logo/instant.svg">
             </div>
-            <h3 class="text-[#171717] text-lg font-medium mb-3">Instant Results</h3>
-            <p class="text-gray-600 text-sm">Get your score immediately after exam</p>
+            <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.aboutVlat.studentFriendly.card6.title">Instant Results</h3>
+            <p class="text-gray-600 text-sm" data-i18n="pages.aboutVlat.studentFriendly.card6.description">Get your score immediately after exam</p>
           </div>
         </div>
 
@@ -657,8 +695,8 @@
   <section class="py-20 bg-[#FFF6E2] ">
     <div class="container-custom">
       <div class="text-center mb-12">
-        <h2 class="text-[#8D191C] text-3xl md:text-4xl font-semibold mb-5">Programmes You Can Apply For</h2>
-        <p class="text-gray-700 text-base max-w-2xl mx-auto">Choose from our comprehensive range of law programmes
+        <h2 class="text-[#8D191C] text-3xl md:text-4xl font-semibold mb-5" data-i18n="pages.aboutVlat.programmes.title">Programmes You Can Apply For</h2>
+        <p class="text-gray-700 text-base max-w-2xl mx-auto" data-i18n="pages.aboutVlat.programmes.description">Choose from our comprehensive range of law programmes
           designed to shape future legal professionals</p>
       </div>
 
@@ -730,78 +768,78 @@
   <section class="py-20 bg-white">
     <div class="flex items-center justify-center w-full gap-6 mb-5">
       <div class="h-px bg-[#8D191C] flex-1"></div>
-      <h2 class="text-[#8D191C] text-3xl font-semibold whitespace-nowrap">Exam Overview</h2>
+      <h2 class="text-[#8D191C] text-3xl font-semibold whitespace-nowrap" data-i18n="pages.aboutVlat.examOverview.title">Exam Overview</h2>
       <div class="h-px bg-[#8D191C] flex-1"></div>
     </div>
     <div class="container-custom">
       <div class="text-center mb-12">
-        <p class="text-gray-600 text-base">Key details about the VLAT examination format</p>
+        <p class="text-gray-600 text-base" data-i18n="pages.aboutVlat.examOverview.subtitle">Key details about the VLAT examination format</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/duration.svg">
-            <div class="text-gray-700 text-2xl font-medium">Duration</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.duration.title">Duration</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">60 Minutes</div>
-            <div class="text-gray-500 text-sm">1 hour total</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.duration.value">60 Minutes</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.duration.description">1 hour total</div>
           </div>
         </div>
 
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/digital.svg">
-            <div class="text-gray-700 text-2xl font-medium">Digital Format</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.format.title">Digital Format</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">Online Test</div>
-            <div class="text-gray-500 text-sm">Fully online, computer-based test</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.format.value">Online Test</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.format.description">Fully online, computer-based test</div>
           </div>
         </div>
 
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/result.svg">
-            <div class="text-gray-700 text-2xl font-medium">Result Declaration</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.result.title">Result Declaration</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">Instant</div>
-            <div class="text-gray-500 text-sm">Get your score immediately</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.result.value">Instant</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.result.description">Get your score immediately</div>
           </div>
         </div>
 
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/critical.svg">
-            <div class="text-gray-700 text-2xl font-medium">0 Negative Marking</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.negativeMarking.title">0 Negative Marking</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">Attempt with confidence</div>
-            <div class="text-gray-500 text-sm">No penalty for wrong answers</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.negativeMarking.value">Attempt with confidence</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.negativeMarking.description">No penalty for wrong answers</div>
           </div>
         </div>
 
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/question.svg">
-            <div class="text-gray-700 text-2xl font-medium">Questions</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.questions.title">Questions</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">40 MCQs - UG & 80 MCQs - PG</div>
-            <div class="text-gray-500 text-sm">Multiple choice</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.questions.value">40 MCQs - UG & 80 MCQs - PG</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.questions.description">Multiple choice</div>
           </div>
         </div>
 
         <div class="bg-white border border-gray-300 p-3">
           <div class="bg-[#FFF6E2] rounded-xl p-8 flex flex-col items-center justify-center mb-3">
             <img src="images/logo/lang.svg">
-            <div class="text-gray-700 text-2xl font-medium">Languages</div>
+            <div class="text-gray-700 text-2xl font-medium" data-i18n="pages.aboutVlat.examOverview.languages.title">Languages</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-[#8D191C] text-lg font-semibold mb-2">English & Tamil</div>
-            <div class="text-gray-500 text-sm">Choose your preference</div>
+            <div class="text-[#8D191C] text-lg font-semibold mb-2" data-i18n="pages.aboutVlat.examOverview.languages.value">English & Tamil</div>
+            <div class="text-gray-500 text-sm" data-i18n="pages.aboutVlat.examOverview.languages.description">Choose your preference</div>
           </div>
         </div>
       </div>
@@ -812,8 +850,8 @@
   <section class="py-20 bg-white">
     <div class="container-custom">
       <div class="text-center mb-12">
-        <h2 class="text-[#8D191C] text-3xl font-semibold mb-5">VLAT Eligibility Criteria</h2>
-        <p class="text-gray-700 text-base max-w-3xl mx-auto">To be eligible for VLAT, candidates must meet specific
+        <h2 class="text-[#8D191C] text-3xl font-semibold mb-5" data-i18n="pages.aboutVlat.eligibility.title">VLAT Eligibility Criteria</h2>
+        <p class="text-gray-700 text-base max-w-3xl mx-auto" data-i18n="pages.aboutVlat.eligibility.description">To be eligible for VLAT, candidates must meet specific
           educational qualifications and minimum marks requirements based on their chosen programme and category.</p>
       </div>
 
@@ -824,30 +862,30 @@
             <div class="w-12 h-12 bg-[#FFF6E2] rounded-lg flex items-center justify-center">
               <img src="images/logo/graduate2.svg">
             </div>
-            <h3 class="text-gray-900 text-lg font-semibold">1. For 5-Year Integrated Programmes (BA LL.B., B.Com. LL.B.,
+            <h3 class="text-gray-900 text-lg font-semibold" data-i18n="pages.aboutVlat.eligibility.program1.title">1. For 5-Year Integrated Programmes (BA LL.B., B.Com. LL.B.,
               BBA LL.B.)</h3>
           </div>
 
           <div class="mb-6">
-            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3">Educational
+            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3" data-i18n="pages.aboutVlat.eligibility.educationalQualification">Educational
               Qualification</div>
-            <p class="text-gray-700 text-base">Candidates must have passed their 10+2 (or equivalent) examination from a
+            <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.eligibility.program1.qualification">Candidates must have passed their 10+2 (or equivalent) examination from a
               recognized board.</p>
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6">
-            <h4 class="text-gray-700 text-sm font-medium mb-4">Minimum Marks Required:</h4>
+            <h4 class="text-gray-700 text-sm font-medium mb-4" data-i18n="pages.aboutVlat.eligibility.minimumMarks">Minimum Marks Required:</h4>
             <div class="space-y-3">
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">General Category</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.generalCategory">General Category</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">45%</span>
               </div>
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">OBC (Non-Creamy Layer)</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.obc">OBC (Non-Creamy Layer)</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">42%</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-gray-700">SC/ST/PWD</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.scstpwd">SC/ST/PWD</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">40%</span>
               </div>
             </div>
@@ -860,29 +898,29 @@
             <div class="w-12 h-12 bg-[#FFF6E2] rounded-lg flex items-center justify-center">
               <img src="images/logo/graduate2.svg">
             </div>
-            <h3 class="text-gray-900 text-lg font-semibold">2. For 3-Year LL.B. Programme</h3>
+            <h3 class="text-gray-900 text-lg font-semibold" data-i18n="pages.aboutVlat.eligibility.program2.title">2. For 3-Year LL.B. Programme</h3>
           </div>
 
           <div class="mb-6">
-            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3">Educational
+            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3" data-i18n="pages.aboutVlat.eligibility.educationalQualification">Educational
               Qualification</div>
-            <p class="text-gray-700 text-base">Candidates must have completed a Bachelor's degree (in any discipline)
+            <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.eligibility.program2.qualification">Candidates must have completed a Bachelor's degree (in any discipline)
               from a recognized university.</p>
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6">
-            <h4 class="text-gray-700 text-sm font-medium mb-4">Minimum Marks Required:</h4>
+            <h4 class="text-gray-700 text-sm font-medium mb-4" data-i18n="pages.aboutVlat.eligibility.minimumMarks">Minimum Marks Required:</h4>
             <div class="space-y-3">
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">General Category</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.generalCategory">General Category</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">45%</span>
               </div>
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">OBC (Non-Creamy Layer)</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.obc">OBC (Non-Creamy Layer)</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">42%</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-gray-700">SC/ST/PWD</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.scstpwd">SC/ST/PWD</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">40%</span>
               </div>
             </div>
@@ -895,28 +933,28 @@
             <div class="w-12 h-12 bg-[#FFF6E2] rounded-lg flex items-center justify-center">
               <img src="images/logo/graduate2.svg">
             </div>
-            <h3 class="text-gray-900 text-lg font-semibold">3. For LL.M. Programme</h3>
+            <h3 class="text-gray-900 text-lg font-semibold" data-i18n="pages.aboutVlat.eligibility.program3.title">3. For LL.M. Programme</h3>
           </div>
 
           <div class="mb-6">
-            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3">Educational
+            <div class="inline-block bg-gray-100 rounded-lg px-3 py-1 text-gray-700 text-xs mb-3" data-i18n="pages.aboutVlat.eligibility.educationalQualification">Educational
               Qualification</div>
-            <p class="text-gray-700 text-base">Candidates must hold UG law degree from recognized university.</p>
+            <p class="text-gray-700 text-base" data-i18n="pages.aboutVlat.eligibility.program3.qualification">Candidates must hold UG law degree from recognized university.</p>
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6">
-            <h4 class="text-gray-700 text-sm font-medium mb-4">Minimum Marks Required:</h4>
+            <h4 class="text-gray-700 text-sm font-medium mb-4" data-i18n="pages.aboutVlat.eligibility.minimumMarks">Minimum Marks Required:</h4>
             <div class="space-y-3">
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">General Category</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.generalCategory">General Category</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">50%</span>
               </div>
               <div class="flex justify-between items-center pb-3 border-b border-gray-200">
-                <span class="text-gray-700">OBC (Non-Creamy Layer)</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.obc">OBC (Non-Creamy Layer)</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">47%</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-gray-700">SC/ST/PWD</span>
+                <span class="text-gray-700" data-i18n="pages.aboutVlat.eligibility.scstpwd">SC/ST/PWD</span>
                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg">45%</span>
               </div>
             </div>
@@ -929,23 +967,23 @@
             <div class="w-6 h-6 ">
               <img src="images/logo/imp.svg">
             </div>
-            <h3 class="text-gray-900 text-2xl font-medium">Important Notes</h3>
+            <h3 class="text-gray-900 text-2xl font-medium" data-i18n="pages.aboutVlat.eligibility.importantNotes.title">Important Notes</h3>
           </div>
 
           <div class="space-y-4">
             <div class="flex items-start gap-3">
               <div class="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2"></div>
-              <p class="text-[#171717] text-base">Candidates appearing in their final year examination are also eligible
+              <p class="text-[#171717] text-base" data-i18n="pages.aboutVlat.eligibility.importantNotes.note1">Candidates appearing in their final year examination are also eligible
                 to apply, subject to meeting the minimum marks criteria at the time of admission.</p>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2"></div>
-              <p class="text-[#171717] text-base">Age limit and other specific requirements (if any) will be clearly
+              <p class="text-[#171717] text-base" data-i18n="pages.aboutVlat.eligibility.importantNotes.note2">Age limit and other specific requirements (if any) will be clearly
                 mentioned in the official VLAT admission notification.</p>
             </div>
             <div class="flex items-start gap-3">
               <div class="w-1.5 h-1.5 bg-amber-600 rounded-full mt-2"></div>
-              <p class="text-[#171717] text-base">Reservation policies follow government norms and are subject to change
+              <p class="text-[#171717] text-base" data-i18n="pages.aboutVlat.eligibility.importantNotes.note3">Reservation policies follow government norms and are subject to change
                 as per updated regulations.</p>
             </div>
           </div>
@@ -959,7 +997,7 @@
     <div class="container-custom">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-[#8D191C] text-3xl md:text-4xl font-medium mb-8">Frequently Asked Questions</h2>
+          <h2 class="text-[#8D191C] text-3xl md:text-4xl font-medium mb-8" data-i18n="pages.aboutVlat.faq.title">Frequently Asked Questions</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
@@ -967,11 +1005,11 @@
             <!-- Q1 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">1. What is VLAT?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q1">1. What is VLAT?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a1">
                   VLAT (Vinayaka Mission's Law Admission Test) is the official entrance examination conducted by Vinayaka Mission's
                   Law School (VMLS) for admission to its undergraduate and postgraduate law programmes.
                 </p>
@@ -980,11 +1018,11 @@
             <!-- Q2 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">2. Is VLAT mandatory for admission?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q2">2. Is VLAT mandatory for admission?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a2">
                   Yes, appearing for VLAT is mandatory for all applicants seeking admission to VMLS to ensure a fair
                   merit-based selection process.
                 </p>
@@ -993,11 +1031,11 @@
             <!-- Q3 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">3. Is VLAT conducted online or offline?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q3">3. Is VLAT conducted online or offline?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a3">
                   VLAT is a fully online, AI-proctored examination. You can take the exam from the comfort of your home
                   using a laptop or desktop with a camera and microphone.
                 </p>
@@ -1006,11 +1044,11 @@
             <!-- Q4 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">4. What skills does VLAT test?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q4">4. What skills does VLAT test?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a4">
                   VLAT tests your aptitude in English Comprehension, Logical Reasoning, and Critical Thinking. It aims
                   to
                   evaluate your potential for legal studies rather than prior legal knowledge.
@@ -1020,11 +1058,11 @@
             <!-- Q5 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">5. How many questions does VLAT have?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q5">5. How many questions does VLAT have?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a5">
                   The UG version consists of 40 questions, while the PG version consists of 80 questions. Both are
                   designed
                   to be completed within 60 minutes.
@@ -1037,11 +1075,11 @@
             <!-- Q6 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">6. Is there negative marking in VLAT?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q6">6. Is there negative marking in VLAT?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a6">
                   No, there is zero negative marking in VLAT. You are encouraged to attempt all questions without fear
                   of
                   penalty.
@@ -1051,11 +1089,11 @@
             <!-- Q7 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">7. Can I write the exam in Tamil?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q7">7. Can I write the exam in Tamil?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a7">
                   Yes, VMLS offers the unique option to take the exam in either English or Tamil. You can also switch
                   between languages during the test.
                 </p>
@@ -1064,11 +1102,11 @@
             <!-- Q8 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">8. What programmes accept VLAT scores?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q8">8. What programmes accept VLAT scores?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a8">
                   VLAT scores are valid for admission to BA LL.B (Hons.), BBA LL.B (Hons.), B.Com LL.B (Hons.), 3-year
                   LL.B (Hons.), and LL.M programmes at VMLS.
                 </p>
@@ -1077,11 +1115,11 @@
             <!-- Q9 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">9. How soon are VLAT results declared?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q9">9. How soon are VLAT results declared?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a9">
                   VLAT results are instant! Your score is displayed on your screen immediately after you submit the
                   exam.
                 </p>
@@ -1090,11 +1128,11 @@
             <!-- Q10 -->
             <div class="bg-white p-6 rounded-2xl border border-gray-300 faq-item cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="text-gray-700 font-medium">10. Who is eligible to appear for VLAT?</span>
+                <span class="text-gray-700 font-medium" data-i18n="pages.aboutVlat.faq.q10">10. Who is eligible to appear for VLAT?</span>
                 <img src="images/logo/bottom.svg" class="faq-icon transition-transform duration-300">
               </div>
               <div class="faq-answer h-0 overflow-hidden transition-all duration-300 opacity-0">
-                <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                <p class="text-gray-600 mt-4 text-sm leading-relaxed" data-i18n="pages.aboutVlat.faq.a10">
                   For 5-year integ. courses, candidates who passed 10+2 are eligible. For 3-year LL.B, any graduate can
                   apply. For LL.M, candidates with an LL.B degree are eligible to apply.
                 </p>
@@ -1129,7 +1167,7 @@
               <img src="images/logo/emailabout.svg">
             </div>
             <div>
-              <h3 class="text-gray-300 text-2xl font-medium mb-6">Email</h3>
+              <h3 class="text-gray-300 text-2xl font-medium mb-6" data-i18n="pages.aboutVlat.contact.email.title">Email</h3>
               <p class="text-white text-base">admissions@vmls.edu.in</p>
             </div>
           </div>
@@ -1139,7 +1177,7 @@
               <img src="images/logo/phoneabout.svg">
             </div>
             <div>
-              <h3 class="text-gray-300 text-2xl font-medium mb-6">Phone</h3>
+              <h3 class="text-gray-300 text-2xl font-medium mb-6" data-i18n="pages.aboutVlat.contact.phone.title">Phone</h3>
               <p class="text-white text-base">18003094350 | +91 73582 01234</p>
             </div>
           </div>
@@ -1149,8 +1187,8 @@
               <img src="images/logo/supportabout.svg">
             </div>
             <div>
-              <h3 class="text-gray-300 text-2xl font-medium mb-6">Support Hours</h3>
-              <p class="text-white text-base">Mon-Sat, 9 AM - 6 PM</p>
+              <h3 class="text-gray-300 text-2xl font-medium mb-6" data-i18n="pages.aboutVlat.contact.supportHours.title">Support Hours</h3>
+              <p class="text-white text-base" data-i18n="pages.aboutVlat.contact.supportHours.value">Mon-Sat, 9 AM - 6 PM</p>
             </div>
           </div>
 
@@ -1159,8 +1197,8 @@
               <img src="images/logo/locationabout.svg">
             </div>
             <div>
-              <h3 class="text-gray-300 text-2xl font-medium mb-6">Campus</h3>
-              <p class="text-white text-sm">Vinayaka Nagar, Rajiv Gandhi Salai (Old Mahabalipuram Road), Paiyanoor,
+              <h3 class="text-gray-300 text-2xl font-medium mb-6" data-i18n="pages.aboutVlat.contact.campus.title">Campus</h3>
+              <p class="text-white text-sm" data-i18n="pages.aboutVlat.contact.campus.address">Vinayaka Nagar, Rajiv Gandhi Salai (Old Mahabalipuram Road), Paiyanoor,
                 Chennai- 603104, Tamil Nadu, India</p>
             </div>
           </div>
@@ -1176,7 +1214,7 @@
   <button id="announcementBtn"
     class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center">
     <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-    <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+      <span class="writing-vertical text-xs font-medium" data-i18n="pages.index.announcements.label">ANNOUNCEMENTS</span>
   </button>
 
   <!-- Announcements Sidebar -->
@@ -1185,9 +1223,9 @@
     <div class="p-4">
       <div class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3">
         <div>
-          <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+          <h2 class="text-xl font-semibold text-[#FFF6E2]" data-i18n="pages.index.announcements.title">Announcements</h2>
 
-          <p class="text-sm font-light text-[#FFF6E2] mt-1">
+          <p class="text-sm font-light text-[#FFF6E2] mt-1" data-i18n="pages.index.announcements.subtitle">
             Latest updates from our institute
           </p>
         </div>
@@ -1200,7 +1238,7 @@
         <div class="relative">
           <i class="fa-solid fa-magnifying-glass text-primary absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
             aria-hidden="true"></i>
-          <input type="text" placeholder="Search announcements..." class="input-field pl-10 pr-4 h-10"
+            <input type="text" placeholder="Search announcements..." data-i18n-placeholder="common.placeholders.searchAnnouncements" class="input-field pl-10 pr-4 h-10"
             aria-label="Search announcements" />
         </div>
         <div id="announcementFilters" class="flex flex-wrap gap-2 mt-3">
@@ -1239,6 +1277,7 @@
             <!-- University Description -->
             <p
               class="text-base text-[#FAFAFA] font-normal leading-relaxed max-w-[338px]"
+              data-i18n="pages.footer.description"
             >
               Vinayaka Mission's Research Foundation (VMRF) is an innovative
               and pioneering University that offers a multi-disciplinary
@@ -1330,7 +1369,7 @@
             <div class="flex flex-col gap-8">
               <!-- Header -->
               <div class="flex flex-col gap-3">
-                <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.quickLinks">
                   Quick Links
                 </h3>
               </div>
@@ -1340,6 +1379,7 @@
                   <a
                     href="index.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.home"
                     >Home</a
                   >
                 </li>
@@ -1347,6 +1387,7 @@
                   <a
                     href="about-vlat.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.aboutVlat"
                     >About VLAT</a
                   >
                 </li>
@@ -1354,6 +1395,7 @@
                   <a
                     href="about-vmls.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.aboutVmls"
                     >About VMLS</a
                   >
                 </li>
@@ -1361,6 +1403,7 @@
                   <a
                     href="how-to-register.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.registrationProcess"
                     >Registration Process</a
                   >
                 </li>
@@ -1371,7 +1414,7 @@
             <div class="flex flex-col gap-8">
               <!-- Header -->
               <div class="flex flex-col gap-3">
-                <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.quickLinks">
                   Quick Links
                 </h3>
               </div>
@@ -1381,6 +1424,7 @@
                   <a
                     href="exam-structure.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.examStructure"
                     >Exam Structure</a
                   >
                 </li>
@@ -1388,6 +1432,7 @@
                   <a
                     href="blogs.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.blogs"
                     >Blogs</a
                   >
                 </li>
@@ -1395,6 +1440,7 @@
                   <a
                     href="contact-us.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.contactUs"
                     >Contact Us</a
                   >
                 </li>
@@ -1416,6 +1462,7 @@
                   <a
                     href="login.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.buttons.login"
                   >
                     Login</a
                   >
@@ -1427,7 +1474,7 @@
             <div class="flex flex-col gap-8">
               <!-- Header -->
               <div class="flex flex-col gap-3">
-                <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.legalInformation">
                   Legal & Information
                 </h3>
               </div>
@@ -1438,6 +1485,7 @@
                     href="https://vmls.edu.in/privacy-policy.html
                     "
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.privacyPolicy"
                     >Privacy Policy</a
                   >
                 </li>
@@ -1445,6 +1493,7 @@
                   <a
                     href="https://vmls.edu.in/terms-conditions.html"
                     class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                    data-i18n="common.navigation.termsConditions"
                     >Terms & Conditions</a
                   >
                 </li>
@@ -1457,7 +1506,7 @@
       <!-- Copyright -->
       <div class="text-center">
         <p class="text-base text-grey-5 font-normal">
-          Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka Mission's Law School
+          <span data-i18n="pages.footer.copyright">Copyright ©</span> <span id="copyrightYear">2025</span> <span data-i18n="pages.footer.copyrightText">VMLS - Vinayaka Mission's Law School</span>
         </p>
       </div>
     </div>
@@ -1508,6 +1557,16 @@
     });
   </script>
   <script type="module" src="js/main.js"></script>
+
+  <!-- Translation System -->
+  <script src="js/translations.js"></script>
+  <script>
+    // Initialize translations on page load
+    document.addEventListener("DOMContentLoaded", async () => {
+      await initializeTranslations();
+      translatePage();
+    });
+  </script>
 
   <!-- Scroll to Top Button -->
   <button

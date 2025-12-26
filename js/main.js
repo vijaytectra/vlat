@@ -93,7 +93,7 @@ function renderAnnouncements() {
   if (filtered.length === 0) {
     const emptyDiv = document.createElement("div");
     emptyDiv.className = "text-center py-8";
-    emptyDiv.innerHTML = `<p class="text-grey-6">No announcements found.</p>`;
+    emptyDiv.innerHTML = `<p class="text-grey-6">${window.t ? window.t('common.messages.noAnnouncements') : 'No announcements found.'}</p>`;
     fragment.appendChild(emptyDiv);
   } else {
     filtered.forEach((announcement) => {
@@ -121,7 +121,7 @@ function renderAnnouncements() {
         <p class="text-xs text-[#737373] mb-3">${announcement.description}</p>
         <a href="${
           announcement.link
-        }" class="text-sm text-[#155DFC] hover:underline">Read more →</a>
+        }" class="text-sm text-[#155DFC] hover:underline">${window.t ? window.t('common.buttons.readMore') : 'Read more →'}</a>
       `;
       fragment.appendChild(card);
     });
@@ -336,7 +336,7 @@ function initFormValidation() {
         console.log("Form submitted with data:", data);
 
         // Show success message (you can replace this with a proper modal/notification)
-        alert("Application submitted successfully! We will contact you soon.");
+        alert(window.t ? window.t('common.messages.applicationSubmitted') : "Application submitted successfully! We will contact you soon.");
 
         // Reset form
         applicationForm.reset();
@@ -405,7 +405,7 @@ function initTimer() {
         totalSeconds--;
       } else {
         // Auto submit when time runs out
-        alert("Time is up!");
+        alert(window.t ? window.t('common.messages.timeUp') : "Time is up!");
       }
     }, 1000);
   }
@@ -476,6 +476,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initQuestionNavigator();
   initTimer();
   initScrollToTop();
+  
+  // Re-translate dynamic content when language changes
+  window.addEventListener('languageChanged', () => {
+    if (typeof renderAnnouncements === 'function') {
+      renderAnnouncements();
+      renderCategoryFilters();
+    }
+  });
 });
 
 // Close modals on outside click

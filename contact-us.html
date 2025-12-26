@@ -75,12 +75,30 @@
                 </div>
               </div>
 
-              <!-- Right: VMRF Logo, Buttons, Menu -->
+              <!-- Right: Language Switcher, VMRF Logo, Buttons, Menu -->
               <div class="flex items-center gap-3 md:gap-4">
+                <!-- Language Switcher -->
+                <div
+                  class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+                >
+                  <button
+                    id="lang-en"
+                    class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                  >
+                    English
+                  </button>
+                  <button
+                    id="lang-ta"
+                    class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                  >
+                    தமிழ்
+                  </button>
+                </div>
                 <div class="hidden lg:flex items-center gap-2">
                   <img
                     src="images/vmrflogo.svg"
                     alt="VMRF Logo"
+                    data-i18n-alt="common.alt.vmrfLogo"
                     class="h-12 w-auto"
                     onerror="this.style.display='none'"
                   />
@@ -89,6 +107,7 @@
                   <a href="login.html">
                     <button
                       class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                      data-i18n="common.buttons.login"
                     >
                       Login
                     </button>
@@ -100,7 +119,7 @@
                   class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
                 >
                   <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
-                  <span class="text-[#8D191C] font-medium">Menu</span>
+                  <span class="text-[#8D191C] font-medium" data-i18n="common.buttons.menu">Menu</span>
                 </button>
               </div>
             </div>
@@ -113,7 +132,7 @@
               <div class="flex flex-col">
                 <!-- Header with MENU title and Close button -->
                 <div class="flex items-center justify-between px-6 py-6">
-                  <h2 class="text-xl font-semibold text-white uppercase">
+                  <h2 class="text-xl font-semibold text-white uppercase" data-i18n="common.buttons.menu">
                     MENU
                   </h2>
                   <button
@@ -192,37 +211,44 @@
                   <a
                     href="index.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.home"
                     >Homepage</a
                   >
                   <a
                     href="about-vlat.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.aboutVlat"
                     >About VLAT</a
                   >
                   <a
                     href="about-vmls.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.aboutVmls"
                     >About VMLS</a
                   >
                   <a
                     href="how-to-register.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.howToRegister"
                     >How to Register</a
                   >
                   <a
                     href="blogs.html"
                     id="blogsLink"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.blogs"
                     >Blogs</a
                   >
                   <a
                     href="exam-structure.html"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.examStructure"
                     >Exam Structure</a
                   >
                   <a
                     href="contact-us.html"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.contactUs"
                     >Contact Us</a
                   >
                 </nav>
@@ -234,11 +260,13 @@
                   <a
                     href="how-to-register.html"
                     class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#FFF6E2] text-primary font-bold text-center py-4 hover:bg-opacity-90 transition-colors"
+                    data-i18n="common.buttons.applyForVlat"
                     >Apply for VLAT</a
                   >
                   <a
                     href="login.html"
                     class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-4 hover:bg-white/10 transition-colors"
+                    data-i18n="common.buttons.login"
                     >Login</a
                   >
                 </div>
@@ -255,12 +283,14 @@
             <div class="flex flex-col items-center gap-3.5 mb-8 md:mb-12">
               <h1
                 class="text-3xl md:text-4xl lg:text-[48px] font-semibold text-primary text-center"
+                data-i18n="pages.contactUs.title"
               >
                 Contact Us
               </h1>
               <p
                 class="text-base text-grey-8 font-normal leading-6 text-center max-w-2xl"
                 style="font-family: Arial, sans-serif"
+                data-i18n="pages.contactUs.description"
               >
                 We're here to help you with registration, exam details, and
                 admissions.
@@ -278,13 +308,14 @@
               >
                 <!-- Name Field -->
                 <div class="flex flex-col gap-3.5">
-                  <label class="text-sm font-medium text-grey-6" for="name">
+                  <label class="text-sm font-medium text-grey-6" for="name" data-i18n="common.labels.enterName">
                     Enter Name *
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
+                    data-i18n-placeholder="common.placeholders.fullName"
                     placeholder="Full Name"
                     required
                     class="h-11 px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4"
@@ -293,13 +324,14 @@
 
                 <!-- Email Field -->
                 <div class="flex flex-col gap-3.5">
-                  <label class="text-sm font-medium text-grey-6" for="email">
+                  <label class="text-sm font-medium text-grey-6" for="email" data-i18n="common.labels.enterEmail">
                     Enter Email Address *
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
+                    data-i18n-placeholder="common.placeholders.email"
                     placeholder="email@example.com"
                     required
                     class="h-11 px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4"
@@ -312,6 +344,7 @@
                     <label
                       class="text-sm font-medium text-grey-6"
                       for="countryCode"
+                      data-i18n="common.labels.countryCode"
                     >
                       Country Code *
                     </label>
@@ -327,13 +360,14 @@
                     </select>
                   </div>
                   <div class="flex-1 flex flex-col gap-3.5">
-                    <label class="text-sm font-medium text-grey-6" for="mobile">
+                    <label class="text-sm font-medium text-grey-6" for="mobile" data-i18n="common.labels.enterMobile">
                       Enter Mobile Number *
                     </label>
                     <input
                       type="tel"
                       id="mobile"
                       name="mobile"
+                      data-i18n-placeholder="common.placeholders.enterMobileNumber"
                       placeholder="Enter Your Mobile Number"
                       required
                       class="h-11 px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4"
@@ -346,6 +380,7 @@
                   <label
                     class="text-sm font-medium text-grey-6"
                     for="queryType"
+                    data-i18n="pages.contactUs.queryType"
                   >
                     Query Type
                   </label>
@@ -355,11 +390,11 @@
                       name="queryType"
                       class="w-full h-11 px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4 appearance-none pr-10"
                     >
-                      <option value="">Select a query type</option>
-                      <option value="admissions">Admissions</option>
-                      <option value="exam">Exam Details</option>
-                      <option value="registration">Registration</option>
-                      <option value="other">Other</option>
+                      <option value="" data-i18n="pages.contactUs.queryTypeSelect">Select a query type</option>
+                      <option value="admissions" data-i18n="pages.contactUs.queryTypeAdmissions">Admissions</option>
+                      <option value="exam" data-i18n="pages.contactUs.queryTypeExam">Exam Details</option>
+                      <option value="registration" data-i18n="pages.contactUs.queryTypeRegistration">Registration</option>
+                      <option value="other" data-i18n="pages.contactUs.queryTypeOther">Other</option>
                     </select>
                     <div
                       class="absolute right-2.5 top-1/2 transform -translate-y-1/2 pointer-events-none"
@@ -373,13 +408,14 @@
 
                 <!-- Message Field -->
                 <div class="flex flex-col gap-3.5">
-                  <label class="text-sm font-medium text-grey-6" for="message">
+                  <label class="text-sm font-medium text-grey-6" for="message" data-i18n="pages.contactUs.message">
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows="3"
+                    data-i18n-placeholder="pages.contactUs.messagePlaceholder"
                     placeholder="Tell us more about your query..."
                     class="min-h-[60px] px-2.5 py-2.5 bg-grey-1 rounded-lg border border-grey-4 text-sm font-medium text-black placeholder-grey-5 focus:outline-none focus:ring-2 focus:ring-grey-4 resize-none"
                   ></textarea>
@@ -398,6 +434,7 @@
                   <label
                     for="agree"
                     class="text-xs font-medium text-grey-7 flex-1"
+                    data-i18n="pages.contactUs.agreeTerms"
                   >
                     I agree to receive information regarding my submitted
                     applications *
@@ -414,7 +451,7 @@
                     class="fa-solid fa-paper-plane w-5 h-5"
                     id="submitIcon"
                   ></i>
-                  <span id="submitText">Send message</span>
+                  <span id="submitText" data-i18n="pages.contactUs.sendMessage">Send message</span>
                   <span id="submitSpinner" class="hidden">
                     <i class="fa-solid fa-spinner fa-spin w-5 h-5"></i>
                   </span>
@@ -455,7 +492,7 @@
                   <i class="fa-solid fa-envelope text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.email.title">
                     Email
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
@@ -475,7 +512,7 @@
                   <i class="fa-solid fa-phone text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.phone.title">
                     Phone
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
@@ -496,10 +533,10 @@
                   <i class="fa-solid fa-location-dot text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.campusAddress">
                     VMLS Campus Address
                   </h3>
-                  <p class="text-base font-medium text-grey-9 leading-6">
+                  <p class="text-base font-medium text-grey-9 leading-6" data-i18n="pages.contactUs.campus.address">
                     Vinayaka Nagar, Rajiv Gandhi Salai (Old Mahabalipuram Road),
                     Paiyanoor, Chennai- 603104, Tamil Nadu, India
                   </p>
@@ -519,10 +556,10 @@
                   <i class="fa-solid fa-clock text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.supportHours.title">
                     Support Hours
                   </h3>
-                  <p class="text-base font-medium text-grey-9 leading-6">
+                  <p class="text-base font-medium text-grey-9 leading-6" data-i18n="pages.contactUs.supportHours.value">
                     Mon-Sat, 9 AM - 6 PM
                   </p>
                 </div>
@@ -538,7 +575,7 @@
                   <i class="fa-solid fa-comment text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.chatbotHelp">
                     Chatbot help
                   </h3>
                   <p class="text-base font-medium text-grey-9 leading-6">
@@ -556,10 +593,10 @@
                   <i class="fa-solid fa-location-dot text-xl text-primary"></i>
                 </div>
                 <div class="flex flex-col gap-6">
-                  <h3 class="text-2xl font-normal text-grey-8 leading-6">
+                  <h3 class="text-2xl font-normal text-grey-8 leading-6" data-i18n="pages.contactUs.corporateAddress">
                     Corporate Office Address
                   </h3>
-                  <p class="text-base font-medium text-grey-9 leading-6">
+                  <p class="text-base font-medium text-grey-9 leading-6" data-i18n="pages.contactUs.corporateAddressValue">
                     No: 213, Old No: 160, Behind Doshi Tower, Poonamallee High
                     Road, Kilpauk, Chennai- 600010, Tamil Nadu, India
                   </p>
@@ -603,11 +640,13 @@
             <div class="flex flex-col gap-3">
               <h2
                 class="text-2xl md:text-3xl lg:text-[36px] font-semibold text-secondary-yellow"
+                data-i18n="pages.contactUs.cta.title"
               >
                 Ready to Apply for the VLAT Entrance Exam?
               </h2>
               <p
                 class="text-base font-normal text-secondary-yellow leading-[26px]"
+                data-i18n="pages.contactUs.cta.description"
               >
                 Start your registration today and take your first step toward
                 joining our institute. Join thousands of students who have
@@ -616,6 +655,7 @@
             </div>
             <button
               class="w-full md:w-[272px] h-16 px-5 py-5 bg-[#FFF6E2]-yellow rounded-[11px] text-primary text-base font-medium hover:bg-opacity-90 transition-colors"
+              data-i18n="pages.index.cta.applyNow"
             >
               Apply Now
             </button>
@@ -659,6 +699,7 @@
               <!-- University Description -->
               <p
                 class="text-base text-[#FAFAFA] font-normal leading-relaxed max-w-[338px]"
+                data-i18n="pages.footer.description"
               >
                 Vinayaka Mission's Research Foundation (VMRF) is an innovative
                 and pioneering University that offers a multi-disciplinary
@@ -750,7 +791,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.quickLinks">
                     Quick Links
                   </h3>
                 </div>
@@ -760,6 +801,7 @@
                     <a
                       href="index.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.home"
                       >Home</a
                     >
                   </li>
@@ -767,6 +809,7 @@
                     <a
                       href="about-vlat.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVlat"
                       >About VLAT</a
                     >
                   </li>
@@ -774,6 +817,7 @@
                     <a
                       href="about-vmls.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVmls"
                       >About VMLS</a
                     >
                   </li>
@@ -781,6 +825,7 @@
                     <a
                       href="how-to-register.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.registrationProcess"
                       >Registration Process</a
                     >
                   </li>
@@ -791,7 +836,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.quickLinks">
                     Quick Links
                   </h3>
                 </div>
@@ -801,6 +846,7 @@
                     <a
                       href="exam-structure.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.examStructure"
                       >Exam Structure</a
                     >
                   </li>
@@ -808,6 +854,7 @@
                     <a
                       href="blogs.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.blogs"
                       >Blogs</a
                     >
                   </li>
@@ -815,6 +862,7 @@
                     <a
                       href="contact-us.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.contactUs"
                       >Contact Us</a
                     >
                   </li>
@@ -836,6 +884,7 @@
                     <a
                       href="login.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.buttons.login"
                     >
                       Login</a
                     >
@@ -847,7 +896,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase" data-i18n="pages.footer.legalInformation">
                     Legal & Information
                   </h3>
                 </div>
@@ -858,6 +907,7 @@
                       href="https://vmls.edu.in/privacy-policy.html
                    "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.privacyPolicy"
                       >Privacy Policy</a
                     >
                   </li>
@@ -865,6 +915,7 @@
                     <a
                       href="https://vmls.edu.in/terms-conditions.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.termsConditions"
                       >Terms & Conditions</a
                     >
                   </li>
@@ -877,8 +928,7 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
-            Mission's Law School
+            <span data-i18n="pages.footer.copyright">Copyright ©</span> <span id="copyrightYear">2025</span> <span data-i18n="pages.footer.copyrightText">VMLS - Vinayaka Mission's Law School</span>
           </p>
         </div>
       </div>
@@ -890,7 +940,7 @@
       class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center gap-2"
     >
       <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+      <span class="writing-vertical text-xs font-medium" data-i18n="pages.index.announcements.label">ANNOUNCEMENTS</span>
     </button>
 
     <!-- Announcements Sidebar -->
@@ -903,9 +953,9 @@
           class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
         >
           <div>
-            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+            <h2 class="text-xl font-semibold text-[#FFF6E2]" data-i18n="pages.index.announcements.title">Announcements</h2>
 
-            <p class="text-sm font-light text-[#FFF6E2] mt-1">
+            <p class="text-sm font-light text-[#FFF6E2] mt-1" data-i18n="pages.index.announcements.subtitle">
               Latest updates from our institute
             </p>
           </div>
@@ -926,8 +976,10 @@
             ></i>
             <input
               type="text"
+              data-i18n-placeholder="common.placeholders.searchAnnouncements"
               placeholder="Search announcements..."
               class="input-field pl-10 pr-4 h-10"
+              data-i18n-aria-label="common.placeholders.searchAnnouncements"
               aria-label="Search announcements"
             />
           </div>
@@ -942,6 +994,16 @@
     </div>
 
     <script src="js/main.js"></script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+        translatePage();
+      });
+    </script>
 
     <!-- Contact Form Submission Script -->
     <script type="module">
@@ -995,7 +1057,12 @@
           submitSpinner.classList.remove("hidden");
         } else {
           submitBtn.disabled = false;
-          submitText.textContent = "Send message";
+          // Use translation if available, otherwise fallback
+          if (window.t) {
+            submitText.textContent = window.t("pages.contactUs.sendMessage", "Send message");
+          } else {
+            submitText.textContent = "Send message";
+          }
           submitIcon.classList.remove("hidden");
           submitSpinner.classList.add("hidden");
         }

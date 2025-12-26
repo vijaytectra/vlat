@@ -1,0 +1,695 @@
+{
+  "common": {
+    "buttons": {
+      "login": "Login",
+      "register": "Register",
+      "submit": "Submit",
+      "apply": "Apply",
+      "applyForVlat": "Apply for VLAT",
+      "registerNow": "Register Now",
+      "submitApplication": "Submit Application",
+      "logout": "Logout",
+      "back": "BACK",
+      "menu": "Menu",
+      "close": "Close",
+      "readMore": "Read more →",
+      "viewDetails": "View Details",
+      "continue": "Continue",
+      "cancel": "Cancel",
+      "save": "Save",
+      "reset": "Reset",
+      "search": "Search",
+      "filter": "Filter",
+      "all": "All"
+    },
+    "navigation": {
+      "home": "Home",
+      "aboutVlat": "About VLAT",
+      "aboutVmls": "About VMLS",
+      "howToRegister": "How to Register",
+      "blogs": "Blogs",
+      "examStructure": "Exam Structure",
+      "contactUs": "Contact Us",
+      "candidateLogin": "Candidate Login",
+      "registrationProcess": "Registration Process",
+      "eligibility": "Eligibility",
+      "mockTest": "Mock Test",
+      "privacyPolicy": "Privacy Policy",
+      "termsConditions": "Terms & Conditions",
+      "disclaimer": "Disclaimer"
+    },
+    "labels": {
+      "name": "Name",
+      "fullName": "Full Name",
+      "email": "Email",
+      "emailAddress": "Email Address",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "mobileNumber": "Mobile Number",
+      "contactNumber": "Contact Number",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "countryCode": "Country Code",
+      "state": "State",
+      "city": "City",
+      "course": "Course",
+      "academicYear": "Academic Year",
+      "select": "Select",
+      "rememberMe": "Remember Me",
+      "forgotPassword": "Forgot Password?",
+      "loginId": "Login ID",
+      "enterName": "Enter Name",
+      "enterEmail": "Enter Email Address",
+      "enterMobile": "Enter Mobile Number",
+      "selectState": "Select State",
+      "selectCity": "Select City",
+      "selectCourse": "Select Course",
+      "selectAcademicYear": "Select Academic Year"
+    },
+    "placeholders": {
+      "fullName": "Full Name",
+      "email": "email@example.com",
+      "enterEmail": "Enter your Email ID",
+      "enterFullName": "Enter your Full name",
+      "enterContactNumber": "Enter your Contact number (10 digits)",
+      "enterPassword": "Enter New Password",
+      "enterConfirmPassword": "Enter Confirm Password",
+      "enterLoginId": "Enter your Login ID or Email",
+      "enterPasswordLogin": "Enter your Password",
+      "enterMobileNumber": "Enter Mobile Number",
+      "search": "Search announcements...",
+      "searchAnnouncements": "Search announcements..."
+    },
+    "messages": {
+      "noAnnouncements": "No announcements found.",
+      "loading": "Loading...",
+      "loggingIn": "Logging in...",
+      "loginToDashboard": "Login to Dashboard",
+      "dontHaveLoginId": "Don't have a Login ID?",
+      "registerHere": "Register here to create your account.",
+      "needHelp": "Need help with login?",
+      "applicationSubmitted": "Application submitted successfully! We will contact you soon.",
+      "timeUp": "Time is up!",
+      "keepGoing": "Keep going!",
+      "noData": "No data available"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "passwordMismatch": "Passwords do not match",
+      "loginFailed": "Login failed. Please try again.",
+      "enterBothFields": "Please enter both Login ID and Password",
+      "errorOccurred": "An error occurred. Please try again.",
+      "networkError": "Network error. Please check your connection."
+    },
+    "alt": {
+      "vmlsLogo": "VMLS Logo",
+      "vlatLogo": "VLAT Logo",
+      "vmrfLogo": "VMRF Logo",
+      "menuIcon": "Menu",
+      "studentsImage": "Students attending class",
+      "vlatStudents": "VLAT students pursuing law education at Vinayaka Mission's Law School",
+      "stateOfTheArtInfrastructure": "State-of-the-Art Infrastructure",
+      "strategicPartnership": "Strategic Partnership",
+      "worldClassFaculty": "World-Class Faculty",
+      "inclusiveLearning": "Inclusive Learning",
+      "registrationBackground": "Registration Background",
+      "campusBackground": "Campus Background"
+    }
+  },
+  "pages": {
+    "index": {
+      "hero": {
+        "title": "Vinayaka Mission's Law Admission Test (VLAT)",
+        "subtitle": "Shape Your Legal Future",
+        "academicYear": "For Academic Year 2026 - 27",
+        "tagline": "Chennai Best Law School • Nationally Mentored • 98% Student Satisfaction"
+      },
+      "aboutVmls": {
+        "label": "VMLS",
+        "title": "About Vinayaka Mission's Law School",
+        "description": "Building India's premier law school for the AI age through innovation, excellence, and inclusivity.",
+        "paragraph": "With the founding vision of creating the law school of the future, VMLS admitted its first cohort of students in 2021. Mentored by India's finest law school, Jindal Global Law School, and supported by a committed team of full-time faculty members trained in globally renowned institutions, VMLS has pioneered pedagogic innovations that equip learners with the skills, knowledge, and specializations required for professional success in the modern legal landscape."
+      },
+      "features": {
+        "infrastructure": {
+          "title": "State-of-the-Art Infrastructure",
+          "description": "Smart classrooms, digital library, and regal moot court hall"
+        },
+        "partnership": {
+          "title": "Strategic Partnership",
+          "description": "Mentored by Jindal Global Law School"
+        },
+        "faculty": {
+          "title": "World-Class Faculty",
+          "description": "Expert professors trained at globally renowned institutions"
+        },
+        "inclusiveLearning": {
+          "title": "Inclusive Learning",
+          "description": "Bilingual support ensuring no learner is left behind"
+        },
+        "curriculum": {
+          "title": "Innovative Curriculum",
+          "description": "Cutting-edge programs aligned with industry needs"
+        },
+        "placement": {
+          "title": "Career Support",
+          "description": "Comprehensive placement assistance and career guidance"
+        }
+      },
+      "aboutVlat": {
+        "title": "ABOUT Vinayaka Mission's Law Admission Test",
+        "titleBreak": "VLAT 2026",
+        "description": "Vinayaka Mission's Law entrance test provides access to four leading law schools in India.",
+        "examDetails": {
+          "markPerQuestion": "Mark per Question",
+          "maximumScore": "Maximum Score",
+          "totalQuestions": "Total Questions",
+          "section": "Section",
+          "minutes": "minutes",
+          "negativeMarking": "Negative Marking"
+        },
+        "alertBanner": {
+          "encouraged": "You're encouraged to attempt every question.",
+          "noPenalty": "With no negative marking, there's no penalty for trying!"
+        }
+      },
+      "registration": {
+        "label": "Registration Process",
+        "title": "VLAT 2026",
+        "step": "STEP",
+        "step1": {
+          "title": "Start Registration",
+          "description": "Begin by creating your account using your personal email ID and basic contact information to access the mock test portal and start your practice session."
+        },
+        "step2": {
+          "title": "Fill in Your Details",
+          "description": "Complete the VLAT application form by entering your personal, academic, and required information."
+        },
+        "step3": {
+          "title": "Upload Documents",
+          "description": "Attach all mandatory documents such as ID proof, academic records, and photographs."
+        },
+        "step4": {
+          "title": "Pay & Submit",
+          "description": "Pay the application fee securely online.After successful payment, submit your application form and download the receipt for future reference."
+        }
+      },
+      "alumni": {
+        "title": "Our Alumni",
+        "description": "Empowering Future Legal Leaders with Excellence and Support",
+        "practicingAdvocate": "Practicing Advocate in Madras High",
+        "alumini": "Alumini"
+      },
+      "cta": {
+        "heading": "Take the first step to secure your success in law",
+        "applyNow": "Apply Now for VLAT 2026"
+      },
+      "announcements": {
+        "label": "ANNOUNCEMENTS",
+        "title": "Announcements",
+        "subtitle": "Latest updates from our institute"
+      },
+      "form": {
+        "agree": "I agree to receive information regarding my submitted applications*"
+      }
+    },
+    "login": {
+      "title": "VLAT Entrance Exam Login",
+      "subtitle": "Use the Login ID and Password sent to your email to access your exam dashboard.",
+      "error": "Please enter both Login ID and Password"
+    },
+    "register": {
+      "title": "VLAT Entrance Exam Register",
+      "subtitle": "Please fill in the details below to register for the VLAT Entrance Exam.",
+      "passwordRequirements": "Must be at least 8 characters with uppercase, lowercase, number, and special character",
+      "registering": "Registering..."
+    },
+    "dashboard": {
+      "title": "Student Dashboard – VLAT",
+      "mockTestZone": "VLAT Mock Test Zone",
+      "mockTestDescription": "Preparing for VLAT becomes much easier when you practise regularly.",
+      "mockTestBenefits": {
+        "confidence": "Builds confidence before exam",
+        "performance": "Improves performance",
+        "experience": "Real exam experience"
+      },
+      "welcome": "Welcome back",
+      "student": "Student!",
+      "chooseMockTest": "Choose a mock test and boost your preparation.",
+      "nextExam": "Next Exam:",
+      "stats": {
+        "testsCompleted": "Tests Completed",
+        "averageScore": "Average Score",
+        "bestScore": "Best Score",
+        "totalAttempts": "Total Attempts"
+      }
+    },
+    "aboutVmls": {
+      "title": "About VMLS | Vinayaka Mission's Law School",
+      "pageTitle": "About Vinayaka Mission's Law School",
+      "subtitle": "The Law School of the Future",
+      "paragraph1": "Vinayaka Mission's Law School was founded with a clear purpose: to build a world-class, accessible, and future-oriented law school that brings global excellence to every learner. Since 2021, VMLS has grown under the academic mentorship of Jindal Global Law School and the leadership of faculty trained at internationally renowned universities.",
+      "paragraph2": "Our bilingual English–Tamil learning model ensures that legal education is not only rigorous and contemporary, but also inclusive—strengthening comprehension, breaking access barriers, and empowering students from diverse backgrounds. With a curriculum anchored in innovation, ethics, and experiential learning, VMLS prepares graduates to navigate the evolving landscape of law with clarity, skill, and purpose.",
+      "facultyGlobalExpertise": "Faculty with Global Expertise",
+      "facultyDescription": "Academicians with global training who bring deep expertise, research strength, and student-centred mentorship.",
+      "shapingFuture": "VMLS — Shaping the Future of Law Since 2021",
+      "aboutVmlsTitle": "About VMLS",
+      "aboutVmlsParagraph1": "Shaping transformative legal education through innovation, inclusivity, and global vision. Vinayaka Mission's Law School (VMLS), established by Vinayaka Mission's Research Foundation – Deemed to be University (VMRF-DU), is dedicated to delivering legal education that responds to the rapidly evolving needs of local, national, and global communities. Founded with the vision of creating the law school of the future, VMLS welcomed its first cohort in 2021. Since then, mentorship from Jindal Global Law School and a committed team of full-time faculty—many trained at globally renowned institutions—have shaped a distinctive academic environment grounded in innovation and forward-looking pedagogy.",
+      "aboutVmlsParagraph2": "With state-of-the-art smart classrooms, a digitally enabled library, and a regal moot court hall, the campus provides an immersive learning atmosphere that encourages intellectual growth and active engagement. As a bilingual law school in Chennai, VMLS offers legal education in both English and Tamil, equipping students for global legal careers while remaining rooted in regional and cultural contexts. VMLS proudly upholds inclusivity as a core value, ensuring that every learner is supported and empowered to thrive.",
+      "whyChooseVmls": "Why Choose VMLS?",
+      "applyNow": "Apply Now",
+      "downloadBrochureUG": "Download Brochure- UG",
+      "downloadBrochurePG": "Download Brochure- PG",
+      "mission": {
+        "our": "Our",
+        "title": "Mission",
+        "description": "To educate ethical and skilled legal professionals who combine intellectual rigour with empathy, and who are prepared to respond to the complexities of an evolving world. VMLS advances a learning environment that values inclusivity, innovation, and ethical responsibility."
+      },
+      "vision": {
+        "our": "Our",
+        "title": "Vision",
+        "description": "To become India's leading institution for bilingual legal education—renowned for academic distinction, transformative research, experiential learning, and a deep commitment to strengthening justice, equity, and social wellbeing. VMLS aspires to shape future-ready lawyers who lead with insight, integrity, and impact."
+      },
+      "campusFacilities": {
+        "title": "Campus & Facilities",
+        "description": "Our modern campus in Paiyanoor, Chennai, is equipped with state-of-the-art facilities designed to support comprehensive legal education.",
+        "campusInfrastructure": "Campus Infrastructure",
+        "libraryResources": "Library & Resources",
+        "computerLabs": "Computer Labs",
+        "computerLabsDescription": "Cyber-law and legal tech training",
+        "mootCourtHall": "Moot Court Hall"
+      }
+    },
+    "aboutVlat": {
+      "hero": {
+        "subtitle": "VLAT - Vinayaka Mission's Law Admission Test",
+        "title": "All About Vinayaka Mission's Law  Admission Test (VLAT) 2026",
+        "description": "Gateway to world class legal education at Vinayaka Mission's Law School"
+      },
+      "about": {
+        "badge": "Official Entrance Examination",
+        "title": "About VLAT (Vinayaka Mission's Law Admission Test)",
+        "description": "The Vinayaka Mission's Law Admission Test(VLAT) is the official entrance examination conducted by Vinayaka Mission's Law School (VMLS) to assess the aptitude and preparedness of students seeking admission to various undergraduate and postgraduate law programmes. VLAT evaluates key skills essential for a successful legal career and provides a fair, transparent, and student-friendly pathway for law aspirants across the country.",
+        "skills": {
+          "readingComprehension": "Reading comprehension",
+          "logicalReasoning": "Logical reasoning",
+          "criticalThinking": "Critical thinking"
+        },
+        "experience": "VLAT is designed to be a smooth, stress-free experience for students who wish to pursue law. With multiple test slots, an online format, and no negative marking, the exam ensures every student has the best opportunity to showcase their potential without unnecessary pressure."
+      },
+      "whyConducted": {
+        "title": "Why is VLAT Conducted?",
+        "paragraph1": "Vinayaka Mission's Law School (VMLS) recognizes that the legal profession requires not just knowledge of law, but also strong analytical abilities, critical thinking, and effective communication skills. VLAT is specifically designed to evaluate whether an applicant possesses the intellectual foundation necessary to excel in legal studies and the legal profession.",
+        "paragraph2": "Instead of relying solely on board marks or subjective criteria, VLAT offers a merit-based, standardized way to identify motivated and capable students. The exam ensures that admission to VMLS is fair, accessible, and aligned with the school's commitment to academic excellence.",
+        "card1": {
+          "title": "Evaluates Key Skills",
+          "description": "Analytical abilities, critical thinking, and communication"
+        },
+        "card2": {
+          "title": "Merit-Based Selection",
+          "description": "Fair and standardized assessment for all candidates"
+        },
+        "card3": {
+          "title": "Identifies Capable Students",
+          "description": "Finds motivated individuals ready for legal studies"
+        },
+        "card4": {
+          "title": "Academic Excellence",
+          "description": "Aligned with VMLS commitment to quality education"
+        }
+      },
+      "whoCanTake": {
+        "title": "Who Can Take VLAT?",
+        "description": "VLAT is open to students applying for the following programmes at VMLS:",
+        "program1": "BA LL.B. (Hons.) — 5-Year Integrated Programme",
+        "program2": "B.Com. LL.B. (Hons.) — 5-Year Integrated Programme",
+        "program3": "BBA LL.B. (Hons.) — 5-Year Integrated Programme",
+        "program4": "LL.B. (Hons.) — 3-Year Programme",
+        "program5": "LL.M. — 1-Year Postgraduate Programme (4 specialisations)"
+      },
+      "studentFriendly": {
+        "title": "Why VLAT is Student-Friendly",
+        "subtitle": "Designed with your success and comfort in mind",
+        "card1": {
+          "title": "Short Duration",
+          "description": "Just 60 minutes to complete the exam"
+        },
+        "card2": {
+          "title": "No Negative Marking",
+          "description": "Attempt every question without fear"
+        },
+        "card3": {
+          "title": "Only Two Sections",
+          "description": "Focused assessment, not overwhelming"
+        },
+        "card4": {
+          "title": "Simple MCQ Format",
+          "description": "Familiar question style, easy to navigate"
+        },
+        "card5": {
+          "title": "Take From Anywhere",
+          "description": "Online test from home or any location"
+        },
+        "card6": {
+          "title": "Instant Results",
+          "description": "Get your score immediately after exam"
+        }
+      },
+      "programmes": {
+        "title": "Programmes You Can Apply For",
+        "description": "Choose from our comprehensive range of law programmes designed to shape future legal professionals"
+      },
+      "examOverview": {
+        "title": "Exam Overview",
+        "subtitle": "Key details about the VLAT examination format",
+        "duration": {
+          "title": "Duration",
+          "value": "60 Minutes",
+          "description": "1 hour total"
+        },
+        "format": {
+          "title": "Digital Format",
+          "value": "Online Test",
+          "description": "Fully online, computer-based test"
+        },
+        "result": {
+          "title": "Result Declaration",
+          "value": "Instant",
+          "description": "Get your score immediately"
+        },
+        "negativeMarking": {
+          "title": "0 Negative Marking",
+          "value": "Attempt with confidence",
+          "description": "No penalty for wrong answers"
+        },
+        "questions": {
+          "title": "Questions",
+          "value": "40 MCQs - UG & 80 MCQs - PG",
+          "description": "Multiple choice"
+        },
+        "languages": {
+          "title": "Languages",
+          "value": "English & Tamil",
+          "description": "Choose your preference"
+        }
+      },
+      "eligibility": {
+        "title": "VLAT Eligibility Criteria",
+        "description": "To be eligible for VLAT, candidates must meet specific educational qualifications and minimum marks requirements based on their chosen programme and category.",
+        "educationalQualification": "Educational Qualification",
+        "minimumMarks": "Minimum Marks Required:",
+        "generalCategory": "General Category",
+        "obc": "OBC (Non-Creamy Layer)",
+        "scstpwd": "SC/ST/PWD",
+        "program1": {
+          "title": "1. For 5-Year Integrated Programmes (BA LL.B., B.Com. LL.B., BBA LL.B.)",
+          "qualification": "Candidates must have passed their 10+2 (or equivalent) examination from a recognized board."
+        },
+        "program2": {
+          "title": "2. For 3-Year LL.B. Programme",
+          "qualification": "Candidates must have completed a Bachelor's degree (in any discipline) from a recognized university."
+        },
+        "program3": {
+          "title": "3. For LL.M. Programme",
+          "qualification": "Candidates must hold UG law degree from recognized university."
+        },
+        "importantNotes": {
+          "title": "Important Notes",
+          "note1": "Candidates appearing in their final year examination are also eligible to apply, subject to meeting the minimum marks criteria at the time of admission.",
+          "note2": "Age limit and other specific requirements (if any) will be clearly mentioned in the official VLAT admission notification.",
+          "note3": "Reservation policies follow government norms and are subject to change as per updated regulations."
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "1. What is VLAT?",
+        "a1": "VLAT (Vinayaka Mission's Law Admission Test) is the official entrance examination conducted by Vinayaka Mission's Law School (VMLS) for admission to its undergraduate and postgraduate law programmes.",
+        "q2": "2. Is VLAT mandatory for admission?",
+        "a2": "Yes, appearing for VLAT is mandatory for all applicants seeking admission to VMLS to ensure a fair merit-based selection process.",
+        "q3": "3. Is VLAT conducted online or offline?",
+        "a3": "VLAT is a fully online, AI-proctored examination. You can take the exam from the comfort of your home using a laptop or desktop with a camera and microphone.",
+        "q4": "4. What skills does VLAT test?",
+        "a4": "VLAT tests your aptitude in English Comprehension, Logical Reasoning, and Critical Thinking. It aims to evaluate your potential for legal studies rather than prior legal knowledge.",
+        "q5": "5. How many questions does VLAT have?",
+        "a5": "The UG version consists of 40 questions, while the PG version consists of 80 questions. Both are designed to be completed within 60 minutes.",
+        "q6": "6. Is there negative marking in VLAT?",
+        "a6": "No, there is zero negative marking in VLAT. You are encouraged to attempt all questions without fear of penalty.",
+        "q7": "7. Can I write the exam in Tamil?",
+        "a7": "Yes, VMLS offers the unique option to take the exam in either English or Tamil. You can also switch between languages during the test.",
+        "q8": "8. What programmes accept VLAT scores?",
+        "a8": "VLAT scores are valid for admission to BA LL.B (Hons.), BBA LL.B (Hons.), B.Com LL.B (Hons.), 3-year LL.B (Hons.), and LL.M programmes at VMLS.",
+        "q9": "9. How soon are VLAT results declared?",
+        "a9": "VLAT results are instant! Your score is displayed on your screen immediately after you submit the exam.",
+        "q10": "10. Who is eligible to appear for VLAT?",
+        "a10": "For 5-year integ. courses, candidates who passed 10+2 are eligible. For 3-year LL.B, any graduate can apply. For LL.M, candidates with an LL.B degree are eligible to apply."
+      },
+      "contact": {
+        "title": "Contact & Support",
+        "description": "Have questions? Our support team is here to help you with the VLAT application process",
+        "email": {
+          "title": "Email"
+        },
+        "phone": {
+          "title": "Phone"
+        },
+        "supportHours": {
+          "title": "Support Hours",
+          "value": "Mon-Sat, 9 AM - 6 PM"
+        },
+        "campus": {
+          "title": "Campus",
+          "address": "Vinayaka Nagar, Rajiv Gandhi Salai (Old Mahabalipuram Road), Paiyanoor, Chennai- 603104, Tamil Nadu, India"
+        }
+      }
+    },
+    "howToRegister": {
+      "hero": {
+        "title": "How to Register for VLAT?",
+        "academicYear": "for academic year 2026 - 27",
+        "description": "Registering for the Vinayaka Mission's Law Admission Test(VLAT) is simple, quick, and completely online. <br />Whether you are applying for a five-year integrated law programme, the three-year LL.B., or the LL.M., the entire <br />registration process can be completed from your home within minutes."
+      },
+      "stepsTitle": "Steps to Register for VLAT 2026",
+      "sidebar": {
+        "steps": "Steps"
+      },
+      "stepBadge": "STEP",
+      "step1": {
+        "title": "1. Visit the Official VMLS Website",
+        "description": "Go to the official Vinayaka Mission's Law School website and navigate to the VLAT Admissions / Apply Now section.<br /><br />This is where all updates, deadlines, and the registration link are available."
+      },
+      "step2": {
+        "title": "2. Create Your VLAT Account",
+        "description": "Click on Register and create your account using:<br />• A valid email ID<br />• An active mobile number<br /><br />You will receive important exam notifications, login information, and result updates through these details, so ensure they are correct."
+      },
+      "step3": {
+        "title": "3. Fill Out the Online Application Form",
+        "description": "Once your account is created, log in and complete the VLAT application form.<br /><br />You will be asked to provide:<br />• Personal details<br />• Academic qualifications<br />• Address and contact information<br />• Programme you wish to apply for (BA LL.B., B.Com LL.B., BBA LL.B., LL.B., or LL.M.)<br /><br />Take your time and review each field to avoid mistakes."
+      },
+      "step4": {
+        "title": "4. Upload Required Documents",
+        "description": "You will need to upload scanned copies of:<br />• A recent passport-size photograph<br />• Signature<br />• Academic certificates (Class 12 / Graduation / LL.B. depending on programme)<br />• Any ID proof if required<br /><br />Make sure all files are clear and meet the size/format guidelines mentioned on the portal."
+      },
+      "step5": {
+        "title": "5. Pay the Application Fee",
+        "description": "The payment is made online through secure digital gateways.<br /><br />• ₹1000 for UG Programmes (BA LL.B., B.Com LL.B., BBA LL.B., LL.B.)<br />• ₹1500 for PG (LL.M.) Programme<br /><br />Once the payment is successful, you will receive a receipt and confirmation email."
+      },
+      "step6": {
+        "title": "6. Submit Your Application",
+        "description": "Before submitting the final form:<br />• Double-check your name, email, and academic details<br />• Ensure all documents are uploaded correctly<br />• Review the programme selection<br /><br />Once submitted, you will receive a confirmation email with your application number. Keep this safe for future reference."
+      },
+      "tips": {
+        "title": "Tips for Smooth Registration",
+        "tip1": "• Use a laptop or desktop for filling the form",
+        "tip2": "• Keep all documents ready before starting",
+        "tip3": "• Use a stable internet connection",
+        "tip4": "• Check the eligibility criteria before applying",
+        "tip5": "• Save screenshots or PDFs of the payment confirmation",
+        "tip6": "• Save your application number for future reference"
+      },
+      "help": {
+        "title": "Need Help?",
+        "description": "If you face any issues during registration, contact our admissions team:"
+      }
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "description": "We're here to help you with registration, exam details, and admissions.",
+      "queryType": "Query Type",
+      "queryTypeSelect": "Select a query type",
+      "queryTypeAdmissions": "Admissions",
+      "queryTypeExam": "Exam Details",
+      "queryTypeRegistration": "Registration",
+      "queryTypeOther": "Other",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your query...",
+      "agreeTerms": "I agree to receive information regarding my submitted applications *",
+      "sendMessage": "Send message",
+      "campusAddress": "VMLS Campus Address",
+      "corporateAddress": "Corporate Office Address",
+      "corporateAddressValue": "No: 213, Old No: 160, Behind Doshi Tower, Poonamallee High Road, Kilpauk, Chennai- 600010, Tamil Nadu, India",
+      "chatbotHelp": "Chatbot help",
+      "email": {
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Phone"
+      },
+      "supportHours": {
+        "title": "Support Hours",
+        "value": "Mon-Sat, 9 AM - 6 PM"
+      },
+      "campus": {
+        "address": "Vinayaka Nagar, Rajiv Gandhi Salai (Old Mahabalipuram Road), Paiyanoor, Chennai- 603104, Tamil Nadu, India"
+      },
+      "cta": {
+        "title": "Ready to Apply for the VLAT Entrance Exam?",
+        "description": "Start your registration today and take your first step toward joining our institute. Join thousands of students who have successfully begun their journey with us."
+      }
+    },
+    "examStructure": {
+      "hero": {
+        "title": "VLAT Exam Structure",
+        "academicYear": "for academic year 2026 - 27",
+        "description": "Understanding the structure of the vinayaka mission's law admission test (VLAT) is the first step towards preparing confidently. The exam has been designed to be straightforward, student-friendly, and aligned with the core skills required in law school.<br /><br />VLAT focuses only on what truly matters for a law aspirant — your ability to comprehend, analyse, and reason logically. There is no rote learning, no memorisation of legal knowledge, and no trick questions."
+      },
+      "sections": {
+        "title": "Sections You'll Face",
+        "subtitle": "Two focused sections to test your law entrance readiness",
+        "englishComprehension": {
+          "title": "English Comprehension",
+          "description": "Checks how well you understand passages, sentences, and information",
+          "tag1": "Reading comprehension",
+          "tag2": "Vocabulary",
+          "tag3": "Basic grammar",
+          "tag4": "Inference & interpretation"
+        },
+        "logicalReasoning": {
+          "title": "Logical Reasoning",
+          "description": "Measures your ability to think critically and solve problems",
+          "tag1": "Analytical reasoning",
+          "tag2": "Pattern recognition",
+          "tag3": "Logic problems",
+          "tag4": "Decision-making"
+        }
+      },
+      "questionsMarks": {
+        "title": "Questions & Marks",
+        "subtitle": "Simple scoring structure with zero risk",
+        "markPerQuestion": "Mark per Question",
+        "maximumScore": "Maximum Score",
+        "totalQuestions": "Total Questions",
+        "sections": "Sections",
+        "minutes": "minutes",
+        "negativeMarking": "Negative Marking",
+        "encouraged": "You're encouraged to attempt every question.",
+        "noPenalty": "With no negative marking, there's no penalty for trying !"
+      },
+      "modeLanguage": {
+        "title": "Mode & Language",
+        "subtitle": "Flexible and accessible exam delivery",
+        "modeOfExam": "Mode of Exam",
+        "onlineTest": "Online test (browser-based)",
+        "aiProctored": "AI-proctored for fairness",
+        "cameraRequired": "Camera required",
+        "microphoneRequired": "Microphone required",
+        "languageOptions": "Language Options",
+        "languageDescription": "Choose your preferred language for the exam. You can switch between languages during the test."
+      },
+      "studentFriendly": {
+        "title": "Why VLAT is Student-Friendly",
+        "subtitle": "Designed with your success and comfort in mind",
+        "card1": {
+          "title": "Short Duration",
+          "description": "Just 60 minutes to complete the exam"
+        },
+        "card2": {
+          "title": "No Negative Marking",
+          "description": "Attempt every question without fear"
+        },
+        "card3": {
+          "title": "Only Two Sections",
+          "description": "Focused assessment, not overwhelming"
+        },
+        "card4": {
+          "title": "Simple MCQ Format",
+          "description": "Familiar question style, easy to navigate"
+        },
+        "card5": {
+          "title": "Take From Anywhere",
+          "description": "Online test from home or any location"
+        },
+        "card6": {
+          "title": "Instant Results",
+          "description": "Get your score immediately after exam"
+        }
+      }
+    },
+    "blogs": {
+      "hero": {
+        "title": "VMLS BLOG",
+        "subtitle": "Explore articles, research, campus updates, and expert opinions from VMLS Law College.",
+        "searchPlaceholder": "Search articles, topics, or authors",
+        "searchButton": "Search"
+      }
+    },
+    "footer": {
+      "description": "Vinayaka Mission's Research Foundation (VMRF) is an innovative and pioneering University that offers a multi-disciplinary learning experience.",
+      "quickLinks": "Quick Links",
+      "legalInformation": "Legal & Information",
+      "copyright": "Copyright ©",
+      "copyrightText": "VMLS - Vinayaka Mission's Law School"
+    }
+  },
+  "meta": {
+    "index": {
+      "title": "VLAT - Vinayaka Mission's Law Admission Test 2026",
+      "description": "Register for VLAT 2026 - Vinayaka Mission's Law Admission Test. Apply for BA LLB, LLB Hons, and LLM programs at Chennai's premier law school mentored by Jindal Global Law School."
+    },
+    "login": {
+      "title": "VLAT Entrance Exam Login",
+      "description": "Login to your VLAT exam dashboard"
+    },
+    "register": {
+      "title": "VLAT Entrance Exam Register",
+      "description": "Register for VLAT Entrance Exam"
+    },
+    "dashboard": {
+      "title": "Student Dashboard – VLAT",
+      "description": "VLAT Student Dashboard - Access your mock tests and exam information"
+    },
+    "aboutVmls": {
+      "title": "About VMLS | Vinayaka Mission's Law School",
+      "description": "Learn about Vinayaka Mission's Law School - India's premier law school"
+    },
+    "aboutVlat": {
+      "title": "About VLAT",
+      "description": "Learn about VLAT - Vinayaka Mission's Law Admission Test"
+    },
+    "contactUs": {
+      "title": "Contact Us - VLAT - Vinayaka Mission's Law Admission Test 2026",
+      "description": "Contact VLAT for admissions and inquiries"
+    },
+    "how-to-register": {
+      "title": "How to Register for VLAT - VLAT Registration Process",
+      "description": "Learn how to register for VLAT 2026 - Step by step guide for VLAT registration process"
+    },
+    "exam-structure": {
+      "title": "VLAT Exam Structure | VMRF Law Admission Test",
+      "description": "Learn about VLAT exam structure, sections, questions, marks, and student-friendly features"
+    }
+  },
+  "js": {
+    "announcements": {
+      "noResults": "No announcements found.",
+      "readMore": "Read more →"
+    },
+    "timer": {
+      "timeUp": "Time is up!"
+    },
+    "forms": {
+      "submitted": "Application submitted successfully! We will contact you soon."
+    }
+  }
+}

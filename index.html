@@ -445,6 +445,7 @@
                     <img
                       src="images/vmlsvlatlogoheader.svg"
                       alt="VMLS Logo"
+                      data-i18n-alt="common.alt.vmlsLogo"
                       width="80"
                       height="80"
                       class="h-14 md:h-24 w-auto"
@@ -454,8 +455,25 @@
                 </div>
               </div>
 
-              <!-- Right: VMRF Logo, Buttons, Menu -->
+              <!-- Right: Language Switcher, VMRF Logo, Buttons, Menu -->
               <div class="flex items-center gap-3 md:gap-4">
+                <!-- Language Switcher -->
+                <div
+                  class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+                >
+                  <button
+                    id="lang-en"
+                    class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                  >
+                    English
+                  </button>
+                  <button
+                    id="lang-ta"
+                    class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                  >
+                    தமிழ்
+                  </button>
+                </div>
                 <div class="hidden lg:flex items-center gap-2">
                   <a
                     href="https://www.vmrfdu.edu.in/"
@@ -465,6 +483,7 @@
                     <img
                       src="images/vmrflogo.svg"
                       alt="VMRF Logo"
+                      data-i18n-alt="common.alt.vmrfLogo"
                       width="100"
                       height="48"
                       class="h-12 w-auto"
@@ -476,6 +495,7 @@
                   <a href="login.html">
                     <button
                       class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                      data-i18n="common.buttons.login"
                     >
                       Login
                     </button>
@@ -497,7 +517,11 @@
                     class="w-6 h-6"
                     aria-hidden="true"
                   />
-                  <span class="text-[#8D191C] font-medium">Menu</span>
+                  <span
+                    class="text-[#8D191C] font-medium"
+                    data-i18n="common.buttons.menu"
+                    >Menu</span
+                  >
                 </button>
               </div>
             </div>
@@ -510,7 +534,10 @@
               <div class="flex flex-col">
                 <!-- Header with MENU title and Close button -->
                 <div class="flex items-center justify-between px-6 py-3">
-                  <h2 class="text-xl font-semibold text-white uppercase">
+                  <h2
+                    class="text-xl font-semibold text-white uppercase"
+                    data-i18n="common.buttons.menu"
+                  >
                     MENU
                   </h2>
                   <button
@@ -626,37 +653,44 @@
                   <a
                     href="index.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.home"
                     >Home</a
                   >
                   <a
                     href="about-vlat.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.aboutVlat"
                     >About VLAT</a
                   >
                   <a
                     href="about-vmls.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.aboutVmls"
                     >About VMLS</a
                   >
                   <a
                     href="how-to-register.html"
                     class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.howToRegister"
                     >How to Register</a
                   >
                   <a
                     href="blogs.html"
                     id="blogsLink"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.blogs"
                     >Blogs</a
                   >
                   <a
                     href="exam-structure.html"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.examStructure"
                     >Exam Structure</a
                   >
                   <a
                     href="contact-us.html"
                     class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                    data-i18n="common.navigation.contactUs"
                     >Contact Us</a
                   >
                 </nav>
@@ -668,11 +702,13 @@
                   <a
                     href="register.html"
                     class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+                    data-i18n="common.buttons.applyForVlat"
                     >Apply for VLAT</a
                   >
                   <a
                     href="login.html"
                     class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+                    data-i18n="common.buttons.login"
                     >Login</a
                   >
                 </div>
@@ -685,16 +721,28 @@
           <div class="grid md:grid-cols-2 gap-8 items-start">
             <!-- Left Column: Hero Section -->
             <div class="relative z-10">
-              <h1 class="text-2xl md:text-3xl font-bold text-primary mb-2">
+              <h1
+                class="text-2xl md:text-3xl font-bold text-primary mb-2"
+                data-i18n="pages.index.hero.title"
+              >
                 Vinayaka Mission's Law Admission Test (VLAT)
               </h1>
-              <h2 class="text-2xl md:text-3xl font-bold text-grey-10 mb-4">
+              <h2
+                class="text-2xl md:text-3xl font-bold text-grey-10 mb-4"
+                data-i18n="pages.index.hero.subtitle"
+              >
                 Shape Your Legal Future
               </h2>
-              <p class="text-lg font-semibold md:text-xl text-grey-8 mb-2">
+              <p
+                class="text-lg font-semibold md:text-xl text-grey-8 mb-2"
+                data-i18n="pages.index.hero.academicYear"
+              >
                 For Academic Year 2026 - 27
               </p>
-              <p class="text-base text-grey-8 font-light mb-8">
+              <p
+                class="text-base text-grey-8 font-light mb-8"
+                data-i18n="pages.index.hero.tagline"
+              >
                 Chennai Best Law School • Nationally Mentored • 98% Student
                 Satisfaction
               </p>
@@ -718,26 +766,34 @@
                 class="bg-primary rounded-2xl p-6 md:p-8 space-y-5 shadow-xl"
               >
                 <div>
-                  <label class="block text-[#F3F4F6] text-sm font-medium mb-2">
+                  <label
+                    class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                    data-i18n="common.labels.enterName"
+                  >
                     Enter Name *
                   </label>
                   <input
                     type="text"
                     name="name"
                     placeholder="Full Name"
+                    data-i18n-placeholder="common.placeholders.fullName"
                     required
                     class="w-full px-4 py-2 bg-[#FFFFFF1A] rounded-lg text-[#F3F4F6] placeholder-grey-4 focus:outline-none focus:ring-2 focus:ring-white/50 border border-[#FFFFFF33]"
                   />
                 </div>
 
                 <div>
-                  <label class="block text-[#F3F4F6] text-sm font-medium mb-2">
+                  <label
+                    class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                    data-i18n="common.labels.enterEmail"
+                  >
                     Enter Email Address *
                   </label>
                   <input
                     type="email"
                     name="email"
                     placeholder="email@example.com"
+                    data-i18n-placeholder="common.placeholders.email"
                     required
                     class="w-full px-4 py-2 bg-[#FFFFFF1A] rounded-lg text-[#F3F4F6] placeholder-grey-4 focus:outline-none focus:ring-2 focus:ring-white/50 border border-[#FFFFFF33]"
                   />
@@ -748,6 +804,7 @@
                     <label
                       for="countryCode"
                       class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                      data-i18n="common.labels.countryCode"
                     >
                       Country Code *
                     </label>
@@ -767,6 +824,7 @@
                   <div>
                     <label
                       class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                      data-i18n="common.labels.enterMobile"
                     >
                       Enter Mobile Number *
                     </label>
@@ -774,6 +832,7 @@
                       type="tel"
                       name="mobile"
                       placeholder="Enter Mobile Number"
+                      data-i18n-placeholder="common.placeholders.enterMobileNumber"
                       required
                       class="w-full px-4 py-2 bg-[#FFFFFF1A] rounded-lg text-[#F3F4F6] placeholder-grey-4 focus:outline-none focus:ring-2 focus:ring-white/50 border border-[#FFFFFF33]"
                     />
@@ -785,6 +844,7 @@
                     <label
                       for="state"
                       class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                      data-i18n="common.labels.selectState"
                     >
                       Select State *
                     </label>
@@ -794,7 +854,9 @@
                       required
                       class="w-full px-4 py-2 bg-[#FFFFFF1A] rounded-lg text-[#F3F4F6] focus:outline-none focus:ring-2 focus:ring-white/50 border border-[#FFFFFF33]"
                     >
-                      <option value="">Select</option>
+                      <option value="" data-i18n="common.labels.select">
+                        Select
+                      </option>
                       <option value="tamil-nadu" class="text-primary">
                         Tamil Nadu
                       </option>
@@ -813,6 +875,7 @@
                     <label
                       for="city"
                       class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                      data-i18n="common.labels.selectCity"
                     >
                       Select City *
                     </label>
@@ -844,6 +907,7 @@
                     <label
                       for="course"
                       class="block text-[#F3F4F6] text-sm font-medium mb-2"
+                      data-i18n="common.labels.selectCourse"
                     >
                       Select Course *
                     </label>
@@ -865,6 +929,7 @@
                     <label
                       for="academicYear"
                       class="block text-[#F3F4F6] text-sm font-[500] mb-2"
+                      data-i18n="common.labels.selectAcademicYear"
                     >
                       Select Academic Year *
                     </label>
@@ -892,7 +957,11 @@
                     required
                     class="mt-1 w-4 h-4 rounded border border-[#FFFFFF33] text-[#F3F4F6] focus:ring-primary"
                   />
-                  <label for="agree" class="text-[#F3F4F6] font-light text-sm">
+                  <label
+                    for="agree"
+                    class="text-[#F3F4F6] font-light text-sm"
+                    data-i18n="pages.index.form.agree"
+                  >
                     I agree to receive information regarding my submitted
                     applications*
                   </label>
@@ -901,6 +970,7 @@
                 <button
                   type="submit"
                   class="w-full bg-[#F3F4F6] text-primary font-semibold py-2 rounded-lg hover:bg-opacity-90 transition-colors"
+                  data-i18n="common.buttons.submitApplication"
                 >
                   Submit Application
                 </button>
@@ -922,6 +992,7 @@
 
             <h2
               class="text-2xl md:text-3xl lg:text-4xl font-bold text-[#F8EBCE] mb-4"
+              data-i18n="pages.index.aboutVmls.title"
             >
               About Vinayaka Mission's Law School
             </h2>
@@ -931,6 +1002,7 @@
 
             <p
               class="text-base md:text-lg text-[#F3F4F6] font-light max-w-4xl mx-auto px-4"
+              data-i18n="pages.index.aboutVmls.description"
             >
               Building India's premier law school for the AI age through
               innovation, excellence, and inclusivity.
@@ -944,6 +1016,7 @@
             <div class="max-w-7xl mx-auto px-4 md:px-6">
               <p
                 class="text-sm md:text-base lg:text-lg text-[#8D191C] text-center font-normal leading-relaxed"
+                data-i18n="pages.index.aboutVmls.paragraph"
               >
                 With the founding vision of creating the law school of the
                 future, VMLS admitted its first cohort of students in 2021.
@@ -971,6 +1044,7 @@
                     <img
                       src="images/aboutvmls1.png"
                       alt="State-of-the-Art Infrastructure"
+                      data-i18n-alt="common.alt.stateOfTheArtInfrastructure"
                       width="300"
                       height="240"
                       class="w-full h-full object-cover absolute inset-0"
@@ -994,11 +1068,13 @@
                 <div class="p-5 md:p-6 pt-16 md:pt-16">
                   <h3
                     class="text-lg md:text-xl font-semibold text-primary mb-2 md:mb-3"
+                    data-i18n="pages.index.features.infrastructure.title"
                   >
                     State-of-the-Art Infrastructure
                   </h3>
                   <p
                     class="text-sm md:text-base text-grey-8 font-light leading-relaxed"
+                    data-i18n="pages.index.features.infrastructure.description"
                   >
                     Smart classrooms, digital library, and regal moot court hall
                   </p>
@@ -1014,6 +1090,7 @@
                     <img
                       src="images/about2.png"
                       alt="Strategic Partnership"
+                      data-i18n-alt="common.alt.strategicPartnership"
                       width="300"
                       height="240"
                       class="w-full h-full object-cover absolute inset-0"
@@ -1046,11 +1123,13 @@
                 <div class="p-5 md:p-6 pt-16 md:pt-16">
                   <h3
                     class="text-lg md:text-xl font-semibold text-primary mb-2 md:mb-3"
+                    data-i18n="pages.index.features.partnership.title"
                   >
                     Strategic Partnership
                   </h3>
                   <p
                     class="text-sm md:text-base text-grey-7 font-light leading-relaxed"
+                    data-i18n="pages.index.features.partnership.description"
                   >
                     Mentored by Jindal Global Law School
                   </p>
@@ -1066,6 +1145,7 @@
                     <img
                       src="images/about3.png"
                       alt="World-Class Faculty"
+                      data-i18n-alt="common.alt.worldClassFaculty"
                       width="300"
                       height="240"
                       class="w-full h-full object-cover absolute inset-0"
@@ -1101,11 +1181,13 @@
                 <div class="p-5 md:p-6 pt-16 md:pt-16">
                   <h3
                     class="text-lg md:text-xl font-semibold text-[#8D191C] mb-2 md:mb-3"
+                    data-i18n="pages.index.features.faculty.title"
                   >
                     World-Class Faculty
                   </h3>
                   <p
                     class="text-sm md:text-base text-grey-7 font-light leading-relaxed"
+                    data-i18n="pages.index.features.faculty.description"
                   >
                     Expert professors trained at globally renowned institutions
                   </p>
@@ -1123,6 +1205,7 @@
                     <img
                       src="images/about4.png"
                       alt="Inclusive Learning"
+                      data-i18n-alt="common.alt.inclusiveLearning"
                       width="300"
                       height="240"
                       class="w-full h-full object-cover absolute inset-0"
@@ -1155,11 +1238,13 @@
                 <div class="p-5 md:p-6 pt-16 md:pt-16">
                   <h3
                     class="text-lg md:text-xl font-semibold text-[#8D191C] mb-2 md:mb-3"
+                    data-i18n="pages.index.features.inclusiveLearning.title"
                   >
                     Inclusive Learning
                   </h3>
                   <p
                     class="text-sm md:text-base text-grey-7 font-light leading-relaxed"
+                    data-i18n="pages.index.features.inclusiveLearning.description"
                   >
                     Bilingual support ensuring no learner is left behind
                   </p>
@@ -1182,10 +1267,15 @@
                 <h2
                   class="text-2xl md:text-3xl font-bold text-primary leading-tight"
                 >
-                  ABOUT Vinayaka Mission's Law Admission Test<br />VLAT 2026
+                  <span data-i18n="pages.index.aboutVlat.title"
+                    >ABOUT Vinayaka Mission's Law Admission Test</span
+                  ><br /><span data-i18n="pages.index.aboutVlat.titleBreak"
+                    >VLAT 2026</span
+                  >
                 </h2>
                 <p
                   class="text-base md:text-lg font-light text-[#525252] max-w-3xl mx-auto"
+                  data-i18n="pages.index.aboutVlat.description"
                 >
                   Vinayaka Mission's Law entrance test provides access to four
                   leading law schools in India.
@@ -1227,6 +1317,7 @@
                       </div>
                       <div
                         class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                        data-i18n="pages.index.aboutVlat.examDetails.markPerQuestion"
                       >
                         Mark per Question
                       </div>
@@ -1259,6 +1350,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.maximumScore"
                         >
                           Maximum Score
                         </div>
@@ -1271,6 +1363,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.totalQuestions"
                         >
                           Total Questions
                         </div>
@@ -1283,6 +1376,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.section"
                         >
                           Section
                         </div>
@@ -1295,6 +1389,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.minutes"
                         >
                           minutes
                         </div>
@@ -1328,6 +1423,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.maximumScore"
                         >
                           Maximum Score
                         </div>
@@ -1340,6 +1436,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.totalQuestions"
                         >
                           Total Questions
                         </div>
@@ -1352,6 +1449,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.section"
                         >
                           Section
                         </div>
@@ -1364,6 +1462,7 @@
                         </div>
                         <div
                           class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                          data-i18n="pages.index.aboutVlat.examDetails.minutes"
                         >
                           minutes
                         </div>
@@ -1400,6 +1499,7 @@
                       </div>
                       <div
                         class="text-xs md:text-xs lg:text-xs font-medium text-grey-7 leading-6"
+                        data-i18n="pages.index.aboutVlat.examDetails.negativeMarking"
                       >
                         Negative Marking
                       </div>
@@ -1438,11 +1538,13 @@
                   >
                     <div
                       class="text-xs md:text-sm lg:text-sm font-bold text-grey-8 leading-5"
+                      data-i18n="pages.index.aboutVlat.alertBanner.encouraged"
                     >
                       You're encouraged to attempt every question.
                     </div>
                     <div
                       class="text-xs md:text-sm lg:text-sm font-normal text-grey-7 leading-5"
+                      data-i18n="pages.index.aboutVlat.alertBanner.noPenalty"
                     >
                       With no negative marking, there's no penalty for trying!
                     </div>
@@ -1459,6 +1561,7 @@
                   type="button"
                   onclick="window.location.href='how-to-register.html'"
                   class="flex-1 py-2 px-5 md:px-6 lg:px-5 bg-white border border-primary rounded-[11px] text-primary text-sm md:text-base lg:text-base font-medium hover:bg-grey-1 transition-colors"
+                  data-i18n="common.buttons.viewDetails"
                 >
                   View Details
                 </button>
@@ -1468,6 +1571,7 @@
                   type="button"
                   onclick="window.location.href='register.html'"
                   class="flex-1 py-2 px-5 md:px-6 lg:px-5 bg-primary rounded-[11px] text-[#F3F4F6] text-sm md:text-base lg:text-base font-light hover:bg-opacity-90 transition-colors"
+                  data-i18n="common.buttons.registerNow"
                 >
                   Register Now
                 </button>
@@ -1484,6 +1588,7 @@
           <img
             src="images/regimage.png"
             alt="Registration Background"
+            data-i18n-alt="common.alt.registrationBackground"
             width="1440"
             height="600"
             class="w-full h-full object-cover opacity-100"
@@ -1502,11 +1607,13 @@
               <div class="flex flex-col gap-4 md:gap-5 lg:gap-[23px]">
                 <p
                   class="text-xs md:text-sm lg:text-base font-medium text-[#F8EBCE] uppercase tracking-wide"
+                  data-i18n="pages.index.registration.label"
                 >
                   Registration Process
                 </p>
                 <h2
                   class="text-2xl md:text-3xl lg:text-[36px] font-medium text-[#F8EBCE]"
+                  data-i18n="pages.index.registration.title"
                 >
                   VLAT 2026
                 </h2>
@@ -1517,6 +1624,7 @@
                 type="button"
                 onclick="window.location.href='register.html'"
                 class="w-full md:w-auto min-w-[150px] py-2 px-5 md:px-6 lg:px-5 bg-transparent border border-[#F9F1DF] rounded-[11px] text-[#F9F1DF] text-sm md:text-base lg:text-base font-medium hover:bg-[#F9F1DF]/10 transition-colors"
+                data-i18n="common.buttons.registerNow"
               >
                 Register Now
               </button>
@@ -1536,6 +1644,7 @@
                   <div class="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
                     <span
                       class="text-sm md:text-base lg:text-base font-medium text-grey-4"
+                      data-i18n="pages.index.registration.step"
                     >
                       STEP
                     </span>
@@ -1550,12 +1659,14 @@
                   <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
                     <h3
                       class="text-base md:text-lg lg:text-[18px] font-semibold text-[#EDCD88]"
+                      data-i18n="pages.index.registration.step1.title"
                     >
                       Start Registration
                     </h3>
 
                     <p
                       class="text-xs md:text-base font-light text-grey-2 leading-relaxed self-end"
+                      data-i18n="pages.index.registration.step1.description"
                     >
                       Begin by creating your account using your personal email
                       ID and basic contact information to access the mock test
@@ -1572,6 +1683,7 @@
                   <div class="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
                     <span
                       class="text-sm md:text-base lg:text-base font-medium text-grey-4"
+                      data-i18n="pages.index.registration.step"
                     >
                       STEP
                     </span>
@@ -1586,11 +1698,13 @@
                   <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
                     <h3
                       class="text-base md:text-lg lg:text-[18px] font-semibold text-[#EDCD88]"
+                      data-i18n="pages.index.registration.step2.title"
                     >
                       Fill in Your Details
                     </h3>
                     <p
                       class="text-xs md:text-base lg:text-base font-light text-grey-2 leading-relaxed"
+                      data-i18n="pages.index.registration.step2.description"
                     >
                       Complete the VLAT application form by entering your
                       personal, academic, and required information.
@@ -1606,6 +1720,7 @@
                   <div class="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
                     <span
                       class="text-sm md:text-base lg:text-base font-medium text-grey-4"
+                      data-i18n="pages.index.registration.step"
                     >
                       STEP
                     </span>
@@ -1620,11 +1735,13 @@
                   <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
                     <h3
                       class="text-base md:text-lg lg:text-[18px] font-semibold text-[#EDCD88]"
+                      data-i18n="pages.index.registration.step3.title"
                     >
                       Upload Documents
                     </h3>
                     <p
                       class="text-xs md:text-base flex justify-end lg:text-base font-light text-grey-2 leading-relaxed"
+                      data-i18n="pages.index.registration.step3.description"
                     >
                       Attach all mandatory documents such as ID proof, academic
                       records, and photographs.
@@ -1640,6 +1757,7 @@
                   <div class="flex items-start gap-3 md:gap-4 mb-4 md:mb-6">
                     <span
                       class="text-sm md:text-base lg:text-base font-medium text-grey-4"
+                      data-i18n="pages.index.registration.step"
                     >
                       STEP
                     </span>
@@ -1654,11 +1772,13 @@
                   <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
                     <h3
                       class="text-base md:text-lg lg:text-[18px] font-semibold text-[#EDCD88]"
+                      data-i18n="pages.index.registration.step4.title"
                     >
                       Pay & Submit
                     </h3>
                     <p
                       class="text-xs flex justify-end md:text-base lg:text-base font-light text-grey-2 leading-relaxed"
+                      data-i18n="pages.index.registration.step4.description"
                     >
                       Pay the application fee securely online.After successful
                       payment, submit your application form and download the
@@ -1774,6 +1894,7 @@
 
                 <h2
                   class="text-2xl md:text-3xl lg:text-[36px] font-medium text-[#404040]"
+                  data-i18n="pages.index.alumni.title"
                 >
                   Our Alumni
                 </h2>
@@ -1783,6 +1904,7 @@
               <div class="md:w-80 lg:w-[320px]">
                 <p
                   class="text-base md:text-lg lg:text-[19px] font-medium text-[#525252] text-left md:text-right"
+                  data-i18n="pages.index.alumni.description"
                 >
                   Empowering Future Legal Leaders with Excellence and Support
                 </p>
@@ -1827,6 +1949,7 @@
                   </div>
                   <p
                     class="text-sm md:text-base lg:text-base font-medium text-[#F3F4F6]"
+                    data-i18n="pages.index.alumni.practicingAdvocate"
                   >
                     Practicing Advocate in Madras High
                   </p>
@@ -1867,6 +1990,7 @@
                   </div>
                   <p
                     class="text-sm md:text-base lg:text-base font-medium text-[#F3F4F6]"
+                    data-i18n="pages.index.alumni.alumini"
                   >
                     Alumini
                   </p>
@@ -1907,6 +2031,7 @@
                   </div>
                   <p
                     class="text-sm md:text-base lg:text-base font-medium text-[#F3F4F6]"
+                    data-i18n="pages.index.alumni.alumini"
                   >
                     Alumini
                   </p>
@@ -1924,6 +2049,7 @@
           <img
             src="images/home1.svg"
             alt="Campus Background"
+            data-i18n-alt="common.alt.campusBackground"
             width="1440"
             height="600"
             class="w-full h-full object-cover"
@@ -1946,6 +2072,7 @@
               <h2
                 class="text-2xl md:text-3xl lg:text-5xl font-medium text-white leading-tight opacity-50"
                 style="line-height: 50.55px"
+                data-i18n="pages.index.cta.heading"
               >
                 Take the first step to secure your success in law
               </h2>
@@ -1972,6 +2099,7 @@
                 <button
                   type="button"
                   class="w-full h-12 md:h-14 lg:h-14 px-5 md:px-6 lg:px-5 bg-primary rounded-[11px] text-secondary text-sm md:text-base lg:text-base font-medium hover:bg-opacity-90 transition-colors"
+                  data-i18n="pages.index.cta.applyNow"
                 >
                   Apply Now for VLAT 2026
                 </button>
@@ -1987,7 +2115,11 @@
       class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center gap-2"
     >
       <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+      <span
+        class="writing-vertical text-xs font-medium"
+        data-i18n="pages.index.announcements.label"
+        >ANNOUNCEMENTS</span
+      >
     </button>
 
     <!-- Announcements Sidebar -->
@@ -2000,9 +2132,17 @@
           class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
         >
           <div>
-            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+            <h2
+              class="text-xl font-semibold text-[#FFF6E2]"
+              data-i18n="pages.index.announcements.title"
+            >
+              Announcements
+            </h2>
 
-            <p class="text-sm font-light text-[#FFF6E2] mt-1">
+            <p
+              class="text-sm font-light text-[#FFF6E2] mt-1"
+              data-i18n="pages.index.announcements.subtitle"
+            >
               Latest updates from our institute
             </p>
           </div>
@@ -2072,12 +2212,12 @@
                   class="h-[65px] w-auto object-cover"
                   loading="lazy"
                 />
-               
               </div>
 
               <!-- University Description -->
               <p
                 class="text-base text-[#FAFAFA] font-normal leading-relaxed max-w-[338px]"
+                data-i18n="pages.footer.description"
               >
                 Vinayaka Mission's Research Foundation (VMRF) is an innovative
                 and pioneering University that offers a multi-disciplinary
@@ -2169,7 +2309,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -2179,6 +2322,7 @@
                     <a
                       href="index.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.home"
                       >Home</a
                     >
                   </li>
@@ -2186,6 +2330,7 @@
                     <a
                       href="about-vlat.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVlat"
                       >About VLAT</a
                     >
                   </li>
@@ -2193,6 +2338,7 @@
                     <a
                       href="about-vmls.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVmls"
                       >About VMLS</a
                     >
                   </li>
@@ -2200,6 +2346,7 @@
                     <a
                       href="how-to-register.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.registrationProcess"
                       >Registration Process</a
                     >
                   </li>
@@ -2210,7 +2357,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -2220,6 +2370,7 @@
                     <a
                       href="exam-structure.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.examStructure"
                       >Exam Structure</a
                     >
                   </li>
@@ -2227,6 +2378,7 @@
                     <a
                       href="blogs.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.blogs"
                       >Blogs</a
                     >
                   </li>
@@ -2234,6 +2386,7 @@
                     <a
                       href="contact-us.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.contactUs"
                       >Contact Us</a
                     >
                   </li>
@@ -2255,6 +2408,7 @@
                     <a
                       href="login.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.buttons.login"
                     >
                       Login</a
                     >
@@ -2266,7 +2420,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.legalInformation"
+                  >
                     Legal & Information
                   </h3>
                 </div>
@@ -2277,6 +2434,7 @@
                       href="https://vmls.edu.in/privacy-policy.html
                      "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.privacyPolicy"
                       >Privacy Policy</a
                     >
                   </li>
@@ -2284,6 +2442,7 @@
                     <a
                       href="https://vmls.edu.in/terms-conditions.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.termsConditions"
                       >Terms & Conditions</a
                     >
                   </li>
@@ -2296,8 +2455,11 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
-            Mission's Law School
+            <span data-i18n="pages.footer.copyright">Copyright ©</span>
+            <span id="copyrightYear">2025</span>
+            <span data-i18n="pages.footer.copyrightText"
+              >VMLS - Vinayaka Mission's Law School</span
+            >
           </p>
         </div>
       </div>
@@ -2312,6 +2474,16 @@
       })();
     </script>
     <script src="js/main.js" defer></script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+        translatePage();
+      });
+    </script>
 
     <!-- Scroll to Top Button -->
     <button

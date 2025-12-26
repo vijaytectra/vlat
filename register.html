@@ -57,20 +57,46 @@
       </section>
 
       <!-- FORM COLUMN -->
-      <section class="flex items-center justify-center px-4 py-10">
+      <section class="flex items-center justify-center px-4 py-10 relative">
+        <!-- Language Switcher - Top Right -->
+        <div
+          class="absolute top-0 right-4 language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white z-10"
+        >
+          <button
+            id="lang-en"
+            class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+          >
+            English
+          </button>
+          <button
+            id="lang-ta"
+            class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+          >
+            தமிழ்
+          </button>
+        </div>
         <div class="w-full max-w-md space-y-4">
           <!-- LOGO -->
           <div class="flex justify-center">
-            <img src="images/logo1.svg" alt="VMLS Logo" class="h-14" />
+            <img
+              src="images/logo1.svg"
+              alt="VMLS Logo"
+              data-i18n-alt="common.alt.vmlsLogo"
+              class="h-14"
+            />
           </div>
 
           <!-- TITLE -->
           <div class="text-center space-y-1">
-            <h1 class="text-3xl font-bold font-['Inter'] text-primary">
+            <h1
+              class="text-3xl font-bold font-['Inter'] text-primary"
+              data-i18n="pages.register.title"
+            >
               VLAT Entrance Exam Register
             </h1>
             <p
               class="text-sm font-normal font-['Arial'] leading-6 text-[#404040]"
+              data-i18n="pages.register.subtitle"
             >
               Please fill in the details below to register for the VLAT Entrance
               Exam.
@@ -90,11 +116,16 @@
 
             <!-- NAME -->
             <div>
-              <label class="text-sm font-light text-[#F3F4F6]">Name</label>
+              <label
+                class="text-sm font-light text-[#F3F4F6]"
+                data-i18n="common.labels.name"
+                >Name</label
+              >
               <input
                 id="name"
                 type="text"
                 placeholder="Enter your Full name"
+                data-i18n-placeholder="common.placeholders.enterFullName"
                 class="mt-1 w-full h-8 rounded-md bg-[#FFFFFF1A] border border-[#FFFFFF33] px-3 outline-none"
                 style="color: #ffffff"
                 required
@@ -106,12 +137,14 @@
               <label
                 class="text-sm font-light text-[#F3F4F6]"
                 style="color: #f3f4f6"
+                data-i18n="common.labels.emailAddress"
                 >Email ID</label
               >
               <input
                 id="email"
                 type="email"
                 placeholder="Enter your Email ID"
+                data-i18n-placeholder="common.placeholders.enterEmail"
                 class="mt-1 w-full h-8 rounded-md bg-[#FFFFFF1A] border border-[#FFFFFF33] px-3 outline-none"
                 style="color: #ffffff"
                 required
@@ -123,12 +156,14 @@
               <label
                 class="text-sm font-light text-[#F3F4F6]"
                 style="color: #f3f4f6"
+                data-i18n="common.labels.contactNumber"
                 >Contact Number</label
               >
               <input
                 id="contactNumber"
                 type="tel"
                 placeholder="Enter your Contact number (10 digits)"
+                data-i18n-placeholder="common.placeholders.enterContactNumber"
                 class="mt-1 w-full h-8 rounded-md bg-[#FFFFFF1A] border border-[#FFFFFF33] px-3 outline-none"
                 style="color: #ffffff"
                 required
@@ -141,17 +176,22 @@
               <label
                 class="text-sm font-light text-[#F3F4F6]"
                 style="color: #f3f4f6"
+                data-i18n="common.labels.password"
                 >Password</label
               >
               <input
                 id="password"
                 type="password"
                 placeholder="Enter New Password"
+                data-i18n-placeholder="common.placeholders.enterPassword"
                 class="mt-1 w-full h-8 rounded-md bg-[#FFFFFF1A] border border-[#FFFFFF33] px-3 outline-none"
                 style="color: #ffffff"
                 required
               />
-              <p class="text-xs text-[#D4D4D4] mt-1">
+              <p
+                class="text-xs text-[#D4D4D4] mt-1"
+                data-i18n="pages.register.passwordRequirements"
+              >
                 Must be at least 8 characters with uppercase, lowercase, number,
                 and special character
               </p>
@@ -162,12 +202,14 @@
               <label
                 class="text-sm font-light text-[#F3F4F6]"
                 style="color: #f3f4f6"
+                data-i18n="common.labels.confirmPassword"
                 >Confirm Password</label
               >
               <input
                 id="confirmPassword"
                 type="password"
                 placeholder="Enter Confirm Password"
+                data-i18n-placeholder="common.placeholders.enterConfirmPassword"
                 class="mt-1 w-full h-8 rounded-md bg-[#FFFFFF1A] border border-[#FFFFFF33] px-3 outline-none"
                 style="color: #ffffff"
                 required
@@ -181,9 +223,16 @@
               class="w-full h-10 text-base font-medium text-[#8D191C] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
               style="background-color: #fff6e2; color: #8d191c"
             >
-              <span id="registerButtonText">Register Now</span>
+              <span
+                id="registerButtonText"
+                data-i18n="common.buttons.registerNow"
+                >Register Now</span
+              >
               <span id="registerButtonLoader" class="hidden">
-                <i class="fas fa-spinner fa-spin"></i> Registering...
+                <i class="fas fa-spinner fa-spin"></i>
+                <span data-i18n="pages.register.registering"
+                  >Registering...</span
+                >
               </span>
             </button>
 
@@ -192,6 +241,7 @@
               <p
                 class="text-center text-sm font-normal font-['Inter'] leading-5"
                 style="color: #d4d4d4"
+                data-i18n="common.messages.needHelp"
               >
                 Need help with login?
               </p>
@@ -403,6 +453,21 @@
           showError(errorMessage);
           resetButtonState();
         }
+      });
+    </script>
+
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+        translatePage();
+
+        // Re-translate when language changes
+        window.addEventListener("languageChanged", () => {
+          translatePage();
+        });
       });
     </script>
   </body>

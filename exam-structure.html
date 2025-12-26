@@ -240,30 +240,50 @@
             </div>
           </div>
 
-          <!-- Right: VMRF Logo, Buttons, Menu -->
+          <!-- Right: Language Switcher, VMRF Logo, Buttons, Menu -->
           <div class="flex items-center gap-3 md:gap-4">
+            <!-- Language Switcher -->
+            <div
+              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+            >
+              <button
+                id="lang-en"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+              >
+                English
+              </button>
+              <button
+                id="lang-ta"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+              >
+                தமிழ்
+              </button>
+            </div>
             <div class="hidden lg:flex items-center gap-2">
               <img
                 src="images/vmrflogo.svg"
                 alt="VMRF Logo"
+                data-i18n-alt="common.alt.vmrfLogo"
                 class="h-12 w-auto"
                 onerror="this.style.display='none'"
               />
             </div>
             <div class="hidden lg:flex items-center gap-2">
-              <button
+              <a
+                href="login.html"
                 class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                data-i18n="common.buttons.login"
               >
                 Login
-              </button>
+              </a>
             </div>
 
             <button
               id="mobileMenuBtn"
               class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
             >
-              <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
-              <span class="text-[#8D191C] font-medium">Menu</span>
+              <img src="images/menu.svg" alt="Menu" data-i18n-alt="common.alt.menuIcon" class="w-6 h-6" />
+              <span class="text-[#8D191C] font-medium" data-i18n="common.buttons.menu">Menu</span>
             </button>
           </div>
         </div>
@@ -389,37 +409,44 @@
               <a
                 href="index.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.home"
                 >Home</a
               >
               <a
                 href="about-vlat.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVlat"
                 >About VLAT</a
               >
               <a
                 href="about-vmls.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVmls"
                 >About VMLS</a
               >
               <a
                 href="how-to-register.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.howToRegister"
                 >How to Register</a
               >
               <a
                 href="blogs.html"
                 id="blogsLink"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.blogs"
                 >Blogs</a
               >
               <a
                 href="exam-structure.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.examStructure"
                 >Exam Structure</a
               >
               <a
                 href="contact-us.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.contactUs"
                 >Contact Us</a
               >
             </nav>
@@ -431,11 +458,13 @@
               <a
                 href="register.html"
                 class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+                data-i18n="common.buttons.applyForVlat"
                 >Apply for VLAT</a
               >
               <a
                 href="login.html"
                 class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+                data-i18n="common.buttons.login"
                 >Login</a
               >
             </div>
@@ -464,6 +493,7 @@
           <div class="w-full max-w-[586px]">
             <h1
               class="text-4xl lg:text-5xl font-semibold text-black mb-[2.06rem] leading-tight font-['Inter']"
+              data-i18n="pages.examStructure.hero.title"
             >
               VLAT Exam Structure
             </h1>
@@ -472,12 +502,14 @@
               <div class="flex items-center gap-3">
                 <span
                   class="text-xl lg:text-2xl font-semibold text-[#1F2937] capitalize font-['Inter']"
+                  data-i18n="pages.examStructure.hero.academicYear"
                 >
                   for academic year 2026 - 27
                 </span>
               </div>
               <p
                 class="text-[#1F2937] text-base font-normal leading-relaxed font-['Inter']"
+                data-i18n="pages.examStructure.hero.description"
               >
                 Understanding the structure of the vinayaka mission's law
                 admission test (VLAT) is the first step towards preparing
@@ -516,10 +548,11 @@
             <div class="w-full lg:w-96 text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
+                data-i18n="pages.examStructure.sections.title"
               >
                 Sections You'll Face
               </h2>
-              <p class="text-slate-600 text-base">
+              <p class="text-slate-600 text-base" data-i18n="pages.examStructure.sections.subtitle">
                 Two focused sections to test your law entrance readiness
               </p>
             </div>
@@ -542,11 +575,13 @@
                   >
                     <div
                       class="self-stretch justify-start text-slate-900 text-xl font-medium font-['Inter'] leading-7"
+                      data-i18n="pages.examStructure.sections.englishComprehension.title"
                     >
                       English Comprehension
                     </div>
                     <div
                       class="self-stretch justify-start text-slate-600 text-base font-normal font-['Inter'] leading-6"
+                      data-i18n="pages.examStructure.sections.englishComprehension.description"
                     >
                       Checks how well you understand passages, sentences, and
                       information
@@ -561,6 +596,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.englishComprehension.tag1"
                     >
                       Reading comprehension
                     </div>
@@ -570,6 +606,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.englishComprehension.tag2"
                     >
                       Vocabulary
                     </div>
@@ -579,6 +616,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.englishComprehension.tag3"
                     >
                       Basic grammar
                     </div>
@@ -588,6 +626,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.englishComprehension.tag4"
                     >
                       Inference & interpretation
                     </div>
@@ -612,11 +651,13 @@
                   >
                     <div
                       class="self-stretch justify-start text-slate-900 text-xl font-medium font-['Inter'] leading-7"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.title"
                     >
                       Logical Reasoning
                     </div>
                     <div
                       class="self-stretch justify-start text-slate-600 text-base font-normal font-['Inter'] leading-6"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.description"
                     >
                       Measures your ability to think critically and solve
                       problems
@@ -631,6 +672,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.tag1"
                     >
                       Analytical reasoning
                     </div>
@@ -640,6 +682,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.tag2"
                     >
                       Pattern recognition
                     </div>
@@ -649,6 +692,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.tag3"
                     >
                       Logic problems
                     </div>
@@ -658,6 +702,7 @@
                   >
                     <div
                       class="justify-start text-slate-700 text-sm font-normal font-['Inter'] leading-5"
+                      data-i18n="pages.examStructure.sections.logicalReasoning.tag4"
                     >
                       Decision-making
                     </div>
@@ -676,10 +721,11 @@
             <div class="w-full lg:w-96 text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
+                data-i18n="pages.examStructure.questionsMarks.title"
               >
                 Questions & Marks
               </h2>
-              <p class="text-[#1F2937] text-base">
+              <p class="text-[#1F2937] text-base" data-i18n="pages.examStructure.questionsMarks.subtitle">
                 Simple scoring structure with zero risk
               </p>
             </div>
@@ -701,7 +747,7 @@
                       <div class="text-2xl font-semibold text-[#111827]">
                         +1
                       </div>
-                      <div class="text-[#374151] text-base font-medium">
+                      <div class="text-[#374151] text-base font-medium" data-i18n="pages.examStructure.questionsMarks.markPerQuestion">
                         Mark per Question
                       </div>
                     </div>
@@ -723,7 +769,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           80
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.maximumScore">
                           Maximum Score
                         </div>
                       </div>
@@ -731,7 +777,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           80
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.totalQuestions">
                           Total Questions
                         </div>
                       </div>
@@ -739,7 +785,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           4
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.sections">
                           Sections
                         </div>
                       </div>
@@ -747,7 +793,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           60
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.minutes">
                           minutes
                         </div>
                       </div>
@@ -773,7 +819,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           40
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.maximumScore">
                           Maximum Score
                         </div>
                       </div>
@@ -781,7 +827,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           40
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.totalQuestions">
                           Total Questions
                         </div>
                       </div>
@@ -789,7 +835,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           2
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.sections">
                           Sections
                         </div>
                       </div>
@@ -797,7 +843,7 @@
                         <div class="text-2xl font-semibold text-[#111827]">
                           60
                         </div>
-                        <div class="text-[#374151] text-xs font-medium">
+                        <div class="text-[#374151] text-xs font-medium" data-i18n="pages.examStructure.questionsMarks.minutes">
                           minutes
                         </div>
                       </div>
@@ -815,7 +861,7 @@
                     </div>
                     <div>
                       <div class="text-2xl font-semibold text-[#111827]">0</div>
-                      <div class="text-[#374151] text-base font-medium">
+                      <div class="text-[#374151] text-base font-medium" data-i18n="pages.examStructure.questionsMarks.negativeMarking">
                         Negative Marking
                       </div>
                     </div>
@@ -829,11 +875,11 @@
               >
                 <div class="flex items-center gap-2">
                   <img src="images/logo/tick.svg" />
-                  <span class="text-[#1F2937] text-sm font-bold"
+                  <span class="text-[#1F2937] text-sm font-bold" data-i18n="pages.examStructure.questionsMarks.encouraged"
                     >You're encouraged to attempt every question.</span
                   >
                 </div>
-                <span class="text-[#374151] text-sm"
+                <span class="text-[#374151] text-sm" data-i18n="pages.examStructure.questionsMarks.noPenalty"
                   >With no negative marking, there's no penalty for trying
                   !</span
                 >
@@ -850,10 +896,11 @@
             <div class="w-full lg:w-96 text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
+                data-i18n="pages.examStructure.modeLanguage.title"
               >
                 Mode & Language
               </h2>
-              <p class="text-[#1F2937] text-base">
+              <p class="text-[#1F2937] text-base" data-i18n="pages.examStructure.modeLanguage.subtitle">
                 Flexible and accessible exam delivery
               </p>
             </div>
@@ -870,29 +917,29 @@
                     >
                       <img src="images/logo/modeexam.svg" />
                     </div>
-                    <div class="text-2xl font-semibold text-slate-900">
+                    <div class="text-2xl font-semibold text-slate-900" data-i18n="pages.examStructure.modeLanguage.modeOfExam">
                       Mode of Exam
                     </div>
                   </div>
 
                   <div class="space-y-5">
                     <div class="flex items-center gap-2">
-                      <span class="text-[#111827]"
+                      <span class="text-[#111827]" data-i18n="pages.examStructure.modeLanguage.onlineTest"
                         >Online test (browser-based)</span
                       >
                     </div>
                     <div class="flex items-center gap-2">
-                      <span class="text-[#111827]"
+                      <span class="text-[#111827]" data-i18n="pages.examStructure.modeLanguage.aiProctored"
                         >AI-proctored for fairness</span
                       >
                     </div>
                     <div class="flex items-center gap-2">
                       <img src="images/logo/cameralogo.svg" />
-                      <span class="text-[#111827]">Camera required</span>
+                      <span class="text-[#111827]" data-i18n="pages.examStructure.modeLanguage.cameraRequired">Camera required</span>
                     </div>
                     <div class="flex items-center gap-2">
                       <img src="images/logo/microphonelogo.svg" />
-                      <span class="text-[#111827]">Microphone required</span>
+                      <span class="text-[#111827]" data-i18n="pages.examStructure.modeLanguage.microphoneRequired">Microphone required</span>
                     </div>
                   </div>
                 </div>
@@ -926,10 +973,10 @@
                       <img src="images/logo/languageexam.svg" />
                     </div>
                     <div>
-                      <div class="text-2xl font-semibold text-slate-900 mb-3.5">
+                      <div class="text-2xl font-semibold text-slate-900 mb-3.5" data-i18n="pages.examStructure.modeLanguage.languageOptions">
                         Language Options
                       </div>
-                      <p class="text-slate-600">
+                      <p class="text-slate-600" data-i18n="pages.examStructure.modeLanguage.languageDescription">
                         Choose your preferred language for the exam. You can
                         switch between languages during the test.
                       </p>
@@ -974,10 +1021,10 @@
       <section class="w-full bg[#f9fafb] py-10">
         <div class="w-full px-3">
           <div class="text-center mb-12">
-            <h2 class="text-[#8D191C] text-3xl leading-[1] font-semibold mb-5">
+            <h2 class="text-[#8D191C] text-3xl leading-[1] font-semibold mb-5" data-i18n="pages.examStructure.studentFriendly.title">
               Why VLAT is Student-Friendly
             </h2>
-            <p class="text-gray-700 text-base">
+            <p class="text-gray-700 text-base" data-i18n="pages.examStructure.studentFriendly.subtitle">
               Designed with your success and comfort in mind
             </p>
           </div>
@@ -998,10 +1045,10 @@
                 >
                   <img src="images/logo/short.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card1.title">
                   Short Duration
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card1.description">
                   Just 60 minutes to complete the exam
                 </p>
               </div>
@@ -1020,10 +1067,10 @@
                 >
                   <img src="images/logo/negative.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card2.title">
                   No Negative Marking
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card2.description">
                   Attempt every question without fear
                 </p>
               </div>
@@ -1042,10 +1089,10 @@
                 >
                   <img src="images/logo/onlytwo.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card3.title">
                   Only Two Sections
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card3.description">
                   Focused assessment, not overwhelming
                 </p>
               </div>
@@ -1064,10 +1111,10 @@
                 >
                   <img src="images/logo/simple.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card4.title">
                   Simple MCQ Format
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card4.description">
                   Familiar question style, easy to navigate
                 </p>
               </div>
@@ -1086,10 +1133,10 @@
                 >
                   <img src="images/logo/take.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card5.title">
                   Take From Anywhere
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card5.description">
                   Online test from home or any location
                 </p>
               </div>
@@ -1108,10 +1155,10 @@
                 >
                   <img src="images/logo/instant.svg" />
                 </div>
-                <h3 class="text-[#171717] text-lg font-medium mb-3">
+                <h3 class="text-[#171717] text-lg font-medium mb-3" data-i18n="pages.examStructure.studentFriendly.card6.title">
                   Instant Results
                 </h3>
-                <p class="text-gray-600 text-sm">
+                <p class="text-gray-600 text-sm" data-i18n="pages.examStructure.studentFriendly.card6.description">
                   Get your score immediately after exam
                 </p>
               </div>
@@ -1127,7 +1174,11 @@
       class="fixed right-0 top-1/2 transform -translate-y-1/2 z-10 bg-[#B2523D] text-white px-3 py-8 rounded-bl-2xl rounded-tl-2xl shadow-lg hover:bg-opacity-100 transition-all flex flex-col items-center"
     >
       <i class="fa-solid fa-bullhorn text-white mb-2"></i>
-      <span class="writing-vertical text-xs font-medium">ANNOUNCEMENTS</span>
+      <span
+        class="writing-vertical text-xs font-medium"
+        data-i18n="pages.index.announcements.label"
+        >ANNOUNCEMENTS</span
+      >
     </button>
 
     <!-- Announcements Sidebar -->
@@ -1140,9 +1191,17 @@
           class="flex items-center justify-between bg-[#8D191C] p-5 rounded-2xl mb-3"
         >
           <div>
-            <h2 class="text-xl font-semibold text-[#FFF6E2]">Announcements</h2>
+            <h2
+              class="text-xl font-semibold text-[#FFF6E2]"
+              data-i18n="pages.index.announcements.title"
+            >
+              Announcements
+            </h2>
 
-            <p class="text-sm font-light text-[#FFF6E2] mt-1">
+            <p
+              class="text-sm font-light text-[#FFF6E2] mt-1"
+              data-i18n="pages.index.announcements.subtitle"
+            >
               Latest updates from our institute
             </p>
           </div>
@@ -1164,6 +1223,7 @@
             <input
               type="text"
               placeholder="Search announcements..."
+              data-i18n-placeholder="common.placeholders.searchAnnouncements"
               class="input-field pl-10 pr-4 h-10"
               aria-label="Search announcements"
             />
@@ -1213,6 +1273,7 @@
               <!-- University Description -->
               <p
                 class="text-base text-[#FAFAFA] font-normal leading-relaxed max-w-[338px]"
+                data-i18n="pages.footer.description"
               >
                 Vinayaka Mission's Research Foundation (VMRF) is an innovative
                 and pioneering University that offers a multi-disciplinary
@@ -1304,7 +1365,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1314,6 +1378,7 @@
                     <a
                       href="index.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.home"
                       >Home</a
                     >
                   </li>
@@ -1321,6 +1386,7 @@
                     <a
                       href="about-vlat.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVlat"
                       >About VLAT</a
                     >
                   </li>
@@ -1328,6 +1394,7 @@
                     <a
                       href="about-vmls.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVmls"
                       >About VMLS</a
                     >
                   </li>
@@ -1335,6 +1402,7 @@
                     <a
                       href="how-to-register.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.registrationProcess"
                       >Registration Process</a
                     >
                   </li>
@@ -1345,7 +1413,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1355,6 +1426,7 @@
                     <a
                       href="exam-structure.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.examStructure"
                       >Exam Structure</a
                     >
                   </li>
@@ -1362,6 +1434,7 @@
                     <a
                       href="blogs.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.blogs"
                       >Blogs</a
                     >
                   </li>
@@ -1369,6 +1442,7 @@
                     <a
                       href="contact-us.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.contactUs"
                       >Contact Us</a
                     >
                   </li>
@@ -1390,6 +1464,7 @@
                     <a
                       href="login.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.buttons.login"
                     >
                       Login</a
                     >
@@ -1401,7 +1476,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.legalInformation"
+                  >
                     Legal & Information
                   </h3>
                 </div>
@@ -1412,6 +1490,7 @@
                       href="https://vmls.edu.in/privacy-policy.html
                         "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.privacyPolicy"
                       >Privacy Policy</a
                     >
                   </li>
@@ -1419,6 +1498,7 @@
                     <a
                       href="https://vmls.edu.in/terms-conditions.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.termsConditions"
                       >Terms & Conditions</a
                     >
                   </li>
@@ -1431,8 +1511,11 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
-            Mission's Law School
+            <span data-i18n="pages.footer.copyright">Copyright ©</span>
+            <span id="copyrightYear">2025</span>
+            <span data-i18n="pages.footer.copyrightText"
+              >VMLS - Vinayaka Mission's Law School</span
+            >
           </p>
         </div>
       </div>
@@ -1469,7 +1552,17 @@
         });
       });
     </script>
+    <script src="js/translations.js"></script>
     <script type="module" src="js/main.js"></script>
+    <script>
+      // Initialize translations when DOM is ready
+      document.addEventListener("DOMContentLoaded", async function () {
+        if (typeof initializeTranslations === "function") {
+          await initializeTranslations();
+          translatePage();
+        }
+      });
+    </script>
 
     <!-- Scroll to Top Button -->
     <button

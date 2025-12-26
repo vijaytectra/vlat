@@ -232,6 +232,7 @@
                   height="80"
                   class="h-14 md:h-24 w-auto"
                   onerror="this.style.display='none'"
+                  data-i18n-alt="common.alt.vmlsLogo"
                 />
               </a>
             </div>
@@ -239,6 +240,22 @@
 
           <!-- Right: VMRF Logo, Buttons, Menu -->
           <div class="flex items-center gap-3 md:gap-4">
+            <div
+              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+            >
+              <button
+                id="lang-en"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+              >
+                English
+              </button>
+              <button
+                id="lang-ta"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+              >
+                தமிழ்
+              </button>
+            </div>
             <div class="hidden lg:flex items-center gap-2">
               <a
                 href="https://www.vmrfdu.edu.in/"
@@ -250,6 +267,7 @@
                   alt="VMRF Logo"
                   class="h-12 w-auto"
                   onerror="this.style.display='none'"
+                  data-i18n-alt="common.alt.vmrfLogo"
                 />
               </a>
             </div>
@@ -257,6 +275,7 @@
               <a href="login.html">
                 <button
                   class="btn-outline border border-[#8D191C] text-[#8D191C] font-medium"
+                  data-i18n="common.buttons.login"
                 >
                   Login
                 </button>
@@ -267,8 +286,17 @@
               id="mobileMenuBtn"
               class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
             >
-              <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
-              <span class="text-[#8D191C] font-medium">Menu</span>
+              <img
+                src="images/menu.svg"
+                alt="Menu"
+                class="w-6 h-6"
+                data-i18n-alt="common.alt.menu"
+              />
+              <span
+                class="text-[#8D191C] font-medium"
+                data-i18n="common.buttons.menu"
+                >Menu</span
+              >
             </button>
           </div>
         </div>
@@ -394,38 +422,45 @@
               <a
                 href="index.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.home"
                 >Home</a
               >
               <a
                 href="about-vlat.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVlat"
                 >About VLAT</a
               >
               <a
                 href="about-vmls.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.aboutVmls"
                 >About VMLS</a
               >
               <a
                 href="how-to-register.html"
                 class="block text-[#F3F4F6] text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.howToRegister"
                 >How to Register</a
               >
               <a
                 href="blogs.html"
                 id="blogsLink"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.blogs"
                 >Blogs</a
               >
               <a
                 href="exam-structure.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
+                data-i18n="common.navigation.examStructure"
                 >Exam Structure</a
               >
               <a
                 href="contact-us.html"
                 class="block text-white text-lg font-light hover:opacity-80 transition-opacity"
-                >Exam Structure</a
+                data-i18n="common.navigation.contactUs"
+                >Contact Us</a
               >
             </nav>
 
@@ -436,11 +471,13 @@
               <a
                 href="register.html"
                 class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
+                data-i18n="common.buttons.applyForVlat"
                 >Apply for VLAT</a
               >
               <a
                 href="login.html"
                 class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
+                data-i18n="common.buttons.login"
                 >Login</a
               >
             </div>
@@ -472,6 +509,7 @@
           class="w-full h-64 md:h-96 object-cover rounded-3xl shadow-lg"
           src="images/vmls.png"
           alt="VMLS Campus"
+          data-i18n-alt="common.alt.campusBackground"
         />
       </div>
     </section>
@@ -487,12 +525,16 @@
               <div class="text-center lg:text-left">
                 <h1
                   class="text-3xl sm:text-4xl lg:text-4xl font-semibold text-[#8D191C]"
+                  data-i18n="pages.aboutVmls.pageTitle"
                 >
                   About Vinayaka Mission's Law School
                 </h1>
               </div>
 
-              <div class="text-[#111827] text-xl font-medium">
+              <div
+                class="text-[#111827] text-xl font-medium"
+                data-i18n="pages.aboutVmls.subtitle"
+              >
                 The Law School of the Future
               </div>
             </div>
@@ -504,7 +546,10 @@
                 <div class="w-2 md:w-7 bg-[#FDE68A]"></div>
 
                 <div class="flex-1 space-y-6">
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.aboutVmls.paragraph1"
+                  >
                     Vinayaka Mission's Law School was founded with a clear
                     purpose: to build a world-class, accessible, and
                     future-oriented law school that brings global excellence to
@@ -513,7 +558,10 @@
                     faculty trained at internationally renowned universities.
                   </p>
 
-                  <p class="text-[#374151] text-base leading-relaxed">
+                  <p
+                    class="text-[#374151] text-base leading-relaxed"
+                    data-i18n="pages.aboutVmls.paragraph2"
+                  >
                     Our bilingual English–Tamil learning model ensures that
                     legal education is not only rigorous and contemporary, but
                     also inclusive—strengthening comprehension, breaking access
@@ -525,10 +573,16 @@
                   </p>
 
                   <div class="space-y-4">
-                    <p class="text-[#374151] text-base font-semibold">
+                    <p
+                      class="text-[#374151] text-base font-semibold"
+                      data-i18n="pages.aboutVmls.facultyGlobalExpertise"
+                    >
                       Faculty with Global Expertise
                     </p>
-                    <p class="text-[#374151] text-base">
+                    <p
+                      class="text-[#374151] text-base"
+                      data-i18n="pages.aboutVmls.facultyDescription"
+                    >
                       Academicians with global training who bring deep
                       expertise, research strength, and student-centred
                       mentorship.
@@ -543,6 +597,7 @@
                   class="w-full h-auto"
                   src="images/vmls2.png"
                   alt="VMLS Faculty"
+                  data-i18n-alt="common.alt.worldClassFaculty"
                 />
               </div>
 
@@ -551,16 +606,25 @@
                 <div class="w-2 md:w-7 bg-[#FDE68A]"></div>
 
                 <div class="flex-1 space-y-6">
-                  <p class="text-[#374151] text-xl font-medium">
+                  <p
+                    class="text-[#374151] text-xl font-medium"
+                    data-i18n="pages.aboutVmls.shapingFuture"
+                  >
                     VMLS — Shaping the Future of Law Since 2021
                   </p>
 
                   <div class="space-y-4">
-                    <p class="text-[#374151] text-base font-semibold">
+                    <p
+                      class="text-[#374151] text-base font-semibold"
+                      data-i18n="pages.aboutVmls.aboutVmlsTitle"
+                    >
                       About VMLS
                     </p>
 
-                    <p class="text-[#374151] text-base leading-relaxed">
+                    <p
+                      class="text-[#374151] text-base leading-relaxed"
+                      data-i18n="pages.aboutVmls.aboutVmlsParagraph1"
+                    >
                       Shaping transformative legal education through innovation,
                       inclusivity, and global vision. Vinayaka Mission's Law
                       School (VMLS), established by Vinayaka Mission's Research
@@ -576,7 +640,10 @@
                       forward-looking pedagogy.
                     </p>
 
-                    <p class="text-[#374151] text-base leading-relaxed">
+                    <p
+                      class="text-[#374151] text-base leading-relaxed"
+                      data-i18n="pages.aboutVmls.aboutVmlsParagraph2"
+                    >
                       With state-of-the-art smart classrooms, a digitally
                       enabled library, and a regal moot court hall, the campus
                       provides an immersive learning atmosphere that encourages
@@ -603,7 +670,10 @@
             <!-- Title -->
             <div class="w-full">
               <div class="text-left">
-                <h2 class="text-4xl font-semibold text-[#8D191C] mb-3">
+                <h2
+                  class="text-4xl font-semibold text-[#8D191C] mb-3"
+                  data-i18n="pages.aboutVmls.whyChooseVmls"
+                >
                   Why Choose VMLS?
                 </h2>
               </div>
@@ -627,10 +697,16 @@
                     <img src="images/logo/state.svg" />
                   </div>
                   <div class="flex flex-col gap-2">
-                    <h3 class="text-[#8D191C] text-sm font-bold">
+                    <h3
+                      class="text-[#8D191C] text-sm font-bold"
+                      data-i18n="pages.index.features.infrastructure.title"
+                    >
                       State-of-the-Art Infrastructure
                     </h3>
-                    <p class="text-[#374151] text-xs">
+                    <p
+                      class="text-[#374151] text-xs"
+                      data-i18n="pages.index.features.infrastructure.description"
+                    >
                       Smart classrooms, digital library, and regal moot court
                       hall
                     </p>
@@ -652,10 +728,16 @@
                     <img src="images/logo/stratergic.png" />
                   </div>
                   <div class="flex flex-col gap-2">
-                    <h3 class="text-[#8D191C] text-sm font-bold">
+                    <h3
+                      class="text-[#8D191C] text-sm font-bold"
+                      data-i18n="pages.index.features.partnership.title"
+                    >
                       Strategic Partnership
                     </h3>
-                    <p class="text-[#374151] text-xs">
+                    <p
+                      class="text-[#374151] text-xs"
+                      data-i18n="pages.index.features.partnership.description"
+                    >
                       Mentored by Jindal Global Law School
                     </p>
                   </div>
@@ -676,10 +758,16 @@
                     <img src="images/logo/apartment2.svg" />
                   </div>
                   <div class="flex flex-col gap-2">
-                    <h3 class="text-[#8D191C] text-sm font-bold">
+                    <h3
+                      class="text-[#8D191C] text-sm font-bold"
+                      data-i18n="pages.index.features.faculty.title"
+                    >
                       World-Class Faculty
                     </h3>
-                    <p class="text-[#374151] text-xs">
+                    <p
+                      class="text-[#374151] text-xs"
+                      data-i18n="pages.index.features.faculty.description"
+                    >
                       Expert professors trained at globally renowned
                       institutions
                     </p>
@@ -701,10 +789,16 @@
                     <img src="images/logo/apartment3.svg" />
                   </div>
                   <div class="flex flex-col gap-2">
-                    <h3 class="text-[#8D191C] text-sm font-bold">
+                    <h3
+                      class="text-[#8D191C] text-sm font-bold"
+                      data-i18n="pages.index.features.inclusiveLearning.title"
+                    >
                       Inclusive Learning
                     </h3>
-                    <p class="text-[#374151] text-xs">
+                    <p
+                      class="text-[#374151] text-xs"
+                      data-i18n="pages.index.features.inclusiveLearning.description"
+                    >
                       Bilingual support ensuring no learner is left behind
                     </p>
                   </div>
@@ -721,7 +815,9 @@
                 onclick="window.location.href='register.html'"
                 class="flex-1 py-2 h-12 bg-[#991B1B] rounded-xl flex items-center justify-center gap-2 hover:bg-[#7F1D1D] transition-colors"
               >
-                <span class="text-gray-100 text-sm sm:text-lg font-medium"
+                <span
+                  class="text-gray-100 text-sm sm:text-lg font-medium"
+                  data-i18n="pages.aboutVmls.applyNow"
                   >Apply Now</span
                 >
                 <i
@@ -733,7 +829,9 @@
                 onclick="downloadPDF('images/ug.pdf', 'UG_Brochure.pdf')"
                 class="flex-1 py-2 h-12 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
               >
-                <span class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                <span
+                  class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                  data-i18n="pages.aboutVmls.downloadBrochureUG"
                   >Download Brochure- UG</span
                 >
                 <i
@@ -745,7 +843,9 @@
                 onclick="downloadPDF('images/pg.pdf', 'PG_Brochure.pdf')"
                 class="flex-1 h-12 py-2 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
               >
-                <span class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                <span
+                  class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                  data-i18n="pages.aboutVmls.downloadBrochurePG"
                   >Download Brochure- PG</span
                 >
                 <i
@@ -768,18 +868,25 @@
               <!-- CONTENT -->
               <div class="relative z-10 flex flex-col justify-between h-full">
                 <div class="flex flex-col gap-0">
-                  <div class="text-[#0A0A0A] text-xl lg:text-2xl font-semibold">
+                  <div
+                    class="text-[#0A0A0A] text-xl lg:text-2xl font-semibold"
+                    data-i18n="pages.aboutVmls.mission.our"
+                  >
                     Our
                   </div>
                   <div
                     class="text-[#8D191C] text-3xl lg:text-4xl font-semibold"
+                    data-i18n="pages.aboutVmls.mission.title"
                   >
                     Mission
                   </div>
                 </div>
 
                 <div class="w-full md:max-w-xs lg:max-w-md mt-8 md:mt-0">
-                  <p class="text-[#1F2937] text-sm leading-relaxed">
+                  <p
+                    class="text-[#1F2937] text-sm leading-relaxed"
+                    data-i18n="pages.aboutVmls.mission.description"
+                  >
                     To educate ethical and skilled legal professionals who
                     combine intellectual rigour with empathy, and who are
                     prepared to respond to the complexities of an evolving
@@ -809,18 +916,25 @@
               <!-- CONTENT -->
               <div class="relative z-10 flex flex-col justify-between h-full">
                 <div class="flex flex-col gap-0">
-                  <div class="text-[#0A0A0A] text-xl lg:text-2xl font-semibold">
+                  <div
+                    class="text-[#0A0A0A] text-xl lg:text-2xl font-semibold"
+                    data-i18n="pages.aboutVmls.vision.our"
+                  >
                     Our
                   </div>
                   <div
                     class="text-[#8D191C] text-3xl lg:text-4xl font-semibold"
+                    data-i18n="pages.aboutVmls.vision.title"
                   >
                     Vision
                   </div>
                 </div>
 
                 <div class="w-full md:max-w-xs lg:max-w-md mt-8 md:mt-0">
-                  <p class="text-[#1F2937] text-sm leading-relaxed">
+                  <p
+                    class="text-[#1F2937] text-sm leading-relaxed"
+                    data-i18n="pages.aboutVmls.vision.description"
+                  >
                     To become India's leading institution for bilingual legal
                     education—renowned for academic distinction, transformative
                     research, experiential learning, and a deep commitment to
@@ -849,10 +963,16 @@
               class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mt-0"
             >
               <div class="max-w-2xl">
-                <h2 class="text-4xl font-semibold text-[#8D191C] mb-4">
+                <h2
+                  class="text-4xl font-semibold text-[#8D191C] mb-4"
+                  data-i18n="pages.aboutVmls.campusFacilities.title"
+                >
                   Campus & Facilities
                 </h2>
-                <p class="text-gray-500 text-base">
+                <p
+                  class="text-gray-500 text-base"
+                  data-i18n="pages.aboutVmls.campusFacilities.description"
+                >
                   Our modern campus in Paiyanoor, Chennai, is equipped with
                   state-of-the-art facilities designed to support comprehensive
                   legal education.
@@ -880,7 +1000,10 @@
                 <div
                   class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
                 >
-                  <p class="text-white text-lg font-medium">
+                  <p
+                    class="text-white text-lg font-medium"
+                    data-i18n="pages.aboutVmls.campusFacilities.campusInfrastructure"
+                  >
                     Campus Infrastructure
                   </p>
                 </div>
@@ -895,7 +1018,10 @@
                 <div
                   class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
                 >
-                  <p class="text-white text-lg font-medium">
+                  <p
+                    class="text-white text-lg font-medium"
+                    data-i18n="pages.aboutVmls.campusFacilities.libraryResources"
+                  >
                     Library & Resources
                   </p>
                 </div>
@@ -910,10 +1036,16 @@
                 <div
                   class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition text-center px-4"
                 >
-                  <h3 class="text-white text-lg font-semibold mb-1">
+                  <h3
+                    class="text-white text-lg font-semibold mb-1"
+                    data-i18n="pages.aboutVmls.campusFacilities.computerLabs"
+                  >
                     Computer Labs
                   </h3>
-                  <p class="text-gray-200 text-sm">
+                  <p
+                    class="text-gray-200 text-sm"
+                    data-i18n="pages.aboutVmls.campusFacilities.computerLabsDescription"
+                  >
                     Cyber-law and legal tech training
                   </p>
                 </div>
@@ -928,7 +1060,12 @@
                 <div
                   class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
                 >
-                  <p class="text-white text-lg font-medium">Moot Court Hall</p>
+                  <p
+                    class="text-white text-lg font-medium"
+                    data-i18n="pages.aboutVmls.campusFacilities.mootCourtHall"
+                  >
+                    Moot Court Hall
+                  </p>
                 </div>
               </div>
             </div>
@@ -1063,7 +1200,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1073,6 +1213,7 @@
                     <a
                       href="index.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.home"
                       >Home</a
                     >
                   </li>
@@ -1080,6 +1221,7 @@
                     <a
                       href="about-vlat.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVlat"
                       >About VLAT</a
                     >
                   </li>
@@ -1087,6 +1229,7 @@
                     <a
                       href="about-vmls.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.aboutVmls"
                       >About VMLS</a
                     >
                   </li>
@@ -1094,6 +1237,7 @@
                     <a
                       href="how-to-register.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.registrationProcess"
                       >Registration Process</a
                     >
                   </li>
@@ -1104,7 +1248,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.quickLinks"
+                  >
                     Quick Links
                   </h3>
                 </div>
@@ -1114,6 +1261,7 @@
                     <a
                       href="exam-structure.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.examStructure"
                       >Exam Structure</a
                     >
                   </li>
@@ -1121,6 +1269,7 @@
                     <a
                       href="blogs.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.blogs"
                       >Blogs</a
                     >
                   </li>
@@ -1128,6 +1277,7 @@
                     <a
                       href="contact-us.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.contactUs"
                       >Contact Us</a
                     >
                   </li>
@@ -1149,6 +1299,7 @@
                     <a
                       href="login.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.buttons.login"
                     >
                       Login</a
                     >
@@ -1160,7 +1311,10 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 class="text-base font-bold text-[#FAFAFA] uppercase">
+                  <h3
+                    class="text-base font-bold text-[#FAFAFA] uppercase"
+                    data-i18n="pages.footer.legalInformation"
+                  >
                     Legal & Information
                   </h3>
                 </div>
@@ -1171,6 +1325,7 @@
                       href="https://vmls.edu.in/privacy-policy.html
                     "
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.privacyPolicy"
                       >Privacy Policy</a
                     >
                   </li>
@@ -1178,6 +1333,7 @@
                     <a
                       href="https://vmls.edu.in/terms-conditions.html"
                       class="text-base text-[#D4D4D4] font-normal hover:text-[#FAFAFA] transition-colors"
+                      data-i18n="common.navigation.termsConditions"
                       >Terms & Conditions</a
                     >
                   </li>
@@ -1190,8 +1346,11 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            Copyright © <span id="copyrightYear">2025</span> VMLS - Vinayaka
-            Mission's Law School
+            <span data-i18n="pages.footer.copyright">Copyright ©</span>
+            <span id="copyrightYear">2025</span>
+            <span data-i18n="pages.footer.copyrightText"
+              >VMLS - Vinayaka Mission's Law School</span
+            >
           </p>
         </div>
       </div>
@@ -1386,7 +1545,15 @@
       }
     </script>
     <script type="module" src="js/main.js"></script>
-
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+        translatePage();
+      });
+    </script>
     <!-- Scroll to Top Button -->
     <button
       id="scrollToTopBtn"
