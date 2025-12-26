@@ -52,6 +52,7 @@ This creates a `dist/` folder with:
 - ✅ **All JS files** - copied as-is
 - ✅ **All images** - copied as-is
 - ✅ **All data files** - copied as-is
+- ✅ **All translation files** - `dist/translations/en.json`, `dist/translations/ta.json`
 
 ### Step 2: Upload to Hostinger cPanel
 
@@ -78,8 +79,11 @@ After running `npm run build`, you'll have a `dist` folder on your computer. Her
    │   └── 📄 (all JS files)
    ├── 📂 images/
    │   └── 📄 (all images)
-   └── 📂 data/
-       └── 📄 (all data files)
+   ├── 📂 data/
+   │   └── 📄 (all data files)
+   └── 📂 translations/
+       ├── 📄 en.json
+       └── 📄 ta.json
 ```
 
 **❌ WRONG WAY (Don't do this):**
@@ -119,8 +123,11 @@ public_html/
     │   └── *.js
     ├── images/
     │   └── *.svg, *.png
-    └── data/
-        └── *.json, *.pdf
+    ├── data/
+    │   └── *.json, *.pdf
+    └── translations/
+        ├── en.json
+        └── ta.json
 ```
 
 **🔍 How to verify you did it right:**

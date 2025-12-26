@@ -203,9 +203,29 @@
             <span class="text-sm">admissions@vmls.edu.in</span>
           </a>
         </div>
+        <div class="w-full flex justify-end md:hidden">
+          <!-- Language Switcher -->
+          <div
+            class="language-switcher flex items-center mt-2 gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+          >
+            <button
+              data-lang="en"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+            >
+              English
+            </button>
+            <button
+              data-lang="ta"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+            >
+              தமிழ்
+            </button>
+          </div>
+        </div>
 
         <!-- Main Header -->
         <div class="flex items-center justify-between h-20 md:h-24">
+          <!-- Left: Logos -->
           <!-- Left: Logos -->
           <div class="flex items-center gap-1 md:gap-6">
             <div class="flex items-center gap-2 md:gap-4">
@@ -215,8 +235,21 @@
                 class="cursor-pointer"
               >
                 <img
-                  src="images/vmlsvlatlogoheader.svg"
+                  src="images/VMLS.svg"
                   alt="VMLS Logo"
+                  data-i18n-alt="common.alt.vmlsLogo"
+                  width="80"
+                  height="80"
+                  class="h-14 md:h-24 w-auto"
+                  onerror="this.style.display='none'"
+                />
+              </a>
+              <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+              <a href="index.html" class="cursor-pointer">
+                <img
+                  src="images/VLATHeader.svg"
+                  alt="VLAT Logo"
+                  data-i18n-alt="common.alt.vmlsLogo"
                   width="80"
                   height="80"
                   class="h-14 md:h-24 w-auto"
@@ -230,16 +263,16 @@
           <div class="flex items-center gap-3 md:gap-4">
             <!-- Language Switcher -->
             <div
-              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+              class="language-switcher hidden md:flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
             >
               <button
-                id="lang-en"
+                data-lang="en"
                 class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
               >
                 English
               </button>
               <button
-                id="lang-ta"
+                data-lang="ta"
                 class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
               >
                 தமிழ்
@@ -713,7 +746,8 @@
                 <div
                   class="px-2.5 py-2.5 bg-[#FFF6E2] rounded-[100px] text-left border border-[#9CA3AF]"
                 >
-                  <span class="text-[#111827] text-xs font-bold uppercase"
+                  <span
+                    class="text-[#111827] text-xs font-bold uppercase"
                     data-i18n="pages.howToRegister.stepBadge"
                     >STEP 1</span
                   >
@@ -722,7 +756,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step1.title">1. Visit the Official VMLS Website</span>
+                  <span data-i18n="pages.howToRegister.step1.title"
+                    >1. Visit the Official VMLS Website</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -762,7 +798,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step2.title">2. Create Your VLAT Account</span>
+                  <span data-i18n="pages.howToRegister.step2.title"
+                    >2. Create Your VLAT Account</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -804,7 +842,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step3.title">3. Fill Out the Online Application Form</span>
+                  <span data-i18n="pages.howToRegister.step3.title"
+                    >3. Fill Out the Online Application Form</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -849,7 +889,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step4.title">4. Upload Required Documents</span>
+                  <span data-i18n="pages.howToRegister.step4.title"
+                    >4. Upload Required Documents</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -893,7 +935,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step5.title">5. Pay the Application Fee</span>
+                  <span data-i18n="pages.howToRegister.step5.title"
+                    >5. Pay the Application Fee</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -935,7 +979,9 @@
 
               <div class="space-y-6">
                 <h3 class="text-xl lg:text-2xl font-bold text-[#111827]">
-                  <span data-i18n="pages.howToRegister.step6.title">6. Submit Your Application</span>
+                  <span data-i18n="pages.howToRegister.step6.title"
+                    >6. Submit Your Application</span
+                  >
                 </h3>
                 <p
                   class="text-[#111827] text-base leading-relaxed"
@@ -1142,14 +1188,31 @@
             <div class="flex flex-col gap-6">
               <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
-                <img
-                  src="images/vmlsvlatfooter.svg"
-                  alt="VMLS Logo"
-                  width="150"
-                  height="55"
-                  class="h-[65px] w-auto object-cover"
-                  loading="lazy"
-                />
+                <a
+                  href="https://vmls.edu.in/"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
+                  <img
+                    src="images/VMLSFooter.svg"
+                    alt="VMLS Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
+                <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+                <a href="index.html" class="cursor-pointer">
+                  <img
+                    src="images/VLATFooter.svg"
+                    alt="VLAT Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
               </div>
 
               <!-- University Description -->
@@ -1664,8 +1727,9 @@
     <script>
       // Initialize translations on page load
       document.addEventListener("DOMContentLoaded", async () => {
-        await initializeTranslations();
-        translatePage();
+        if (typeof initializeTranslations === "function") {
+          await initializeTranslations();
+        }
       });
     </script>
   </body>

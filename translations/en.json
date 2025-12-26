@@ -226,6 +226,68 @@
       "passwordRequirements": "Must be at least 8 characters with uppercase, lowercase, number, and special character",
       "registering": "Registering..."
     },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your registered email to receive a password reset link.",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your registered email",
+      "submitButton": "Send Reset Link",
+      "sending": "Sending...",
+      "helpText": "If your email is registered, you will receive a reset link shortly on email.",
+      "needHelp": "Need help with login?",
+      "errors": {
+        "emailRequired": "Please enter your email address",
+        "invalidEmail": "Please enter a valid email address",
+        "failed": "Failed to send reset link. Please try again.",
+        "generic": "An error occurred. Please try again."
+      }
+    },
+    "checkEmail": {
+      "title": "Check Your Email",
+      "subtitle": "If your email is registered, you will receive a password reset link.",
+      "message": "Please check your inbox (and spam folder). The link expires in 24 hours.",
+      "backToLogin": "Back to Login",
+      "tryDifferentEmail": "Try Different Email"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Set a new password for your account.",
+      "passwordLabel": "Password",
+      "confirmPasswordLabel": "Confirm Password",
+      "passwordPlaceholder": "Enter your new password",
+      "confirmPasswordPlaceholder": "Enter your new password again",
+      "passwordHint": "Must be at least 8 characters with uppercase, lowercase, number, and special character",
+      "submitButton": "Update password",
+      "updating": "Updating...",
+      "passwordRequirement": "Password must be at least 8 characters with uppercase, lowercase, number, and special character",
+      "errors": {
+        "tokenInvalid": "Invalid or expired reset link. Please request a new password reset.",
+        "invalidLink": "Invalid reset link",
+        "fieldsRequired": "Please fill in all fields",
+        "passwordTooShort": "Password must be at least 8 characters long",
+        "passwordNoUppercase": "Password must contain at least one uppercase letter",
+        "passwordNoLowercase": "Password must contain at least one lowercase letter",
+        "passwordNoNumber": "Password must contain at least one number",
+        "passwordNoSpecial": "Password must contain at least one special character",
+        "passwordMismatch": "Passwords do not match",
+        "failed": "Failed to reset password. Please try again.",
+        "generic": "An error occurred. Please try again."
+      },
+      "requestNewLink": "Request a new password reset link"
+    },
+    "passwordResetSuccess": {
+      "title": "Password Reset Successful",
+      "subtitle": "You can now log in with your new password.",
+      "goToLogin": "Go to login"
+    },
+    "welcomeScreen": {
+      "title": "Welcome Screen",
+      "successfullyLoggedIn": "Successfully logged in",
+      "redirecting": "Redirecting in",
+      "welcomeBack": "Welcome back",
+      "dashboardReady": "Your VLAT Entrance Exam dashboard is now ready.",
+      "accessDetails": "Access your exam details, updates, and progress instantly."
+    },
     "dashboard": {
       "title": "Student Dashboard – VLAT",
       "mockTestZone": "VLAT Mock Test Zone",
@@ -239,6 +301,24 @@
       "student": "Student!",
       "chooseMockTest": "Choose a mock test and boost your preparation.",
       "nextExam": "Next Exam:",
+      "yourVlatMockTests": "Your VLAT Mock Tests",
+      "completeAllTests": "Complete all 5 tests to master the subject",
+      "mockTest": "Mock Test",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "notStarted": "Not Started",
+      "questions": "questions",
+      "mins": "mins",
+      "progress": "Progress",
+      "done": "done",
+      "yourScore": "Your Score",
+      "attempts": "Attempts",
+      "viewResults": "View Results",
+      "startTest": "Start Test",
+      "keepGoing": "Keep going!",
+      "overallPerformance": "Overall performance",
+      "personalBest": "Personal best",
+      "practiceCount": "Practice count",
       "stats": {
         "testsCompleted": "Tests Completed",
         "averageScore": "Average Score",
@@ -468,7 +548,7 @@
       "hero": {
         "title": "How to Register for VLAT?",
         "academicYear": "for academic year 2026 - 27",
-        "description": "Registering for the Vinayaka Mission's Law Admission Test(VLAT) is simple, quick, and completely online. <br />Whether you are applying for a five-year integrated law programme, the three-year LL.B., or the LL.M., the entire <br />registration process can be completed from your home within minutes."
+        "description": "Registering for the Vinayaka Mission's Law Admission Test(VLAT) is simple, quick, and completely online. Whether you are applying for a five-year integrated law programme, the three-year LL.B., or the LL.M., the entire registration process can be completed from your home within minutes."
       },
       "stepsTitle": "Steps to Register for VLAT 2026",
       "sidebar": {
@@ -477,27 +557,27 @@
       "stepBadge": "STEP",
       "step1": {
         "title": "1. Visit the Official VMLS Website",
-        "description": "Go to the official Vinayaka Mission's Law School website and navigate to the VLAT Admissions / Apply Now section.<br /><br />This is where all updates, deadlines, and the registration link are available."
+        "description": "Go to the official Vinayaka Mission's Law School website and navigate to the VLAT Admissions / Apply Now section.This is where all updates, deadlines, and the registration link are available."
       },
       "step2": {
         "title": "2. Create Your VLAT Account",
-        "description": "Click on Register and create your account using:<br />• A valid email ID<br />• An active mobile number<br /><br />You will receive important exam notifications, login information, and result updates through these details, so ensure they are correct."
+        "description": "Click on Register and create your account using:• A valid email ID• An active mobile numberYou will receive important exam notifications, login information, and result updates through these details, so ensure they are correct."
       },
       "step3": {
         "title": "3. Fill Out the Online Application Form",
-        "description": "Once your account is created, log in and complete the VLAT application form.<br /><br />You will be asked to provide:<br />• Personal details<br />• Academic qualifications<br />• Address and contact information<br />• Programme you wish to apply for (BA LL.B., B.Com LL.B., BBA LL.B., LL.B., or LL.M.)<br /><br />Take your time and review each field to avoid mistakes."
+        "description": "Once your account is created, log in and complete the VLAT application form.You will be asked to provide:• Personal details• Academic qualifications• Address and contact information• Programme you wish to apply for (BA LL.B., B.Com LL.B., BBA LL.B., LL.B., or LL.M.)Take your time and review each field to avoid mistakes."
       },
       "step4": {
         "title": "4. Upload Required Documents",
-        "description": "You will need to upload scanned copies of:<br />• A recent passport-size photograph<br />• Signature<br />• Academic certificates (Class 12 / Graduation / LL.B. depending on programme)<br />• Any ID proof if required<br /><br />Make sure all files are clear and meet the size/format guidelines mentioned on the portal."
+        "description": "You will need to upload scanned copies of:• A recent passport-size photograph• Signature• Academic certificates (Class 12 / Graduation / LL.B. depending on programme)• Any ID proof if requiredMake sure all files are clear and meet the size/format guidelines mentioned on the portal."
       },
       "step5": {
         "title": "5. Pay the Application Fee",
-        "description": "The payment is made online through secure digital gateways.<br /><br />• ₹1000 for UG Programmes (BA LL.B., B.Com LL.B., BBA LL.B., LL.B.)<br />• ₹1500 for PG (LL.M.) Programme<br /><br />Once the payment is successful, you will receive a receipt and confirmation email."
+        "description": "The payment is made online through secure digital gateways.• ₹1000 for UG Programmes (BA LL.B., B.Com LL.B., BBA LL.B., LL.B.)• ₹1500 for PG (LL.M.) ProgrammeOnce the payment is successful, you will receive a receipt and confirmation email."
       },
       "step6": {
         "title": "6. Submit Your Application",
-        "description": "Before submitting the final form:<br />• Double-check your name, email, and academic details<br />• Ensure all documents are uploaded correctly<br />• Review the programme selection<br /><br />Once submitted, you will receive a confirmation email with your application number. Keep this safe for future reference."
+        "description": "Before submitting the final form:• Double-check your name, email, and academic details• Ensure all documents are uploaded correctly• Review the programme selectionOnce submitted, you will receive a confirmation email with your application number. Keep this safe for future reference."
       },
       "tips": {
         "title": "Tips for Smooth Registration",
@@ -552,7 +632,7 @@
       "hero": {
         "title": "VLAT Exam Structure",
         "academicYear": "for academic year 2026 - 27",
-        "description": "Understanding the structure of the vinayaka mission's law admission test (VLAT) is the first step towards preparing confidently. The exam has been designed to be straightforward, student-friendly, and aligned with the core skills required in law school.<br /><br />VLAT focuses only on what truly matters for a law aspirant — your ability to comprehend, analyse, and reason logically. There is no rote learning, no memorisation of legal knowledge, and no trick questions."
+        "description": "Understanding the structure of the vinayaka mission's law admission test (VLAT) is the first step towards preparing confidently. The exam has been designed to be straightforward, student-friendly, and aligned with the core skills required in law school.VLAT focuses only on what truly matters for a law aspirant — your ability to comprehend, analyse, and reason logically. There is no rote learning, no memorisation of legal knowledge, and no trick questions."
       },
       "sections": {
         "title": "Sections You'll Face",
@@ -640,6 +720,64 @@
       "legalInformation": "Legal & Information",
       "copyright": "Copyright ©",
       "copyrightText": "VMLS - Vinayaka Mission's Law School"
+    },
+    "mock-test": {
+      "markForReview": "Mark for Review",
+      "jumpTo": "Jump to...",
+      "skipToLast": "Skip to Last",
+      "previous": "Previous",
+      "next": "Next",
+      "submitTest": "Submit Test",
+      "timeRemaining": "Time Remaining",
+      "answeredLabel": "Answered:",
+      "notAnswered": "Not Answered:",
+      "markedForReview": "Marked for Review:",
+      "questionNavigator": "Question Navigator",
+      "answered": "Answered",
+      "skipped": "Skipped",
+      "review": "Review"
+    },
+    "results": {
+      "testName": "Test Name",
+      "yourScore": "Your Score",
+      "retakeTest": "Retake Test",
+      "nextTest": "Next Test",
+      "reviewAnswers": "Review Answers",
+      "motivationalBanner": "Review the explanations to understand where you can improve. You've got this!"
+    },
+    "review-answers": {
+      "reviewTitle": "Review Answers",
+      "subtitle": "Detailed review of all questions and answers",
+      "backToResults": "Back to Results",
+      "backToDashboard": "Back to Dashboard"
+    },
+    "instructions": {
+      "backToDashboard": "Back to Dashboard",
+      "testInfo": {
+        "advanced": "Advanced",
+        "questions": "Questions",
+        "minutes": "Minutes",
+        "prepareYourself": "Prepare yourself for this assessment. Read the instructions carefully before starting."
+      },
+      "instructionsTitle": "Instructions",
+      "instruction1": "Read each question carefully and select the best answer from the options provided",
+      "instruction2": "Use the question navigator on the right to jump between questions or filter by status",
+      "instruction3": "Click \"Mark for Review\" to flag questions you want to revisit later",
+      "instruction4": "The \"Next\" button is enabled only after selecting an answer",
+      "instruction5": "Use \"Jump to...\" for quick navigation to first, last, or first unanswered question",
+      "instruction6": "Monitor your time using the timer on the right sidebar",
+      "instruction7": "Once you submit, you cannot modify your answers",
+      "importantNote": {
+        "text": "Ensure you have a stable internet connection and 40 minutes of uninterrupted time before starting."
+      },
+      "quickTips": {
+        "title": "Quick Tips",
+        "tip1": "Answer all questions, even if you're unsure",
+        "tip2": "Use the color-coded navigator to track progress",
+        "tip3": "Review marked questions before submitting",
+        "tip4": "Keep an eye on the timer"
+      },
+      "startTest": "I'm Ready! Start Test"
     }
   },
   "meta": {
@@ -654,6 +792,10 @@
     "register": {
       "title": "VLAT Entrance Exam Register",
       "description": "Register for VLAT Entrance Exam"
+    },
+    "welcome-screen": {
+      "title": "Welcome Screen – VLAT",
+      "description": "Welcome to VLAT - Successfully logged in"
     },
     "dashboard": {
       "title": "Student Dashboard – VLAT",
@@ -678,6 +820,22 @@
     "exam-structure": {
       "title": "VLAT Exam Structure | VMRF Law Admission Test",
       "description": "Learn about VLAT exam structure, sections, questions, marks, and student-friendly features"
+    },
+    "instructions": {
+      "title": "Test Instructions - VLAT",
+      "description": "Read the instructions carefully before starting the test"
+    },
+    "mock-test": {
+      "title": "Mock Test - VLAT",
+      "description": "VLAT Mock Test - Practice exam"
+    },
+    "results": {
+      "title": "Test Results - VLAT",
+      "description": "View your test results and performance"
+    },
+    "review-answers": {
+      "title": "Review Answers - VLAT",
+      "description": "Detailed review of all questions and answers"
     }
   },
   "js": {

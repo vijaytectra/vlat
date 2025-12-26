@@ -32,15 +32,33 @@
       >
         <!-- Logo -->
         <div class="flex items-center gap-3">
-          <img src="images/vmlsvlatlogoheader.svg" class="h-10" alt="VMLS" />
+          <img src="images/vmlsvlatlogoheader.svg" class="h-10" alt="VMLS" data-i18n-alt="common.alt.vmlsLogo" />
         </div>
 
         <!-- Right -->
         <div class="flex items-center gap-4">
+          <!-- Language Switcher -->
+          <div
+            class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+          >
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
+            </button>
+          </div>
           <img
             src="images/vmrflogo.svg"
             class="h-8 hidden md:block"
             alt="VMLS"
+            data-i18n-alt="common.alt.vmrfLogo"
           />
           <span
             id="userNameHeader"
@@ -50,6 +68,7 @@
           <button
             id="logoutButton"
             class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+            data-i18n="common.buttons.logout"
           >
             Logout
           </button>
@@ -63,14 +82,14 @@
       <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Mock Zone -->
         <div class="bg-card rounded-xl border border-[#D4D4D4] p-5">
-          <h2 class="font-semibold text-primary mb-2">VLAT Mock Test Zone</h2>
-          <p class="text-sm text-[#525252] mb-4">
+          <h2 class="font-semibold text-primary mb-2" data-i18n="pages.dashboard.mockTestZone">VLAT Mock Test Zone</h2>
+          <p class="text-sm text-[#525252] mb-4" data-i18n="pages.dashboard.mockTestDescription">
             Preparing for VLAT becomes much easier when you practise regularly.
           </p>
           <ul class="text-sm space-y-1 text-[#525252]">
-            <li>• Builds confidence before exam</li>
-            <li>• Improves performance</li>
-            <li>• Real exam experience</li>
+            <li data-i18n="pages.dashboard.mockTestBenefits.confidence">• Builds confidence before exam</li>
+            <li data-i18n="pages.dashboard.mockTestBenefits.performance">• Improves performance</li>
+            <li data-i18n="pages.dashboard.mockTestBenefits.experience">• Real exam experience</li>
           </ul>
         </div>
 
@@ -78,11 +97,11 @@
         <div class="bg-white rounded-2xl border border-[#D4D4D4] p-5 space-y-3">
           <!-- Title -->
           <h2 class="text-lg font-semibold text-[#8D191C]">
-            Welcome back <span id="userNameWelcome">Sathiya</span>, Student!
+            <span data-i18n="pages.dashboard.welcome">Welcome back</span> <span id="userNameWelcome">Sathiya</span>, <span data-i18n="pages.dashboard.student">Student!</span>
           </h2>
 
           <!-- Subtitle -->
-          <p class="text-sm text-[#45556C]">
+          <p class="text-sm text-[#45556C]" data-i18n="pages.dashboard.chooseMockTest">
             Choose a mock test and boost your preparation.
           </p>
 
@@ -103,7 +122,7 @@
             <!-- Exam Date -->
             <div class="flex items-center gap-2">
               <i class="fas fa-calendar-day text-[#8D191C] w-4"></i>
-              <span>Next Exam: March 15, 2025</span>
+              <span><span data-i18n="pages.dashboard.nextExam">Next Exam:</span> March 15, 2025</span>
             </div>
 
             <!-- Student Name -->
@@ -134,7 +153,7 @@
             >
               <i class="fas fa-trophy text-xl"></i>
             </div>
-            <p class="text-sm text-[#262626]">Tests Completed</p>
+            <p class="text-sm text-[#262626]" data-i18n="pages.dashboard.stats.testsCompleted">Tests Completed</p>
           </div>
 
           <p
@@ -143,7 +162,7 @@
           >
             2 / 5
           </p>
-          <p class="text-xs text-[#62748E]">Keep going!</p>
+          <p class="text-xs text-[#62748E]" data-i18n="pages.dashboard.keepGoing">Keep going!</p>
         </div>
 
         <!-- CARD 2: Average Score -->
@@ -162,13 +181,13 @@
             >
               <i class="fas fa-bullseye text-xl"></i>
             </div>
-            <p class="text-sm text-[#262626]">Average Score</p>
+            <p class="text-sm text-[#262626]" data-i18n="pages.dashboard.stats.averageScore">Average Score</p>
           </div>
 
           <p class="text-xl font-bold text-[#262626]" data-stat="avg-score">
             48%
           </p>
-          <p class="text-xs text-[#62748E]">Overall performance</p>
+          <p class="text-xs text-[#62748E]" data-i18n="pages.dashboard.overallPerformance">Overall performance</p>
         </div>
 
         <!-- CARD 3: Best Score -->
@@ -187,13 +206,13 @@
             >
               <i class="fas fa-chart-line text-xl"></i>
             </div>
-            <p class="text-sm text-[#262626]">Best Score of Mock Test</p>
+            <p class="text-sm text-[#262626]" data-i18n="pages.dashboard.stats.bestScore">Best Score of Mock Test</p>
           </div>
 
           <p class="text-xl font-bold text-[#262626]" data-stat="best-score">
             85%
           </p>
-          <p class="text-xs text-[#62748E]">Personal best</p>
+          <p class="text-xs text-[#62748E]" data-i18n="pages.dashboard.personalBest">Personal best</p>
         </div>
 
         <!-- CARD 4: Total Attempts -->
@@ -212,7 +231,7 @@
             >
               <i class="fas fa-flask text-xl"></i>
             </div>
-            <p class="text-sm text-[#525252]">Total Attempts</p>
+            <p class="text-sm text-[#525252]" data-i18n="pages.dashboard.stats.totalAttempts">Total Attempts</p>
           </div>
 
           <p
@@ -221,7 +240,7 @@
           >
             2
           </p>
-          <p class="text-xs text-[#525252]">Practice count</p>
+          <p class="text-xs text-[#525252]" data-i18n="pages.dashboard.practiceCount">Practice count</p>
         </div>
       </section>
 
@@ -229,10 +248,10 @@
       <section class="space-y-4">
         <!-- Header -->
         <div>
-          <h3 class="text-xl font-semibold text-[#8D191C]">
+          <h3 class="text-xl font-semibold text-[#8D191C]" data-i18n="pages.dashboard.yourVlatMockTests">
             Your VLAT Mock Tests
           </h3>
-          <p class="text-xs text-[#525252]">
+          <p class="text-xs text-[#525252]" data-i18n="pages.dashboard.completeAllTests">
             Complete all 5 tests to master the subject
           </p>
         </div>
@@ -249,10 +268,11 @@
             <!-- Title + Status -->
             <div class="flex justify-between items-start gap-6">
               <h4 class="font-medium text-[#171717]">
-                Mock Test 1: Fundamentals
+                <span data-i18n="pages.dashboard.mockTest">Mock Test</span> 1: Fundamentals
               </h4>
               <span
                 class="text-xs px-2 py-0.5 rounded-full bg-[#F0FDFA] text-[#009689] border border-[#96F7E4]"
+                data-i18n="pages.dashboard.completed"
               >
                 Completed
               </span>
@@ -264,11 +284,11 @@
             >
               <div class="flex items-center gap-1">
                 <i class="fas fa-list-ul"></i>
-                <span>40 questions</span>
+                <span>40 <span data-i18n="pages.dashboard.questions">questions</span></span>
               </div>
               <div class="flex items-center gap-1">
                 <i class="fas fa-clock"></i>
-                <span>60 mins</span>
+                <span>60 <span data-i18n="pages.dashboard.mins">mins</span></span>
               </div>
             </div>
 
@@ -277,8 +297,8 @@
               class="space-y-4 bg-[#F0FDFA] p-4 border border-[#96F7E4] rounded-lg"
             >
               <div class="flex justify-between text-xs text-[#525252]">
-                <span>Progress</span>
-                <span class="text-[#00776E]">40 / 40 done</span>
+                <span data-i18n="pages.dashboard.progress">Progress</span>
+                <span class="text-[#00776E]">40 / 40 <span data-i18n="pages.dashboard.done">done</span></span>
               </div>
               <div class="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
                 <div class="h-full w-full bg-[#009689]"></div>
@@ -287,21 +307,21 @@
 
             <!-- Score -->
             <div class="border border-[#D4D4D4] rounded-lg p-4 text-sm">
-              <span class="text-[#314158]">Your Score</span>
+              <span class="text-[#314158]" data-i18n="pages.dashboard.yourScore">Your Score</span>
               <span class="float-right font-semibold text-xl text-[#008236]"
                 >85%</span
               >
             </div>
 
             <!-- Attempts -->
-            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+            <p class="text-xs text-[#525252]"><span data-i18n="pages.dashboard.attempts">Attempts:</span> 1 / 3</p>
 
             <!-- Action -->
             <button
               class="w-full bg-[#262626] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
             >
               <i class="fas fa-eye"></i>
-              <span class="text-sm text-[#F3F4F6]"> View Results </span>
+              <span class="text-sm text-[#F3F4F6]" data-i18n="pages.dashboard.viewResults"> View Results </span>
             </button>
           </div>
 
@@ -311,9 +331,10 @@
           >
             <!-- Title + Status -->
             <div class="flex justify-between items-start gap-6">
-              <h4 class="font-medium text-[#171717]">Mock Test 2: Advanced</h4>
+              <h4 class="font-medium text-[#171717]"><span data-i18n="pages.dashboard.mockTest">Mock Test</span> 2: Advanced</h4>
               <span
                 class="text-xs px-2 py-0.5 rounded-full bg-[#F0FDFA] text-[#009689] border border-[#96F7E4]"
+                data-i18n="pages.dashboard.inProgress"
               >
                 In Progress
               </span>
@@ -325,11 +346,11 @@
             >
               <div class="flex items-center text-[#45556C] gap-1">
                 <i class="fas fa-list-ul"></i>
-                <span>40 questions</span>
+                <span>40 <span data-i18n="pages.dashboard.questions">questions</span></span>
               </div>
               <div class="flex items-center text-[#45556C] gap-1">
                 <i class="fas fa-clock"></i>
-                <span>60 mins</span>
+                <span>60 <span data-i18n="pages.dashboard.mins">mins</span></span>
               </div>
             </div>
 
@@ -338,8 +359,8 @@
               class="space-y-4 bg-[#F0FDFA] p-4 border border-[#96F7E4] rounded-lg"
             >
               <div class="flex justify-between text-xs text-[#525252]">
-                <span>Progress</span>
-                <span class="text-[#00776E]">40 / 40 done</span>
+                <span data-i18n="pages.dashboard.progress">Progress</span>
+                <span class="text-[#00776E]">40 / 40 <span data-i18n="pages.dashboard.done">done</span></span>
               </div>
               <div class="h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
                 <div class="h-full w-full bg-[#009689]"></div>
@@ -348,21 +369,21 @@
 
             <!-- Score -->
             <div class="border border-[#D4D4D4] rounded-lg p-4 text-sm">
-              <span class="text-[#314158]">Your Score</span>
+              <span class="text-[#314158]" data-i18n="pages.dashboard.yourScore">Your Score</span>
               <span class="float-right font-semibold text-xl text-[#008236]"
                 >85%</span
               >
             </div>
 
             <!-- Attempts -->
-            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+            <p class="text-xs text-[#525252]"><span data-i18n="pages.dashboard.attempts">Attempts:</span> 1 / 3</p>
 
             <!-- Action -->
             <button
               class="w-full bg-[#262626] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
             >
               <i class="fas fa-eye"></i>
-              <span class="text-sm text-[#F3F4F6]"> View Results </span>
+              <span class="text-sm text-[#F3F4F6]" data-i18n="pages.dashboard.viewResults"> View Results </span>
             </button>
           </div>
 
@@ -371,9 +392,10 @@
             class="bg-white border border-[#D4D4D4] rounded-2xl p-4 space-y-3"
           >
             <div class="flex justify-between items-start gap-2">
-              <h4 class="font-medium text-[#171717]">Mock Test 3: Advanced</h4>
+              <h4 class="font-medium text-[#171717]"><span data-i18n="pages.dashboard.mockTest">Mock Test</span> 3: Advanced</h4>
               <span
                 class="text-xs px-2 py-0.5 rounded-full bg-[#F5F5F5] text-[#525252] border border-[#D4D4D4]"
+                data-i18n="pages.dashboard.notStarted"
               >
                 Not Started
               </span>
@@ -382,26 +404,34 @@
             <div class="flex items-center gap-4 text-xs text-[#525252]">
               <div class="flex items-center gap-1">
                 <i class="fas fa-list-ul"></i>
-                <span>40 questions</span>
+                <span>40 <span data-i18n="pages.dashboard.questions">questions</span></span>
               </div>
               <div class="flex items-center gap-1">
                 <i class="fas fa-clock"></i>
-                <span>60 mins</span>
+                <span>60 <span data-i18n="pages.dashboard.mins">mins</span></span>
               </div>
             </div>
 
-            <p class="text-xs text-[#525252]">Attempts: 1 / 3</p>
+            <p class="text-xs text-[#525252]"><span data-i18n="pages.dashboard.attempts">Attempts:</span> 1 / 3</p>
 
             <button
               class="w-full bg-[#171717] text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:opacity-90"
             >
               <i class="fas fa-play"></i>
-              Start Test
+              <span data-i18n="pages.dashboard.startTest">Start Test</span>
             </button>
           </div>
         </div>
       </section>
     </main>
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
     <script type="module" src="js/dashboard.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        await initializeTranslations();
+      });
+    </script>
   </body>
 </html>

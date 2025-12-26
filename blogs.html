@@ -67,6 +67,25 @@
             <span class="text-sm">admissions@vmls.edu.in</span>
           </a>
         </div>
+        <div class="w-full flex justify-end md:hidden">
+          <!-- Language Switcher -->
+          <div
+            class="language-switcher mt-2 flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+          >
+            <button
+              data-lang="en"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+            >
+              English
+            </button>
+            <button
+              data-lang="ta"
+              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+            >
+              தமிழ்
+            </button>
+          </div>
+        </div>
 
         <!-- Main Header -->
         <div class="flex items-center justify-between h-20 md:h-24">
@@ -79,8 +98,20 @@
                 class="cursor-pointer"
               >
                 <img
-                  src="images/vmlsvlatlogoheader.svg"
+                  src="images/VMLS.svg"
                   alt="VMLS Logo"
+                  data-i18n-alt="common.alt.vmlsLogo"
+                  width="80"
+                  height="80"
+                  class="h-14 md:h-24 w-auto"
+                  onerror="this.style.display='none'"
+                />
+              </a>
+              <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+              <a href="index.html" class="cursor-pointer">
+                <img
+                  src="images/VLATHeader.svg"
+                  alt="VLAT Logo"
                   data-i18n-alt="common.alt.vmlsLogo"
                   width="80"
                   height="80"
@@ -95,16 +126,16 @@
           <div class="flex items-center gap-3 md:gap-4">
             <!-- Language Switcher -->
             <div
-              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+              class="language-switcher hidden md:flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
             >
               <button
-                id="lang-en"
+                data-lang="en"
                 class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
               >
                 English
               </button>
               <button
-                id="lang-ta"
+                data-lang="ta"
                 class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
               >
                 தமிழ்
@@ -140,7 +171,11 @@
               class="p-3 rounded-lg flex items-center gap-2 border-[1px] border-[#8D191C] text-grey-7 hover:text-primary transition-colors"
             >
               <img src="images/menu.svg" alt="Menu" class="w-6 h-6" />
-              <span class="text-[#8D191C] font-medium" data-i18n="common.buttons.menu">Menu</span>
+              <span
+                class="text-[#8D191C] font-medium"
+                data-i18n="common.buttons.menu"
+                >Menu</span
+              >
             </button>
           </div>
         </div>
@@ -592,15 +627,33 @@
             <!-- Logo and Branding Section -->
             <div class="flex flex-col gap-6">
               <!-- Logo Image -->
+              <!-- Logo Image -->
               <div class="relative flex items-center gap-3">
-                <img
-                  src="images/vmlsvlatfooter.svg"
-                  alt="VMLS Logo"
-                  width="150"
-                  height="55"
-                  class="h-[65px] w-auto object-cover"
-                  loading="lazy"
-                />
+                <a
+                  href="https://vmls.edu.in/"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
+                  <img
+                    src="images/VMLSFooter.svg"
+                    alt="VMLS Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
+                <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+                <a href="index.html" class="cursor-pointer">
+                  <img
+                    src="images/VLATFooter.svg"
+                    alt="VLAT Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
               </div>
 
               <!-- University Description -->
@@ -698,7 +751,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 
+                  <h3
                     class="text-base font-bold text-[#FAFAFA] uppercase"
                     data-i18n="pages.footer.quickLinks"
                   >
@@ -746,7 +799,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 
+                  <h3
                     class="text-base font-bold text-[#FAFAFA] uppercase"
                     data-i18n="pages.footer.quickLinks"
                   >
@@ -809,7 +862,7 @@
               <div class="flex flex-col gap-8">
                 <!-- Header -->
                 <div class="flex flex-col gap-3">
-                  <h3 
+                  <h3
                     class="text-base font-bold text-[#FAFAFA] uppercase"
                     data-i18n="pages.footer.legalInformation"
                   >
@@ -844,7 +897,11 @@
         <!-- Copyright -->
         <div class="text-center">
           <p class="text-base text-grey-5 font-normal">
-            <span data-i18n="pages.footer.copyright">Copyright ©</span> <span id="copyrightYear">2025</span> <span data-i18n="pages.footer.copyrightText">VMLS - Vinayaka Mission's Law School</span>
+            <span data-i18n="pages.footer.copyright">Copyright ©</span>
+            <span id="copyrightYear">2025</span>
+            <span data-i18n="pages.footer.copyrightText"
+              >VMLS - Vinayaka Mission's Law School</span
+            >
           </p>
         </div>
       </div>

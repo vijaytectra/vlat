@@ -5,6 +5,17 @@ let allAnnouncements = [];
 let currentCategory = "All";
 let searchQuery = "";
 
+// Helper function to get current language reliably
+function getAnnouncementLanguage() {
+  // Try window function first
+  if (window.getCurrentLanguage && typeof window.getCurrentLanguage === "function") {
+    return window.getCurrentLanguage();
+  }
+  // Fallback to localStorage
+  const savedLang = localStorage.getItem("vlat_language");
+  return savedLang || "en";
+}
+
 // Load announcements from JSON file
 async function loadAnnouncements() {
   try {
@@ -37,6 +48,8 @@ function renderCategoryFilters() {
   const categories = getCategories();
   filterContainer.innerHTML = "";
 
+  const currentLang = getAnnouncementLanguage();
+
   categories.forEach((category) => {
     const button = document.createElement("button");
     button.className =
@@ -44,7 +57,20 @@ function renderCategoryFilters() {
     if (category === currentCategory) {
       button.classList.add("bg-primary", "text-white");
     }
-    button.textContent = category;
+    
+    // Translate category name
+    let categoryText = category;
+    if (category === "All") {
+      categoryText = window.t ? window.t('common.buttons.all') : "All";
+    } else {
+      // Find the Tamil translation for the category from announcements
+      const announcement = allAnnouncements.find(a => a.category === category);
+      if (announcement && announcement.category_ta && currentLang === "ta") {
+        categoryText = announcement.category_ta;
+      }
+    }
+    
+    button.textContent = categoryText;
     button.dataset.category = category;
     button.addEventListener("click", () => {
       currentCategory = category;
@@ -69,11 +95,17 @@ function getFilteredAnnouncements() {
   // Filter by search query
   if (searchQuery.trim() !== "") {
     const query = searchQuery.toLowerCase();
+    const currentLang = getAnnouncementLanguage();
     filtered = filtered.filter(
-      (announcement) =>
-        announcement.title.toLowerCase().includes(query) ||
-        announcement.description.toLowerCase().includes(query) ||
-        announcement.tags.some((tag) => tag.toLowerCase().includes(query))
+      (announcement) => {
+        const title = (currentLang === "ta" && announcement.title_ta) ? announcement.title_ta : announcement.title;
+        const description = (currentLang === "ta" && announcement.description_ta) ? announcement.description_ta : announcement.description;
+        const tags = (currentLang === "ta" && announcement.tags_ta) ? announcement.tags_ta : announcement.tags;
+        
+        return title.toLowerCase().includes(query) ||
+               description.toLowerCase().includes(query) ||
+               tags.some((tag) => tag.toLowerCase().includes(query));
+      }
     );
   }
 
@@ -86,6 +118,7 @@ function renderAnnouncements() {
   if (!container) return;
 
   const filtered = getFilteredAnnouncements();
+  const currentLang = getAnnouncementLanguage();
 
   // Use DocumentFragment to batch DOM writes and reduce reflows
   const fragment = document.createDocumentFragment();
@@ -97,16 +130,22 @@ function renderAnnouncements() {
     fragment.appendChild(emptyDiv);
   } else {
     filtered.forEach((announcement) => {
+      // Get translated content based on current language
+      // Check if Tamil translation exists and language is Tamil
+      const useTamil = currentLang === "ta" && announcement.title_ta;
+      const title = useTamil ? announcement.title_ta : announcement.title;
+      const description = useTamil ? announcement.description_ta : announcement.description;
+      const category = useTamil && announcement.category_ta ? announcement.category_ta : announcement.category;
+      const tags = useTamil && announcement.tags_ta ? announcement.tags_ta : announcement.tags;
+      
       const card = document.createElement("div");
       card.className = "card border border-[#A3A3A3]";
       card.innerHTML = `
         <div class="flex items-start justify-between mb-2">
           <div class="flex space-x-2 flex-wrap gap-2">
-            <span class="px-2 py-1 text-xs bg-primary text-white rounded-full">${
-              announcement.category
-            }</span>
-            ${announcement.tags
-              .filter((tag) => tag !== announcement.category)
+            <span class="px-2 py-1 text-xs bg-primary text-white rounded-full">${category}</span>
+            ${tags
+              .filter((tag) => tag !== category && tag !== announcement.category)
               .map(
                 (tag) =>
                   `<span class="px-2 py-1 text-xs bg-grey-2 text-grey-7 rounded-full">${tag}</span>`
@@ -115,13 +154,9 @@ function renderAnnouncements() {
           </div>
           <span class="text-xs text-grey-6">${announcement.date}</span>
         </div>
-        <h3 class="font-medium text-[announcementsContainer] mb-2">${
-          announcement.title
-        }</h3>
-        <p class="text-xs text-[#737373] mb-3">${announcement.description}</p>
-        <a href="${
-          announcement.link
-        }" class="text-sm text-[#155DFC] hover:underline">${window.t ? window.t('common.buttons.readMore') : 'Read more →'}</a>
+        <h3 class="font-medium text-[announcementsContainer] mb-2">${title}</h3>
+        <p class="text-xs text-[#737373] mb-3">${description}</p>
+        <a href="${announcement.link}" class="text-sm text-[#155DFC] hover:underline">${window.t ? window.t('common.buttons.readMore') : 'Read more →'}</a>
       `;
       fragment.appendChild(card);
     });
@@ -155,6 +190,13 @@ function initAnnouncementsSidebar() {
     announcementBtn.addEventListener("click", () => {
       announcementSidebar.classList.toggle("translate-x-full");
       announcementSidebar.classList.toggle("translate-x-0");
+      // Re-render announcements when sidebar opens to ensure correct language
+      if (!announcementSidebar.classList.contains("translate-x-full")) {
+        if (allAnnouncements.length > 0) {
+          renderAnnouncements();
+          renderCategoryFilters();
+        }
+      }
     });
 
     if (closeAnnouncement) {
@@ -170,10 +212,22 @@ function initAnnouncementsSidebar() {
 
   // Defer announcements loading until after initial paint to prevent forced reflow
   // Use requestIdleCallback with fallback to setTimeout for better performance
+  // Also ensure language system is initialized before loading
+  function loadAnnouncementsWithLanguage() {
+    loadAnnouncements();
+    // Re-render after a short delay to ensure language is set
+    setTimeout(() => {
+      if (allAnnouncements.length > 0) {
+        renderAnnouncements();
+        renderCategoryFilters();
+      }
+    }, 100);
+  }
+  
   if (window.requestIdleCallback) {
     requestIdleCallback(
       () => {
-        loadAnnouncements();
+        loadAnnouncementsWithLanguage();
       },
       { timeout: 2000 }
     );
@@ -181,7 +235,7 @@ function initAnnouncementsSidebar() {
     // Fallback: wait for next frame after initial paint
     requestAnimationFrame(() => {
       setTimeout(() => {
-        loadAnnouncements();
+        loadAnnouncementsWithLanguage();
       }, 0);
     });
   }

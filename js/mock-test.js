@@ -18,6 +18,53 @@ import {
 } from "./modal.js";
 import { logout, getUserData } from "./auth.js";
 
+/**
+ * Get current language from translation system
+ */
+function getCurrentLanguage() {
+  if (typeof window.getCurrentLanguage === "function") {
+    return window.getCurrentLanguage();
+  }
+  const saved = localStorage.getItem("vlat_language");
+  return saved || "en";
+}
+
+/**
+ * Get localized text from bilingual object or string
+ * Supports both old format (string) and new format ({en: "...", ta: "..."})
+ */
+function getLocalizedText(textObj, lang = null) {
+  if (!textObj) return "";
+
+  const currentLang = lang || getCurrentLanguage();
+
+  // If it's already a string (old format), return as is
+  if (typeof textObj === "string") {
+    return textObj;
+  }
+
+  // If it's an object with language keys
+  if (typeof textObj === "object") {
+    // Try current language first
+    if (textObj[currentLang]) {
+      return textObj[currentLang];
+    }
+    // Fallback to English
+    if (textObj.en) {
+      return textObj.en;
+    }
+    // Fallback to Tamil
+    if (textObj.ta) {
+      return textObj.ta;
+    }
+    // Fallback to first available value
+    const firstKey = Object.keys(textObj)[0];
+    return textObj[firstKey] || "";
+  }
+
+  return "";
+}
+
 // Test state
 let testState = {
   setId: null,
@@ -170,8 +217,16 @@ async function loadMockTest(setId) {
 
     // Update test title
     if (elements.testTitle) {
-      elements.testTitle.textContent = mockSet.title;
+      elements.testTitle.textContent = getLocalizedText(mockSet.title);
     }
+
+    // Listen for language changes
+    window.addEventListener("languageChanged", () => {
+      renderQuestion(testState.currentQuestionIndex);
+      if (elements.testTitle) {
+        elements.testTitle.textContent = getLocalizedText(mockSet.title);
+      }
+    });
 
     return true;
   } catch (error) {
@@ -191,7 +246,8 @@ function renderQuestion(index) {
 
   // Update question text
   if (elements.questionText) {
-    elements.questionText.textContent = `Question ${question.id} for Test ${testState.setId}: ${question.question}`;
+    const questionText = getLocalizedText(question.question);
+    elements.questionText.textContent = `Question ${question.id} for Test ${testState.setId}: ${questionText}`;
   }
 
   // Update question counter
@@ -238,6 +294,7 @@ function renderQuestion(index) {
  */
 function createOptionElement(questionId, option) {
   const isSelected = testState.answers[questionId] === option.id;
+  const optionText = getLocalizedText(option.text);
   const optionDiv = document.createElement("div");
   optionDiv.className = `option-item p-3 rounded-xl outline outline-1 outline-offset-[-1px] cursor-pointer transition-all ${
     isSelected
@@ -249,7 +306,7 @@ function createOptionElement(questionId, option) {
   optionDiv.setAttribute("tabindex", isSelected ? "0" : "-1");
   optionDiv.setAttribute("data-question-id", questionId);
   optionDiv.setAttribute("data-option-id", option.id);
-  optionDiv.setAttribute("aria-label", `Option ${option.id}: ${option.text}`);
+  optionDiv.setAttribute("aria-label", `Option ${option.id}: ${optionText}`);
 
   const borderWidth = isSelected ? "3px" : "1.60px";
   const borderColor = isSelected ? "border-teal-600" : "border-slate-300";
@@ -264,7 +321,7 @@ function createOptionElement(questionId, option) {
         }
       </div>
       <div class="justify-start text-slate-700 text-base font-normal font-['Inter'] leading-6">
-        Option ${option.id}: ${option.text}
+        Option ${option.id}: ${optionText}
       </div>
     </div>
   `;

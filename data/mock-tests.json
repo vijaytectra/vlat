@@ -2,61 +2,181 @@
   "mockSets": [
     {
       "id": 1,
-      "title": "Mock Test 1: Fundamentals",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 1: Fundamentals",
+        "ta": "பயிற்சி தேர்வு 1: அடிப்படைகள்"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
-          "question": "Which of the following is a fundamental right guaranteed under Article 21 of the Indian Constitution?",
+          "question": {
+            "en": "Which of the following is a fundamental right guaranteed under Article 21 of the Indian Constitution?",
+            "ta": "இந்திய அரசியலமைப்பின் 21-வது பிரிவின் கீழ் உத்தரவாதம் அளிக்கப்பட்ட அடிப்படை உரிமை எது?"
+          },
           "options": [
-            { "id": "A", "text": "Right to property" },
-            { "id": "B", "text": "Right to life and personal liberty" },
-            { "id": "C", "text": "Right to freedom of speech" },
-            { "id": "D", "text": "Right to equality" }
+            {
+              "id": "A",
+              "text": { "en": "Right to property", "ta": "சொத்துரிமை" }
+            },
+            {
+              "id": "B",
+              "text": {
+                "en": "Right to life and personal liberty",
+                "ta": "வாழ்க்கை மற்றும் தனிப்பட்ட சுதந்திரத்திற்கான உரிமை"
+              }
+            },
+            {
+              "id": "C",
+              "text": {
+                "en": "Right to freedom of speech",
+                "ta": "பேச்சு சுதந்திரத்திற்கான உரிமை"
+              }
+            },
+            {
+              "id": "D",
+              "text": {
+                "en": "Right to equality",
+                "ta": "சமத்துவத்திற்கான உரிமை"
+              }
+            }
           ],
           "correctAnswer": "B"
         },
         {
           "id": 2,
-          "question": "In contract law, what is the term for an offer that can be revoked at any time before acceptance?",
+          "question": {
+            "en": "In contract law, what is the term for an offer that can be revoked at any time before acceptance?",
+            "ta": "ஒப்பந்தச் சட்டத்தில், ஏற்றுக்கொள்வதற்கு முன் எந்த நேரத்திலும் திரும்பப் பெறக்கூடிய சலுகைக்கான சொல் என்ன?"
+          },
           "options": [
-            { "id": "A", "text": "Irrevocable offer" },
-            { "id": "B", "text": "Revocable offer" },
-            { "id": "C", "text": "Standing offer" },
-            { "id": "D", "text": "Counter offer" }
+            {
+              "id": "A",
+              "text": {
+                "en": "Irrevocable offer",
+                "ta": "திரும்பப் பெற முடியாத சலுகை"
+              }
+            },
+            {
+              "id": "B",
+              "text": {
+                "en": "Revocable offer",
+                "ta": "திரும்பப் பெறக்கூடிய சலுகை"
+              }
+            },
+            {
+              "id": "C",
+              "text": { "en": "Standing offer", "ta": "நிலையான சலுகை" }
+            },
+            {
+              "id": "D",
+              "text": { "en": "Counter offer", "ta": "எதிர் சலுகை" }
+            }
           ],
           "correctAnswer": "B"
         },
         {
           "id": 3,
-          "question": "What is the maximum punishment for murder under Section 302 of the Indian Penal Code?",
+          "question": {
+            "en": "What is the maximum punishment for murder under Section 302 of the Indian Penal Code?",
+            "ta": "இந்திய தண்டனைச் சட்டத்தின் 302-வது பிரிவின் கீழ் கொலைக்கான அதிகபட்ச தண்டனை என்ன?"
+          },
           "options": [
-            { "id": "A", "text": "Life imprisonment" },
-            { "id": "B", "text": "Death penalty or life imprisonment" },
-            { "id": "C", "text": "10 years imprisonment" },
-            { "id": "D", "text": "14 years imprisonment" }
+            {
+              "id": "A",
+              "text": {
+                "en": "Life imprisonment",
+                "ta": "வாழ்நாள் சிறைத்தண்டனை"
+              }
+            },
+            {
+              "id": "B",
+              "text": {
+                "en": "Death penalty or life imprisonment",
+                "ta": "மரண தண்டனை அல்லது வாழ்நாள் சிறைத்தண்டனை"
+              }
+            },
+            {
+              "id": "C",
+              "text": {
+                "en": "10 years imprisonment",
+                "ta": "10 ஆண்டுகள் சிறைத்தண்டனை"
+              }
+            },
+            {
+              "id": "D",
+              "text": {
+                "en": "14 years imprisonment",
+                "ta": "14 ஆண்டுகள் சிறைத்தண்டனை"
+              }
+            }
           ],
           "correctAnswer": "B"
         },
         {
           "id": 4,
-          "question": "Which principle states that a person is liable for harm caused by their negligence?",
+          "question": {
+            "en": "Which principle states that a person is liable for harm caused by their negligence?",
+            "ta": "ஒருவரின் அலட்சியத்தால் ஏற்படும் தீங்கிற்கு ஒருவர் பொறுப்பு என்பதை எந்தக் கொள்கை கூறுகிறது?"
+          },
           "options": [
-            { "id": "A", "text": "Strict liability" },
-            { "id": "B", "text": "Vicarious liability" },
-            { "id": "C", "text": "Tort of negligence" },
-            { "id": "D", "text": "Absolute liability" }
+            {
+              "id": "A",
+              "text": { "en": "Strict liability", "ta": "கண்டிப்பான பொறுப்பு" }
+            },
+            {
+              "id": "B",
+              "text": { "en": "Vicarious liability", "ta": "மாற்றுப் பொறுப்பு" }
+            },
+            {
+              "id": "C",
+              "text": { "en": "Tort of negligence", "ta": "அலட்சியத்தின் தவறு" }
+            },
+            {
+              "id": "D",
+              "text": { "en": "Absolute liability", "ta": "முழுமையான பொறுப்பு" }
+            }
           ],
           "correctAnswer": "C"
         },
         {
           "id": 5,
-          "question": "What is the doctrine of 'stare decisis'?",
+          "question": {
+            "en": "What is the doctrine of 'stare decisis'?",
+            "ta": "'stare decisis' என்பதன் கோட்பாடு என்ன?"
+          },
           "options": [
-            { "id": "A", "text": "To stand by decided matters" },
-            { "id": "B", "text": "To question decided matters" },
-            { "id": "C", "text": "To reverse decided matters" },
-            { "id": "D", "text": "To ignore decided matters" }
+            {
+              "id": "A",
+              "text": {
+                "en": "To stand by decided matters",
+                "ta": "தீர்மானிக்கப்பட்ட விஷயங்களில் நிற்க"
+              }
+            },
+            {
+              "id": "B",
+              "text": {
+                "en": "To question decided matters",
+                "ta": "தீர்மானிக்கப்பட்ட விஷயங்களை கேள்வி எழுப்ப"
+              }
+            },
+            {
+              "id": "C",
+              "text": {
+                "en": "To reverse decided matters",
+                "ta": "தீர்மானிக்கப்பட்ட விஷயங்களை மாற்றியமை"
+              }
+            },
+            {
+              "id": "D",
+              "text": {
+                "en": "To ignore decided matters",
+                "ta": "தீர்மானிக்கப்பட்ட விஷயங்களை புறக்கணி"
+              }
+            }
           ],
           "correctAnswer": "A"
         },
@@ -154,8 +274,14 @@
           "options": [
             { "id": "A", "text": "Equity acts in personam" },
             { "id": "B", "text": "Equity follows the law" },
-            { "id": "C", "text": "Equity will not suffer a wrong without a remedy" },
-            { "id": "D", "text": "Equity imputes an intention to fulfill an obligation" }
+            {
+              "id": "C",
+              "text": "Equity will not suffer a wrong without a remedy"
+            },
+            {
+              "id": "D",
+              "text": "Equity imputes an intention to fulfill an obligation"
+            }
           ],
           "correctAnswer": "B"
         },
@@ -449,15 +575,27 @@
     },
     {
       "id": 2,
-      "title": "Mock Test 2: Advanced",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 2: Advanced",
+        "ta": "பயிற்சி தேர்வு 2: மேம்பட்ட"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
           "question": "What is the doctrine of 'basic structure' in constitutional law?",
           "options": [
-            { "id": "A", "text": "A doctrine that limits the power of Parliament to amend the Constitution" },
-            { "id": "B", "text": "A doctrine that expands the power of Parliament" },
+            {
+              "id": "A",
+              "text": "A doctrine that limits the power of Parliament to amend the Constitution"
+            },
+            {
+              "id": "B",
+              "text": "A doctrine that expands the power of Parliament"
+            },
             { "id": "C", "text": "A doctrine that limits judicial review" },
             { "id": "D", "text": "A doctrine that expands executive power" }
           ],
@@ -467,8 +605,14 @@
           "id": 2,
           "question": "In contract law, what is the difference between a condition and a warranty?",
           "options": [
-            { "id": "A", "text": "A condition is essential, a warranty is not" },
-            { "id": "B", "text": "A warranty is essential, a condition is not" },
+            {
+              "id": "A",
+              "text": "A condition is essential, a warranty is not"
+            },
+            {
+              "id": "B",
+              "text": "A warranty is essential, a condition is not"
+            },
             { "id": "C", "text": "Both are the same" },
             { "id": "D", "text": "Neither is essential" }
           ],
@@ -720,8 +864,14 @@
           "id": 25,
           "question": "What is the doctrine of 'estoppel'?",
           "options": [
-            { "id": "A", "text": "A person is prevented from denying what they have previously stated" },
-            { "id": "B", "text": "A person can deny what they have previously stated" },
+            {
+              "id": "A",
+              "text": "A person is prevented from denying what they have previously stated"
+            },
+            {
+              "id": "B",
+              "text": "A person can deny what they have previously stated"
+            },
             { "id": "C", "text": "A person must always state the truth" },
             { "id": "D", "text": "A person can never state anything" }
           ],
@@ -896,8 +1046,14 @@
     },
     {
       "id": 3,
-      "title": "Mock Test 3: Advanced Topics",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 3: Advanced Topics",
+        "ta": "பயிற்சி தேர்வு 3: மேம்பட்ட தலைப்புகள்"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
@@ -914,8 +1070,14 @@
           "id": 2,
           "question": "In contract law, what is the difference between fraud and misrepresentation?",
           "options": [
-            { "id": "A", "text": "Fraud requires intention to deceive, misrepresentation does not" },
-            { "id": "B", "text": "Misrepresentation requires intention to deceive, fraud does not" },
+            {
+              "id": "A",
+              "text": "Fraud requires intention to deceive, misrepresentation does not"
+            },
+            {
+              "id": "B",
+              "text": "Misrepresentation requires intention to deceive, fraud does not"
+            },
             { "id": "C", "text": "Both are the same" },
             { "id": "D", "text": "Neither requires intention" }
           ],
@@ -925,8 +1087,14 @@
           "id": 3,
           "question": "What is the principle of 'double jeopardy'?",
           "options": [
-            { "id": "A", "text": "A person cannot be tried twice for the same offence" },
-            { "id": "B", "text": "A person can be tried twice for the same offence" },
+            {
+              "id": "A",
+              "text": "A person cannot be tried twice for the same offence"
+            },
+            {
+              "id": "B",
+              "text": "A person can be tried twice for the same offence"
+            },
             { "id": "C", "text": "A person must be tried twice" },
             { "id": "D", "text": "A person cannot be tried at all" }
           ],
@@ -947,9 +1115,18 @@
           "id": 5,
           "question": "What is the doctrine of 'judicial review'?",
           "options": [
-            { "id": "A", "text": "Power of courts to review legislative and executive actions" },
-            { "id": "B", "text": "Power of legislature to review judicial actions" },
-            { "id": "C", "text": "Power of executive to review judicial actions" },
+            {
+              "id": "A",
+              "text": "Power of courts to review legislative and executive actions"
+            },
+            {
+              "id": "B",
+              "text": "Power of legislature to review judicial actions"
+            },
+            {
+              "id": "C",
+              "text": "Power of executive to review judicial actions"
+            },
             { "id": "D", "text": "No power to review" }
           ],
           "correctAnswer": "A"
@@ -1048,7 +1225,10 @@
           "options": [
             { "id": "A", "text": "Equity follows the law" },
             { "id": "B", "text": "Equity will not assist a volunteer" },
-            { "id": "C", "text": "Equity will not suffer a wrong without a remedy" },
+            {
+              "id": "C",
+              "text": "Equity will not suffer a wrong without a remedy"
+            },
             { "id": "D", "text": "Equity acts in personam" }
           ],
           "correctAnswer": "C"
@@ -1079,8 +1259,14 @@
           "id": 17,
           "question": "What is the doctrine of 'contributory negligence'?",
           "options": [
-            { "id": "A", "text": "Plaintiff's own negligence contributing to the harm" },
-            { "id": "B", "text": "Defendant's negligence contributing to the harm" },
+            {
+              "id": "A",
+              "text": "Plaintiff's own negligence contributing to the harm"
+            },
+            {
+              "id": "B",
+              "text": "Defendant's negligence contributing to the harm"
+            },
             { "id": "C", "text": "Both parties' negligence" },
             { "id": "D", "text": "No negligence at all" }
           ],
@@ -1123,7 +1309,10 @@
           "id": 21,
           "question": "What is the principle of 'unjust enrichment'?",
           "options": [
-            { "id": "A", "text": "Gaining benefit at another's expense without legal justification" },
+            {
+              "id": "A",
+              "text": "Gaining benefit at another's expense without legal justification"
+            },
             { "id": "B", "text": "Gaining benefit with legal justification" },
             { "id": "C", "text": "Losing benefit without justification" },
             { "id": "D", "text": "No benefit gained" }
@@ -1167,7 +1356,10 @@
           "id": 25,
           "question": "What is the doctrine of 'promissory estoppel'?",
           "options": [
-            { "id": "A", "text": "A promise that cannot be revoked if relied upon" },
+            {
+              "id": "A",
+              "text": "A promise that cannot be revoked if relied upon"
+            },
             { "id": "B", "text": "A promise that can always be revoked" },
             { "id": "C", "text": "A promise that is never binding" },
             { "id": "D", "text": "A promise that is always void" }
@@ -1277,8 +1469,14 @@
           "id": 35,
           "question": "What is the doctrine of 'clean hands'?",
           "options": [
-            { "id": "A", "text": "A person seeking equity must come with clean hands" },
-            { "id": "B", "text": "A person seeking equity can come with dirty hands" },
+            {
+              "id": "A",
+              "text": "A person seeking equity must come with clean hands"
+            },
+            {
+              "id": "B",
+              "text": "A person seeking equity can come with dirty hands"
+            },
             { "id": "C", "text": "Hands are always clean" },
             { "id": "D", "text": "Hands are always dirty" }
           ],
@@ -1343,17 +1541,50 @@
     },
     {
       "id": 4,
-      "title": "Mock Test 4: Constitutional Law",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 4: Constitutional Law",
+        "ta": "பயிற்சி தேர்வு 4: அரசியலமைப்புச் சட்டம்"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
-          "question": "Which of the following best describes the concept being tested in this scenario?",
+          "question": {
+            "en": "Which of the following best describes the concept being tested in this scenario?",
+            "ta": "இந்த காட்சியில் சோதிக்கப்படும் கருத்தை பின்வருவனவற்றில் எது சிறப்பாக விவரிக்கிறது?"
+          },
           "options": [
-            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
-            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
-            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
-            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+            {
+              "id": "A",
+              "text": {
+                "en": "This represents the first possible interpretation of the given scenario",
+                "ta": "இது கொடுக்கப்பட்ட காட்சியின் முதல் சாத்தியமான விளக்கத்தைக் குறிக்கிறது"
+              }
+            },
+            {
+              "id": "B",
+              "text": {
+                "en": "This represents the second possible interpretation of the given scenario",
+                "ta": "இது கொடுக்கப்பட்ட காட்சியின் இரண்டாவது சாத்தியமான விளக்கத்தைக் குறிக்கிறது"
+              }
+            },
+            {
+              "id": "C",
+              "text": {
+                "en": "This represents the third possible interpretation of the given scenario",
+                "ta": "இது கொடுக்கப்பட்ட காட்சியின் மூன்றாவது சாத்தியமான விளக்கத்தைக் குறிக்கிறது"
+              }
+            },
+            {
+              "id": "D",
+              "text": {
+                "en": "This represents the fourth possible interpretation of the given scenario",
+                "ta": "இது கொடுக்கப்பட்ட காட்சியின் நான்காவது சாத்தியமான விளக்கத்தைக் குறிக்கிறது"
+              }
+            }
           ],
           "correctAnswer": "B"
         }
@@ -1361,17 +1592,35 @@
     },
     {
       "id": 5,
-      "title": "Mock Test 5: Criminal Law",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 5: Criminal Law",
+        "ta": "பயிற்சி தேர்வு 5: குற்றவியல் சட்டம்"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
           "question": "Which of the following best describes the concept being tested in this scenario?",
           "options": [
-            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
-            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
-            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
-            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+            {
+              "id": "A",
+              "text": "This represents the first possible interpretation of the given scenario"
+            },
+            {
+              "id": "B",
+              "text": "This represents the second possible interpretation of the given scenario"
+            },
+            {
+              "id": "C",
+              "text": "This represents the third possible interpretation of the given scenario"
+            },
+            {
+              "id": "D",
+              "text": "This represents the fourth possible interpretation of the given scenario"
+            }
           ],
           "correctAnswer": "C"
         }
@@ -1379,17 +1628,35 @@
     },
     {
       "id": 6,
-      "title": "Mock Test 6: Contract Law",
-      "description": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+      "title": {
+        "en": "Mock Test 6: Contract Law",
+        "ta": "பயிற்சி தேர்வு 6: ஒப்பந்தச் சட்டம்"
+      },
+      "description": {
+        "en": "Prepare yourself for this assessment. Read the instructions carefully before starting.",
+        "ta": "இந்த மதிப்பீட்டிற்கு உங்களைத் தயார்படுத்திக் கொள்ளுங்கள். தொடங்குவதற்கு முன் வழிமுறைகளை கவனமாகப் படிக்கவும்."
+      },
       "questions": [
         {
           "id": 1,
           "question": "Which of the following best describes the concept being tested in this scenario?",
           "options": [
-            { "id": "A", "text": "This represents the first possible interpretation of the given scenario" },
-            { "id": "B", "text": "This represents the second possible interpretation of the given scenario" },
-            { "id": "C", "text": "This represents the third possible interpretation of the given scenario" },
-            { "id": "D", "text": "This represents the fourth possible interpretation of the given scenario" }
+            {
+              "id": "A",
+              "text": "This represents the first possible interpretation of the given scenario"
+            },
+            {
+              "id": "B",
+              "text": "This represents the second possible interpretation of the given scenario"
+            },
+            {
+              "id": "C",
+              "text": "This represents the third possible interpretation of the given scenario"
+            },
+            {
+              "id": "D",
+              "text": "This represents the fourth possible interpretation of the given scenario"
+            }
           ],
           "correctAnswer": "D"
         }

@@ -6,6 +6,46 @@ import { getProgressFromBackend } from "./test-state.js";
 import { logout } from "./auth.js";
 
 /**
+ * Get current language from translation system
+ */
+function getCurrentLanguage() {
+  if (typeof window.getCurrentLanguage === "function") {
+    return window.getCurrentLanguage();
+  }
+  const saved = localStorage.getItem("vlat_language");
+  return saved || "en";
+}
+
+/**
+ * Get localized text from bilingual object or string
+ */
+function getLocalizedText(textObj, lang = null) {
+  if (!textObj) return "";
+  
+  const currentLang = lang || getCurrentLanguage();
+  
+  if (typeof textObj === "string") {
+    return textObj;
+  }
+  
+  if (typeof textObj === "object") {
+    if (textObj[currentLang]) {
+      return textObj[currentLang];
+    }
+    if (textObj.en) {
+      return textObj.en;
+    }
+    if (textObj.ta) {
+      return textObj.ta;
+    }
+    const firstKey = Object.keys(textObj)[0];
+    return textObj[firstKey] || "";
+  }
+  
+  return "";
+}
+
+/**
  * Initialize review answers page
  */
 async function initializeReviewAnswers() {
@@ -116,8 +156,14 @@ function displayQuestionReview(mockSet, progress) {
 
   // Update title
   if (reviewTitle) {
-    reviewTitle.textContent = `Review Answers - ${mockSet.title}`;
+    const titleText = getLocalizedText(mockSet.title);
+    reviewTitle.textContent = `Review Answers - ${titleText}`;
   }
+  
+  // Listen for language changes
+  window.addEventListener("languageChanged", () => {
+    displayQuestionReview(mockSet, progress);
+  });
 
   container.innerHTML = "";
 
@@ -150,12 +196,13 @@ function displayQuestionReview(mockSet, progress) {
           ${isCorrect ? "Correct" : isUnanswered ? "Unanswered" : "Incorrect"}
         </span>
       </div>
-      <p class="text-grey-7 mb-4 text-base">${question.question}</p>
+      <p class="text-grey-7 mb-4 text-base">${getLocalizedText(question.question)}</p>
       <div class="space-y-2">
         ${question.options
           .map((option) => {
             const isUserAnswer = userAnswer === option.id;
             const isCorrectAnswer = question.correctAnswer === option.id;
+            const optionText = getLocalizedText(option.text);
 
             let bgClass = "bg-white";
             let borderClass = "border-grey-4";
@@ -175,7 +222,7 @@ function displayQuestionReview(mockSet, progress) {
             <div class="p-3 rounded-lg border ${bgClass} ${borderClass}">
               <div class="flex items-center gap-2">
                 <span class="font-medium ${textClass}">${option.id}.</span>
-                <span class="${textClass}">${option.text}</span>
+                <span class="${textClass}">${optionText}</span>
                 ${
                   isCorrectAnswer
                     ? '<span class="ml-auto text-green-600 font-semibold">✓ Correct Answer</span>'

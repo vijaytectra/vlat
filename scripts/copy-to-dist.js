@@ -29,6 +29,9 @@ const filesToCopy = [
   'welcome-screen.html',
   'check-your-email.html',
   'footer.html',
+  'robots.txt',
+  'sitemap.xml',
+  '_headers',
 ];
 
 const dirsToCopy = [
@@ -36,6 +39,7 @@ const dirsToCopy = [
   'js',
   'images',
   'data',
+  'translations',
 ];
 
 /**

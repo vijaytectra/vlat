@@ -115,6 +115,26 @@
           <span class="text-sm">admissions@vmls.edu.in</span>
         </a>
       </div>
+      <div class="w-full flex justify-end md:hidden ">
+
+        <!-- Language Switcher -->
+        <div
+          class="language-switcher mt-2 flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+        >
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
+          </button>
+        </div>
+      </div>
 
       <!-- Main Header -->
       <div class="flex items-center justify-between h-20 md:h-24">
@@ -127,7 +147,7 @@
                 class="cursor-pointer"
               >
                 <img
-                  src="images/vmlsvlatlogoheader.svg"
+                  src="images/VMLS.svg"
                   alt="VMLS Logo"
                   data-i18n-alt="common.alt.vmlsLogo"
                   width="80"
@@ -135,7 +155,27 @@
                   class="h-14 md:h-24 w-auto"
                   onerror="this.style.display='none'"
                 />
+
+                
               </a>
+              <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+              <a
+              href="index.html"
+            
+              class="cursor-pointer"
+            >
+              <img
+                src="images/VLATHeader.svg"
+                alt="VLAT Logo"
+                data-i18n-alt="common.alt.vmlsLogo"
+                width="80"
+                height="80"
+                class="h-14 md:h-24 w-auto"
+                onerror="this.style.display='none'"
+              />
+
+              
+            </a>
             </div>
           </div>
 
@@ -144,19 +184,19 @@
         <div class="flex items-center gap-3 md:gap-4">
           <!-- Language Switcher -->
           <div
-            class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+            class="language-switcher hidden md:flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
           >
-            <button
-              id="lang-en"
-              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
-            >
-              English
-            </button>
-            <button
-              id="lang-ta"
-              class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
-            >
-              தமிழ்
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
             </button>
           </div>
           <div class="hidden lg:flex items-center gap-2">
@@ -440,6 +480,7 @@
           opportunity to showcase their potential without unnecessary pressure.
         </p>
       </div>
+    </div>
   </section>
 
   <section class="py-20 bg-white">
@@ -534,8 +575,6 @@
         </div>
 
       </div>
-
-    </div>
     </div>
   </section>
 
@@ -1178,7 +1217,7 @@
             </div>
             <div>
               <h3 class="text-gray-300 text-2xl font-medium mb-6" data-i18n="pages.aboutVlat.contact.phone.title">Phone</h3>
-              <p class="text-white text-base">18003094350 | +91 73582 01234</p>
+              <p class="text-white text-base">18003094350 | 73582 01234 | 7200094298</p>
             </div>
           </div>
 
@@ -1262,17 +1301,34 @@
           <!-- Logo and Branding Section -->
           <div class="flex flex-col gap-6">
             <!-- Logo Image -->
-            <div class="relative flex items-center gap-3">
-              <img
-                  src="images/vmlsvlatfooter.svg"
-                  alt="VMLS Logo"
-                  width="150"
-                  height="55"
-                  class="h-[65px] w-auto object-cover"
-                  loading="lazy"
-                />
-             
-            </div>
+              <!-- Logo Image -->
+              <div class="relative flex items-center gap-3">
+                <a
+                  href="https://vmls.edu.in/"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
+                  <img
+                    src="images/VMLSFooter.svg"
+                    alt="VMLS Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
+                <div class="h-14 w-px bg-grey-5 border-grey-5"></div>
+                <a href="index.html"  class="cursor-pointer">
+                  <img
+                    src="images/VLATFooter.svg"
+                    alt="VLAT Logo"
+                    width="150"
+                    height="55"
+                    class="h-[65px] w-auto object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
 
             <!-- University Description -->
             <p
@@ -1563,8 +1619,9 @@
   <script>
     // Initialize translations on page load
     document.addEventListener("DOMContentLoaded", async () => {
-      await initializeTranslations();
-      translatePage();
+      if (typeof initializeTranslations === "function") {
+        await initializeTranslations();
+      }
     });
   </script>
 

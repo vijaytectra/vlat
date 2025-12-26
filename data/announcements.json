@@ -3,27 +3,38 @@
     {
       "id": 1,
       "title": "Appointment of Mr. Siddharth Raja as Executive Dean of VMLS",
-      "description": "Vinayaka Mission’s Research Foundation announces the appointment of Mr. Siddharth Raja as Executive Dean of Vinayaka Mission’s Law School, bringing nearly three decades of global legal practice and academic engagement to advance a future-ready, multidisciplinary legal education.",
+      "title_ta": "VMLS இன் நிர்வாக டீன் ஆக திரு. சித்தார்த் ராஜா நியமனம்",
+      "description": "Vinayaka Mission's Research Foundation announces the appointment of Mr. Siddharth Raja as Executive Dean of Vinayaka Mission's Law School, bringing nearly three decades of global legal practice and academic engagement to advance a future-ready, multidisciplinary legal education.",
+      "description_ta": "விநாயக மிஷன் ரிசர்ச் ஃபவுண்டேஷன், விநாயக மிஷன் லா ஸ்கூலின் நிர்வாக டீன் ஆக திரு. சித்தார்த் ராஜாவை நியமிக்கிறது, எதிர்கால-தயாராக, பலதுறை சட்ட கல்வியை முன்னேற்றுவதற்காக கிட்டத்தட்ட மூன்று தசாப்தங்களின் உலகளாவிய சட்ட நடைமுறை மற்றும் கல்வி ஈடுபாட்டைக் கொண்டு வருகிறது.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": ["Events", "VMLS", "Leadership", "Legal-Education"],
+      "tags_ta": ["நிகழ்வுகள்", "VMLS", "தலைமை", "சட்ட-கல்வி"],
       "link": "https://vmls.edu.in/news/appointment-of-executive-dean.html"
     },
     {
       "id": 2,
       "title": "VMRF Signs MoU with K-KCCS India to Strengthen Japan Pathways for Students",
+      "title_ta": "மாணவர்களுக்கான ஜப்பான் பாதைகளை வலுப்படுத்த VMRF K-KCCS இந்தியாவுடன் MoU கையெழுத்திடுகிறது",
       "description": "Vinayaka Missions Research Foundation signs an MoU with K-KCCS India Private Limited to advance Japanese language training, internships, placements, higher education pathways, and industry-aligned student development opportunities in India and Japan.",
+      "description_ta": "விநாயக மிஷன்ஸ் ரிசர்ச் ஃபவுண்டேஷன், ஜப்பானிய மொழி பயிற்சி, பயிற்சி, வேலைவாய்ப்புகள், உயர்கல்வி பாதைகள் மற்றும் இந்தியா மற்றும் ஜப்பானில் தொழில்துறை-சீரமைக்கப்பட்ட மாணவர் மேம்பாட்டு வாய்ப்புகளை முன்னேற்றுவதற்காக K-KCCS இந்தியா பிரைவேட் லிமிடெடுடன் MoU கையெழுத்திடுகிறது.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": ["Events", "VMRF", "MoU", "Japan-Pathways", "Global-Education"],
+      "tags_ta": ["நிகழ்வுகள்", "VMRF", "MoU", "ஜப்பான்-பாதைகள்", "உலகளாவிய-கல்வி"],
       "link": "https://vmls.edu.in/news/vmrf-signs-mou-with-k-kccs-india-to-strengthen-japan-pathways-for-students.html"
     },
     {
       "id": 3,
       "title": "Research: Importance & Application After Law School",
+      "title_ta": "ஆராய்ச்சி: சட்ட பள்ளிக்குப் பிறகு முக்கியத்துவம் மற்றும் பயன்பாடு",
       "description": "The VMLS Research Committee organized a guest lecture on the importance and practical application of legal research after law school, led by Mr. Vignesh Ram Hariharan, offering final-year LLB students actionable insights into research-driven legal practice.",
+      "description_ta": "VMLS ஆராய்ச்சி கமிட்டி, சட்ட பள்ளிக்குப் பிறகு சட்ட ஆராய்ச்சியின் முக்கியத்துவம் மற்றும் நடைமுறை பயன்பாடு குறித்த விருந்தினர் விரிவுரையை ஏற்பாடு செய்தது, திரு. விக்னேஷ் ராம் ஹரிஹரன் தலைமையில், இறுதி ஆண்டு LLB மாணவர்களுக்கு ஆராய்ச்சி-ஆதரவு சட்ட நடைமுறையில் செயல்படக்கூடிய நுண்ணறிவுகளை வழங்கியது.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": [
         "Events",
         "VMLS",
@@ -31,14 +42,24 @@
         "Guest-Lecture",
         "Legal-Education"
       ],
+      "tags_ta": [
+        "நிகழ்வுகள்",
+        "VMLS",
+        "ஆராய்ச்சி",
+        "விருந்தினர்-விரிவுரை",
+        "சட்ட-கல்வி"
+      ],
       "link": "https://vmls.edu.in/news/research-importance-application-after-law-school.html"
     },
     {
       "id": 4,
       "title": "Guest Lecture on Ethics of Research and the Qualities of a Legal Researcher",
+      "title_ta": "ஆராய்ச்சியின் நெறிமுறைகள் மற்றும் சட்ட ஆராய்ச்சியாளரின் குணங்கள் குறித்த விருந்தினர் விரிவுரை",
       "description": "The VMLS Research Committee organized a guest lecture on research ethics and the core qualities of an effective legal researcher, delivered by Mr. Harsh Mahaseth, Assistant Professor at Jindal Global Law School, emphasizing integrity, analytical rigor, and professional responsibility.",
+      "description_ta": "VMLS ஆராய்ச்சி கமிட்டி, ஆராய்ச்சி நெறிமுறைகள் மற்றும் திறமையான சட்ட ஆராய்ச்சியாளரின் மைய குணங்கள் குறித்த விருந்தினர் விரிவுரையை ஏற்பாடு செய்தது, ஜிண்டல் குளோபல் லா ஸ்கூலின் உதவி பேராசிரியர் திரு. ஹர்ஷ் மஹாசேத் வழங்கினார், நேர்மை, பகுப்பாய்வு கடுமை மற்றும் தொழில்முறை பொறுப்பை வலியுறுத்தினார்.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": [
         "Events",
         "VMLS",
@@ -46,14 +67,24 @@
         "Guest-Lecture",
         "Legal-Research"
       ],
+      "tags_ta": [
+        "நிகழ்வுகள்",
+        "VMLS",
+        "ஆராய்ச்சி-நெறிமுறைகள்",
+        "விருந்தினர்-விரிவுரை",
+        "சட்ட-ஆராய்ச்சி"
+      ],
       "link": "https://vmls.edu.in/news/lecture-ethics-of-research.html"
     },
     {
       "id": 5,
       "title": "Guest Lecture on the Art of Research in Corporate and Commercial Laws",
+      "title_ta": "நிறுவன மற்றும் வணிக சட்டங்களில் ஆராய்ச்சியின் கலை குறித்த விருந்தினர் விரிவுரை",
       "description": "The VMLS Research Committee hosted a guest lecture on research methodologies in corporate and commercial laws, delivered by Ms. Utkarsha Nikam, In-house Legal Counsel (UK), offering students practical insights into interdisciplinary research, case analysis, and career preparation in corporate law.",
+      "description_ta": "VMLS ஆராய்ச்சி கமிட்டி, நிறுவன மற்றும் வணிக சட்டங்களில் ஆராய்ச்சி முறைகள் குறித்த விருந்தினர் விரிவுரையை நடத்தியது, இன்-ஹவுஸ் சட்ட ஆலோசகர் (UK) திருமதி. உத்கர்ஷா நிகாம் வழங்கினார், பலதுறை ஆராய்ச்சி, வழக்கு பகுப்பாய்வு மற்றும் நிறுவன சட்டத்தில் வாழ்க்கை தயாரிப்பு குறித்த நடைமுறை நுண்ணறிவுகளை மாணவர்களுக்கு வழங்கினார்.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": [
         "Events",
         "VMLS",
@@ -62,14 +93,25 @@
         "Guest-Lecture",
         "Legal-Research"
       ],
+      "tags_ta": [
+        "நிகழ்வுகள்",
+        "VMLS",
+        "நிறுவன-சட்டம்",
+        "வணிக-சட்டம்",
+        "விருந்தினர்-விரிவுரை",
+        "சட்ட-ஆராய்ச்சி"
+      ],
       "link": "https://vmls.edu.in/news/lecture-corporate-commercial-laws.html"
     },
     {
       "id": 6,
       "title": "1st CJT Lecture on Digitization of Courts in India",
+      "title_ta": "இந்தியாவில் நீதிமன்றங்களின் டிஜிட்டலமயமாக்கல் குறித்த முதல் CJT விரிவுரை",
       "description": "The Center for Justice through Technology (CJT), in collaboration with VMLS, hosted its first CJT Lecture focusing on the digitization of courts in India, examining the E-Courts Integrated Mission Mode Project and the role of technology in improving access to justice.",
+      "description_ta": "தொழில்நுட்பம் மூலம் நீதிக்கான மையம் (CJT), VMLS உடன் இணைந்து, இந்தியாவில் நீதிமன்றங்களின் டிஜிட்டலமயமாக்கலில் கவனம் செலுத்தும் அதன் முதல் CJT விரிவுரையை நடத்தியது, E-கோர்ட்ஸ் ஒருங்கிணைந்த மிஷன் மோட் திட்டம் மற்றும் நீதிக்கான அணுகலை மேம்படுத்துவதில் தொழில்நுட்பத்தின் பங்கை ஆய்வு செய்தது.",
       "date": "Dec 24, 2025",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": [
         "Events",
         "VMLS",
@@ -78,18 +120,34 @@
         "Legal-Tech",
         "Judicial-Reform"
       ],
+      "tags_ta": [
+        "நிகழ்வுகள்",
+        "VMLS",
+        "CJT",
+        "E-நீதிமன்றங்கள்",
+        "சட்ட-தொழில்நுட்பம்",
+        "நீதித்துறை-சீர்திருத்தம்"
+      ],
       "link": "https://vmls.edu.in/news/1st-CJT-Lecture.html"
     },
     {
       "id": 7,
-      "title": "Inauguration of the Third Cohort at Vinayaka Mission’s Law School",
-      "description": "Vinayaka Mission’s Law School inaugurated its third cohort for the 5-year and 3-year law programmes on September 11, 2023, in the presence of Hon’ble Justice Ibrahim Kalifulla, former Judge of the Supreme Court of India, and Dr. Sudhir Krishnaswamy, Vice-Chancellor of NLSIU.",
+      "title": "Inauguration of the Third Cohort at Vinayaka Mission's Law School",
+      "title_ta": "விநாயக மிஷன் லா ஸ்கூலில் மூன்றாவது குழுவின் தொடக்க விழா",
+      "description": "Vinayaka Mission's Law School inaugurated its third cohort for the 5-year and 3-year law programmes on September 11, 2023, in the presence of Hon'ble Justice Ibrahim Kalifulla, former Judge of the Supreme Court of India, and Dr. Sudhir Krishnaswamy, Vice-Chancellor of NLSIU.",
+      "description_ta": "விநாயக மிஷன் லா ஸ்கூல், செப்டம்பர் 11, 2023 அன்று, இந்திய உச்ச நீதிமன்றத்தின் முன்னாள் நீதிபதி மாண்புமிகு நீதிபதி இப்ராஹிம் கலிபுல்லா மற்றும் NLSIU இன் துணை வேந்தர் டாக்டர். சுதீர் கிருஷ்ணசுவாமி ஆகியோரின் முன்னிலையில் 5-ஆண்டு மற்றும் 3-ஆண்டு சட்ட திட்டங்களுக்கான அதன் மூன்றாவது குழுவைத் தொடங்கியது.",
       "date": "Sep 11, 2023",
       "category": "Events",
+      "category_ta": "நிகழ்வுகள்",
       "tags": [
         "Events",
         "VMLS",
         "Inauguration"
+      ],
+      "tags_ta": [
+        "நிகழ்வுகள்",
+        "VMLS",
+        "தொடக்க விழா"
       ],
       "link": "https://vmls.edu.in/news/inauguration-day.html"
     }

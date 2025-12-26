@@ -26,24 +26,102 @@ function setLanguage(lang) {
 }
 
 /**
+ * Get base path for translations (works for root and subdirectory deployments)
+ * Enhanced with better production path handling and error logging
+ */
+function getTranslationsBasePath() {
+  try {
+    // Get current page pathname (e.g., "/vlat/index.html" or "/vlat/")
+    const pathname = window.location.pathname;
+    const origin = window.location.origin;
+    
+    console.log("[Translations] Current pathname:", pathname);
+    console.log("[Translations] Current origin:", origin);
+    
+    // Remove filename if present (index.html, about-vlat.html, etc.)
+    // This gives us the directory path
+    let dirPath = pathname.replace(/\/[^/]*\.html?$/, '');
+    
+    // Remove trailing slash if present
+    dirPath = dirPath.replace(/\/$/, '');
+    
+    // If dirPath is empty or just '/', we're at root
+    // Otherwise, construct path: /vlat/translations
+    if (!dirPath || dirPath === '/') {
+      const rootPath = '/translations';
+      console.log("[Translations] Using root path:", rootPath);
+      return rootPath;
+    }
+    
+    // Ensure path starts with / and construct translations path
+    const cleanPath = dirPath.startsWith('/') ? dirPath : `/${dirPath}`;
+    const translationsPath = `${cleanPath}/translations`;
+    console.log("[Translations] Using subdirectory path:", translationsPath);
+    return translationsPath;
+  } catch (error) {
+    console.error("[Translations] Error determining base path:", error);
+    // Fallback to root translations
+    return '/translations';
+  }
+}
+
+/**
  * Load translation file for specified language
+ * Enhanced with comprehensive error handling and logging
  */
 async function loadTranslations(lang) {
   try {
-    const response = await fetch(`translations/${lang}.json`);
+    const basePath = getTranslationsBasePath();
+    const url = `${basePath}/${lang}.json`;
+    
+    console.log(`[Translations] Loading ${lang} translations from:`, url);
+    
+    const response = await fetch(url, {
+      cache: 'no-cache',
+      headers: {
+        'Accept': 'application/json',
+      }
+    });
+    
     if (!response.ok) {
-      throw new Error(`Failed to load translations: ${response.status}`);
+      const errorMsg = `Failed to load translations from ${url}: ${response.status} - ${response.statusText}`;
+      console.error(`[Translations] ${errorMsg}`);
+      throw new Error(errorMsg);
     }
-    translations = await response.json();
+    
+    const loadedTranslations = await response.json();
+    
+    // Validate that we got valid JSON data
+    if (!loadedTranslations || typeof loadedTranslations !== 'object') {
+      throw new Error('Invalid translation data format');
+    }
+    
+    const translationCount = Object.keys(loadedTranslations).length;
+    console.log(`[Translations] Successfully loaded ${lang} translations (${translationCount} top-level keys)`);
+    
+    translations = loadedTranslations;
     currentLang = lang;
     document.documentElement.lang = lang;
+    
     return translations;
   } catch (error) {
-    console.error("Error loading translations:", error);
+    console.error(`[Translations] Error loading ${lang} translations:`, error);
+    console.error(`[Translations] Error details:`, {
+      message: error.message,
+      stack: error.stack,
+      url: window.location.href
+    });
+    
     // Fallback to English if translation file fails to load
     if (lang !== "en") {
+      console.warn(`[Translations] Falling back to English translations`);
       return await loadTranslations("en");
     }
+    
+    // Last resort: return empty object if even English fails
+    console.error("[Translations] CRITICAL: Failed to load English translations!");
+    console.error("[Translations] This is a critical error. Translations will not work.");
+    translations = {};
     return {};
   }
 }
@@ -76,7 +154,12 @@ function t(key, fallback = "") {
 function getPageName() {
   const path = window.location.pathname;
   const filename = path.split("/").pop() || "index.html";
-  return filename.replace(".html", "").replace("index", "index");
+  let pageName = filename.replace(".html", "");
+  // Handle index.html special case
+  if (pageName === "index") {
+    return "index";
+  }
+  return pageName;
 }
 
 /**
@@ -174,58 +257,70 @@ function translateElement(element) {
  */
 function translatePage() {
   if (!translations || Object.keys(translations).length === 0) {
-    console.warn("Translations not loaded yet");
+    console.warn("[Translations] translatePage called but translations not loaded yet");
     return;
   }
 
   // Translate all elements with data-i18n attributes
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.textContent = translated;
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.textContent = translated;
+      }
     }
   });
 
   // Translate attributes
   document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
     const key = el.getAttribute("data-i18n-alt");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.alt = translated;
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.alt = translated;
+      }
     }
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.placeholder = translated;
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.placeholder = translated;
+      }
     }
   });
 
   document.querySelectorAll("[data-i18n-title]").forEach((el) => {
     const key = el.getAttribute("data-i18n-title");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.title = translated;
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.title = translated;
+      }
     }
   });
 
   document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
     const key = el.getAttribute("data-i18n-aria-label");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.setAttribute("aria-label", translated);
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.setAttribute("aria-label", translated);
+      }
     }
   });
 
   // Translate option elements
   document.querySelectorAll("option[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    const translated = t(key);
-    if (translated && translated !== key) {
-      el.textContent = translated;
+    if (key) {
+      const translated = t(key);
+      if (translated && translated !== key) {
+        el.textContent = translated;
+      }
     }
   });
 
@@ -238,71 +333,128 @@ function translatePage() {
 
 /**
  * Update language switcher button states
+ * Updated to use class-based selectors to handle multiple buttons (desktop + mobile)
  */
 function updateLanguageSwitcherState() {
-  const langEnBtn = document.getElementById("lang-en");
-  const langTaBtn = document.getElementById("lang-ta");
+  // Use class selector to find all language buttons
+  const langEnButtons = document.querySelectorAll('[data-lang="en"]');
+  const langTaButtons = document.querySelectorAll('[data-lang="ta"]');
 
-  if (langEnBtn) {
+  // Update all English buttons
+  langEnButtons.forEach((btn) => {
     if (currentLang === "en") {
-      langEnBtn.classList.add("active");
-      langEnBtn.classList.remove("inactive");
+      btn.classList.add("active");
+      btn.classList.remove("inactive");
     } else {
-      langEnBtn.classList.remove("active");
-      langEnBtn.classList.add("inactive");
+      btn.classList.remove("active");
+      btn.classList.add("inactive");
     }
-  }
+  });
 
-  if (langTaBtn) {
+  // Update all Tamil buttons
+  langTaButtons.forEach((btn) => {
     if (currentLang === "ta") {
-      langTaBtn.classList.add("active");
-      langTaBtn.classList.remove("inactive");
+      btn.classList.add("active");
+      btn.classList.remove("inactive");
     } else {
-      langTaBtn.classList.remove("active");
-      langTaBtn.classList.add("inactive");
+      btn.classList.remove("active");
+      btn.classList.add("inactive");
     }
-  }
+  });
 }
 
 /**
  * Initialize translation system
+ * Updated to use class-based selectors and improved error handling
  */
 async function initializeTranslations() {
-  const lang = getCurrentLanguage();
-  setLanguage(lang);
-  await loadTranslations(lang);
+  try {
+    console.log("[Translations] Initializing translation system...");
+    
+    const lang = getCurrentLanguage();
+    console.log("[Translations] Current language from storage:", lang);
+    
+    setLanguage(lang);
+    
+    // Load translations and wait for completion
+    await loadTranslations(lang);
+    
+    // Apply translations immediately after loading
+    if (translations && Object.keys(translations).length > 0) {
+      console.log("[Translations] Applying translations to page...");
+      translatePage();
+      console.log("[Translations] Translations applied successfully");
+    } else {
+      console.warn("[Translations] No translations loaded, page will not be translated");
+    }
 
-  // Set up language switcher event listeners
-  const langEnBtn = document.getElementById("lang-en");
-  const langTaBtn = document.getElementById("lang-ta");
+    // Set up language switcher event listeners using class-based selectors
+    // This handles both desktop and mobile buttons
+    const langEnButtons = document.querySelectorAll('[data-lang="en"]');
+    const langTaButtons = document.querySelectorAll('[data-lang="ta"]');
 
-  if (langEnBtn) {
-    langEnBtn.addEventListener("click", async () => {
-      await switchLanguage("en");
+    console.log(`[Translations] Found ${langEnButtons.length} English button(s) and ${langTaButtons.length} Tamil button(s)`);
+
+    // Attach listeners to all English buttons
+    langEnButtons.forEach((btn) => {
+      if (!btn.hasAttribute('data-listener-attached')) {
+        btn.setAttribute('data-listener-attached', 'true');
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log("[Translations] English button clicked");
+          await switchLanguage("en");
+        });
+      }
     });
-  }
 
-  if (langTaBtn) {
-    langTaBtn.addEventListener("click", async () => {
-      await switchLanguage("ta");
+    // Attach listeners to all Tamil buttons
+    langTaButtons.forEach((btn) => {
+      if (!btn.hasAttribute('data-listener-attached')) {
+        btn.setAttribute('data-listener-attached', 'true');
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log("[Translations] Tamil button clicked");
+          await switchLanguage("ta");
+        });
+      }
     });
-  }
 
-  updateLanguageSwitcherState();
+    updateLanguageSwitcherState();
+    console.log("[Translations] Translation system initialized successfully");
+  } catch (error) {
+    console.error("[Translations] Failed to initialize translation system:", error);
+    console.error("[Translations] Error stack:", error.stack);
+  }
 }
 
 /**
  * Switch language and translate page
+ * Enhanced with error handling and logging
  */
 async function switchLanguage(lang) {
-  setLanguage(lang);
-  await loadTranslations(lang);
-  translatePage();
+  try {
+    console.log(`[Translations] Switching language to: ${lang}`);
+    
+    setLanguage(lang);
+    await loadTranslations(lang);
+    
+    if (translations && Object.keys(translations).length > 0) {
+      translatePage();
+      console.log(`[Translations] Language switched to ${lang} successfully`);
+    } else {
+      console.warn(`[Translations] Language switch to ${lang} completed but no translations available`);
+    }
 
-  // Trigger custom event for other scripts to react to language change
-  window.dispatchEvent(
-    new CustomEvent("languageChanged", { detail: { lang } })
-  );
+    // Trigger custom event for other scripts to react to language change
+    window.dispatchEvent(
+      new CustomEvent("languageChanged", { detail: { lang } })
+    );
+  } catch (error) {
+    console.error(`[Translations] Error switching language to ${lang}:`, error);
+    throw error;
+  }
 }
 
 // Make t() function globally available
@@ -310,6 +462,7 @@ window.t = t;
 window.translatePage = translatePage;
 window.switchLanguage = switchLanguage;
 window.initializeTranslations = initializeTranslations;
+window.getCurrentLanguage = getCurrentLanguage;
 
 // Export functions for use in other scripts
 if (typeof module !== "undefined" && module.exports) {

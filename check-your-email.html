@@ -33,6 +33,26 @@
   </head>
 
   <body class="font-['Inter'] h-screen overflow-hidden bg-[#FFF6E2]">
+    <!-- Language Switcher - Top Right -->
+    <div class="fixed top-4 right-4 z-50">
+      <div
+        class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white shadow-md"
+      >
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
+        </button>
+      </div>
+    </div>
+
     <main class="h-screen grid grid-cols-1 lg:grid-cols-[96px_1.2fr_1fr]">
       <!-- LEFT RED STRIP -->
       <!-- LEFT RED STRIP -->
@@ -40,6 +60,7 @@
         <button
           onclick="history.back()"
           class="absolute top-6 left-32 z-20 flex items-center gap-2 text-sm font-medium uppercase border border-white/40 rounded-full px-3 py-1 text-[#A3A3A3] backdrop-blur"
+          data-i18n="common.buttons.back"
         >
           <i class="fas fa-chevron-left text-xs"></i>
           BACK
@@ -61,14 +82,14 @@
         <div class="w-full max-w-md space-y-4 text-center">
           <img src="images/logo1.svg" class="h-14 mx-auto" />
 
-          <h1 class="text-4xl font-bold text-primary">Check Your Email</h1>
+          <h1 class="text-4xl font-bold text-primary" data-i18n="pages.checkEmail.title">Check Your Email</h1>
 
-          <p class="text-sm text-[#404040]">
+          <p class="text-sm text-[#404040]" data-i18n="pages.checkEmail.subtitle">
             If your email is registered, you will receive a password reset link.
           </p>
 
           <form class="rounded-3xl p-6 space-y-4 bg-primary">
-            <p class="text-xs text-[#FAFAFA]">
+            <p class="text-xs text-[#FAFAFA]" data-i18n="pages.checkEmail.message">
               Please check your inbox (and spam folder). The link expires in 24
               hours.
             </p>
@@ -77,6 +98,7 @@
               href="login.html"
               id="backToLoginButton"
               class="block w-full min-h-[56px] bg-[#FFF6E2] text-primary rounded-xl font-medium hover:opacity-90 transition text-center flex items-center justify-center"
+              data-i18n="pages.checkEmail.backToLogin"
             >
               Back to Login
             </a>
@@ -84,6 +106,7 @@
             <a
               href="forgot-password.html"
               class="block text-center text-xs text-[#FAFAFA] hover:text-[#EDCD88] transition"
+              data-i18n="pages.checkEmail.tryDifferentEmail"
             >
               Try Different Email
             </a>
@@ -91,9 +114,11 @@
         </div>
       </section>
     </main>
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
     <script>
       // Ensure redirect works even if JavaScript has issues
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", async function () {
         const backToLoginButton = document.getElementById("backToLoginButton");
         if (backToLoginButton) {
           backToLoginButton.addEventListener("click", function (e) {
@@ -101,6 +126,18 @@
             window.location.href = "login.html";
           });
         }
+
+        // Initialize translations
+        if (typeof initializeTranslations === "function") {
+          await initializeTranslations();
+        }
+
+        // Re-translate when language changes
+        window.addEventListener("languageChanged", () => {
+          if (typeof translatePage === "function") {
+            translatePage();
+          }
+        });
       });
     </script>
   </body>

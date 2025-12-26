@@ -54,17 +54,17 @@
       <section class="flex items-center justify-center px-4 py-12 relative">
         <!-- Language Switcher - Top Right -->
         <div class="absolute top-0 right-4 language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white z-10">
-          <button
-            id="lang-en"
-            class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
-          >
-            English
-          </button>
-          <button
-            id="lang-ta"
-            class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
-          >
-            தமிழ்
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
           </button>
         </div>
         <div class="w-full max-w-md space-y-3">
@@ -246,12 +246,15 @@
     <script>
       // Initialize translations on page load
       document.addEventListener('DOMContentLoaded', async () => {
-        await initializeTranslations();
-        translatePage();
+        if (typeof initializeTranslations === "function") {
+          await initializeTranslations();
+        }
         
         // Re-translate error messages when language changes
         window.addEventListener('languageChanged', () => {
-          translatePage();
+          if (typeof translatePage === "function") {
+            translatePage();
+          }
         });
       });
     </script>

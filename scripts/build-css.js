@@ -33,7 +33,7 @@ const htmlFiles = [
 ];
 
 // Directories to copy
-const dirsToCopy = ['js', 'images', 'data'];
+const dirsToCopy = ['js', 'images', 'data', 'translations'];
 
 /**
  * Recursively copy directory

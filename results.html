@@ -40,10 +40,28 @@
 
           <!-- Right -->
           <div class="flex items-center gap-4">
+            <!-- Language Switcher -->
+            <div
+              class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
+            >
+                <button
+                  data-lang="en"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="ta"
+                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+                >
+                  தமிழ்
+              </button>
+            </div>
             <img
               src="images/vmrflogo.svg"
               class="h-8 hidden md:block"
               alt="VMLS"
+              data-i18n-alt="common.alt.vmrfLogo"
             />
             <span
               id="userNameHeader"
@@ -53,6 +71,7 @@
             <button
               id="logoutButton"
               class="px-3 py-1.5 text-sm border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition"
+              data-i18n="common.buttons.logout"
             >
               Logout
             </button>
@@ -82,7 +101,7 @@
               <div class="relative h-full flex flex-col justify-between">
                 <!-- Top content -->
                 <div>
-                  <p class="text-grey-4 text-sm mb-1">Test Name</p>
+                  <p class="text-grey-4 text-sm mb-1" data-i18n="pages.results.testName">Test Name</p>
                   <h2
                     id="testName"
                     class="text-white text-xl font-semibold leading-tight max-w-[85%]"
@@ -124,7 +143,7 @@
                 <div
                   class="relative h-full flex flex-col items-center justify-center text-center"
                 >
-                  <p class="text-grey-4 text-sm mb-2">Your Score</p>
+                  <p class="text-grey-4 text-sm mb-2" data-i18n="pages.results.yourScore">Your Score</p>
                   <div
                     id="scoreDisplay"
                     class="text-white text-5xl sm:text-6xl font-bold leading-none mb-3"
@@ -159,7 +178,7 @@
               class="px-4 py-2 w-full sm:px-6 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             >
               <i class="fa-solid fa-redo"></i>
-              <span id="retakeTestText">Retake Test</span>
+              <span id="retakeTestText" data-i18n="pages.results.retakeTest">Retake Test</span>
             </button>
 
             <!-- Next Test Button -->
@@ -168,7 +187,7 @@
               onclick="handleNextTest()"
               class="px-4 py-2 w-full sm:px-6 bg-white border border-[#404040] text-grey-10 rounded-lg hover:bg-grey-2 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
             >
-              <span>Next Test</span>
+              <span data-i18n="pages.results.nextTest">Next Test</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
 
@@ -179,7 +198,7 @@
               class="px-4 py-2 border border-[#404040] text-xs w-full sm:px-6 py-2 font-light bg-grey-10 text-white rounded-lg hover:bg-grey-9 transition font-medium flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               <i class="fa-solid fa-eye"></i>
-              <span>Review Answers</span>
+              <span data-i18n="pages.results.reviewAnswers">Review Answers</span>
             </button>
           </div>
         </div>
@@ -188,7 +207,7 @@
         <div
           class="bg-gradient-to-r from-[#FFFBEB] to-[#FFF7ED] border border-[#FEE685] rounded-xl p-3"
         >
-          <p class="text-grey-7 text-sm sm:text-base text-center">
+          <p class="text-grey-7 text-sm sm:text-base text-center" data-i18n="pages.results.motivationalBanner">
             Review the explanations to understand where you can improve. You've
             got this!
           </p>
@@ -196,6 +215,16 @@
       </div>
     </div>
 
+    <!-- Translation System -->
+    <script src="js/translations.js"></script>
     <script type="module" src="js/results.js"></script>
+    <script>
+      // Initialize translations on page load
+      document.addEventListener("DOMContentLoaded", async () => {
+        if (typeof initializeTranslations === "function") {
+          await initializeTranslations();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -10,6 +10,46 @@ import {
 } from "./test-state.js";
 import { logout, getUserData } from "./auth.js";
 
+/**
+ * Get current language from translation system
+ */
+function getCurrentLanguage() {
+  if (typeof window.getCurrentLanguage === "function") {
+    return window.getCurrentLanguage();
+  }
+  const saved = localStorage.getItem("vlat_language");
+  return saved || "en";
+}
+
+/**
+ * Get localized text from bilingual object or string
+ */
+function getLocalizedText(textObj, lang = null) {
+  if (!textObj) return "";
+  
+  const currentLang = lang || getCurrentLanguage();
+  
+  if (typeof textObj === "string") {
+    return textObj;
+  }
+  
+  if (typeof textObj === "object") {
+    if (textObj[currentLang]) {
+      return textObj[currentLang];
+    }
+    if (textObj.en) {
+      return textObj.en;
+    }
+    if (textObj.ta) {
+      return textObj.ta;
+    }
+    const firstKey = Object.keys(textObj)[0];
+    return textObj[firstKey] || "";
+  }
+  
+  return "";
+}
+
 // Store current test data for button handlers
 let currentSetId = null;
 let currentProgress = null;
@@ -206,7 +246,12 @@ function displayResults(mockSet, progress) {
 
   // Update test name
   const testName = document.getElementById("testName");
-  if (testName) testName.textContent = mockSet.title;
+  if (testName) testName.textContent = getLocalizedText(mockSet.title);
+  
+  // Listen for language changes
+  window.addEventListener("languageChanged", () => {
+    if (testName) testName.textContent = getLocalizedText(mockSet.title);
+  });
 
   // Update motivational message
   const motivational = getMotivationalMessage(score);
