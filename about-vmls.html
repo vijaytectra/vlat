@@ -846,10 +846,10 @@
               <button
                 type="button"
                 onclick="window.location.href='register.html'"
-                class="flex-1 py-2 h-12 bg-[#991B1B] rounded-xl flex items-center justify-center gap-2 hover:bg-[#7F1D1D] transition-colors"
+                class="flex-1 px-2 py-2 h-12 bg-[#991B1B] rounded-xl flex items-center justify-center gap-2 hover:bg-[#7F1D1D] transition-colors"
               >
                 <span
-                  class="text-gray-100 text-sm sm:text-lg font-medium"
+                  class="text-gray-100 text-sm font-medium"
                   data-i18n="pages.aboutVmls.applyNow"
                   >Apply Now</span
                 >
@@ -860,10 +860,10 @@
               <button
                 type="button"
                 onclick="downloadPDF('images/ug.pdf', 'UG_Brochure.pdf')"
-                class="flex-1 py-2 h-12 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
+                class="flex-1 px-2 py-2 h-12 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
               >
                 <span
-                  class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                  class="text-[#991B1B] text-sm font-medium"
                   data-i18n="pages.aboutVmls.downloadBrochureUG"
                   >Download Brochure- UG</span
                 >
@@ -874,10 +874,10 @@
               <button
                 type="button"
                 onclick="downloadPDF('images/pg.pdf', 'PG_Brochure.pdf')"
-                class="flex-1 h-12 py-2 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
+                class="flex-1 px-2 h-12 py-2 rounded-xl border border-[#991B1B] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"
               >
                 <span
-                  class="text-[#991B1B] text-sm sm:text-lg font-medium"
+                  class="text-[#991B1B] text-sm  font-medium"
                   data-i18n="pages.aboutVmls.downloadBrochurePG"
                   >Download Brochure- PG</span
                 >
@@ -1598,12 +1598,26 @@
     <!-- Translation System -->
     <script src="js/translations.js"></script>
     <script>
-      // Initialize translations on page load
-      document.addEventListener("DOMContentLoaded", async () => {
-        if (typeof initializeTranslations === "function") {
-          await initializeTranslations();
+      (function() {
+        function initTranslations() {
+          if (typeof initializeTranslations === 'function') {
+            initializeTranslations().catch(err => {
+              console.error('[Translations] Initialization failed:', err);
+            });
+          }
         }
-      });
+        
+        // Try immediate initialization if DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTranslations);
+        } else {
+          // DOM already ready
+          initTranslations();
+        }
+        
+        // Fallback: ensure initialization happens even if DOMContentLoaded already fired
+        setTimeout(initTranslations, 100);
+      })();
     </script>
     <!-- Scroll to Top Button -->
     <button

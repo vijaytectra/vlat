@@ -151,13 +151,34 @@
 
       // Initialize translations and welcome
       async function init() {
-        await initializeTranslations();
-        await initializeWelcome();
-        startCountdown();
+        try {
+          if (typeof initializeTranslations === 'function') {
+            await initializeTranslations();
+          }
+          await initializeWelcome();
+          startCountdown();
+        } catch (err) {
+          console.error('[Translations] Initialization failed:', err);
+          // Still try to initialize welcome even if translations fail
+          await initializeWelcome();
+          startCountdown();
+        }
       }
 
-      // Initialize on page load
-      init();
+      // Initialize on page load - use improved pattern
+      (function() {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
+        // Fallback
+        setTimeout(() => {
+          if (typeof initializeTranslations === 'function') {
+            init();
+          }
+        }, 100);
+      })();
     </script>
   </body>
 </html>

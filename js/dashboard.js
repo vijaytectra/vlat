@@ -13,6 +13,69 @@ import { getUserData, logout, redirectIfNotAuth, getApiUrl } from "./auth.js";
 let mockTestsData = [];
 
 /**
+ * Get current language from localStorage or default to 'en'
+ * Normalizes old/invalid language codes (e.g., "tn" → "ta")
+ */
+function getCurrentLanguage() {
+  const saved = localStorage.getItem("vlat_language");
+  
+  // Normalize old/invalid language codes
+  if (saved === "tn") {
+    // Migrate old "tn" code to "ta"
+    localStorage.setItem("vlat_language", "ta");
+    return "ta";
+  }
+  
+  // Validate and return only valid codes
+  if (saved === "en" || saved === "ta") {
+    return saved;
+  }
+  
+  // Invalid code, return default
+  if (saved) {
+    // Clean up invalid value
+    localStorage.removeItem("vlat_language");
+  }
+  return "en";
+}
+
+/**
+ * Get localized text from bilingual object or string
+ * Supports both old format (string) and new format ({en: "...", ta: "..."})
+ */
+function getLocalizedText(textObj, lang = null) {
+  if (!textObj) return "";
+
+  const currentLang = lang || getCurrentLanguage();
+
+  // If it's already a string (old format), return as is
+  if (typeof textObj === "string") {
+    return textObj;
+  }
+
+  // If it's an object with language keys
+  if (typeof textObj === "object") {
+    // Try current language first
+    if (textObj[currentLang]) {
+      return textObj[currentLang];
+    }
+    // Fallback to English
+    if (textObj.en) {
+      return textObj.en;
+    }
+    // Fallback to Tamil
+    if (textObj.ta) {
+      return textObj.ta;
+    }
+    // Fallback to first available value
+    const firstKey = Object.keys(textObj)[0];
+    return textObj[firstKey] || "";
+  }
+
+  return "";
+}
+
+/**
  * Load and display user data
  */
 async function loadUserData() {
@@ -75,8 +138,10 @@ async function initializeDashboard() {
   // Note: Session debug endpoint removed - using JWT authentication now
 
   // Check authentication first with retry logic
+  // This handles cases where cookie might not be immediately available after redirect
   let isAuthenticated = false;
   let retries = 3;
+  const retryDelay = 500; // ms between retries
 
   while (!isAuthenticated && retries > 0) {
     isAuthenticated = await redirectIfNotAuth();
@@ -84,14 +149,15 @@ async function initializeDashboard() {
       console.log(
         `Auth check failed, retrying... (${retries - 1} attempts left)`
       );
-      // Wait a bit before retrying (cookie might need time to be set)
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      // Wait before retrying (cookie might need time to be set after cross-origin redirect)
+      await new Promise((resolve) => setTimeout(resolve, retryDelay));
     }
     retries--;
   }
 
   if (!isAuthenticated) {
     console.error("Authentication failed after retries, redirecting to login");
+    console.error("Possible causes: Cookie not set, CORS issue, or invalid token");
     return; // Will redirect to login
   }
 
@@ -117,6 +183,12 @@ async function initializeDashboard() {
 
   // Render test cards
   renderTestCards(allProgress);
+
+  // Listen for language changes and re-render cards
+  window.addEventListener("languageChanged", async () => {
+    const updatedProgress = await getAllProgressFromBackend();
+    renderTestCards(updatedProgress);
+  });
 }
 
 /**
@@ -329,7 +401,7 @@ function createTestCard(mockSet, progress) {
 
   card.innerHTML = `
     <div class="flex justify-between items-start gap-2">
-      <h4 class="font-medium text-[#171717]">${mockSet.title}</h4>
+      <h4 class="font-medium text-[#171717]">${getLocalizedText(mockSet.title)}</h4>
       ${statusBadge}
     </div>
 

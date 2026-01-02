@@ -115,13 +115,13 @@
                   class="language-switcher hidden md:flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
                 >
                   <button
-                    id="lang-en"
+                    data-lang="en"
                     class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
                   >
                     English
                   </button>
                   <button
-                    id="lang-ta"
+                    data-lang="ta"
                     class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
                   >
                     தமிழ்
@@ -303,14 +303,14 @@
                   class="px-6 pb-8 pt-4 space-y-4 border-t border-[#FFFFFF1A] flex flex-col items-center"
                 >
                   <a
-                    href="how-to-register.html"
-                    class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#FFF6E2] text-primary font-bold text-center py-4 hover:bg-opacity-90 transition-colors"
+                    href="register.html"
+                    class="block border rounded-xl border-[#FFF6E2] w-60 bg-[#F3F4F6] text-primary font-bold text-center py-2 hover:bg-opacity-90 transition-colors"
                     data-i18n="common.buttons.applyForVlat"
                     >Apply for VLAT</a
                   >
                   <a
                     href="login.html"
-                    class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-4 hover:bg-white/10 transition-colors"
+                    class="block w-60 border rounded-xl border-[#FFF6E2] text-white font-bold text-center py-2 hover:bg-white/10 transition-colors"
                     data-i18n="common.buttons.login"
                     >Login</a
                   >
@@ -1157,12 +1157,26 @@
     <!-- Translation System -->
     <script src="js/translations.js"></script>
     <script>
-      // Initialize translations on page load
-      document.addEventListener("DOMContentLoaded", async () => {
-        if (typeof initializeTranslations === "function") {
-          await initializeTranslations();
+      (function () {
+        function initTranslations() {
+          if (typeof initializeTranslations === "function") {
+            initializeTranslations().catch((err) => {
+              console.error("[Translations] Initialization failed:", err);
+            });
+          }
         }
-      });
+
+        // Try immediate initialization if DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initTranslations);
+        } else {
+          // DOM already ready
+          initTranslations();
+        }
+
+        // Fallback: ensure initialization happens even if DOMContentLoaded already fired
+        setTimeout(initTranslations, 100);
+      })();
     </script>
 
     <!-- Contact Form Submission Script -->

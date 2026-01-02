@@ -492,13 +492,13 @@
                   class="hidden language-switcher md:flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
                 >
                   <button
-                    id="lang-en"
+                    data-lang="en"
                     class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
                   >
                     English
                   </button>
                   <button
-                    id="lang-ta"
+                    data-lang="ta"
                     class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
                   >
                     தமிழ்
@@ -2128,7 +2128,7 @@
               <div class="w-full pb-4 md:pb-6 lg:pb-8">
                 <button
                   type="button"
-                  class="w-full h-12 md:h-14 lg:h-14 px-5 md:px-6 lg:px-5 bg-primary rounded-[11px] text-secondary text-sm md:text-base lg:text-base font-medium hover:bg-opacity-90 transition-colors"
+                  class="w-full h-16 md:h-16 lg:h-16 px-5 md:px-6 lg:px-5 bg-primary rounded-[11px] text-secondary text-sm md:text-base lg:text-base font-medium hover:bg-opacity-90 transition-colors"
                   data-i18n="pages.index.cta.applyNow"
                 >
                   Apply Now for VLAT 2026
@@ -2526,12 +2526,33 @@
     <!-- Translation System -->
     <script src="js/translations.js"></script>
     <script>
-      // Initialize translations on page load
-      document.addEventListener("DOMContentLoaded", async () => {
-        if (typeof initializeTranslations === "function") {
-          await initializeTranslations();
+      (function() {
+        function initTranslations() {
+          if (typeof initializeTranslations === 'function') {
+            initializeTranslations().catch(err => {
+              console.error('[Translations] Initialization failed:', err);
+              // Retry once after delay
+              setTimeout(() => {
+                if (typeof initializeTranslations === 'function') {
+                  initializeTranslations();
+                }
+              }, 500);
+            });
+          } else {
+            // Script not loaded yet, retry
+            setTimeout(initTranslations, 100);
+          }
         }
-      });
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTranslations);
+        } else {
+          initTranslations();
+        }
+
+        // Fallback timeout
+        setTimeout(initTranslations, 1000);
+      })();
     </script>
 
     <!-- Scroll to Top Button -->

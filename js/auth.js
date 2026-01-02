@@ -1,9 +1,7 @@
 // Authentication utilities for VLAT Exam Application
-// Update API_BASE_URL with your Vercel backend URL when deploying
+// Uses httpOnly cookies for secure authentication (XSS protection)
 
 const API_BASE_URL = "https://vlat.api.thelead101.com";
-
-const TOKEN_KEY = "vlat_auth_token";
 
 /**
  * Get API base URL
@@ -13,42 +11,13 @@ export function getApiUrl() {
 }
 
 /**
- * Store JWT token in localStorage
- */
-export function setAuthToken(token) {
-  if (token) {
-    localStorage.setItem(TOKEN_KEY, token);
-  } else {
-    localStorage.removeItem(TOKEN_KEY);
-  }
-}
-
-/**
- * Get JWT token from localStorage
- */
-export function getAuthToken() {
-  return localStorage.getItem(TOKEN_KEY);
-}
-
-/**
- * Remove JWT token from localStorage
- */
-export function removeAuthToken() {
-  localStorage.removeItem(TOKEN_KEY);
-}
-
-/**
- * Get authorization headers with JWT token
+ * Get authorization headers (cookies sent automatically by browser)
  */
 export function getAuthHeaders() {
-  const token = getAuthToken();
-  const headers = {
+  return {
     "Content-Type": "application/json",
+    // No Authorization header needed - httpOnly cookie sent automatically
   };
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-  return headers;
 }
 
 /**
@@ -56,14 +25,10 @@ export function getAuthHeaders() {
  */
 export async function checkAuth() {
   try {
-    const token = getAuthToken();
-    if (!token) {
-      return { authenticated: false, user: null };
-    }
-
     const response = await fetch(`${API_BASE_URL}/api/user/me`, {
       method: "GET",
       headers: getAuthHeaders(),
+      credentials: 'include', // Critical - sends cookies with request
     });
 
     if (response.ok) {
@@ -74,10 +39,7 @@ export async function checkAuth() {
       );
       return { authenticated: true, user: data.data.user };
     } else {
-      // Token might be invalid or expired
-      if (response.status === 401) {
-        removeAuthToken();
-      }
+      // Cookie might be invalid or expired (backend clears it automatically)
       const errorData = await response.json().catch(() => ({}));
       console.error("Auth check failed:", {
         status: response.status,
@@ -100,15 +62,14 @@ export async function getUserData() {
     const response = await fetch(`${API_BASE_URL}/api/user/me`, {
       method: "GET",
       headers: getAuthHeaders(),
+      credentials: 'include', // Critical - sends cookies with request
     });
 
     if (response.ok) {
       const data = await response.json();
       return { success: true, user: data.data.user };
     } else {
-      if (response.status === 401) {
-        removeAuthToken();
-      }
+      // Cookie might be invalid or expired (backend clears it automatically)
       const errorData = await response.json();
       return {
         success: false,
@@ -126,17 +87,14 @@ export async function getUserData() {
  */
 export async function logout() {
   try {
-    // Remove token from localStorage
-    removeAuthToken();
-
-    // Call logout endpoint (optional, for consistency)
+    // Call backend to clear httpOnly cookie
     try {
       await fetch(`${API_BASE_URL}/api/auth/logout`, {
         method: "POST",
-        headers: getAuthHeaders(),
+        credentials: 'include', // Send cookie to be cleared
       });
     } catch (error) {
-      // Ignore logout API errors, token is already removed
+      // Log error but continue with redirect
       console.log("Logout API call failed (non-critical):", error);
     }
 
@@ -145,7 +103,6 @@ export async function logout() {
   } catch (error) {
     console.error("Logout error:", error);
     // Still redirect to login page
-    removeAuthToken();
     window.location.href = "login.html";
   }
 }
@@ -172,6 +129,7 @@ export async function register(userData) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: 'include', // Critical - receive cookies from backend
       body: JSON.stringify(userData),
     });
 
@@ -179,10 +137,7 @@ export async function register(userData) {
 
     if (response.ok) {
       if (data.success && data.data && data.data.user) {
-        // Store JWT token from response
-        if (data.data.token) {
-          setAuthToken(data.data.token);
-        }
+        // Cookie is set automatically by backend - no token storage needed
         return { success: true, user: data.data.user };
       } else {
         console.error("Unexpected response structure:", data);
@@ -220,16 +175,14 @@ export async function login(loginId, password) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: 'include', // Critical - receive cookies from backend
       body: JSON.stringify({ loginId, password }),
     });
 
     const data = await response.json();
 
     if (response.ok) {
-      // Store JWT token from response
-      if (data.data && data.data.token) {
-        setAuthToken(data.data.token);
-      }
+      // Cookie is set automatically by backend - no token storage needed
       return { success: true, user: data.data.user };
     } else {
       return { success: false, message: data.message || "Login failed" };
@@ -250,6 +203,7 @@ export async function forgotPassword(email) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: 'include',
       body: JSON.stringify({ email }),
     });
 
@@ -283,6 +237,7 @@ export async function verifyResetToken(token, email) {
       )}&email=${encodeURIComponent(email)}`,
       {
         method: "GET",
+        credentials: 'include',
       }
     );
 
@@ -313,6 +268,7 @@ export async function resetPassword(token, email, password, confirmPassword) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: 'include',
       body: JSON.stringify({ token, email, password, confirmPassword }),
     });
 

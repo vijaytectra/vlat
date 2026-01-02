@@ -8,7 +8,7 @@ import {
   getProgressFromBackend,
   getAllProgressFromBackend,
 } from "./test-state.js";
-import { logout, getUserData } from "./auth.js";
+import { logout, getUserData, redirectIfNotAuth } from "./auth.js";
 
 /**
  * Get current language from translation system
@@ -116,11 +116,11 @@ async function initializeResults() {
     allMockTests = allTests;
   }
 
+  // Load user data to display username (do this before displaying results)
+  await loadUserData();
+
   // Display results
   displayResults(mockSet, progress);
-
-  // Load user data to display username
-  await loadUserData();
 }
 
 /**
@@ -136,12 +136,16 @@ async function loadUserData() {
       // Update user name in header
       const userNameHeader = document.getElementById("userNameHeader");
       if (userNameHeader) {
-        userNameHeader.textContent = user.name;
+        userNameHeader.textContent = user.name || "User";
       }
+    } else {
+      // If not authenticated, redirect to login
+      console.error("Failed to get user data:", result.message);
+      redirectIfNotAuth();
     }
   } catch (error) {
     console.error("Error loading user data:", error);
-    // Don't block page load if user data fails
+    redirectIfNotAuth();
   }
 }
 

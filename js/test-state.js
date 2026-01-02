@@ -235,6 +235,7 @@ export async function getProgressFromBackend(setId) {
     const response = await fetch(`${API_BASE_URL}/api/test/progress/${setId}`, {
       method: "GET",
       headers: getAuthHeaders(),
+      credentials: "include", // Critical - sends cookies with request
     });
 
     if (response.ok) {
@@ -268,6 +269,7 @@ export async function getAllProgressFromBackend() {
     const response = await fetch(`${API_BASE_URL}/api/test/progress`, {
       method: "GET",
       headers: getAuthHeaders(),
+      credentials: "include", // Critical - sends cookies with request
     });
 
     if (response.ok) {
@@ -306,6 +308,7 @@ export async function submitTestToBackend(setId, attemptData) {
     const response = await fetch(`${API_BASE_URL}/api/test/submit/${setId}`, {
       method: "POST",
       headers: getAuthHeaders(),
+      credentials: "include", // Critical - sends cookies with request
       body: JSON.stringify({
         score: attemptData.score,
         answers: attemptData.answers,
@@ -360,6 +363,7 @@ export async function getStatsFromBackend() {
     const response = await fetch(`${API_BASE_URL}/api/test/stats`, {
       method: "GET",
       headers: getAuthHeaders(),
+      credentials: "include", // Critical - sends cookies with request
     });
 
     if (response.ok) {
@@ -396,6 +400,7 @@ export async function saveProgressToBackend(setId, data) {
     const response = await fetch(`${API_BASE_URL}/api/test/progress/${setId}`, {
       method: "POST",
       headers: getAuthHeaders(),
+      credentials: "include", // Critical - sends cookies with request
       body: JSON.stringify({
         status: data.status || "in_progress",
       }),

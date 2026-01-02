@@ -202,12 +202,27 @@ exports.register = async (req, res) => {
       email: user.email,
     });
 
-    // Return user data with token
+    // Set httpOnly cookie for cross-origin authentication
+    const isProduction = process.env.NODE_ENV === "production";
+
+    // For cross-origin cookies:
+    // - secure: true is REQUIRED when sameSite: 'none'
+    // - sameSite: 'none' allows cookies across different domains
+    // - path: '/' makes cookie available to all routes
+    res.cookie("accessToken", token, {
+      httpOnly: true, // JavaScript cannot access (XSS protection)
+      secure: isProduction, // HTTPS only in production (REQUIRED for sameSite: 'none')
+      sameSite: isProduction ? "none" : "lax", // 'none' required for cross-origin, 'lax' for same-site
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days (match JWT_EXPIRES_IN)
+      path: "/", // Available to all routes
+      // Do not set domain - let browser handle cross-origin automatically
+    });
+
+    // Return user data without token (cookie is set automatically)
     res.status(201).json({
       success: true,
       data: {
         user: user.toJSON(),
-        token,
       },
     });
   } catch (error) {
@@ -288,12 +303,27 @@ exports.login = async (req, res) => {
       email: user.email,
     });
 
-    // Return user data with token
+    // Set httpOnly cookie for cross-origin authentication
+    const isProduction = process.env.NODE_ENV === "production";
+
+    // For cross-origin cookies:
+    // - secure: true is REQUIRED when sameSite: 'none'
+    // - sameSite: 'none' allows cookies across different domains
+    // - path: '/' makes cookie available to all routes
+    res.cookie("accessToken", token, {
+      httpOnly: true, // JavaScript cannot access (XSS protection)
+      secure: isProduction, // HTTPS only in production (REQUIRED for sameSite: 'none')
+      sameSite: isProduction ? "none" : "lax", // 'none' required for cross-origin, 'lax' for same-site
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days (match JWT_EXPIRES_IN)
+      path: "/", // Available to all routes
+      // Do not set domain - let browser handle cross-origin automatically
+    });
+
+    // Return user data without token (cookie is set automatically)
     res.json({
       success: true,
       data: {
         user: user.toJSON(),
-        token,
       },
     });
   } catch (error) {
@@ -305,10 +335,19 @@ exports.login = async (req, res) => {
   }
 };
 
-// Logout user (JWT is stateless, so logout is handled client-side)
-// This endpoint exists for consistency and can be used to invalidate tokens if needed
+// Logout user - clear httpOnly cookie
 exports.logout = async (req, res) => {
   try {
+    // Clear the accessToken cookie
+    const isProduction = process.env.NODE_ENV === "production";
+
+    res.clearCookie("accessToken", {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
+      path: "/",
+    });
+
     res.json({
       success: true,
       message: "Logged out successfully",

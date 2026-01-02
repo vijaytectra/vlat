@@ -3,8 +3,9 @@ const { verifyToken, extractTokenFromHeader } = require("../utils/jwt");
 
 const requireAuth = async (req, res, next) => {
   try {
-    const authHeader = req.headers.authorization;
-    const token = extractTokenFromHeader(authHeader);
+    // Read from cookie first (for browser requests), then header (for API clients)
+    const token = req.cookies?.accessToken || 
+                  extractTokenFromHeader(req.headers.authorization);
 
     if (!token) {
       return res.status(401).json({
@@ -17,6 +18,15 @@ const requireAuth = async (req, res, next) => {
     try {
       decoded = verifyToken(token);
     } catch (error) {
+      // Clear invalid cookie
+      const isProduction = process.env.NODE_ENV === 'production';
+      res.clearCookie('accessToken', {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? 'none' : 'lax',
+        path: '/',
+      });
+      
       return res.status(401).json({
         success: false,
         message: error.message || "Invalid or expired token",

@@ -554,28 +554,33 @@
       "sidebar": {
         "steps": "Steps"
       },
-      "stepBadge": "STEP",
       "step1": {
+        "badge": "STEP 1",
         "title": "1. Visit the Official VMLS Website",
         "description": "Go to the official Vinayaka Mission's Law School website and navigate to the VLAT Admissions / Apply Now section.This is where all updates, deadlines, and the registration link are available."
       },
       "step2": {
+        "badge": "STEP 2",
         "title": "2. Create Your VLAT Account",
         "description": "Click on Register and create your account using:• A valid email ID• An active mobile numberYou will receive important exam notifications, login information, and result updates through these details, so ensure they are correct."
       },
       "step3": {
+        "badge": "STEP 3",
         "title": "3. Fill Out the Online Application Form",
         "description": "Once your account is created, log in and complete the VLAT application form.You will be asked to provide:• Personal details• Academic qualifications• Address and contact information• Programme you wish to apply for (BA LL.B., B.Com LL.B., BBA LL.B., LL.B., or LL.M.)Take your time and review each field to avoid mistakes."
       },
       "step4": {
+        "badge": "STEP 4",
         "title": "4. Upload Required Documents",
         "description": "You will need to upload scanned copies of:• A recent passport-size photograph• Signature• Academic certificates (Class 12 / Graduation / LL.B. depending on programme)• Any ID proof if requiredMake sure all files are clear and meet the size/format guidelines mentioned on the portal."
       },
       "step5": {
+        "badge": "STEP 5",
         "title": "5. Pay the Application Fee",
         "description": "The payment is made online through secure digital gateways.• ₹1000 for UG Programmes (BA LL.B., B.Com LL.B., BBA LL.B., LL.B.)• ₹1500 for PG (LL.M.) ProgrammeOnce the payment is successful, you will receive a receipt and confirmation email."
       },
       "step6": {
+        "badge": "STEP 6",
         "title": "6. Submit Your Application",
         "description": "Before submitting the final form:• Double-check your name, email, and academic details• Ensure all documents are uploaded correctly• Review the programme selectionOnce submitted, you will receive a confirmation email with your application number. Keep this safe for future reference."
       },

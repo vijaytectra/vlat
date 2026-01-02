@@ -43,17 +43,17 @@
             <div
               class="language-switcher flex items-center gap-0 border border-grey-5 rounded-lg overflow-hidden bg-white"
             >
-                <button
-                  data-lang="en"
-                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
-                >
-                  English
-                </button>
-                <button
-                  data-lang="ta"
-                  class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
-                >
-                  தமிழ்
+              <button
+                data-lang="en"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors active"
+              >
+                English
+              </button>
+              <button
+                data-lang="ta"
+                class="lang-btn px-3 py-1.5 text-sm font-medium transition-colors inactive"
+              >
+                தமிழ்
               </button>
             </div>
             <img
@@ -151,7 +151,8 @@
                 <i class="fa-regular fa-bookmark text-grey-7"></i>
                 <span
                   class="text-grey-7 text-sm font-normal font-['Inter'] leading-5"
-                  data-i18n="pages.mock-test.markForReview">Mark for Review</span
+                  data-i18n="pages.mock-test.markForReview"
+                  >Mark for Review</span
                 >
               </button>
 
@@ -165,7 +166,8 @@
                 >
                   <span
                     class="text-grey-9 text-sm font-normal font-['Inter'] leading-5"
-                    data-i18n="pages.mock-test.jumpTo">Jump to...</span
+                    data-i18n="pages.mock-test.jumpTo"
+                    >Jump to...</span
                   >
                 </button>
                 <button
@@ -177,7 +179,8 @@
                   <i class="fa-solid fa-forward text-grey-9"></i>
                   <span
                     class="text-grey-9 text-sm font-normal font-['Inter'] leading-5"
-                    data-i18n="pages.mock-test.skipToLast">Skip to Last</span
+                    data-i18n="pages.mock-test.skipToLast"
+                    >Skip to Last</span
                   >
                 </button>
               </div>
@@ -193,7 +196,8 @@
                   <i class="fa-solid fa-chevron-left text-grey-9"></i>
                   <span
                     class="text-grey-9 text-sm font-normal font-['Inter'] leading-5"
-                    data-i18n="pages.mock-test.previous">Previous</span
+                    data-i18n="pages.mock-test.previous"
+                    >Previous</span
                   >
                 </button>
                 <button
@@ -204,7 +208,8 @@
                 >
                   <span
                     class="text-white text-sm font-normal font-['Inter'] leading-5"
-                    data-i18n="pages.mock-test.next">Next</span
+                    data-i18n="pages.mock-test.next"
+                    >Next</span
                   >
                   <i class="fa-solid fa-chevron-right text-white"></i>
                 </button>
@@ -360,12 +365,26 @@
     <script src="js/translations.js"></script>
     <script type="module" src="js/mock-test.js"></script>
     <script>
-      // Initialize translations on page load
-      document.addEventListener("DOMContentLoaded", async () => {
-        if (typeof initializeTranslations === "function") {
-          await initializeTranslations();
+      (function () {
+        function initTranslations() {
+          if (typeof initializeTranslations === "function") {
+            initializeTranslations().catch((err) => {
+              console.error("[Translations] Initialization failed:", err);
+            });
+          }
         }
-      });
+
+        // Try immediate initialization if DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initTranslations);
+        } else {
+          // DOM already ready
+          initTranslations();
+        }
+
+        // Fallback: ensure initialization happens even if DOMContentLoaded already fired
+        setTimeout(initTranslations, 100);
+      })();
     </script>
   </body>
 </html>

@@ -6,20 +6,46 @@ let currentLang = "en";
 
 /**
  * Get current language from localStorage or default to 'en'
+ * Normalizes old/invalid language codes (e.g., "tn" → "ta")
  */
 function getCurrentLanguage() {
   const saved = localStorage.getItem("vlat_language");
-  return saved || "en";
+  
+  // Normalize old/invalid language codes
+  if (saved === "tn") {
+    // Migrate old "tn" code to "ta"
+    localStorage.setItem("vlat_language", "ta");
+    return "ta";
+  }
+  
+  // Validate and return only valid codes
+  if (saved === "en" || saved === "ta") {
+    return saved;
+  }
+  
+  // Invalid code, return default
+  if (saved) {
+    // Clean up invalid value
+    localStorage.removeItem("vlat_language");
+  }
+  return "en";
 }
 
 /**
  * Set language and save to localStorage
+ * Normalizes language codes before validation (e.g., "tn" → "ta")
  */
 function setLanguage(lang) {
-  if (lang !== "en" && lang !== "ta") {
-    console.warn("Invalid language:", lang);
-    return;
+  // Normalize language codes before validation
+  if (lang === "tn") {
+    lang = "ta"; // Migrate old code
   }
+  
+  if (lang !== "en" && lang !== "ta") {
+    console.warn("Invalid language:", lang, "- defaulting to 'en'");
+    lang = "en";
+  }
+  
   currentLang = lang;
   localStorage.setItem("vlat_language", lang);
   document.documentElement.lang = lang;
@@ -71,6 +97,17 @@ function getTranslationsBasePath() {
  */
 async function loadTranslations(lang) {
   try {
+    // Normalize language code before loading
+    if (lang === "tn") {
+      lang = "ta"; // Migrate old code
+    }
+    
+    // Validate language code
+    if (lang !== "en" && lang !== "ta") {
+      console.warn(`[Translations] Invalid language code: ${lang}, defaulting to 'en'`);
+      lang = "en";
+    }
+    
     const basePath = getTranslationsBasePath();
     const url = `${basePath}/${lang}.json`;
     
@@ -371,13 +408,18 @@ async function initializeTranslations() {
   try {
     console.log("[Translations] Initializing translation system...");
     
+    // getCurrentLanguage() now normalizes "tn" → "ta" automatically
     const lang = getCurrentLanguage();
     console.log("[Translations] Current language from storage:", lang);
     
+    // setLanguage() also normalizes, ensuring consistency
     setLanguage(lang);
     
+    // Use currentLang which is normalized by setLanguage
+    const normalizedLang = currentLang;
+    
     // Load translations and wait for completion
-    await loadTranslations(lang);
+    await loadTranslations(normalizedLang);
     
     // Apply translations immediately after loading
     if (translations && Object.keys(translations).length > 0) {
@@ -437,14 +479,18 @@ async function switchLanguage(lang) {
   try {
     console.log(`[Translations] Switching language to: ${lang}`);
     
+    // setLanguage normalizes the language code
     setLanguage(lang);
-    await loadTranslations(lang);
+    
+    // Use currentLang which is normalized by setLanguage
+    const normalizedLang = currentLang;
+    await loadTranslations(normalizedLang);
     
     if (translations && Object.keys(translations).length > 0) {
       translatePage();
-      console.log(`[Translations] Language switched to ${lang} successfully`);
+      console.log(`[Translations] Language switched to ${normalizedLang} successfully`);
     } else {
-      console.warn(`[Translations] Language switch to ${lang} completed but no translations available`);
+      console.warn(`[Translations] Language switch to ${normalizedLang} completed but no translations available`);
     }
 
     // Trigger custom event for other scripts to react to language change

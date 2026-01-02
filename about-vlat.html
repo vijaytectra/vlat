@@ -507,7 +507,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Card 1 -->
-        <div class="self-stretch h-36 p-6 bg-white rounded-3xl
+        <div class="self-stretch h-42 p-6 bg-white rounded-3xl
               outline outline-1 outline-offset-[-1px] outline-gray-300
               inline-flex items-center gap-6">
           <div class="flex-shrink-0">
@@ -524,7 +524,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="self-stretch h-36 p-6 bg-white rounded-3xl
+        <div class="self-stretch h-42 p-6 bg-white rounded-3xl
               outline outline-1 outline-offset-[-1px] outline-gray-300
               inline-flex items-center gap-6">
           <div class="flex-shrink-0">
@@ -534,14 +534,14 @@
             <div class="text-neutral-950 text-lg font-normal leading-7" data-i18n="pages.aboutVlat.whyConducted.card2.title">
               Merit-Based Selection
             </div>
-            <div class="text-gray-600 text-base font-normal leading-6" data-i18n="pages.aboutVlat.whyConducted.card2.description">
+            <div class="text-gray-600 text-base font-normal leading-3" data-i18n="pages.aboutVlat.whyConducted.card2.description">
               Fair and standardized assessment for all candidates
             </div>
           </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="self-stretch h-36 p-6 bg-white rounded-3xl
+        <div class="self-stretch h-42 p-6 bg-white rounded-3xl
               outline outline-1 outline-offset-[-1px] outline-gray-300
               inline-flex items-center gap-6">
           <div class="flex-shrink-0">
@@ -558,7 +558,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="self-stretch h-36 p-6 bg-white rounded-3xl
+        <div class="self-stretch h-42 p-6 bg-white rounded-3xl
               outline outline-1 outline-offset-[-1px] outline-gray-300
               inline-flex items-center gap-6">
           <div class="flex-shrink-0">
@@ -1195,8 +1195,8 @@
     <div class="container-custom">
       <div class="max-w-6xl mx-auto">
         <div class="text-left mb-12">
-          <h2 class="text-3xl md:text-4xl font-semibold mb-4">Contact & Support</h2>
-          <p class="text-gray-300 text-base">Have questions? Our support team is here to help you with the VLAT
+          <h2 class="text-3xl md:text-4xl font-semibold mb-4" data-i18n="pages.aboutVlat.contact.title">Contact & Support</h2>
+          <p class="text-gray-300 text-base" data-i18n="pages.aboutVlat.contact.description">Have questions? Our support team is here to help you with the VLAT
             application process</p>
         </div>
 
@@ -1617,12 +1617,26 @@
   <!-- Translation System -->
   <script src="js/translations.js"></script>
   <script>
-    // Initialize translations on page load
-    document.addEventListener("DOMContentLoaded", async () => {
-      if (typeof initializeTranslations === "function") {
-        await initializeTranslations();
+    (function() {
+      function initTranslations() {
+        if (typeof initializeTranslations === 'function') {
+          initializeTranslations().catch(err => {
+            console.error('[Translations] Initialization failed:', err);
+          });
+        }
       }
-    });
+      
+      // Try immediate initialization if DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTranslations);
+      } else {
+        // DOM already ready
+        initTranslations();
+      }
+      
+      // Fallback: ensure initialization happens even if DOMContentLoaded already fired
+      setTimeout(initTranslations, 100);
+    })();
   </script>
 
   <!-- Scroll to Top Button -->

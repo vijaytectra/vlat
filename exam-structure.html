@@ -586,7 +586,7 @@
       <section class="w-full h-auto lg:h-[700px] py-12 lg:py-20">
         <div class="container-custom mx-auto px-6 lg:px-24">
           <div class="flex flex-col items-center gap-12">
-            <div class="w-full lg:w-96 text-center">
+            <div class="w-full  text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
                 data-i18n="pages.examStructure.sections.title"
@@ -759,10 +759,10 @@
       </section>
 
       <!-- Questions & Marks Section -->
-      <section class="w-full h-auto lg:h-[700px] bg-[#f9fafb] py-12 lg:py-20">
+      <section class="w-full h-auto  bg-[#f9fafb] py-12 lg:py-20">
         <div class="container-custom mx-auto px-6 lg:px-24">
           <div class="flex flex-col items-center gap-12">
-            <div class="w-full lg:w-96 text-center">
+            <div class="w-full  text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
                 data-i18n="pages.examStructure.questionsMarks.title"
@@ -783,7 +783,7 @@
                 <div class="space-y-6">
                   <!-- +1 Mark Card -->
                   <div
-                    class="p-3 rounded-3xl border border-[#D1D5DB] flex items-center justify-center gap-5 min-h-[180px]"
+                    class="p-3 rounded-3xl border border-[#D1D5DB] flex items-center justify-center gap-5 min-h-[160px]"
                   >
                     <div
                       class="w-12 h-12 bg-[#F3F4F6] rounded-2xl border border-[#D1D5DB] flex items-center justify-center"
@@ -974,7 +974,7 @@
       <section class="w-full h-auto lg:h-[700px] py-12 lg:py-20">
         <div class="container-custom mx-auto px-6 lg:px-24">
           <div class="flex flex-col items-center gap-12">
-            <div class="w-full lg:w-96 text-center">
+            <div class="w-full  text-center">
               <h2
                 class="text-3xl lg:text-4xl font-semibold text-[#8D191C] mb-5"
                 data-i18n="pages.examStructure.modeLanguage.title"
@@ -1720,12 +1720,26 @@
     <script src="js/translations.js"></script>
     <script type="module" src="js/main.js"></script>
     <script>
-      // Initialize translations when DOM is ready
-      document.addEventListener("DOMContentLoaded", async function () {
-        if (typeof initializeTranslations === "function") {
-          await initializeTranslations();
+      (function() {
+        function initTranslations() {
+          if (typeof initializeTranslations === 'function') {
+            initializeTranslations().catch(err => {
+              console.error('[Translations] Initialization failed:', err);
+            });
+          }
         }
-      });
+        
+        // Try immediate initialization if DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTranslations);
+        } else {
+          // DOM already ready
+          initTranslations();
+        }
+        
+        // Fallback: ensure initialization happens even if DOMContentLoaded already fired
+        setTimeout(initTranslations, 100);
+      })();
     </script>
 
     <!-- Scroll to Top Button -->

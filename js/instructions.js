@@ -4,6 +4,71 @@
 import { showError } from "./modal.js";
 import { logout, getUserData } from "./auth.js";
 
+let currentMockSet = null;
+
+/**
+ * Get current language from localStorage or default to 'en'
+ * Normalizes old/invalid language codes (e.g., "tn" → "ta")
+ */
+function getCurrentLanguage() {
+  const saved = localStorage.getItem("vlat_language");
+  
+  // Normalize old/invalid language codes
+  if (saved === "tn") {
+    // Migrate old "tn" code to "ta"
+    localStorage.setItem("vlat_language", "ta");
+    return "ta";
+  }
+  
+  // Validate and return only valid codes
+  if (saved === "en" || saved === "ta") {
+    return saved;
+  }
+  
+  // Invalid code, return default
+  if (saved) {
+    // Clean up invalid value
+    localStorage.removeItem("vlat_language");
+  }
+  return "en";
+}
+
+/**
+ * Get localized text from bilingual object or string
+ * Supports both old format (string) and new format ({en: "...", ta: "..."})
+ */
+function getLocalizedText(textObj, lang = null) {
+  if (!textObj) return "";
+
+  const currentLang = lang || getCurrentLanguage();
+
+  // If it's already a string (old format), return as is
+  if (typeof textObj === "string") {
+    return textObj;
+  }
+
+  // If it's an object with language keys
+  if (typeof textObj === "object") {
+    // Try current language first
+    if (textObj[currentLang]) {
+      return textObj[currentLang];
+    }
+    // Fallback to English
+    if (textObj.en) {
+      return textObj.en;
+    }
+    // Fallback to Tamil
+    if (textObj.ta) {
+      return textObj.ta;
+    }
+    // Fallback to first available value
+    const firstKey = Object.keys(textObj)[0];
+    return textObj[firstKey] || "";
+  }
+
+  return "";
+}
+
 /**
  * Initialize instructions page
  */
@@ -36,11 +101,21 @@ async function initializeInstructions() {
     return;
   }
 
+  // Store mockSet globally for language change updates
+  currentMockSet = mockSet;
+
   // Update page content
   updateTestInfo(mockSet, setId);
 
   // Load user data to display username
   await loadUserData();
+
+  // Listen for language changes and update title/description
+  window.addEventListener("languageChanged", () => {
+    if (currentMockSet) {
+      updateTestInfo(currentMockSet, setId);
+    }
+  });
 }
 
 /**
@@ -88,13 +163,13 @@ function updateTestInfo(mockSet, setId) {
   // Update test title in red card
   const testTitle = document.querySelector("h1.text-secondary");
   if (testTitle) {
-    testTitle.textContent = mockSet.title;
+    testTitle.textContent = getLocalizedText(mockSet.title);
   }
 
   // Update description if available
   const description = document.querySelector("p.text-grey-4");
   if (description && mockSet.description) {
-    description.textContent = mockSet.description;
+    description.textContent = getLocalizedText(mockSet.description);
   }
 
   // Update Start Test button link

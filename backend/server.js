@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const connectDB = require("./config/database");
@@ -46,6 +47,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+// Cookie parser middleware - MUST be before routes that use cookies
+app.use(cookieParser());
 
 // Body parser middleware
 app.use(express.json());
