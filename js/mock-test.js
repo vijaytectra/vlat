@@ -203,7 +203,7 @@ function initializeElements() {
  */
 async function loadMockTest(setId) {
   try {
-    const response = await fetch(`data/mock-tests.json`);
+    const response = await fetch(`data/mock-tests.json?v=${new Date().getTime()}`);
     if (!response.ok) throw new Error("Failed to fetch test data");
 
     const data = await response.json();
@@ -252,9 +252,8 @@ function renderQuestion(index) {
 
   // Update question counter
   if (elements.questionCounter) {
-    elements.questionCounter.textContent = `Question ${index + 1} of ${
-      testState.questions.length
-    }`;
+    elements.questionCounter.textContent = `Question ${index + 1} of ${testState.questions.length
+      }`;
   }
 
   // Render options
@@ -296,11 +295,10 @@ function createOptionElement(questionId, option) {
   const isSelected = testState.answers[questionId] === option.id;
   const optionText = getLocalizedText(option.text);
   const optionDiv = document.createElement("div");
-  optionDiv.className = `option-item p-3 rounded-xl outline outline-1 outline-offset-[-1px] cursor-pointer transition-all ${
-    isSelected
+  optionDiv.className = `option-item p-3 rounded-xl outline outline-1 outline-offset-[-1px] cursor-pointer transition-all ${isSelected
       ? "bg-green-100 outline-[1.50px] outline-teal-600"
       : "bg-grey-1 outline-Grey-4 hover:bg-grey-2"
-  }`;
+    }`;
   optionDiv.setAttribute("role", "radio");
   optionDiv.setAttribute("aria-checked", isSelected);
   optionDiv.setAttribute("tabindex", isSelected ? "0" : "-1");
@@ -314,11 +312,10 @@ function createOptionElement(questionId, option) {
   optionDiv.innerHTML = `
     <div class="inline-flex justify-center items-center gap-3">
       <div class="w-5 h-5 rounded-full ${borderColor} flex items-center justify-center" style="border-width: ${borderWidth}">
-        ${
-          isSelected
-            ? '<div class="w-2 h-2 rounded-full bg-teal-600"></div>'
-            : ""
-        }
+        ${isSelected
+      ? '<div class="w-2 h-2 rounded-full bg-teal-600"></div>'
+      : ""
+    }
       </div>
       <div class="justify-start text-slate-700 text-base font-normal font-['Inter'] leading-6">
         Option ${option.id}: ${optionText}
@@ -554,15 +551,14 @@ function updateQuestionNavigator() {
     const isCurrent = index === testState.currentQuestionIndex;
 
     const button = document.createElement("button");
-    button.className = `question-nav-btn w-9 h-8 rounded-lg outline outline-[1.22px] outline-offset-[-1.22px] text-xs font-normal font-['Inter'] leading-4 transition-all ${
-      isCurrent
+    button.className = `question-nav-btn w-9 h-8 rounded-lg outline outline-[1.22px] outline-offset-[-1.22px] text-xs font-normal font-['Inter'] leading-4 transition-all ${isCurrent
         ? "bg-teal-600 outline-teal-600 text-grey-1"
         : isAnswered
-        ? "bg-green-100 outline-green-300 text-green-700"
-        : isMarked
-        ? "bg-purple-100 outline-purple-300 text-purple-600"
-        : "bg-grey-1 outline-Grey-4 text-grey-6"
-    }`;
+          ? "bg-green-100 outline-green-300 text-green-700"
+          : isMarked
+            ? "bg-purple-100 outline-purple-300 text-purple-600"
+            : "bg-grey-1 outline-Grey-4 text-grey-6"
+      }`;
     button.textContent = questionId;
     button.setAttribute("aria-label", `Question ${questionId}`);
     button.addEventListener("click", () => navigateToQuestion(index));

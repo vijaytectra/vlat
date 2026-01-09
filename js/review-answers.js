@@ -21,13 +21,13 @@ function getCurrentLanguage() {
  */
 function getLocalizedText(textObj, lang = null) {
   if (!textObj) return "";
-  
+
   const currentLang = lang || getCurrentLanguage();
-  
+
   if (typeof textObj === "string") {
     return textObj;
   }
-  
+
   if (typeof textObj === "object") {
     if (textObj[currentLang]) {
       return textObj[currentLang];
@@ -41,7 +41,7 @@ function getLocalizedText(textObj, lang = null) {
     const firstKey = Object.keys(textObj)[0];
     return textObj[firstKey] || "";
   }
-  
+
   return "";
 }
 
@@ -85,8 +85,7 @@ async function initializeReviewAnswers() {
     const remainingAttempts = maxAttempts - attempts;
     showError(
       "Complete All Attempts",
-      `You must complete all ${maxAttempts} attempts before viewing answers. You have completed ${attempts} out of ${maxAttempts} attempts. ${remainingAttempts} attempt${
-        remainingAttempts > 1 ? "s" : ""
+      `You must complete all ${maxAttempts} attempts before viewing answers. You have completed ${attempts} out of ${maxAttempts} attempts. ${remainingAttempts} attempt${remainingAttempts > 1 ? "s" : ""
       } remaining. Redirecting to results page...`,
       () => {
         window.location.href = `results.html?set=${setId}`;
@@ -132,7 +131,7 @@ function setupLogoutButton() {
  */
 async function loadMockTest(setId) {
   try {
-    const response = await fetch("data/mock-tests.json");
+    const response = await fetch(`data/mock-tests.json?v=${new Date().getTime()}`);
     if (!response.ok) throw new Error("Failed to fetch test data");
 
     const data = await response.json();
@@ -159,7 +158,7 @@ function displayQuestionReview(mockSet, progress) {
     const titleText = getLocalizedText(mockSet.title);
     reviewTitle.textContent = `Review Answers - ${titleText}`;
   }
-  
+
   // Listen for language changes
   window.addEventListener("languageChanged", () => {
     displayQuestionReview(mockSet, progress);
@@ -173,71 +172,66 @@ function displayQuestionReview(mockSet, progress) {
     const isUnanswered = !userAnswer;
 
     const questionDiv = document.createElement("div");
-    questionDiv.className = `p-4 sm:p-6 rounded-xl border ${
-      isCorrect
+    questionDiv.className = `p-4 sm:p-6 rounded-xl border ${isCorrect
         ? "bg-green-100 border-green-300"
         : isUnanswered
-        ? "bg-grey-1 border-grey-4"
-        : "bg-red-50 border-red-200"
-    }`;
+          ? "bg-grey-1 border-grey-4"
+          : "bg-red-50 border-red-200"
+      }`;
 
     questionDiv.innerHTML = `
       <div class="flex items-start justify-between mb-3">
-        <h3 class="font-semibold text-grey-10 text-lg">Question ${
-          question.id
-        }</h3>
-        <span class="px-3 py-1 rounded text-xs font-medium ${
-          isCorrect
-            ? "bg-green-600 text-white"
-            : isUnanswered
-            ? "bg-grey-6 text-white"
-            : "bg-red-600 text-white"
-        }">
+        <h3 class="font-semibold text-grey-10 text-lg">Question ${question.id
+      }</h3>
+        <span class="px-3 py-1 rounded text-xs font-medium ${isCorrect
+        ? "bg-green-600 text-white"
+        : isUnanswered
+          ? "bg-grey-6 text-white"
+          : "bg-red-600 text-white"
+      }">
           ${isCorrect ? "Correct" : isUnanswered ? "Unanswered" : "Incorrect"}
         </span>
       </div>
       <p class="text-grey-7 mb-4 text-base">${getLocalizedText(question.question)}</p>
       <div class="space-y-2">
         ${question.options
-          .map((option) => {
-            const isUserAnswer = userAnswer === option.id;
-            const isCorrectAnswer = question.correctAnswer === option.id;
-            const optionText = getLocalizedText(option.text);
+        .map((option) => {
+          const isUserAnswer = userAnswer === option.id;
+          const isCorrectAnswer = question.correctAnswer === option.id;
+          const optionText = getLocalizedText(option.text);
 
-            let bgClass = "bg-white";
-            let borderClass = "border-grey-4";
-            let textClass = "text-grey-7";
+          let bgClass = "bg-white";
+          let borderClass = "border-grey-4";
+          let textClass = "text-grey-7";
 
-            if (isCorrectAnswer) {
-              bgClass = "bg-green-100";
-              borderClass = "border-green-600";
-              textClass = "text-green-800";
-            } else if (isUserAnswer && !isCorrect) {
-              bgClass = "bg-red-100";
-              borderClass = "border-red-600";
-              textClass = "text-red-800";
-            }
+          if (isCorrectAnswer) {
+            bgClass = "bg-green-100";
+            borderClass = "border-green-600";
+            textClass = "text-green-800";
+          } else if (isUserAnswer && !isCorrect) {
+            bgClass = "bg-red-100";
+            borderClass = "border-red-600";
+            textClass = "text-red-800";
+          }
 
-            return `
+          return `
             <div class="p-3 rounded-lg border ${bgClass} ${borderClass}">
               <div class="flex items-center gap-2">
                 <span class="font-medium ${textClass}">${option.id}.</span>
                 <span class="${textClass}">${optionText}</span>
-                ${
-                  isCorrectAnswer
-                    ? '<span class="ml-auto text-green-600 font-semibold">✓ Correct Answer</span>'
-                    : ""
-                }
-                ${
-                  isUserAnswer && !isCorrect
-                    ? '<span class="ml-auto text-red-600 font-semibold">✗ Your Answer</span>'
-                    : ""
-                }
+                ${isCorrectAnswer
+              ? '<span class="ml-auto text-green-600 font-semibold">✓ Correct Answer</span>'
+              : ""
+            }
+                ${isUserAnswer && !isCorrect
+              ? '<span class="ml-auto text-red-600 font-semibold">✗ Your Answer</span>'
+              : ""
+            }
               </div>
             </div>
           `;
-          })
-          .join("")}
+        })
+        .join("")}
       </div>
     `;
 

@@ -18,19 +18,19 @@ let mockTestsData = [];
  */
 function getCurrentLanguage() {
   const saved = localStorage.getItem("vlat_language");
-  
+
   // Normalize old/invalid language codes
   if (saved === "tn") {
     // Migrate old "tn" code to "ta"
     localStorage.setItem("vlat_language", "ta");
     return "ta";
   }
-  
+
   // Validate and return only valid codes
   if (saved === "en" || saved === "ta") {
     return saved;
   }
-  
+
   // Invalid code, return default
   if (saved) {
     // Clean up invalid value
@@ -196,7 +196,7 @@ async function initializeDashboard() {
  */
 async function loadMockTests() {
   try {
-    const response = await fetch("data/mock-tests.json");
+    const response = await fetch(`data/mock-tests.json?v=${new Date().getTime()}`);
     if (!response.ok) throw new Error("Failed to fetch test data");
 
     const data = await response.json();
@@ -326,9 +326,8 @@ function createTestCard(mockSet, progress) {
             class="w-full bg-primary text-white py-2 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-red-800 transition-colors"
           >
             <i class="fas fa-redo"></i>
-            <span class="text-sm">Retake Test (${
-              maxAttempts - attempts
-            } left)</span>
+            <span class="text-sm">Retake Test (${maxAttempts - attempts
+        } left)</span>
           </button>
         </div>
       `;

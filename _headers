@@ -15,7 +15,7 @@
 
 # Data files - Cache for 1 day
 /data/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 # HTML files - Cache for 1 hour, must revalidate
 /*.html

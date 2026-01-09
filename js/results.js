@@ -26,13 +26,13 @@ function getCurrentLanguage() {
  */
 function getLocalizedText(textObj, lang = null) {
   if (!textObj) return "";
-  
+
   const currentLang = lang || getCurrentLanguage();
-  
+
   if (typeof textObj === "string") {
     return textObj;
   }
-  
+
   if (typeof textObj === "object") {
     if (textObj[currentLang]) {
       return textObj[currentLang];
@@ -46,7 +46,7 @@ function getLocalizedText(textObj, lang = null) {
     const firstKey = Object.keys(textObj)[0];
     return textObj[firstKey] || "";
   }
-  
+
   return "";
 }
 
@@ -154,7 +154,7 @@ async function loadUserData() {
  */
 async function loadMockTest(setId) {
   try {
-    const response = await fetch("data/mock-tests.json");
+    const response = await fetch(`data/mock-tests.json?v=${new Date().getTime()}`);
     if (!response.ok) throw new Error("Failed to fetch test data");
 
     const data = await response.json();
@@ -170,7 +170,7 @@ async function loadMockTest(setId) {
  */
 async function loadAllMockTests() {
   try {
-    const response = await fetch("data/mock-tests.json");
+    const response = await fetch(`data/mock-tests.json?v=${new Date().getTime()}`);
     if (!response.ok) throw new Error("Failed to fetch test data");
 
     const data = await response.json();
@@ -251,7 +251,7 @@ function displayResults(mockSet, progress) {
   // Update test name
   const testName = document.getElementById("testName");
   if (testName) testName.textContent = getLocalizedText(mockSet.title);
-  
+
   // Listen for language changes
   window.addEventListener("languageChanged", () => {
     if (testName) testName.textContent = getLocalizedText(mockSet.title);
@@ -330,9 +330,8 @@ function updateReviewAnswersButton(progress) {
     // Not all attempts completed - disable button
     reviewBtn.disabled = true;
     reviewBtnSpan.textContent = `Complete all 3 attempts to view answers `;
-    reviewBtn.title = `You need to complete all ${maxAttempts} attempts before viewing answers. ${remainingAttempts} attempt${
-      remainingAttempts > 1 ? "s" : ""
-    } remaining.`;
+    reviewBtn.title = `You need to complete all ${maxAttempts} attempts before viewing answers. ${remainingAttempts} attempt${remainingAttempts > 1 ? "s" : ""
+      } remaining.`;
   }
 }
 
@@ -431,8 +430,7 @@ window.handleReviewAnswers = function () {
     const remainingAttempts = maxAttempts - attempts;
     showError(
       "Complete All Attempts",
-      `You must complete all ${maxAttempts} attempts before viewing answers. You have completed ${attempts} out of ${maxAttempts} attempts. ${remainingAttempts} attempt${
-        remainingAttempts > 1 ? "s" : ""
+      `You must complete all ${maxAttempts} attempts before viewing answers. You have completed ${attempts} out of ${maxAttempts} attempts. ${remainingAttempts} attempt${remainingAttempts > 1 ? "s" : ""
       } remaining.`
     );
     return;
